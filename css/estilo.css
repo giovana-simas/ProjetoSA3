@@ -7,13 +7,17 @@
 }
 #texto{
     color: grey;
-    margin-left: 1029px;
+    margin-left: 988px;
 
+}
+#checkbox{
+    margin-top: 10px;
+    margin-left: 950px;
 }
 /*INPUTS E BOTOES*/
 .css-email {
     margin-top: 30px;
-    margin-left: 940px;
+    margin-left: 930px;
     padding: 4px;
     width: 275px;
     height: 30px;
@@ -30,7 +34,7 @@
 
 .css-senha {
     margin-top: 40px;
-    margin-left: 940px;
+    margin-left: 930px;
     padding: 4px;
     width: 275px;
     height: 30px;
@@ -48,7 +52,7 @@
 
 .myButton {
     margin-top: 30px;
-    margin-left: 1020px;
+    margin-left: 1000px;
 	background:linear-gradient(to bottom, #a103fd 5%, #6e00b3 100%);
 	background-color:#a103fd;
 	border-radius:28px;
@@ -71,7 +75,7 @@
 	top:1px;
 }
 .cadastrar{
-    margin-left: 1060px;
+    margin-left: 1045px;
     color: #a103fd ;
 }
 /*AQUI TEM TODOS OS BOTOES DA PAGINA DE LOGIN*/
