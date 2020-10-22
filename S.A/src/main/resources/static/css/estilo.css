@@ -1,4 +1,4 @@
-#login{
+.login{
     margin-left: 1000px;
     margin-top: 70px;
     width: 145px;
@@ -48,7 +48,7 @@
 
 .myButton {
     margin-top: 30px;
-    margin-left: 1020px;
+    margin-left: 980px;
 	background:linear-gradient(to bottom, #a103fd 5%, #6e00b3 100%);
 	background-color:#a103fd;
 	border-radius:28px;

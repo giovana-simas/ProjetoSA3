@@ -13,7 +13,7 @@ import javax.validation.constraints.Size;
 
 import org.springframework.lang.NonNull;
 
-import com.sa.model.Permissao;
+
 
 @Entity(name="usuario")
 public class Usuario {
@@ -47,6 +47,20 @@ public class Usuario {
 	private List<Permissao> permissoes;
 	
 	
+
+	public List<Permissao> getPermissoes() {
+		return permissoes;
+	}
+
+	@Override
+	public String toString() {
+		return "Usuario [id=" + id + ", nome=" + nome + ", email=" + email + ", login=" + login + ", senha=" + senha
+				+ ", permissoes=" + permissoes + "]";
+	}
+
+	public void setPermissoes(List<Permissao> permissoes) {
+		this.permissoes = permissoes;
+	}
 
 	public long getId() {
 		return id;

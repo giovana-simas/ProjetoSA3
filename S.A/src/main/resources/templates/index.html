@@ -4,19 +4,17 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Projeto S.A</title>
-        <link  rel="stylesheet" th:href="@{/css/estilo.css}">
+        <link  rel="stylesheet" th:href="@{/css/estiloIndex.css}">
 
 
     </head>
     <body background="src/back.png">
 
-        <div>
+        <div class="conteiner-index">
             <img id="login" th:src="@{/src/login.png}">
-            <input type="text" placeholder="&#32 E-MAIL" class="css-email" />
-            <input type="text" placeholder="&#32 PASSWORD" class="css-senha" /> <br>
-            <a href="#" class="myButton">LOGIN</a>
-            <p id="texto">Não possui cadastro?</p>
-            <a href="#" class="cadastrar">clique aqui!</a>
+            <a th:href="@{/cadastro}" class="myButton">não tenho cadastro</a>
+            <a th:href="@{/login}" class="myButton">já tenho cadastro</a>
+            
         </div>
         
     </body>

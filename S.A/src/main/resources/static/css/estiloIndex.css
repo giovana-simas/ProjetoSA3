@@ -1,0 +1,47 @@
+
+.myButton {
+   
+	background:linear-gradient(to bottom, #a103fd 5%, #6e00b3 100%);
+	background-color:#a103fd;
+	border-radius:28px;
+	border:1px solid #a103fd;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding:5px 47px;
+	text-decoration:none;
+    text-shadow:0px 1px 0px #d6a1f7;
+    margin-top: 20px;
+}
+.myButton:hover {
+	background:linear-gradient(to bottom, #6e00b3 5%, #a103fd 100%);
+	background-color:#6e00b3;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+#login{
+ 
+    width: 145px;
+    height: 145px;
+    padding: 20px;
+}
+#texto{
+    color: grey;
+    margin-left: 1029px;
+
+}
+
+.conteiner-index{
+    height: 300px;
+    width: 30%;
+    float: right;
+    text-align: center;
+    position: relative;
+    margin-top: 10%;
+    
+}
