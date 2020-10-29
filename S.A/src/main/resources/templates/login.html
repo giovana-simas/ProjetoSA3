@@ -10,14 +10,19 @@
     </head>
     <body background="src/back.png">
 
-        <div >
+        <form th:action="@{/login}" method="POST">
             <img class="login" th:src="@{/src/login.png}">
-            <input type="text" placeholder="&#32 E-MAIL" class="css-email" />
-            <input type="text" placeholder="&#32 PASSWORD" class="css-senha" /> <br>
-            <a href="#" class="myButton">LOGIN</a>
+            <input name="username" type="text" placeholder="&#32 E-MAIL" class="css-email" />
+            <input name="password" type="password" placeholder="&#32 PASSWORD" class="css-senha" /> <br>
+            <div>
+                <input type="checkbox" id="remember-me" name="remember-me"/>
+                <label class="label-lembrar" for="remember-me">Lembrar Senha?</label>
+            </div>
+            <button type="submit" class="myButton">LOGIN</button>
+            
             <p id="texto">Não possui cadastro?</p>
-            <a href="#" class="cadastrar">clique aqui!</a>
-        </div>
+            <a th:href="@{/cadastro}" class="cadastrar">clique aqui!</a>
+        </form>
         
     </body>
 </html>

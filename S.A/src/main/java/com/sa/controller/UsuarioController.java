@@ -1,6 +1,7 @@
 package com.sa.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,6 +29,17 @@ public class UsuarioController {
 			System.out.print("Erro ao Salvar: " + e.getMessage());
 		}	
 		return "redirect:/login";
+	}
+	
+	@GetMapping("usuario/perfil")
+	public String perfilUsuario(Model model) {
+		
+		String email = SecurityContextHolder.getContext().getAuthentication().getName();
+		
+		model.addAttribute("usuario", usuarioRepository.findByEmail(email));
+		
+		return "usuario/perfil";
+		
 	}
 	
 }
