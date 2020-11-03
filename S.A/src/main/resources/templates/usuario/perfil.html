@@ -14,7 +14,7 @@
         
 
     </head>
-    <body background="src/back.png">
+    <body background="/src/back.png">
 		<img class="login" th:src="@{/src/login.png}">
         <div th:object="${usuario}">
        
@@ -23,7 +23,11 @@
             <input type="text" placeholder="&#32 NOME" class="css-email" th:field="${usuario.nome}" readonly />
             <input type="text" placeholder="&#32 LOGIN" class="css-email" th:field="${usuario.login}" readonly  />
             <input type="text" placeholder="&#32 E-MAIL" class="css-email" th:field="${usuario.email}" readonly />
-            
+            <form th:action="|@{/logout}|" class="navbar-from" method="POST">
+                <button class="btn btn-dark" type="submit">
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>
+                </form>
             
             
         </div>

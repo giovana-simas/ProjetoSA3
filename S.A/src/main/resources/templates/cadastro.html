@@ -17,7 +17,7 @@
     <body background="src/back.png">
 		<img class="login" th:src="@{/src/login.png}">
         <div >
-            <form th:action="@{/usuario/save}" th:object="${usuario}" method="POST">
+            <form th:action="@{usuario/save}" th:object="${usuario}" method="POST">
 
             
             <input type="text" placeholder="&#32 NOME" class="css-email" th:field="*{nome}" required />

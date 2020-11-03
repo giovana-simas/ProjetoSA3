@@ -2,6 +2,7 @@ package com.sa.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,20 +19,26 @@ public class UsuarioController {
 	
 	
 	
-	@PostMapping("usuario/save")
+	@PostMapping("/usuario/save")
 	public String saveUsuario(Usuario usuario) {
-		
+		boolean salvo = true;
+		String path  = "login";
 		try {
 			if(usuario != null) {
-				usuarioRepository.save(usuario);
+				usuario.setSenha(new BCryptPasswordEncoder().encode(usuario.getSenha()));
+				System.out.print(usuarioRepository.save(usuario));
+				path  = "login";
+				
 			}
 		} catch (Exception e) {
 			System.out.print("Erro ao Salvar: " + e.getMessage());
+			salvo = false;
+			path  = "cadastro";
 		}	
-		return "redirect:/login";
+		return "redirect:/"+path+"/" + salvo;
 	}
 	
-	@GetMapping("usuario/perfil")
+	@GetMapping("/usuario/perfil")
 	public String perfilUsuario(Model model) {
 		
 		String email = SecurityContextHolder.getContext().getAuthentication().getName();

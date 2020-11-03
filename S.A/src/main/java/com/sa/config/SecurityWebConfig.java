@@ -30,6 +30,7 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter{
 			.antMatchers("/fontawesome-5.14.0/**").permitAll()
 			.antMatchers("/js/**").permitAll()
 			.antMatchers("/src/**").permitAll()
+			.antMatchers("/usuario/save").permitAll()
 			.anyRequest().authenticated()
 			.and()
 			//definir pagina de login

@@ -16,20 +16,20 @@ public class IndexController {
 	
 	@GetMapping("/")
 	public String index() {
-		return "index";
+		return "/index";
 	}
 	
 	@GetMapping("/login")
 	public String getLogin() {
-		return "login";
+		return "/login";
 	}
 	
-	@GetMapping("/cadastro")
+	@GetMapping("/cadastro/{salvo}")
 	public String addUsuario(Model model) {
 		
 		model.addAttribute("usuario", new Usuario());
 		
-		return "cadastro";
+		return "/cadastro";
 	}
 	
 }
