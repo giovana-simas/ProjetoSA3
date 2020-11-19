@@ -1,5 +1,8 @@
 package com.sa.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -9,7 +12,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.sa.model.Permissao;
 import com.sa.model.Usuario;
+import com.sa.repository.PermissaoRepository;
 import com.sa.repository.UsuarioRepository;
 
 //transforma esta classe em um controller
@@ -20,6 +25,10 @@ public class UsuarioController {
 	//autoriza a ultilização do repositorio neste controler
 	@Autowired
 	UsuarioRepository usuarioRepository;
+	//autoriza a ultilização do repositorio neste controler
+	@Autowired
+	PermissaoRepository permissaoRepository;
+	
 	
 	
 	//incapsula e envia informação e é chamado atravez do metodo "/usuario/save"
@@ -30,7 +39,7 @@ public class UsuarioController {
 		int salvo = 0;
 		String path  = "";
 		String email = "";
-		//verifica o usuario logado e aplica a instancia de conferencia(neste caso é o email do usuario logado) na variavel "email"
+//		verifica o usuario logado e aplica a instancia de conferencia(neste caso é o email do usuario logado) na variavel "email"
 		email = SecurityContextHolder.getContext().getAuthentication().getName();
 		//inicia uma tentativa
 		try {
