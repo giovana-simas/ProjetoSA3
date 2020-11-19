@@ -24,7 +24,11 @@ import org.springframework.lang.NonNull;
 		@UniqueConstraint(columnNames="email", name="uniqueEmailConstraint")
 })
 public class Usuario {
-
+		//"@Id" se torna um id da tabela e primary key
+		//"@GeneratedValue" define o tipo de estrategia de geração de ids
+		//"@NonNull" torna o elemento não nulo impedindo que salve a informação vazia
+		//"@Size" define o tamanho da variavel
+		//"@ManyToMany" cria relação muitos para muitos entre duas tabelas
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	long id;

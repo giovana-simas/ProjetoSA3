@@ -12,8 +12,8 @@
 
         <div class="conteiner-index">
             <img id="login" th:src="@{/src/login.png}">
-            <a th:href="@{/cadastro}" class="myButton">não tenho cadastro</a>
-            <a th:href="@{/login}" class="myButton">já tenho cadastro</a>
+            <a th:href="@{/cadastro/0}" class="myButton">não tenho cadastro</a>
+            <a th:href="@{/login}" onclick="window.location.href='/login/'+false" class="myButton">já tenho cadastro</a>
             
         </div>
         

@@ -10,6 +10,8 @@
     </head>
     <body background="src/back.png">
 
+		
+        
         <form th:action="@{/login}" method="POST">
             <img class="login" th:src="@{/src/login.png}">
             <input name="username" type="text" placeholder="&#32 E-MAIL" class="css-email" />
@@ -21,7 +23,7 @@
             <button type="submit" class="myButton">LOGIN</button>
             
             <p id="texto">Não possui cadastro?</p>
-            <a th:href="@{/cadastro}" class="cadastrar">clique aqui!</a>
+            <a th:href="@{/cadastro/0}" class="cadastrar">clique aqui!</a>
         </form>
         
     </body>

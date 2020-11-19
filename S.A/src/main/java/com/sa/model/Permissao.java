@@ -13,15 +13,22 @@ import org.springframework.lang.NonNull;
 
 import com.sa.model.Usuario;
 
+//cria um model/tabela onde as informações serão salvas e passadas para o banco de dados
 @Entity(name = "permissao")
 public class Permissao {
-
+	
+	//"@Id" se torna um id da tabela e primary key
+	//"@GeneratedValue" define o tipo de estrategia de geração de ids
+	//"@NonNull" torna o elemento não nulo impedindo que salve a informação vazia
+	//"@Size" define o tamanho da variavel
+	//"@ManyToMany" cria relação muitos para muitos entre duas tabelas
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	
 	@NonNull
-	@Size
+	@Size(max=80)
 	private String nome;
 	
 	@ManyToMany(mappedBy = "permissoes")
