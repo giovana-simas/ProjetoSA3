@@ -14,30 +14,53 @@
         
 
     </head>
-    <body background="src/back.png">
-		<img class="login" th:src="@{/src/login.png}">
+    <img class="login" th:src="@{/src/login.png}">
 		
-		 <div th:if="${salvo} == 1" class="alert alert-success">
-            Usuário salvo com sucesso
-        </div>
-        <div th:if="${salvo} == 2" class="alert alert-danger">
-            Usuário não salvo
-        </div>
+		 
+    <body background="/src/back.png" onload="">
+    
+    <!-- Modal -->
+          <div class="modal fade" id="modalSalvar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Deletar usuario</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+         				<div th:if="${salvo} == 1" class="modal-body alert">
+            				Usuário salvo com sucesso!
+        				</div>
+        				<div th:if="${salvo} == 2" class="modal-body alert">
+            				Usuário não cadastrado, tente novamente mais tarde!
+        				</div>
+                    <div th:if="${salvo} == 1" class="modal-footer">
+                      <button type="button" class="btn btn-success " onclick="window.location.href='/login/'" data-dismiss="modal"></i>Fazer Login</button>
+                    </div>
+                    <div th:if="${salvo} == 2" class="modal-footer">
+                      <button type="button" class="btn btn-danger " onclick="window.location.href='/cadastro/0'" data-dismiss="modal"></i>Ok</button>
+                    </div>
+               
+                
+              </div>
+            </div>
+          </div>
+		
        
 		
         <div >
-            <form th:action="@{/usuario/save}" th:object="${usuario}" method="POST">
+            <form th:action="@{/usuario/save}" th:object="${aluno}" method="POST">
 
             
             <input type="text" placeholder="&#32 NOME" class="css-email" th:field="*{nome}" required />
-            <input type="text" placeholder="&#32 LOGIN" class="css-email" th:field="*{login}" required  />
             <input type="text" placeholder="&#32 E-MAIL" class="css-email" th:field="*{email}" required />
             <input id="senha1" type="password" placeholder="&#32 SENHA" class="css-senha" th:field="*{senha}" required />
             <input id="senha2" type="password" onblur="compararSenha()" placeholder="&#32 CONFIRMAR SENHA" class="css-senha" required /> 
-            <button id="salvar" type="submit" class="myButton">CADASTRAR-SE</button>
-            <button th:href="@{/login}" onclick="window.location.href='/login/'+false" class="myButton">Login</button>
-
+            <button id="salvar" data-toggle="modal" data-target="#modalSalvar" type="submit" class="myButton">CADASTRAR-SE</button>
+            <button onclick="window.location.href='/login/'" class="myButton">Login</button>
             </form>
+            			<button type="button"  data-toggle="modal" data-target="#modalSalvar">modal</button>
             
             
         </div>

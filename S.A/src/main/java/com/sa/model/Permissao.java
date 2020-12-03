@@ -33,6 +33,8 @@ public class Permissao {
 	
 	@ManyToMany(mappedBy = "permissoes")
 	private List<Usuario> usuarios;
+	
+	
 
 	public Long getId() {
 		return id;

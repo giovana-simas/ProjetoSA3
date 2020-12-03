@@ -11,20 +11,33 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.sa.model.Aluno;
 import com.sa.model.Permissao;
 import com.sa.model.Usuario;
+import com.sa.repository.AlunoRepository;
 import com.sa.repository.PermissaoRepository;
+import com.sa.repository.ProfessorRepository;
 import com.sa.repository.UsuarioRepository;
 
 //transforma esta classe em um controller
 //controller = classe que faz o intermedio entre pagina web, banco e security.
+
 @Controller
 public class UsuarioController {
 
+	
 	//autoriza a ultilização do repositorio neste controler
 	@Autowired
 	UsuarioRepository usuarioRepository;
+	
+	@Autowired
+	ProfessorRepository professorRepository;
+	
+	@Autowired
+	AlunoRepository alunoRepository;
+	
 	//autoriza a ultilização do repositorio neste controler
 	@Autowired
 	PermissaoRepository permissaoRepository;
@@ -34,11 +47,13 @@ public class UsuarioController {
 	//incapsula e envia informação e é chamado atravez do metodo "/usuario/save"
 	@PostMapping("/usuario/save")
 	//cria o metodo de salvamento com um objeto Usuario
-	public String saveUsuario(Usuario usuario) {
+	public String saveUsuario(Usuario usuario, Aluno aluno) {
 		//instancia informações que serão usadas
 		int salvo = 0;
 		String path  = "";
 		String email = "";
+	
+		
 //		verifica o usuario logado e aplica a instancia de conferencia(neste caso é o email do usuario logado) na variavel "email"
 		email = SecurityContextHolder.getContext().getAuthentication().getName();
 		//inicia uma tentativa
@@ -52,9 +67,9 @@ public class UsuarioController {
 				//caso haja um usuario logado, ou seja "email!="anonymousUser"" ele estara editando um usuario ja existente na tela de perfil.
 				if(email=="anonymousUser") {
 				//pega a senha cadastrada no objeto usuario, ha codifica e aplica no banco sua nova verção codificada
-				usuario.setSenha(new BCryptPasswordEncoder().encode(usuario.getSenha()));
+				aluno.setSenha(new BCryptPasswordEncoder().encode(aluno.getSenha()));
 				//salva o usuario criado anteriormente em "IndexController" agora com informações preenchidas no banco e mostra as informações salvas no console para conferencia e manutenção
-				System.out.print(usuarioRepository.save(usuario));
+				System.out.print(alunoRepository.save(aluno));
 				//seta a variavel "path" para que redirecione para tela de cadastro e mostre se o cadastro foi salvo ou nao
 				path  = "redirect:/cadastro/" + salvo;
 				}else {
@@ -66,6 +81,10 @@ public class UsuarioController {
 				
 			}
 		}
+		
+		
+		
+		
 		//caso a tentativa falhe o erro sera salvo na variavel "e"
 		catch (Exception e) {
 			//mostra a mensagem de erro no console para conferencia e manutenção

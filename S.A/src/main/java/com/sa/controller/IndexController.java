@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import com.sa.model.Aluno;
 import com.sa.model.Usuario;
 import com.sa.repository.UsuarioRepository;
 
@@ -36,6 +37,7 @@ public class IndexController {
 	public String addUsuario(@PathVariable int salvo, Model model) {
 		//adiciona um atributo que pode ser chamado atravez de "usuario" que guarda um novo objeto usuario vazio
 		model.addAttribute("usuario", new Usuario());
+		model.addAttribute("aluno", new Aluno());
 		//adciona um atributo que pode ser chamado atravez de "salvo" que guarda um numero que irá indicar se o usuario foi salvo ou nao
 		//esse numero é setado no Usuario controller
 		model.addAttribute("salvo",salvo);
