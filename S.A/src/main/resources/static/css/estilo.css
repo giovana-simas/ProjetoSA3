@@ -48,23 +48,24 @@
 
 .myButton {
     margin-top: 30px;
-    margin-left: 980px;
-	background:linear-gradient(to bottom, #a103fd 5%, #6e00b3 100%);
-	background-color:#a103fd;
-	border-radius:28px;
-	border:1px solid #a103fd;
+    margin-left: 1020px;
+	box-shadow: -1px 12px 12px -11px #276873;
+	background:linear-gradient(to bottom, #90abc2 5%, #8fd1db 100%);
+	background-color:#90abc2;
+	border-radius:11px;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
 	font-family:Arial;
-	font-size:17px;
-	padding:5px 47px;
+	font-size:20px;
+	font-weight:bold;
+	padding:5px 38px;
 	text-decoration:none;
-	text-shadow:0px 1px 0px #d6a1f7;
+	text-shadow:0px 1px 0px #3d768a;
 }
 .myButton:hover {
-	background:linear-gradient(to bottom, #6e00b3 5%, #a103fd 100%);
-	background-color:#6e00b3;
+    background:linear-gradient(to bottom, #8fd1db 5%, #90abc2 100%);
+	background-color:#8fd1db;
 }
 .myButton:active {
 	position:relative;
@@ -72,6 +73,6 @@
 }
 .cadastrar{
     margin-left: 1060px;
-    color: #a103fd ;
+    color: black ;
 }
 /*AQUI TEM TODOS OS BOTOES DA PAGINA DE LOGIN*/
