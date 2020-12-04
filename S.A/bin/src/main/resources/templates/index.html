@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Projeto S.A</title>
+        <link  rel="stylesheet" th:href="@{/css/estiloIndex.css}">
+
+
+    </head>
+    <body background="src/back.png">
+
+        <div class="conteiner-index">
+            <img id="login" th:src="@{/src/login.png}">
+            <a th:href="@{/cadastro/0}" class="myButton">não tenho cadastro</a>
+            <a th:href="@{/login}" onclick="window.location.href='/login/'+false" class="myButton">já tenho cadastro</a>
+            
+        </div>
+        
+    </body>
+</html>
