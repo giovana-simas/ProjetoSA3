@@ -14,11 +14,15 @@
     </head>
     <body>
 
-        <div class="conteiner-index">
-            <a th:href="@{/login}" onclick="window.location.href='/login/'+false" class="myButton">ENTRAR</a>
-            <a th:href="@{/cadastro/0}" class="myButton">CADASTRAR</a>
+        <div class="container-inicial">
+            <div>
+                <img id="logo" th:src="@{/src/logo.png}">
+            </div>
+            <div>
+                <a th:href="@{/login}" onclick="window.location.href='/login/'+false" class="myButton" id="botao1">ENTRAR</a>
+                <a th:href="@{/cadastro/0}" class="myButton" id="botao2">CADASTRAR</a>
+            </div>
         </div>
-
 
         <div class="container-inicial">
             <div>
