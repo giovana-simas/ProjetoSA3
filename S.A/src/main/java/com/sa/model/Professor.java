@@ -27,9 +27,8 @@ public class Professor extends Usuario{
 	@ManyToMany(mappedBy = "professores")
 	private List<Sala> salas;
 	
-	@ManyToOne()
-	@JoinColumn(name="instituicao_id", referencedColumnName = "id")    
-	private Instituicao instituicao;
+	@ManyToMany(mappedBy = "professores")  
+	private List<Instituicao> instituicao;
 
 	
 
@@ -49,13 +48,15 @@ public class Professor extends Usuario{
 		this.salas = salas;
 	}
 
-	public Instituicao getInstituicao() {
+	public List<Instituicao> getInstituicao() {
 		return instituicao;
 	}
 
-	public void setInstituicao(Instituicao instituicao) {
+	public void setInstituicao(List<Instituicao> instituicao) {
 		this.instituicao = instituicao;
 	}
+
+	
 	
 	
 }

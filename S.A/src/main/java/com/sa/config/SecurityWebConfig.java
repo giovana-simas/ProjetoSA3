@@ -27,9 +27,19 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter{
 		    //Habilitar ou desabilitar paginas	
 			.authorizeRequests()
 			.antMatchers("/").permitAll()
-			.antMatchers("/cadastro/**").permitAll()
-			.antMatchers("/usuario/perfil/**").hasRole("padrao")
-			.antMatchers("/usuario/perfil/0").hasRole("padrao")
+			.antMatchers("/diretor/cadastroDiretor/**").permitAll()
+			.antMatchers("/professor/cadastroProfessor/**").permitAll()
+			.antMatchers("/aluno/cadastroAluno/**").permitAll()
+			.antMatchers("/aluno/perfil/**").hasRole("padrao")
+			.antMatchers("/diretor/perfil/**").hasRole("diretor")
+			.antMatchers("/professor/perfil/**").hasRole("professor")
+			.antMatchers("/professor/instituicao/**").hasRole("professor")
+			.antMatchers("/diretor/instituicao/**").hasRole("diretor")
+			.antMatchers("/aluno/instituicao/**").hasRole("padrao")
+			.antMatchers("/instituicao/**").permitAll()
+			.antMatchers("/diretor/addInstituicao/**").hasRole("diretor")
+			.antMatchers("/diretor/add/**").hasRole("diretor")
+
 			//Habilitar statics ou seja as bibliotecas
 			.antMatchers("/bootstrap-4.5.2/**").permitAll()
 			.antMatchers("/css/**").permitAll()
@@ -37,7 +47,9 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter{
 			.antMatchers("/js/**").permitAll()
 			.antMatchers("/src/**").permitAll()
 			//Habilitar metodos
-			.antMatchers("/usuario/save").permitAll()
+			.antMatchers("/aluno/save").permitAll()
+			.antMatchers("/diretor/save").permitAll()
+			.antMatchers("/professor/save").permitAll()
 			.anyRequest().authenticated()
 			.and()
 			//definir pagina de login
@@ -45,7 +57,7 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter{
 				//url para pagina padrao de login
 				.loginPage("/login")
 				//caso o login seja efetuado com sucesso
-				.defaultSuccessUrl("/usuario/perfil/0", true)
+				.defaultSuccessUrl("/instituicao", true)
 				.permitAll()
 			.and()
 			//Relembrar usuario logado

@@ -13,4 +13,5 @@ public interface PermissaoRepository extends JpaRepository<Permissao, Long> {
 	// nao lembro exatamente o que isso faz mas se nao me engano encontra varios usuarios e os coloca em uma lista pelas suas permissoes.
 	public List<Permissao> findByUsuariosIn(Usuario ... usuario);
 	
+	public Permissao findByNome(String nome);
 }

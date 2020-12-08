@@ -75,3 +75,13 @@
     color: #a103fd ;
 }
 /*AQUI TEM TODOS OS BOTOES DA PAGINA DE LOGIN*/
+
+.fab{
+    position: fixed;
+    bottom:10px;
+    right:10px;
+  }
+  
+    
+  
+  

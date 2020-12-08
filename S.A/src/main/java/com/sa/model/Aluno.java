@@ -14,7 +14,7 @@ import javax.persistence.OneToMany;
 public class Aluno extends Usuario{
 
 	
-	boolean querAjudar;
+	String querAjudar;
 	
 
 	@OneToMany(mappedBy = "aluno")
@@ -26,11 +26,13 @@ public class Aluno extends Usuario{
 	@ManyToMany(mappedBy = "alunos")
 	private List<Instituicao> instituicoes;
 
-	public boolean isQuerAjudar() {
+	
+
+	public String getQuerAjudar() {
 		return querAjudar;
 	}
 
-	public void setQuerAjudar(boolean querAjudar) {
+	public void setQuerAjudar(String querAjudar) {
 		this.querAjudar = querAjudar;
 	}
 

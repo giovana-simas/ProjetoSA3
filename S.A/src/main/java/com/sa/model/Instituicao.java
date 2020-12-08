@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.Size;
 
@@ -27,28 +28,26 @@ public class Instituicao {
 	@NonNull
 	@Size(max=255)
 	String nome;
-	
-	@NonNull
-	@Size(max=255)
-	String email;
-	
-	@NonNull
-	@Size(max=255)
-	String senha;
 
 	@NonNull
 	String endereco;
 	
-	@NonNull
-	int numeroEndereco;
 	
-	@NonNull
 	String numeroContato;
 	
 	@OneToMany(targetEntity=Sala.class, mappedBy="instituicao")    
 	private List<Sala> salas;
 	
-	@OneToMany(targetEntity=Professor.class, mappedBy="instituicao")    
+	@ManyToOne()
+	@JoinColumn(name="diretor_id", referencedColumnName = "id")    
+	private Diretor diretor;
+	
+	@ManyToMany
+	@JoinTable(
+			name="instituicao_professor",
+			joinColumns=@JoinColumn(name="instituicao_id"),
+			inverseJoinColumns=@JoinColumn(name="professor_id")
+			)   
 	private List<Professor> professores;
 	
 	@ManyToMany
@@ -60,6 +59,14 @@ public class Instituicao {
 	private List<Aluno> alunos;
 	
 	
+
+	public Diretor getDiretor() {
+		return diretor;
+	}
+
+	public void setDiretor(Diretor diretor) {
+		this.diretor = diretor;
+	}
 
 	public long getId() {
 		return id;
@@ -77,21 +84,8 @@ public class Instituicao {
 		this.nome = nome;
 	}
 
-	public String getEmail() {
-		return email;
-	}
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
 
-	public String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
 
 
 
@@ -103,13 +97,7 @@ public class Instituicao {
 		this.endereco = endereco;
 	}
 
-	public int getNumeroEndereco() {
-		return numeroEndereco;
-	}
-
-	public void setNumeroEndereco(int numeroEndereco) {
-		this.numeroEndereco = numeroEndereco;
-	}
+	
 
 	
 

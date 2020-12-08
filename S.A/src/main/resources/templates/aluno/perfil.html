@@ -22,14 +22,17 @@
             Usuário não salvo
         </div>
 		<img class="login" th:src="@{/src/login.png}">
-            <form th:action="@{/usuario/save}" th:object="${usuario}" method="POST">
+            <form th:action="@{/usuario/save}" th:object="${aluno}" method="POST">
 
-            	<input id="editId" type="text" placeholder="&#32 ID" class="css-email" th:field="${usuario.id}" readonly hidden />
-                <input id="editNome" type="text" placeholder="&#32 NOME" class="css-email" th:field="${usuario.nome}" readonly />
-                <input id="editEmail" type="text" placeholder="&#32 E-MAIL" class="css-email" th:field="${usuario.email}" readonly />
-                <input id="editSenha" type="text" placeholder="&#32 SENHA" class="css-email" th:field="${usuario.senha}" readonly hidden />
-                <input id="editPermissoes" type="text" placeholder="&#32 PERMISSÃO" class="css-email" th:field="${usuario.permissoes}" readonly hidden />
-                
+            	<input id="editId" type="text" placeholder="&#32 ID" class="css-email" th:field="${aluno.id}" readonly hidden />
+                <input id="editNome" type="text" placeholder="&#32 NOME" class="css-email" th:field="${aluno.nome}" readonly />
+                <input id="editEmail" type="text" placeholder="&#32 E-MAIL" class="css-email" th:field="${aluno.email}" readonly />
+                <input id="editSenha" type="text" placeholder="&#32 SENHA" class="css-email" th:field="${aluno.senha}" readonly hidden />
+                <input id="editPermissoes" type="text" placeholder="&#32 PERMISSÃO" class="css-email" th:field="${aluno.permissoes}" readonly hidden />
+                <input id="editAjuda" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${aluno.querAjudar}" readonly hidden />
+                <input id="editinstituicoes" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${aluno.instituicoes}" readonly hidden />
+                <input id="editsalas" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${aluno.salas}" readonly hidden />
+                <input id="editmateria" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${aluno.materiaAluno}" readonly hidden />
                
 
             <button id="editSalvar" type="submit"  class="myButton" disabled>SALVAR</button>
