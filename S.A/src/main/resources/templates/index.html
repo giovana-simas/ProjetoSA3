@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Projeto S.A</title>
+        <title>Projeto S.   A</title>
         <link  rel="stylesheet" th:href="@{/css/estiloIndex.css}">
         <script type="text/javascript" th:src="@{/js/js.js}"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
@@ -24,11 +24,11 @@
             <div>
                 <img id="logo" th:src="@{/src/logo.png}">
             </div>
-            <div>
-                <a th:href="@{/login}" onclick="window.location.href='/login/'+false" class="myButton" id="botao1">ENTRAR</a>
-                <a th:href="@{/aluno/cadastroAluno/0}" class="myButton" id="botao2">CADASTRAR ALUNO</a>
-                <a th:href="@{/diretor/cadastroDiretor/0}" class="myButton" id="botao2">CADASTRAR DIRETOR</a>
-                <a th:href="@{/professor/cadastroProfessor/0}" class="myButton" id="botao2">CADASTRAR PROFESSOR</a>
+            <div id=botao1>
+                <a th:href="@{/login}" onclick="window.location.href='/login/'+false" class="myButton" id="">ENTRAR</a>
+                <a th:href="@{/aluno/cadastroAluno/0}" class="myButton" id="">CADASTRAR ALUNO</a>
+                <a th:href="@{/diretor/cadastroDiretor/0}" class="myButton" id="">CADASTRAR DIRETOR</a>
+                <a th:href="@{/professor/cadastroProfessor/0}" class="myButton" id="">CADASTRAR PROFESSOR</a>
                 
             </div>
         </div>
