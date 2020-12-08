@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="https://thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Projeto S.A</title>
+        <link  rel="stylesheet" th:href="@{/css/estilo.css}">
+
+        <link rel="stylesheet" th:href="@{/bootstrap-4.5.2/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/fontawesome-5.14.0/css/all.min.css}">
+
+        <script src="/js/script.js"></script>
+
+        
+
+    </head>
+    <body background="/src/back.png">
+    <div th:if="${salvo} == 1" class="alert alert-success">
+            Usuário salvo com sucesso
+        </div>
+        <div th:if="${salvo} == 2" class="alert alert-danger">
+            Usuário não salvo
+        </div>
+		<img class="login" th:src="@{/src/login.png}">
+            <form th:action="@{/usuario/save}" th:object="${usuario}" method="POST">
+
+            	<input id="editId" type="text" placeholder="&#32 ID" class="css-email" th:field="${usuario.id}" readonly hidden />
+                <input id="editNome" type="text" placeholder="&#32 NOME" class="css-email" th:field="${usuario.nome}" readonly />
+                <input id="editEmail" type="text" placeholder="&#32 E-MAIL" class="css-email" th:field="${usuario.email}" readonly />
+                <input id="editSenha" type="text" placeholder="&#32 SENHA" class="css-email" th:field="${usuario.senha}" readonly hidden />
+                <input id="editPermissoes" type="text" placeholder="&#32 PERMISSÃO" class="css-email" th:field="${usuario.permissoes}" readonly hidden />
+                
+               
+
+            <button id="editSalvar" type="submit"  class="myButton" disabled>SALVAR</button>
+            </form>
+            
+            <form th:action="|@{/logout}|" class="navbar-from" method="POST">
+            
+             <button class="btn btn-dark" type="submit">
+                    <i class="fas fa-sign-out-alt"></i>
+             </button>
+             
+                <div>
+                    <input type="checkbox" onclick="editarPerfil()" id="editar" name="editar"/>
+                    <label class="" >editar perfil</label>
+                </div>
+             </form>
+        </div>
+        <script th:src="@{/js/jquery-3.5.1.min.js}"></script>
+        <script th:src="@{/bootstrap-4.5.2/js/bootstrap.min.js}"></script>
+        <script src="/js/script.js"></script>
+    </body>
+</html>
