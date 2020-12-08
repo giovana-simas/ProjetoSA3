@@ -5,6 +5,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Projeto S.A</title>
         <link  rel="stylesheet" th:href="@{/css/estiloIndex.css}">
+        <script type="text/javascript" th:src="@{/js/js.js}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+        <script src="sweetalert2.min.js"></script>
+        <link rel="stylesheet" href="sweetalert2.min.css">
 
 
     </head>
@@ -13,9 +17,27 @@
         <div class="conteiner-index">
             <a th:href="@{/login}" onclick="window.location.href='/login/'+false" class="myButton">ENTRAR</a>
             <a th:href="@{/cadastro/0}" class="myButton">CADASTRAR</a>
-            
         </div>
 
+
+        <div class="container-inicial">
+            <div>
+                <h1>Do questionamento, <br> ao entendimento.</h1>
+                <p>Lorem Ipsum is simply dummy text of the printing and<br>
+                    typesetting industry. Lorem Ipsum has been the industry's <br>
+                    standard dummy text ever since the 1500s, when an unknown printer
+                    took a galley of type.</p>
+
+                    <a onclick="fazemos()" href="#" class="fazemos">O que somos?</a>
+            </div>
+
+            <div>
+                <img id="fundo" th:src="@{/src/fundoo.jpg}">
+
+            </div>
+        </div>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
     </body>
 </html>

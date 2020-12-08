@@ -1,12 +1,6 @@
-body{
-	background-image: url("../src/back1.jpg");
-	background-color: #BCE1D8;
-	background-attachment: fixed;
-	background-repeat: no-repeat;
-    background-size: auto;
-}
+
 .myButton {
-   margin: 30px;
+   margin: 30px 30px 0px 30px;
    padding-top: 20px;
    color: #424242;
    text-decoration: none;
@@ -16,5 +10,52 @@ body{
    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .myButton:hover {
-	color: black;
+	color: #ff9966;
+}
+
+#fundo{
+    margin-top: 115px;
+}
+
+h1{
+    margin-top: 70px;
+    margin-left: 50px;
+    margin-bottom: 0px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 45px;
+    color: #7994CB;
+    z-index: 1;
+}
+p{
+    margin-top: 15px;
+    margin-left: 50px;
+    margin-bottom: 0px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    z-index: 2;
+}
+
+.container-inicial{
+    display: flex;
+}
+
+.fazemos {
+	background-color:#e6a886;
+	border-radius:28px;
+	border:1px solid #b8b8b8;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding:10px 31px;
+	text-decoration:none;
+    margin-top: 100px;
+    margin-left: 200px;
+}
+.fazemos:hover {
+	background-color:#ff9966;
+}
+.fazemos:active {
+	position:relative;
+	top:1px;
 }
