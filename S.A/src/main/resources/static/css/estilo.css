@@ -1,5 +1,5 @@
 .login{
-    margin-left: 1000px;
+    margin-left: 600px;
     margin-top: 70px;
     width: 145px;
     height: 145px;
@@ -7,13 +7,14 @@
 }
 #texto{
     color: grey;
-    margin-left: 1029px;
+    margin-left: 606px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
 }
 /*INPUTS E BOTOES*/
 .css-email {
     margin-top: 30px;
-    margin-left: 940px;
+    margin-left: 540px;
     padding: 4px;
     width: 275px;
     height: 30px;
@@ -30,7 +31,7 @@
 
 .css-senha {
     margin-top: 40px;
-    margin-left: 940px;
+    margin-left: 540px;
     padding: 4px;
     width: 275px;
     height: 30px;
@@ -47,33 +48,32 @@
 
 
 .myButton {
-    margin-top: 30px;
-    margin-left: 1020px;
-	box-shadow: -1px 12px 12px -11px #276873;
-	background:linear-gradient(to bottom, #90abc2 5%, #8fd1db 100%);
-	background-color:#90abc2;
-	border-radius:11px;
+	background-color:#e6a886;
+	border-radius:28px;
+	border:1px solid #b8b8b8;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
 	font-family:Arial;
-	font-size:20px;
-	font-weight:bold;
-	padding:5px 38px;
+	font-size:17px;
+	padding:10px 31px;
 	text-decoration:none;
-	text-shadow:0px 1px 0px #3d768a;
+    margin-top: 30px;
+    margin-left: 620px;
 }
 .myButton:hover {
-    background:linear-gradient(to bottom, #8fd1db 5%, #90abc2 100%);
-	background-color:#8fd1db;
+	background-color:#ff9966;
 }
 .myButton:active {
 	position:relative;
 	top:1px;
 }
+
 .cadastrar{
-    margin-left: 1060px;
-    color: black ;
+    margin-left: 640px;
+    color: #ff9966 ;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-decoration: none;
 }
 /*AQUI TEM TODOS OS BOTOES DA PAGINA DE LOGIN*/
 
@@ -82,6 +82,7 @@
     bottom:10px;
     right:10px;
   }
+
   
     
   
