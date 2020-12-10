@@ -1,47 +1,74 @@
 
 .myButton {
-   
-	background:linear-gradient(to bottom, #a103fd 5%, #6e00b3 100%);
-	background-color:#a103fd;
+   margin: 30px 30px 0px 30px;
+   padding-top: 20px;
+   color: #424242;
+   text-decoration: none;
+   left: 200px;
+   display: inline-block;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.myButton:hover {
+	color: #ff9966;
+}
+
+#fundo{
+    margin-top: 80px;
+}
+
+h1{
+    margin-top: 55px;
+    margin-left: 50px;
+    margin-bottom: 0px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 45px;
+    color: #7994CB;
+    z-index: 1;
+}
+p{
+    margin-top: 15px;
+    margin-left: 50px;
+    margin-bottom: 0px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    z-index: 2;
+}
+.container-inicial-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.container-inicial{
+    display: flex;
+}
+
+.fazemos {
+	background-color:#e6a886;
 	border-radius:28px;
-	border:1px solid #a103fd;
+	border:1px solid #b8b8b8;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
 	font-family:Arial;
 	font-size:17px;
-	padding:5px 47px;
+	padding:10px 31px;
 	text-decoration:none;
-    text-shadow:0px 1px 0px #d6a1f7;
-    margin-top: 20px;
+    margin-top: 100px;
+    margin-left: 200px;
 }
-.myButton:hover {
-	background:linear-gradient(to bottom, #6e00b3 5%, #a103fd 100%);
-	background-color:#6e00b3;
+.fazemos:hover {
+	background-color:#ff9966;
 }
-.myButton:active {
+.fazemos:active {
 	position:relative;
 	top:1px;
 }
-
-#login{
- 
-    width: 145px;
-    height: 145px;
-    padding: 20px;
-}
-#texto{
-    color: grey;
-    margin-left: 1029px;
-
+#logo{
+    margin-left: 50px;
 }
 
-.conteiner-index{
-    height: 300px;
-    width: 30%;
-    float: right;
-    text-align: center;
-    position: relative;
-    margin-top: 10%;
-    
+#botao1{
+    left: 200px;
+}
+#botao2{
+    left: 670px;
 }

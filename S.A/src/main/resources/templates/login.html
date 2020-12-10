@@ -8,20 +8,18 @@
 
 
     </head>
-    <body background="src/back2.jpg">
-
-		
-        
-        <form th:action="@{/login}" method="POST">
-            <img class="login" th:src="@{/src/login.png}">
-            <input name="username" type="text" placeholder="&#32 E-MAIL" class="css-email" />
-            <input name="password" type="password" placeholder="&#32 PASSWORD" class="css-senha" /> <br>
-            <button type="submit" class="myButton">LOGIN</button>
-            
-            <p id="texto">Não possui cadastro?</p>
-            <a th:href="@{/}" class="cadastrar">clique aqui!</a>
-        </form>
-        
+    <body>
+        <div> 
+            <form th:action="@{/login}" method="POST">
+                <img class="login" th:src="@{/src/login.png}">
+                <input name="username" type="text" placeholder="&#32 E-MAIL" class="css-email" />
+                <input name="password" type="password" placeholder="&#32 PASSWORD" class="css-senha" /> <br>
+                <button type="submit" class="myButton">LOGIN</button>
+                
+                <p id="texto">Não possui cadastro?</p>
+                <a th:href="@{/}" class="cadastrar">clique aqui!</a>
+            </form>
+        </div>
         
         <form th:action="@{/logout}" method="post" th:hidden="true" name="logoutForm">
             <input type="submit" value="Logout" />

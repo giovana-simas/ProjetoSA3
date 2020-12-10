@@ -8,23 +8,38 @@
 
 
     </head>
-    <body background="src/back.png">
-
-		
+    <body>
+        <div> 
+            <form th:action="@{/login}" method="POST">
+                <img class="login" th:src="@{/src/login.png}">
+                <input name="username" type="text" placeholder="&#32 E-MAIL" class="css-email" />
+                <input name="password" type="password" placeholder="&#32 PASSWORD" class="css-senha" /> <br>
+                <button type="submit" class="myButton">LOGIN</button>
+                
+                <p id="texto">Não possui cadastro?</p>
+                <a th:href="@{/}" class="cadastrar">clique aqui!</a>
+            </form>
+        </div>
         
-        <form th:action="@{/login}" method="POST">
-            <img class="login" th:src="@{/src/login.png}">
-            <input name="username" type="text" placeholder="&#32 E-MAIL" class="css-email" />
-            <input name="password" type="password" placeholder="&#32 PASSWORD" class="css-senha" /> <br>
-            <div>
-                <input type="checkbox" id="remember-me" name="remember-me"/>
-                <label class="label-lembrar" for="remember-me">Lembrar Senha?</label>
-            </div>
-            <button type="submit" class="myButton">LOGIN</button>
-            
-            <p id="texto">Não possui cadastro?</p>
-            <a th:href="@{/cadastro/0}" class="cadastrar">clique aqui!</a>
+        <form th:action="@{/logout}" method="post" th:hidden="true" name="logoutForm">
+            <input type="submit" value="Logout" />
         </form>
-        
+
+        <input type="text" hidden  th:value="${#httpServletRequest.remoteUser}" id="logout" >
+
+        <script th:src="@{/js/jquery-3.5.1.min.js}"></script>
+        <script th:src="@{/bootstrap-4.5.2/js/bootstrap.min.js}"></script>
+        <script src="/js/script.js"></script>
+        <script>
+            $(function(){
+                if($('#logout').val() != ""){
+                    
+                    document.logoutForm.submit()                
+                }
+                
+            
+            })
+           
+        </script>
     </body>
 </html>
