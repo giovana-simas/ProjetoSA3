@@ -1,5 +1,10 @@
 package com.sa.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -12,11 +17,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.sa.model.Aluno;
 import com.sa.model.Diretor;
+import com.sa.model.Instituicao;
+import com.sa.model.Sala;
 import com.sa.repository.AlunoRepository;
 import com.sa.repository.DiretorRepository;
 import com.sa.repository.InstituicaoRepository;
 import com.sa.repository.PermissaoRepository;
 import com.sa.repository.ProfessorRepository;
+import com.sa.repository.SalaRepository;
 import com.sa.repository.UsuarioRepository;
 
 @Controller
@@ -43,6 +51,9 @@ public class DiretorController {
 	@Autowired
 	PermissaoRepository permissaoRepository;
 	
+	@Autowired
+	SalaRepository salaRepository;
+	
 	@GetMapping("/diretor/instituicao")
 	public String instituicaoDiretor(Model model) {
 		String email = "";
@@ -68,7 +79,6 @@ public class DiretorController {
 		String path  = "";
 		String email = "";
 	
-		
 //		verifica o usuario logado e aplica a instancia de conferencia(neste caso é o email do usuario logado) na variavel "email"
 		email = SecurityContextHolder.getContext().getAuthentication().getName();
 		//inicia uma tentativa
@@ -137,11 +147,69 @@ public class DiretorController {
 		
 	}
 	
+	@GetMapping("/diretor/sala/{id}")
+	public String salaDiretor(Model model,@PathVariable long id) {
+		
+		Instituicao instituicao = instituicaoRepository.findById(id);;
+		System.out.println("chegou aqui" );
+		//verifica o usuario logado e aplica a instancia de conferencia(neste caso é o email do usuario logado) na variavel "email"
+		System.out.println("id: " + id);
+		System.out.println("id: " + instituicao);
+		model.addAttribute("salas", salaRepository.findByInstituicao(instituicao));
+		model.addAttribute("instituicao", instituicao);
+		System.out.println("salas: " + salaRepository.findByInstituicao(instituicao));
+		
+		return "/diretor/sala";
+	}
 	
 	
 	
+	@GetMapping("/diretor/addsala/{id}")
+	public String addSala(Model model,@PathVariable long id) {
+		
+		model.addAttribute("sala", new Sala());
+		model.addAttribute("instituicao", instituicaoRepository.findById(id));
+		
+		return "/diretor/addsala";
+	}
 	
-	
-	
+	@PostMapping("/sala/save/{id}")
+	//cria o metodo de salvamento com um objeto Usuario
+	public String saveSala(Sala sala,@PathVariable int id) {
+		//instancia informações que serão usadas
+		int salvo = 0;
+		String path  = "";
+		String email ="";
+		email = SecurityContextHolder.getContext().getAuthentication().getName();
+		Instituicao instituicao;
+		instituicao = instituicaoRepository.findById(id);
+		//inicia uma tentativa
+		try {
+				//seta a variavel salvo para 1 onde vai indicar que o usuario foi salvo atravez de um model
+				salvo = 1;
+				
+				sala.setInstituicao(instituicao);
+				//salva o usuario criado anteriormente em "IndexController" agora com informações preenchidas no banco e mostra as informações salvas no console para conferencia e manutenção
+				System.out.print(salaRepository.save(sala));
+				//seta a variavel "path" para que redirecione para tela de cadastro e mostre se o cadastro foi salvo ou nao
+				path  = "redirect:/diretor/sala/" + id; //+ salvo;
+				
+			
+		}
+		
+		//caso a tentativa falhe o erro sera salvo na variavel "e"
+		catch (Exception e) {
+			//mostra a mensagem de erro no console para conferencia e manutenção
+			System.out.print("Erro ao Salvar: " + e.getMessage());
+			//seta a variavel salvo para 2 onde vai indicar que o usuario não foi salvo atravez de um model
+			salvo = 2;
+			//confere se há um usuario logado ou se ele esta em "logout" ou seja usuario anonimo.
+			//caso seja anonimo mostrara uma mensagem de erro tela de cadastro.
+			//caso haja um usuario logado, ou seja "email!="anonymousUser"" ele mostrara uma mensagem de erro na tela de perfil.
+			path  = "redirect:/diretor/sala" + id; //+ salvo;
+		}	
+		//redireciona para a tela setada por path
+		return path;
+	}
 	
 }

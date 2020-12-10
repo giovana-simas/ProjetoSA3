@@ -37,13 +37,9 @@ public class Sala{
 			)
 	private List<Materia> materias;	
 	
-	@ManyToMany
-	@JoinTable(
-			name="sala_aluno",
-			joinColumns=@JoinColumn(name="sala_id"),
-			inverseJoinColumns=@JoinColumn(name="aluno_id")
-			)
-	private List<Aluno> alunos;
+	
+	@ManyToMany(mappedBy = "salasA")
+	private List<Aluno> alunoS;
 	
 	@ManyToMany
 	@JoinTable(
@@ -81,12 +77,14 @@ public class Sala{
 		this.materias = materias;
 	}
 
-	public List<Aluno> getAlunos() {
-		return alunos;
+	
+
+	public List<Aluno> getAlunoS() {
+		return alunoS;
 	}
 
-	public void setAlunos(List<Aluno> alunos) {
-		this.alunos = alunos;
+	public void setAlunoS(List<Aluno> alunoS) {
+		this.alunoS = alunoS;
 	}
 
 	public List<Professor> getProfessores() {

@@ -21,15 +21,13 @@
             <table class="table table-striped">
                 <thead class="thead-dark">
                     <tr>
-                        <th>Cód</th>
                         <th>Nome</th>
                     </tr>
                 </thead>
 
                 <tbody>
                     <tr th:each="instituicao : ${instituicoes}">
-                        <td th:text="${instituicao.id}"></td>
-                        <td th:text="${instituicao.nome}"></td>
+                        <td th:text="${instituicao.nome}" th:onclick="|window.location.href='/aluno/sala/' + ${instituicao.id} |"></td>
                     </tr>
                 </tbody>
 

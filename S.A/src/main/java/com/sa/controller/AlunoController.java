@@ -1,5 +1,8 @@
 package com.sa.controller;
 
+import java.util.List;
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -11,10 +14,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.sa.model.Aluno;
+import com.sa.model.Instituicao;
+import com.sa.model.Sala;
 import com.sa.repository.AlunoRepository;
 import com.sa.repository.InstituicaoRepository;
 import com.sa.repository.PermissaoRepository;
 import com.sa.repository.ProfessorRepository;
+import com.sa.repository.SalaRepository;
 import com.sa.repository.UsuarioRepository;
 
 @Controller
@@ -34,7 +40,8 @@ public class AlunoController {
 	@Autowired
 	PermissaoRepository permissaoRepository;
 	
-	
+	@Autowired
+	SalaRepository salaRepository;
 	
 	//incapsula e envia informação e é chamado atravez do metodo "/usuario/save"
 	@PostMapping("/aluno/save")
@@ -133,14 +140,69 @@ public class AlunoController {
 
 	
 	
+	@GetMapping("/aluno/sala/{id}")
+	public String salaAluno(Model model,@PathVariable long id) {
+		
+		Instituicao instituicao = instituicaoRepository.findById(id);
+		System.out.println("chegou aqui" );
+		//verifica o usuario logado e aplica a instancia de conferencia(neste caso é o email do usuario logado) na variavel "email"
+		
+		model.addAttribute("salas", salaRepository.findByInstituicao(instituicao));
+		model.addAttribute("instituicao", instituicao);
+		
+		
+		return "/aluno/sala";
+	}
+	
+	
+	@GetMapping("/aluno/addsala/{id}")
+	public String addAluno(Model model,@PathVariable long id) {
+		
+		String email = "";
+		Aluno aluno;
+		Instituicao instituicao = instituicaoRepository.findById(id);
+//		verifica o usuario logado e aplica a instancia de conferencia(neste caso é o email do usuario logado) na variavel "email"
+		email = SecurityContextHolder.getContext().getAuthentication().getName();
+		aluno = alunoRepository.findByEmail(email);
+		
+		System.out.println("id: " + id);
+		System.out.println("id: " + instituicao);
+		
+		model.addAttribute("salas", salaRepository.findByInstituicao(instituicao));
+		model.addAttribute("instituicao", instituicao);
+		model.addAttribute("aluno", aluno);
+		System.out.println("salas: " + salaRepository.findByInstituicao(instituicao));
+		return "/aluno/addsala";
+	}
 	
 	
 	
 	
-	
-	
-	
-	
+	@PostMapping("/aluno/insertsala/{id}")
+	public String insertSalaAluno(Sala sala,Aluno aluno, @PathVariable int id) {
+		
+		
+		String email;
+		List<Sala> salaAux;
+		
+		email = SecurityContextHolder.getContext().getAuthentication().getName();
+		System.out.println(email);
+		salaAux = alunoRepository.findByEmail(email).getSalasA();
+
+		try {
+			salaAux.addAll(aluno.getSalasA());
+			aluno.setSalasA(salaAux);
+			System.out.println(alunoRepository.save(aluno));
+			
+		} catch (Exception e) {
+			System.out.println("error: " + e);
+		}
+		//instituicao = instituicaoRepository.findById(id)
+		
+		
+		return "redirect:/aluno/sala/" + id;
+		
+	}
 	
 	
 	

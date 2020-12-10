@@ -17,6 +17,6 @@ public interface InstituicaoRepository extends JpaRepository<Instituicao, Long>{
 	public List<Instituicao> findByAlunosI(Aluno aluno);
 	public List<Instituicao> findByDiretor(Diretor diretor);
 	public List<Instituicao> findByProfessoresI(Professor professor);
-	public Instituicao findById(int id);
+	public Instituicao findById(long id);
 	
 }

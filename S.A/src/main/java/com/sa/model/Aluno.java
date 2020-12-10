@@ -22,8 +22,13 @@ public class Aluno extends Usuario{
 	@OneToMany(mappedBy = "aluno")
 	private List<MateriaAluno> materiaAluno;
 	
-	@ManyToMany(mappedBy = "alunos")
-	private List<Sala> salas;
+	@ManyToMany
+	@JoinTable(
+			name="salasA",
+			joinColumns=@JoinColumn(name="aluno_id"),
+			inverseJoinColumns=@JoinColumn(name="sala_id")
+			)
+	private List<Sala> salasA;
 	
 	@ManyToMany
 	@JoinTable(
@@ -51,12 +56,14 @@ public class Aluno extends Usuario{
 		this.materiaAluno = materiaAluno;
 	}
 
-	public List<Sala> getSalas() {
-		return salas;
+	
+
+	public List<Sala> getSalasA() {
+		return salasA;
 	}
 
-	public void setSalas(List<Sala> salas) {
-		this.salas = salas;
+	public void setSalasA(List<Sala> salasA) {
+		this.salasA = salasA;
 	}
 
 	public Set<Instituicao> getInstituicoesA() {
