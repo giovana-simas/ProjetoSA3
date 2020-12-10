@@ -39,7 +39,10 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter{
 			.antMatchers("/instituicao/**").permitAll()
 			.antMatchers("/diretor/addInstituicao/**").hasRole("diretor")
 			.antMatchers("/diretor/add/**").hasRole("diretor")
-
+			.antMatchers("/aluno/insertinstituicao").hasRole("padrao")
+			.antMatchers("/aluno/insertinstituicao").hasRole("padrao")
+			.antMatchers("/professor/insertinstituicao").hasRole("professor")
+			.antMatchers("/professor/insertinstituicao").hasRole("professor")
 			//Habilitar statics ou seja as bibliotecas
 			.antMatchers("/bootstrap-4.5.2/**").permitAll()
 			.antMatchers("/css/**").permitAll()

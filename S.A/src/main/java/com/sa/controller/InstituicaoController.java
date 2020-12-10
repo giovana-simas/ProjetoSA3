@@ -1,7 +1,10 @@
 package com.sa.controller;
 import java.lang.module.FindException;
+import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Sort;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -15,6 +18,7 @@ import com.sa.model.Aluno;
 import com.sa.model.Diretor;
 import com.sa.model.Instituicao;
 import com.sa.model.Permissao;
+import com.sa.model.Professor;
 import com.sa.model.Usuario;
 import com.sa.repository.AlunoRepository;
 import com.sa.repository.DiretorRepository;
@@ -136,6 +140,93 @@ public class InstituicaoController {
 			}	
 			//redireciona para a tela setada por path
 			return path;
+		}
+		
+		
+		
+		@GetMapping("/aluno/addinstituicao")
+		public String addinstituicaoAluno(Model model) {
+			
+			String email = "";
+			Aluno aluno;
+			
+//			verifica o usuario logado e aplica a instancia de conferencia(neste caso é o email do usuario logado) na variavel "email"
+			email = SecurityContextHolder.getContext().getAuthentication().getName();
+			aluno = alunoRepository.findByEmail(email);
+			
+			model.addAttribute("instituicoes", instituicaoRepository.findAll());
+			model.addAttribute("aluno", alunoRepository.findByEmail(email));
+			System.out.println(instituicaoRepository.findByAlunosI(aluno));
+			return "/aluno/addinstituicao";
+			
+		}
+		
+		@PostMapping("/aluno/insertinstituicao")
+		public String addAlunoInstituicao(Instituicao instituicoes,Aluno aluno) {
+			
+			
+			String email;
+			Set<Instituicao> instituicoesAux;
+			
+			email = SecurityContextHolder.getContext().getAuthentication().getName();
+			System.out.println(email);
+			instituicoesAux = alunoRepository.findByEmail(email).getInstituicoesA();
+
+			try {
+				instituicoesAux.addAll(aluno.getInstituicoesA());
+				aluno.setInstituicoesA(instituicoesAux);
+				System.out.println(alunoRepository.save(aluno));
+				
+			} catch (Exception e) {
+				System.out.println("error: " + e);
+			}
+			//instituicao = instituicaoRepository.findById(id)
+			
+			
+			return "redirect:/aluno/instituicao";
+			
+		}
+		
+		@GetMapping("/professor/addinstituicao")
+		public String addinstituicaoProfessor(Model model) {
+			
+			String email = "";
+			Professor professor;
+			
+//			verifica o usuario logado e aplica a instancia de conferencia(neste caso é o email do usuario logado) na variavel "email"
+			email = SecurityContextHolder.getContext().getAuthentication().getName();
+			professor = professorRepository.findByEmail(email);
+			
+			model.addAttribute("instituicoes", instituicaoRepository.findAll());
+			model.addAttribute("professor", professorRepository.findByEmail(email));
+			return "/professor/addinstituicao";
+			
+		}
+		
+		@PostMapping("/professor/insertinstituicao")
+		public String addProfessorInstituicao(Instituicao instituicoes,Professor professor) {
+			
+			
+			String email;
+			List<Instituicao> instituicoesAux;
+			
+			email = SecurityContextHolder.getContext().getAuthentication().getName();
+			System.out.println(email);
+			instituicoesAux = professorRepository.findByEmail(email).getInstituicaoP();
+
+			try {
+				instituicoesAux.addAll(professor.getInstituicaoP());
+				professor.setInstituicaoP(instituicoesAux);
+				System.out.println(professorRepository.save(professor));
+				
+			} catch (Exception e) {
+				System.out.println("error: " + e);
+			}
+			//instituicao = instituicaoRepository.findById(id)
+			
+			
+			return "redirect:/professor/instituicao";
+			
 		}
 		
 		

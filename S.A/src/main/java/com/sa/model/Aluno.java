@@ -1,13 +1,15 @@
 package com.sa.model;
 
 import java.util.List;
-
+import java.util.Set;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+
 
 @Entity
 @DiscriminatorValue(value = "A")
@@ -23,8 +25,13 @@ public class Aluno extends Usuario{
 	@ManyToMany(mappedBy = "alunos")
 	private List<Sala> salas;
 	
-	@ManyToMany(mappedBy = "alunos")
-	private List<Instituicao> instituicoes;
+	@ManyToMany
+	@JoinTable(
+			name="instituicoesA",
+			joinColumns=@JoinColumn(name="aluno_id"),
+			inverseJoinColumns=@JoinColumn(name="instituicao_id")
+			)
+	private Set<Instituicao> instituicoesA;
 
 	
 
@@ -52,13 +59,14 @@ public class Aluno extends Usuario{
 		this.salas = salas;
 	}
 
-	public List<Instituicao> getInstituicoes() {
-		return instituicoes;
+	public Set<Instituicao> getInstituicoesA() {
+		return instituicoesA;
 	}
 
-	public void setInstituicoes(List<Instituicao> instituicoes) {
-		this.instituicoes = instituicoes;
+	public void setInstituicoesA(Set<Instituicao> instituicoesA) {
+		this.instituicoesA = instituicoesA;
 	}
+
 	
 	
 }

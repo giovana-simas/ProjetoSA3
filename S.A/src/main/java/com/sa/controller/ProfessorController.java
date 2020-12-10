@@ -103,7 +103,7 @@ public class ProfessorController {
 //			verifica o usuario logado e aplica a instancia de conferencia(neste caso é o email do usuario logado) na variavel "email"
 			email = SecurityContextHolder.getContext().getAuthentication().getName();
 			professor = professorRepository.findByEmail(email);
-			model.addAttribute("instituicoes", instituicaoRepository.findByProfessores(professor));
+			model.addAttribute("instituicoes", instituicaoRepository.findByProfessoresI(professor));
 
 			
 			return "/professor/instituicao";

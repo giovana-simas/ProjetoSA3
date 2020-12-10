@@ -21,25 +21,22 @@
             <table class="table table-striped">
                 <thead class="thead-dark">
                     <tr>
-                        <th>Cód</th>
                         <th>Nome</th>
                     </tr>
                 </thead>
 
                 <tbody>
-                    <tr th:each="instituicao : ${instituicoes}">
-                        <td th:text="${instituicao.id}"></td>
-                        <td th:text="${instituicao.nome}"></td>
+                    <tr th:each="sala : ${salas}">
+                        <td th:text="${sala.nome}"></td>
                     </tr>
                 </tbody>
 
             </table>
 
         </div>
-
         <div class="fab" >
-            <a onclick="window.location.href='/professor/addinstituicao'" class="myButton">+</a>
- 
+            <a onclick="window.location.href='/diretor/addsala'" class="myButton">+</a>
+            <a onclick="window.location.href='/diretor/instituicao'" class="myButton">voltar</a>
          
            
         </div>

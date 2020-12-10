@@ -27,8 +27,13 @@ public class Professor extends Usuario{
 	@ManyToMany(mappedBy = "professores")
 	private List<Sala> salas;
 	
-	@ManyToMany(mappedBy = "professores")  
-	private List<Instituicao> instituicao;
+	@ManyToMany
+	@JoinTable(
+			name="instituicaoP",
+			joinColumns=@JoinColumn(name="professor_id"),
+			inverseJoinColumns=@JoinColumn(name="instituicao_id")
+			)   
+	private List<Instituicao> instituicaoP;
 
 	
 
@@ -48,13 +53,15 @@ public class Professor extends Usuario{
 		this.salas = salas;
 	}
 
-	public List<Instituicao> getInstituicao() {
-		return instituicao;
+	public List<Instituicao> getInstituicaoP() {
+		return instituicaoP;
 	}
 
-	public void setInstituicao(List<Instituicao> instituicao) {
-		this.instituicao = instituicao;
+	public void setInstituicaoP(List<Instituicao> instituicaoP) {
+		this.instituicaoP = instituicaoP;
 	}
+
+	
 
 	
 	

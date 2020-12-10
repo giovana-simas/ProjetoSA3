@@ -12,8 +12,11 @@ import com.sa.model.Usuario;
 
 public interface InstituicaoRepository extends JpaRepository<Instituicao, Long>{
 	
-	public List<Instituicao> findByAlunos(Aluno aluno);
-	public List<Instituicao> findByDiretor(Diretor diretor);
-	public List<Instituicao> findByProfessores(Professor professor);
+	public List<Instituicao> findByAlunosINot(Aluno aluno);
 
+	public List<Instituicao> findByAlunosI(Aluno aluno);
+	public List<Instituicao> findByDiretor(Diretor diretor);
+	public List<Instituicao> findByProfessoresI(Professor professor);
+	public Instituicao findById(int id);
+	
 }

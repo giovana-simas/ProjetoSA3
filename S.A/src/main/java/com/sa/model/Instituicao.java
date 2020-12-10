@@ -42,21 +42,11 @@ public class Instituicao {
 	@JoinColumn(name="diretor_id", referencedColumnName = "id")    
 	private Diretor diretor;
 	
-	@ManyToMany
-	@JoinTable(
-			name="instituicao_professor",
-			joinColumns=@JoinColumn(name="instituicao_id"),
-			inverseJoinColumns=@JoinColumn(name="professor_id")
-			)   
-	private List<Professor> professores;
+	@ManyToMany(mappedBy = "instituicaoP")  
+	private List<Professor> professoresI;
 	
-	@ManyToMany
-	@JoinTable(
-			name="instituicao_aluno",
-			joinColumns=@JoinColumn(name="instituicao_id"),
-			inverseJoinColumns=@JoinColumn(name="aluno_id")
-			)
-	private List<Aluno> alunos;
+	@ManyToMany(mappedBy = "instituicoesA")
+	private List<Aluno> alunosI;
 	
 	
 
@@ -109,20 +99,24 @@ public class Instituicao {
 		this.numeroContato = numeroContato;
 	}
 
-	public List<Professor> getProfessores() {
-		return professores;
+	
+
+	
+
+	public List<Professor> getProfessoresI() {
+		return professoresI;
 	}
 
-	public void setProfessores(List<Professor> professores) {
-		this.professores = professores;
+	public void setProfessoresI(List<Professor> professoresI) {
+		this.professoresI = professoresI;
 	}
 
-	public List<Aluno> getAlunos() {
-		return alunos;
+	public List<Aluno> getAlunosI() {
+		return alunosI;
 	}
 
-	public void setAlunos(List<Aluno> alunos) {
-		this.alunos = alunos;
+	public void setAlunosI(List<Aluno> alunosI) {
+		this.alunosI = alunosI;
 	}
 
 	public List<Sala> getSalas() {

@@ -116,15 +116,33 @@ public class AlunoController {
 	
 	@GetMapping("/aluno/instituicao")
 	public String alunoInstituicao(Model model) {
+
+		
 		String email = "";
 		Aluno aluno;
 		
 //		verifica o usuario logado e aplica a instancia de conferencia(neste caso é o email do usuario logado) na variavel "email"
 		email = SecurityContextHolder.getContext().getAuthentication().getName();
 		aluno = alunoRepository.findByEmail(email);
-		model.addAttribute("instituicoes", instituicaoRepository.findByAlunos(aluno));
+		model.addAttribute("instituicoes", instituicaoRepository.findByAlunosI(aluno));
 
 		
 		return "/aluno/instituicao";
 	}
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
 }
