@@ -20,31 +20,29 @@
     <body background="/src/back.png" onload="">
     
     
-		
+        
        
 		
         <div >
-            <form th:action="@{/professor/insertinstituicao}" th:object="${professor}" method="POST">
-
-            
+            <form th:action="|@{/professor/insertsala/} + ${instituicao.id}|" th:object="${professor}" method="POST">
+  
                 <input id="editId" type="text" placeholder="&#32 ID" class="css-email" th:field="${professor.id}" readonly hidden />
                 <input id="editNome" type="text" placeholder="&#32 NOME" class="css-email" th:field="${professor.nome}" readonly hidden />
                 <input id="editEmail" type="text" placeholder="&#32 E-MAIL" class="css-email" th:field="${professor.email}" readonly hidden/>
                 <input id="editSenha" type="text" placeholder="&#32 SENHA" class="css-email" th:field="${professor.senha}" readonly hidden />
                 <input id="editPermissoes" type="text" placeholder="&#32 PERMISSÃO" class="css-email" th:field="${professor.permissoes}" readonly hidden />
-                <input id="editsalas" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${professor.salaP}" readonly hidden />
+                            
+                <input id="editsalas" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${professor.instituicaoP}" readonly hidden />
                 <input id="editmateria" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${professor.materiasLecionadas}" readonly hidden />
                
-                <!--<input type="text" placeholder="&#32 id" class="css-email" th:field="${id}" required />-->
-                    <div class="form-group">
-                <select class="form-control" th:field="*{instituicaoP}" >
-                   <option th:each="instituicaoP : ${instituicoes}" th:value="${instituicaoP.id}" th:text="${instituicaoP.nome}"></option>
+            <div class="form-group">
+                <select class="form-control" th:field="*{salaP}"  required>
+                   <option th:each="salaP : ${salas}" th:value="${salaP.id}" th:text="${salaP.nome}"></option>
                 </select>
+            </div>
             <button id="salvar" type="submit" class="myButton">CADASTRA-SE</button>
-
-
             </form>
-            <button type="button" onclick="window.location.href='/professor/instituicao'" class="myButton">Voltar</button>
+            <button type="button" th:onclick="|window.location.href='/professor/sala/' + ${instituicao.id}|" class="myButton">Voltar</button>
 
             
         </div>

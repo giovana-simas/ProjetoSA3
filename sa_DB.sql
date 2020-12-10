@@ -40,9 +40,8 @@ end $$
 
 delimiter ;
 
-select * from instituicao_professor;
-select * from instituicao;
-
+select * from salaP;
+select * from sala;
 select * from usuario;
 select * from permissao;
 select * from usuario_permissao;

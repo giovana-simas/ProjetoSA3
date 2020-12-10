@@ -24,8 +24,14 @@ public class Professor extends Usuario{
 			)
 	private List<Materia> materiasLecionadas;
 	
-	@ManyToMany(mappedBy = "professores")
-	private List<Sala> salas;
+
+	@ManyToMany
+	@JoinTable(
+			name="salaP",
+			joinColumns=@JoinColumn(name="professor_id"),
+			inverseJoinColumns=@JoinColumn(name="sala_id")
+			) 
+	private List<Sala> salaP;
 	
 	@ManyToMany
 	@JoinTable(
@@ -45,12 +51,14 @@ public class Professor extends Usuario{
 		this.materiasLecionadas = materiasLecionadas;
 	}
 
-	public List<Sala> getSalas() {
-		return salas;
+	
+
+	public List<Sala> getSalaP() {
+		return salaP;
 	}
 
-	public void setSalas(List<Sala> salas) {
-		this.salas = salas;
+	public void setSalaP(List<Sala> salaP) {
+		this.salaP = salaP;
 	}
 
 	public List<Instituicao> getInstituicaoP() {

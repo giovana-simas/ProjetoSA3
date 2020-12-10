@@ -1,19 +1,25 @@
 package com.sa.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.sa.model.Aluno;
+import com.sa.model.Instituicao;
 import com.sa.model.Professor;
+import com.sa.model.Sala;
 import com.sa.repository.AlunoRepository;
 import com.sa.repository.InstituicaoRepository;
 import com.sa.repository.PermissaoRepository;
 import com.sa.repository.ProfessorRepository;
+import com.sa.repository.SalaRepository;
 
 @Controller
 public class ProfessorController {
@@ -31,6 +37,9 @@ public class ProfessorController {
 		
 		@Autowired
 		InstituicaoRepository instituicaoRepository;
+		
+		@Autowired
+		SalaRepository salaRepository;
 		
 		//incapsula e envia informação e é chamado atravez do metodo "/usuario/save"
 		@PostMapping("/professor/save")
@@ -109,5 +118,67 @@ public class ProfessorController {
 			return "/professor/instituicao";
 		}
 		
+		@GetMapping("/professor/sala/{id}")
+		public String salaProfessor(Model model,@PathVariable long id) {
+			
+			Instituicao instituicao = instituicaoRepository.findById(id);
+			System.out.println("chegou aqui" );
+			//verifica o usuario logado e aplica a instancia de conferencia(neste caso é o email do usuario logado) na variavel "email"
+			
+			model.addAttribute("salas", salaRepository.findByInstituicao(instituicao));
+			model.addAttribute("instituicao", instituicao);
+			
+			
+			return "/professor/sala";
+		}
 		
+		
+		@GetMapping("/professor/addsala/{id}")
+		public String addProfessor(Model model,@PathVariable long id) {
+			
+			String email = "";
+			Professor professor;
+			Instituicao instituicao = instituicaoRepository.findById(id);
+//			verifica o usuario logado e aplica a instancia de conferencia(neste caso é o email do usuario logado) na variavel "email"
+			email = SecurityContextHolder.getContext().getAuthentication().getName();
+			professor = professorRepository.findByEmail(email);
+			
+			System.out.println("id: " + id);
+			System.out.println("id: " + instituicao);
+			
+			model.addAttribute("salas", salaRepository.findByInstituicao(instituicao));
+			model.addAttribute("instituicao", instituicao);
+			model.addAttribute("professor", professor);
+			System.out.println("salas: " + salaRepository.findByInstituicao(instituicao));
+			return "/professor/addsala";
+		}
+		
+		
+		
+		
+		@PostMapping("/professor/insertsala/{id}")
+		public String insertSalaProfessor(Sala sala,Professor professor, @PathVariable int id) {
+			
+			
+			String email;
+			List<Sala> salaAux;
+			
+			email = SecurityContextHolder.getContext().getAuthentication().getName();
+			System.out.println(email);
+			salaAux = professorRepository.findByEmail(email).getSalaP();
+
+			try {
+				salaAux.addAll(professor.getSalaP());
+				professor.setSalaP(salaAux);
+				System.out.println(professorRepository.save(professor));
+				
+			} catch (Exception e) {
+				System.out.println("error: " + e);
+			}
+			//instituicao = instituicaoRepository.findById(id)
+			
+			
+			return "redirect:/professor/sala/" + id;
+			
+		}
 }
