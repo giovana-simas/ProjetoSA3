@@ -19,17 +19,17 @@
             <div>
                 <img id="logo" th:src="@{/src/logo.png}">
             </div>
-            <div id=botao1>
-                <ul class="main-nav js--main-nav">
-                    <li><a th:href="@{/login}" onclick="window.location.href='/login/'+false" class="myButton" id="">ENTRAR</a></li>
-                    <li><a th:href="@{/aluno/cadastroAluno/0}" class="myButton" id="">CADASTRAR ALUNO</a></li>
-                    <li><a th:href="@{/diretor/cadastroDiretor/0}" class="myButton" id="">CADASTRAR DIRETOR</a></li>
-                    <li><a th:href="@{/professor/cadastroProfessor/0}" class="myButton" id="">CADASTRAR PROFESSOR</a></li>
-                </ul>
-                <a class="menu-mobile js--nav-icon"> 
-                    <i class="fas fa-times fa-2x"></i
-                  ></a>
-            </div>
+                <div id=botao1>
+                    <a class="menu-mobile js--nav-icon"> 
+                        <i class="fas fa-times fa-2x"></i>
+                    </a>
+                    <ul class="main-nav js--main-nav">
+                        <li><a th:href="@{/login}" onclick="window.location.href='/login/'+false" class="myButton" id="">ENTRAR</a></li>
+                        <li><a th:href="@{/aluno/cadastroAluno/0}" class="myButton" id="">CADASTRAR ALUNO</a></li>
+                        <li><a th:href="@{/diretor/cadastroDiretor/0}" class="myButton" id="">CADASTRAR DIRETOR</a></li>
+                        <li><a th:href="@{/professor/cadastroProfessor/0}" class="myButton" id="">CADASTRAR PROFESSOR</a></li>
+                    </ul>
+                </div>
         </div>
 
         <div class="container-inicial-info">

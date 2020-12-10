@@ -70,7 +70,10 @@ p{
 }
 
 #botao1{
-    left: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 #botao2{
     left: 670px;
@@ -88,6 +91,15 @@ p{
     .menu-mobile {
         display: inline !important;
     }
+    .main-nav{
+        flex-direction: column;
+        display: flex;
+    }
+}
+@media screen and (min-width: 1245px){
+    .main-nav {
+        display: flex !important;
+    }
 }
 @media screen and (max-width: 934px){
     .container-inicial-info{
@@ -101,10 +113,12 @@ p{
 .menu-mobile {
     display: none;
 }
-
 .main-nav {
     display: flex;
-  }
-  li {
+}
+li{
     list-style-type: none;
-  }
+}
+i{
+    color: rgb(255, 160, 113);
+}
