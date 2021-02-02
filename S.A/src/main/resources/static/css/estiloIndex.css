@@ -1,4 +1,6 @@
-
+body{
+    background-color: #F0FAF7;
+}
 .myButton {
    margin: 0px 30px 0px 30px;
    padding-top: 20px;
@@ -9,34 +11,40 @@
    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .myButton:hover {
-	color: #ff9966;
+	color: #7DA2BE;
 }
 
-#fundo{
-    margin-top: 80px;
-}
-
-h1{
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 45px;
-    color: #7994CB;
-    z-index: 1;
-    margin: 0;
-    margin-top: 55px;
-}
-p{
-    margin-top: 15px;
-    margin-left: 50px;
-    margin-bottom: 0px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    z-index: 2;
-    width: 450px;
-}
 
 .container-inicial-info{
     display: flex;
     align-items: center;
     justify-content: space-around;
+}
+
+#image{
+    margin-top: 98px;
+    margin-left: 200px;
+    position: relative;
+}
+h1{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 180px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 80px;
+    color: #36597B;
+}
+p{
+    margin-top: 0px;
+    margin-bottom: 200px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18px;
+    margin-left: 185px;
+}
+.onda{
+    margin-top: 305px;
+    position: absolute;
+    z-index: 9999;
 }
 
 .container-inicial{
@@ -45,27 +53,8 @@ p{
     align-items: center;
 }
 
-.fazemos {
-	background-color:#e6a886;
-	border-radius:28px;
-	border:1px solid #b8b8b8;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:17px;
-	padding:10px 31px;
-	text-decoration:none;
-    margin-top: 100px;
-}
-.fazemos:hover {
-	background-color:#ff9966;
-}
-.fazemos:active {
-	position:relative;
-	top:1px;
-}
 #logo{
+    margin-top: 25px;
     margin-left: 50px;
 }
 

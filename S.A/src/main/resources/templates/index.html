@@ -15,6 +15,8 @@
 
     </head>
     <body>
+
+
         <div class="container-inicial">
             <div>
                 <img id="logo" th:src="@{/src/logo.png}">
@@ -32,23 +34,40 @@
                 </div>
         </div>
 
-        <div class="container-inicial-info">
-            <div class="container-texto-apresentacao">
-                <h1>Do questionamento, <br> ao entendimento.</h1>
-                <p>Lorem Ipsum is simply dummy text of the printing and<br>
-                    typesetting industry. Lorem Ipsum has been the industry's <br>
-                    standard dummy text ever since the 1500s, when an unknown printer
-                    took a galley of type.</p>
 
-                    <a onclick="fazemos()" href="#" class="fazemos">O que somos?</a>
-            </div>
+
+        <div class="container-inicial-info">
 
             <div>
-                <img id="fundo" th:src="@{/src/fundoo.jpg}">
+                <h1>Do&nbsp;questionamento,<br>ao&nbsp;entendimento.</h1>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br>
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,<br>
+                when an unknown printer took a galley of type.</p>
+            </div>
+            <div>
+
+                <img id="image" th:src="@{/src/imageindex.png}">
 
             </div>
-        </div>
 
+            <svg class="onda" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#7DA2BE" fill-opacity="1" 
+                d="M0,288L60,256C120,224,240,160,360,122.7C480,85,600,75,720,106.7C840,139,960,213,1080,224C1200,235,1320,181,1380,154.7L1440,
+                128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+
+                <path fill="#36597B" fill-opacity="1" d="M0,64L60,74.7C120,85,240,107,360,144C480,181,600,235,720,224C840,213,960,139,1080,
+                101.3C1200,64,1320,64,1380,64L1440,64L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,
+                360,320C240,320,120,320,60,320L0,320Z"></path>
+                </svg>
+
+                <div class="info"> </div>
+
+            </div> 
+
+
+
+
+        
         <form th:action="@{/logout}" method="post" th:hidden="true" name="logoutForm">
             <input type="submit" value="Logout" />
         </form>
