@@ -15,11 +15,24 @@
      position: absolute;
      z-index: 1;
  }
-#personagem{
+#subtitulo{
     z-index: 9999;
     position: relative;
     margin-top: 200px;
-    margin-left: 200px;
+    margin-left: 1055px;
+    margin-bottom: 0px;
+    color: #ffffff;
+    font-size: 80px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+#tex{
+    z-index: 9999;
+    position: relative;
+    margin-top: 35px;
+    margin-left: 1058px;
+    color: #ffffff;
+    font-size: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
  
  .container-inicial-info{
