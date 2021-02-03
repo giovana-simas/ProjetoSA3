@@ -1,116 +1,122 @@
 .myButton {
-   margin: 0px 30px 0px 30px;
-   padding-top: 20px;
-   color: #424242;
-   text-decoration: none;
-   left: 200px;
-   display: inline-block;
-   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-.myButton:hover {
-	color: #7DA2BE;
-}
-#onda{
-    margin-top: 900px;
-    position: absolute;
+    margin: 0px 30px 0px 30px;
+    padding-top: 20px;
+    color: #424242;
+    text-decoration: none;
+    left: 200px;
+    display: inline-block;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ }
+ .myButton:hover {
+     color: #7DA2BE;
+ }
+ #onda{
+     margin-top: 900px;
+     position: absolute;
+     z-index: 1;
+ }
+#personagem{
     z-index: 9999;
-}
-
-.container-inicial-info{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-
-#image{
-    margin-top: 100px;
-    margin-left: 150px;
     position: relative;
+    margin-top: 200px;
+    margin-left: 200px;
 }
-h1{
-    margin-top: 0px;
-    margin-bottom: 0px;
-    margin-left: 180px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 80px;
-    color: #36597B;
-}
-p{
-    margin-top: 0px;
-    margin-bottom: 200px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 18px;
-    margin-left: 185px;
-}
-
-.info{
-    margin: 0%;
-    background: #36597B;
-    height: 1000px;
-    width: 2000px;
-}
-
-.container-inicial{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-#logo{
-    margin-top: 25px;
-    margin-left: 50px;
-}
-
-#botao1{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-#botao2{
-    left: 670px;
-}
-.container-texto-apresentacao{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center
-}
-@media screen and (max-width: 1245px){
-    #fundo{
-        width: 500px;
-    }
-    .menu-mobile {
-        display: inline !important;
-    }
-    .main-nav{
-        flex-direction: column;
-        display: flex;
-    }
-}
-@media screen and (min-width: 1245px){
-    .main-nav {
-        display: flex !important;
-    }
-}
-@media screen and (max-width: 934px){
-    .container-inicial-info{
-        flex-direction: column-reverse;
-    }
-    #fundo{
-        width: 300px;
-    }
-    
-}
-.menu-mobile {
-    display: none;
-}
-.main-nav {
-    display: flex;
-}
-li{
-    list-style-type: none;
-}
-i{
-    color: rgb(255, 160, 113);
-}
+ 
+ .container-inicial-info{
+     display: flex;
+     align-items: center;
+     justify-content: space-around;
+ }
+ 
+ #image{
+     margin-top: 100px;
+     margin-left: 150px;
+     position: relative;
+ }
+ h1{
+     margin-top: 0px;
+     margin-bottom: 0px;
+     margin-left: 180px;
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     font-size: 80px;
+     color: #36597B;
+ }
+ p{
+     margin-top: 0px;
+     margin-bottom: 200px;
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     font-size: 18px;
+     margin-left: 185px;
+ }
+ 
+ .info{
+     margin: 0%;
+     background: #36597B;
+     height: 1000px;
+     width: 2000px;
+ }
+ 
+ .container-inicial{
+     display: flex;
+     justify-content: space-around;
+     align-items: center;
+ }
+ 
+ #logo{
+     margin-top: 25px;
+     margin-left: 50px;
+ }
+ 
+ #botao1{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
+ }
+ #botao2{
+     left: 670px;
+ }
+ .container-texto-apresentacao{
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center
+ }
+ @media screen and (max-width: 1245px){
+     #fundo{
+         width: 500px;
+     }
+     .menu-mobile {
+         display: inline !important;
+     }
+     .main-nav{
+         flex-direction: column;
+         display: flex;
+     }
+ }
+ @media screen and (min-width: 1245px){
+     .main-nav {
+         display: flex !important;
+     }
+ }
+ @media screen and (max-width: 934px){
+     .container-inicial-info{
+         flex-direction: column-reverse;
+     }
+     #fundo{
+         width: 300px;
+     }
+     
+ }
+ .menu-mobile {
+     display: none;
+ }
+ .main-nav {
+     display: flex;
+ }
+ li{
+     list-style-type: none;
+ }
+ i{
+     color: rgb(255, 160, 113);
+ }
