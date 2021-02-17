@@ -18,8 +18,8 @@
 #subtitulo{
     z-index: 9999;
     position: relative;
-    margin-top: 200px;
-    margin-left: 1055px;
+    margin-top: 150px;
+    margin-left: 1060px;
     margin-bottom: 0px;
     color: #ffffff;
     font-size: 80px;
@@ -42,9 +42,10 @@
  }
  
  #image{
-     margin-top: 100px;
+     margin-top: 50px;
      margin-left: 150px;
      position: relative;
+     z-index: 9999;
  }
  h1{
      margin-top: 0px;
