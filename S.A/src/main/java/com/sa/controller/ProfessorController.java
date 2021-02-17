@@ -68,7 +68,7 @@ public class ProfessorController {
 					//salva o usuario criado anteriormente em "IndexController" agora com informações preenchidas no banco e mostra as informações salvas no console para conferencia e manutenção
 					System.out.print(professorRepository.save(professor));
 					//seta a variavel "path" para que redirecione para tela de cadastro e mostre se o cadastro foi salvo ou nao
-					path  = "redirect:/professor/cadastroProfessor" + salvo;
+					path  = "redirect:/professor/cadastroProfessor/" + salvo;
 					}else {
 						System.out.print(professor);
 						//salva a edição do usuario feito na tela perfil em um usuario ja existente
@@ -94,7 +94,7 @@ public class ProfessorController {
 				//caso haja um usuario logado, ou seja "email!="anonymousUser"" ele mostrara uma mensagem de erro na tela de perfil.
 				if(email=="anonymousUser") {
 					//seta a variavel "path" para que redirecione para tela de cadastro e mostre se o cadastro foi salvo ou nao
-					path  = "redirect:/professor/cadastroProfessor" + salvo;
+					path  = "redirect:/professor/cadastroProfessor/" + salvo;
 				}else {
 					//seta a variavel "path" para que redirecione para tela de perfil e mostre se a edição foi salva ou nao
 					path  = "redirect:/professor/perfil/" + salvo;
@@ -180,6 +180,14 @@ public class ProfessorController {
 			
 			return "redirect:/professor/sala/" + id;
 			
+		}
+		
+		@GetMapping("professor/perfil/{salvo}")
+		public String perfilProfessor(Model model, @PathVariable int salvo ) {
+			String email = SecurityContextHolder.getContext().getAuthentication().getName();
+			model.addAttribute("professor", professorRepository.findByEmail(email));
+			
+			return "/professor/perfil";
 		}
 		
 }

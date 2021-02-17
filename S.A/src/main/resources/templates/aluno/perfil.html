@@ -29,14 +29,14 @@
                 <input id="editEmail" type="text" placeholder="&#32 E-MAIL" class="css-email" th:field="${aluno.email}" readonly />
                 <input id="editSenha" type="text" placeholder="&#32 SENHA" class="css-email" th:field="${aluno.senha}" readonly hidden />
                 <input id="editPermissoes" type="text" placeholder="&#32 PERMISSÃO" class="css-email" th:field="${aluno.permissoes}" readonly hidden />
-                <input id="editAjuda" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${aluno.querAjudar}" readonly hidden />
+                <input id="editAjuda" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${aluno.querAjudar}" readonly  />
                 <input id="editinstituicoes" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${aluno.instituicoesA}" readonly hidden />
-                <input id="editsalas" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${aluno.salas}" readonly hidden />
-                <input id="editmateria" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${aluno.materiaAluno}" readonly hidden />
+                <input id="editsalas" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${aluno.salasA}" readonly hidden />
+                <input id="editmateria" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${aluno.materiaAluno}" readonly />
                
 
             <button id="editSalvar" type="submit"  class="myButton" disabled>SALVAR</button>
-            </form>
+            </form><!---->
             
             <form th:action="|@{/logout}|" class="navbar-from" method="POST">
             

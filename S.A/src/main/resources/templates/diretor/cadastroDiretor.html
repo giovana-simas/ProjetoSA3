@@ -20,7 +20,12 @@
     <body background="/src/back.png">
     
     
-		
+        <div th:if="${salvo} == 1" class="alert alert-success">
+            Usuário salvo com sucesso
+        </div>
+        <div th:if="${salvo} == 2" class="alert alert-danger">
+            Usuário não salvo
+        </div>	
        
 		
         <div >
@@ -35,6 +40,7 @@
 
 
             </form>
+            
             <button type="button" onclick="window.location.href='/login/'" class="myButton">LOGIN</button>
 
             

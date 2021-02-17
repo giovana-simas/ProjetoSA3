@@ -96,7 +96,7 @@ public class DiretorController {
 				//salva o usuario criado anteriormente em "IndexController" agora com informações preenchidas no banco e mostra as informações salvas no console para conferencia e manutenção
 				System.out.print(diretorRepository.save(diretor));
 				//seta a variavel "path" para que redirecione para tela de cadastro e mostre se o cadastro foi salvo ou nao
-				path  = "redirect:/cadastroDiretor/" + salvo;
+				path  = "redirect:/diretor/cadastroDiretor/" + salvo;
 				}else {
 					System.out.print(diretor);
 					//salva a edição do usuario feito na tela perfil em um usuario ja existente
@@ -122,7 +122,7 @@ public class DiretorController {
 			//caso haja um usuario logado, ou seja "email!="anonymousUser"" ele mostrara uma mensagem de erro na tela de perfil.
 			if(email=="anonymousUser") {
 				//seta a variavel "path" para que redirecione para tela de cadastro e mostre se o cadastro foi salvo ou nao
-				path  = "redirect:/cadastroDiretor/" + salvo;
+				path  = "redirect:diretor/cadastroDiretor/" + salvo;
 			}else {
 				//seta a variavel "path" para que redirecione para tela de perfil e mostre se a edição foi salva ou nao
 				path  = "redirect:/diretor/perfil/" + salvo;
@@ -135,13 +135,13 @@ public class DiretorController {
 	//pega uma informação incapsulada e é chamado atravez do metodo "/usuario/perfil/{salvo}"
 	@GetMapping("/diretor/perfil/{salvo}")
 	//cria o metodo de redirecionamento para a tela de perfil com um model para pegar as informações do usuario logado e enviar para tela
-	public String perfilUsuario(Model model,@PathVariable int salvo) {
+	public String diretorPerfil(Model model,@PathVariable int salvo) {
 		//pega o email do usuario logado e quarda na variavel "email"
 		String email = SecurityContextHolder.getContext().getAuthentication().getName();
 		//adiciona um atributo no model pegando a informação do repositoria ultilizando o email logado
 		//"usuarioRepository.findByEmail(email)" metodo criado dentro de usuarioRepository para encontrar usuarios atravez do email
 		//as informações deste model podem ser puxadas atravez de seu nome ("usuario") e pode ser ultilizada com um th:object="usuario"
-		model.addAttribute("aluno", usuarioRepository.findByEmail(email));
+		model.addAttribute("diretor", usuarioRepository.findByEmail(email));
 		//redireciona para tela de perfil
 		return "/diretor/perfil";
 		
@@ -211,5 +211,6 @@ public class DiretorController {
 		//redireciona para a tela setada por path
 		return path;
 	}
+
 	
 }

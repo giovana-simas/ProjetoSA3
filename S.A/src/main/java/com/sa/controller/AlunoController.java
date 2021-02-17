@@ -70,7 +70,7 @@ public class AlunoController {
 				//salva o usuario criado anteriormente em "IndexController" agora com informações preenchidas no banco e mostra as informações salvas no console para conferencia e manutenção
 				System.out.print(alunoRepository.save(aluno));
 				//seta a variavel "path" para que redirecione para tela de cadastro e mostre se o cadastro foi salvo ou nao
-				path  = "redirect:/aluno/cadastroAluno" + salvo;
+				path  = "redirect:/aluno/cadastroAluno/" + salvo;
 				}else {
 					System.out.print(aluno);
 					//salva a edição do usuario feito na tela perfil em um usuario ja existente
@@ -96,7 +96,7 @@ public class AlunoController {
 			//caso haja um usuario logado, ou seja "email!="anonymousUser"" ele mostrara uma mensagem de erro na tela de perfil.
 			if(email=="anonymousUser") {
 				//seta a variavel "path" para que redirecione para tela de cadastro e mostre se o cadastro foi salvo ou nao
-				path  = "redirect:/aluno/cadastroAluno" + salvo;
+				path  = "redirect:/aluno/cadastroAluno/" + salvo;
 			}else {
 				//seta a variavel "path" para que redirecione para tela de perfil e mostre se a edição foi salva ou nao
 				path  = "redirect:/aluno/perfil/" + salvo;
