@@ -11,4 +11,5 @@ import com.sa.model.Sala;
 public interface SalaRepository extends JpaRepository<Sala,Long>{
 
 	public List<Sala> findByInstituicao(Instituicao instituicao);
+	public Sala findById(long id);
 }

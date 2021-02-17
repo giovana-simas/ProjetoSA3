@@ -212,5 +212,18 @@ public class DiretorController {
 		return path;
 	}
 
+	@GetMapping("/diretor/salaentrou/{id}")
+	public String salaentrou(@PathVariable long id, Model model ) {
+		
+		Instituicao instituicao = instituicaoRepository.findById(id);
+		Sala sala = salaRepository.findById(id);
+		
+		
+		model.addAttribute("instituicao", instituicao);
+		model.addAttribute("alunos", alunoRepository.findBySalasA(sala));
+		model.addAttribute("professores", professorRepository.findBySalaP(sala));
+		
+		return "/diretor/salaentrou";
+	}
 	
 }

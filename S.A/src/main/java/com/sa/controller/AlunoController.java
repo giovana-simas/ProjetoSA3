@@ -51,7 +51,8 @@ public class AlunoController {
 		int salvo = 0;
 		String path  = "";
 		String email = "";
-	
+		System.out.println("chamou save");
+
 		
 //		verifica o usuario logado e aplica a instancia de conferencia(neste caso é o email do usuario logado) na variavel "email"
 		email = SecurityContextHolder.getContext().getAuthentication().getName();
@@ -61,6 +62,8 @@ public class AlunoController {
 			if(aluno != null) {
 				//seta a variavel salvo para 1 onde vai indicar que o usuario foi salvo atravez de um model
 				salvo = 1;
+				System.out.println("passou pelo try");
+
 				//confere se há um usuario logado ou se ele esta em "logout" ou seja usuario anonimo.
 				//caso seja anonimo o usuario será salvo como novo usuario atravez da tela de cadastro.
 				//caso haja um usuario logado, ou seja "email!="anonymousUser"" ele estara editando um usuario ja existente na tela de perfil.
@@ -68,17 +71,20 @@ public class AlunoController {
 				//pega a senha cadastrada no objeto usuario, ha codifica e aplica no banco sua nova verção codificada
 				aluno.setSenha(new BCryptPasswordEncoder().encode(aluno.getSenha()));
 				//salva o usuario criado anteriormente em "IndexController" agora com informações preenchidas no banco e mostra as informações salvas no console para conferencia e manutenção
+				System.out.println("incriptou a seja e salvou o aluno novo");
+
 				System.out.print(alunoRepository.save(aluno));
 				//seta a variavel "path" para que redirecione para tela de cadastro e mostre se o cadastro foi salvo ou nao
 				path  = "redirect:/aluno/cadastroAluno/" + salvo;
 				}else {
+					System.out.println("mudou o aluno existente");
+
 					System.out.print(aluno);
 					//salva a edição do usuario feito na tela perfil em um usuario ja existente
 					System.out.print(alunoRepository.save(aluno));
 					//seta a variavel "path" para que redirecione para tela de perfil e mostre se a edição foi salva ou nao
 					path  = "redirect:/aluno/perfil/" + salvo;
 				}
-				
 			}
 		}
 		
@@ -87,6 +93,9 @@ public class AlunoController {
 		
 		//caso a tentativa falhe o erro sera salvo na variavel "e"
 		catch (Exception e) {
+			
+			System.out.println("não passou no try");
+
 			//mostra a mensagem de erro no console para conferencia e manutenção
 			System.out.print("Erro ao Salvar: " + e.getMessage());
 			//seta a variavel salvo para 2 onde vai indicar que o usuario não foi salvo atravez de um model
@@ -202,6 +211,20 @@ public class AlunoController {
 		
 		return "redirect:/aluno/sala/" + id;
 		
+	}
+	
+	@GetMapping("/aluno/salaentrou/{id}")
+	public String salaentrou(@PathVariable long id, Model model ) {
+		
+		Instituicao instituicao = instituicaoRepository.findById(id);
+		Sala sala = salaRepository.findById(id);
+		
+		
+		model.addAttribute("instituicao", instituicao);
+		model.addAttribute("alunos", alunoRepository.findBySalasA(sala));
+		model.addAttribute("professores", professorRepository.findBySalaP(sala));
+		
+		return "/aluno/salaentrou";
 	}
 	
 	

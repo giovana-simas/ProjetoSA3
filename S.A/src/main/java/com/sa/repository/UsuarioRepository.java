@@ -8,4 +8,5 @@ public interface UsuarioRepository extends JpaRepository <Usuario, Long> {
 	//procura um usuario no banco pelo seu email
 	public Usuario findByEmail(String email);
 	public Usuario deleteByEmail(String email);
+	
 }

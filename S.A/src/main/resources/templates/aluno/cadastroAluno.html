@@ -16,17 +16,17 @@
     </head>
     <img class="login" th:src="@{/src/login.png}">
         
-    <div th:if="${salvo} == 1" class="alert alert-success">
-        Usuário salvo com sucesso
-    </div>
-    <div th:if="${salvo} == 2" class="alert alert-danger">
-        Usuário não salvo
-    </div>
+   
 		 
     <body background="/src/back.png" onload="">
     
     
-		
+        <div th:if="${salvo} == 1" class="alert alert-success">
+            Usuário salvo com sucesso
+        </div>
+        <div th:if="${salvo} == 2" class="alert alert-danger">
+            Usuário não salvo
+        </div>
        
 		
         <div >

@@ -190,4 +190,19 @@ public class ProfessorController {
 			return "/professor/perfil";
 		}
 		
+		@GetMapping("/professor/salaentrou/{id}")
+		public String salaentrou(@PathVariable long id, Model model ) {
+			
+			Instituicao instituicao = instituicaoRepository.findById(id);
+			Sala sala = salaRepository.findById(id);
+			
+			
+			model.addAttribute("instituicao", instituicao);
+			model.addAttribute("alunos", alunoRepository.findBySalasA(sala));
+			model.addAttribute("professores", professorRepository.findBySalaP(sala));
+			
+			return "/professor/salaentrou";
+		}
+		
+		
 }
