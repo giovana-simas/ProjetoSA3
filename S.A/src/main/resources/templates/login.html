@@ -9,12 +9,12 @@
 
     </head>
     <body>
-        <div> 
+        <div class="container"> 
             <form th:action="@{/login}" method="POST">
-                <img class="login" th:src="@{/src/login.png}">
-                <input name="username" type="text" placeholder="&#32 E-MAIL" class="css-email" />
+                <h2>Login</h2>
+                <input name="username" type="text" placeholder="&#32 E-MAIL" class="css-email" /><br>
                 <input name="password" type="password" placeholder="&#32 PASSWORD" class="css-senha" /> <br>
-                <button type="submit" class="myButton">LOGIN</button>
+                <button type="submit" class="myButton">entrar</button>
                 
                 <p id="texto">Não possui cadastro?</p>
                 <a th:href="@{/}" class="cadastrar">clique aqui!</a>
