@@ -27,7 +27,7 @@
 
                 <tbody>
                     <tr th:each="instituicao : ${instituicoes}" >
-                        <td th:text="${instituicao.nome}" th:onclick="|window.location.href='/diretor/sala/' + ${instituicao.id} |"></td>
+                        <td th:text="${instituicao.nome}" th:onclick="|window.location.href='/diretor/listSala/' + ${instituicao.id} |"></td>
                     </tr>
                 </tbody>
 

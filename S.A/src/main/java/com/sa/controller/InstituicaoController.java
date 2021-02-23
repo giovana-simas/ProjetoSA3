@@ -70,7 +70,7 @@ public class InstituicaoController {
 //			verifica o usuario logado e aplica a instancia de conferencia(neste caso é o email do usuario logado) na variavel "email"
 			email = SecurityContextHolder.getContext().getAuthentication().getName();
 			usuario = usuarioRepository.findByEmail(email);
-			permissao = permissaoRepository.findByNome("padrao");
+			permissao = permissaoRepository.findByNome("aluno");
 	System.out.println("chegou na conferencia");
 			if(usuario.getPermissoes().contains(permissao)) {
 				path = "redirect:/aluno/instituicao";

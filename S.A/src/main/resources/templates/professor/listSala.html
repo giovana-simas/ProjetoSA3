@@ -21,28 +21,13 @@
             <table class="table table-striped">
                 <thead class="thead-dark">
                     <tr>
-                        <th>Nome professores</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <tr th:each="professor : ${professores}">
-                        <td th:text="${professor.nome}"></td>
-                    </tr>
-                </tbody>
-
-            </table>
-
-            <table class="table table-striped">
-                <thead class="thead-dark">
-                    <tr>
                         <th>Nome</th>
                     </tr>
                 </thead>
 
                 <tbody>
-                    <tr th:each="aluno : ${alunos}">
-                        <td th:text="${aluno.nome}"></td>
+                    <tr th:each="sala : ${salas}" th:onclick="|window.location.href='/professor/sala/' + ${sala.id} |">
+                        <td th:text="${sala.nome}"></td>
                     </tr>
                 </tbody>
 
@@ -50,13 +35,13 @@
 
         </div>
         <div class="fab" >
-            <a th:onclick="|window.location.href='/aluno/addsala/' + ${instituicao.id}|" class="myButton">+</a>
-            
+            <a th:onclick="|window.location.href='/professor/addsala/' + ${instituicao.id}|" class="myButton">+</a>
+            <a onclick="window.location.href='/professor/perfil/0'" class="myButton">perfil</a>
          
            
         </div>
 
-        <button type="button" th:onclick="|window.location.href='/aluno/sala/' + ${instituicao.id}|" class="myButton">Voltar</button>
+        <a onclick="window.location.href='/professor/instituicao'" class="myButton">voltar</a>
         <script th:src="@{/js/jquery-3.5.1.min.js}"></script>
         <script th:src="@{/bootstrap-4.5.2/js/bootstrap.min.js}"></script>
         <script src="/js/script.js"></script>
