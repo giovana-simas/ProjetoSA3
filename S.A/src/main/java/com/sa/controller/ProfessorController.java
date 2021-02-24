@@ -181,7 +181,7 @@ public class ProfessorController {
 			
 		}
 		
-		@GetMapping("professor/perfil/{salvo}")
+		@GetMapping("/professor/perfil/{salvo}")
 		public String perfilProfessor(Model model, @PathVariable int salvo ) {
 			String email = SecurityContextHolder.getContext().getAuthentication().getName();
 			model.addAttribute("professor", professorRepository.findByEmail(email));
@@ -192,9 +192,9 @@ public class ProfessorController {
 		@GetMapping("/professor/sala/{id}")
 		public String sala(@PathVariable long id, Model model ) {
 			
-			Instituicao instituicao = instituicaoRepository.findById(id);
+
 			Sala sala = salaRepository.findById(id);
-			
+			Instituicao instituicao = instituicaoRepository.findBySalas(sala);
 			
 			model.addAttribute("instituicao", instituicao);
 			model.addAttribute("alunos", alunoRepository.findBySalasA(sala));
@@ -202,6 +202,25 @@ public class ProfessorController {
 			
 			return "/professor/sala";
 		}
-		
-		
+
+	@GetMapping("/professor/criaSala/{id}")
+	public String criaSala(Model model,@PathVariable long id) {
+
+		model.addAttribute("sala", new Sala());
+		model.addAttribute("instituicao", instituicaoRepository.findById(id));
+
+		return "/professor/criaSala";
+	}
+
+	@PostMapping("/professor/saiSala/{id}")
+	public  String saiSala(Model model, @PathVariable long id){
+
+		Instituicao instituicao = instituicaoRepository.findById(id);
+		model.addAttribute("salas", salaRepository.findByInstituicao(instituicao));
+
+
+			return "/professor/saiSala";
+	}
+
+
 }

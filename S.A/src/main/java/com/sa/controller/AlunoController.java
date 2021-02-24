@@ -207,9 +207,9 @@ public class AlunoController {
 	
 	@GetMapping("/aluno/sala/{id}")
 	public String sala(@PathVariable long id, Model model ) {
-		
-		Instituicao instituicao = instituicaoRepository.findById(id);
+
 		Sala sala = salaRepository.findById(id);
+		Instituicao instituicao = instituicaoRepository.findBySalas(sala);
 		
 		
 		model.addAttribute("instituicao", instituicao);
