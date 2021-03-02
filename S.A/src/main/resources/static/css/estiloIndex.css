@@ -18,7 +18,7 @@
 #subtitulo{
     z-index: 9999;
     position: relative;
-    margin-top: 150px;
+    margin-top: 270px;
     margin-left: 1060px;
     margin-bottom: 0px;
     color: #ffffff;
@@ -42,13 +42,12 @@
  }
  
  #image{
-     margin-top: 50px;
      margin-left: 150px;
      position: relative;
      z-index: 9999;
  }
  h1{
-     margin-top: 0px;
+     margin-top: 100px;
      margin-bottom: 0px;
      margin-left: 180px;
      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
