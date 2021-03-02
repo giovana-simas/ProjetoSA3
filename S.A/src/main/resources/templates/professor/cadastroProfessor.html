@@ -33,13 +33,8 @@
             <input type="text" placeholder="&#32 E-MAIL" class="css-email1" th:field="*{email}" required /><br>
             <input id="senha1" type="password" placeholder="&#32 SENHA" class="css-senha1" th:field="*{senha}" required /><br>
             <input id="senha2" type="password" onblur="compararSenha()" placeholder="&#32 CONFIRMAR SENHA" class="css-senha1" required /> <br>
-            <button id="salvar" type="submit" class="myButton1">CADASTRA-SE</button><br>
-            
-            <input type="text" placeholder="&#32 NOME" class="css-email" th:field="*{nome}" required />
-            <input type="text" placeholder="&#32 E-MAIL" onblur="verificaEmail() " class="css-email" th:field="*{email}" required />
-            <input id="senha1" type="password" placeholder="&#32 SENHA" class="css-senha" th:field="*{senha}" required />
-            <input id="senha2" type="password" onblur="compararSenha()" placeholder="&#32 CONFIRMAR SENHA" class="css-senha" required /> 
-            <button id="salvar" type="submit" onclick="verificaEmail() + compararSenha() " class="myButton">CADASTRA-SE</button>
+
+            <button id="salvar" type="submit" onclick="verificaEmail() + compararSenha() " class="myButton">CADASTRA-SE</button><br>
 
 
             </form> 
