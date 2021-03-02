@@ -1,7 +1,6 @@
 package com.sa.controller;
 
 import java.util.List;
-import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -11,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.sa.model.Aluno;
 import com.sa.model.Instituicao;
@@ -21,7 +19,6 @@ import com.sa.repository.InstituicaoRepository;
 import com.sa.repository.PermissaoRepository;
 import com.sa.repository.ProfessorRepository;
 import com.sa.repository.SalaRepository;
-import com.sa.repository.UsuarioRepository;
 
 @Controller
 public class AlunoController {
@@ -146,11 +143,8 @@ public class AlunoController {
 		return "/aluno/instituicao";
 	}
 
-
-	
-	
-	@GetMapping("/aluno/sala/{id}")
-	public String salaAluno(Model model,@PathVariable long id) {
+	@GetMapping("/aluno/listSala/{id}")
+	public String listSalaAluno(Model model,@PathVariable long id) {
 		
 		Instituicao instituicao = instituicaoRepository.findById(id);
 		System.out.println("chegou aqui" );
@@ -160,7 +154,7 @@ public class AlunoController {
 		model.addAttribute("instituicao", instituicao);
 		
 		
-		return "/aluno/sala";
+		return "/aluno/listSala";
 	}
 	
 	
@@ -184,9 +178,7 @@ public class AlunoController {
 		return "/aluno/addsala";
 	}
 	
-	
-	
-	
+
 	@PostMapping("/aluno/insertsala/{id}")
 	public String insertSalaAluno(Sala sala,Aluno aluno, @PathVariable int id) {
 		
@@ -209,22 +201,22 @@ public class AlunoController {
 		//instituicao = instituicaoRepository.findById(id)
 		
 		
-		return "redirect:/aluno/sala/" + id;
+		return "redirect:/aluno/listSala/" + id;
 		
 	}
 	
-	@GetMapping("/aluno/salaentrou/{id}")
-	public String salaentrou(@PathVariable long id, Model model ) {
-		
-		Instituicao instituicao = instituicaoRepository.findById(id);
+	@GetMapping("/aluno/sala/{id}")
+	public String sala(@PathVariable long id, Model model ) {
+
 		Sala sala = salaRepository.findById(id);
+		Instituicao instituicao = instituicaoRepository.findBySalas(sala);
 		
 		
 		model.addAttribute("instituicao", instituicao);
 		model.addAttribute("alunos", alunoRepository.findBySalasA(sala));
 		model.addAttribute("professores", professorRepository.findBySalaP(sala));
 		
-		return "/aluno/salaentrou";
+		return "/aluno/sala";
 	}
 	
 	

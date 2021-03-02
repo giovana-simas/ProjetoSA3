@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.sa.model.Aluno;
 import com.sa.model.Instituicao;
 import com.sa.model.Professor;
 import com.sa.model.Sala;
@@ -118,8 +117,8 @@ public class ProfessorController {
 			return "/professor/instituicao";
 		}
 		
-		@GetMapping("/professor/sala/{id}")
-		public String salaProfessor(Model model,@PathVariable long id) {
+		@GetMapping("/professor/listSala/{id}")
+		public String listSalaProfessor(Model model,@PathVariable long id) {
 			
 			Instituicao instituicao = instituicaoRepository.findById(id);
 			System.out.println("chegou aqui" );
@@ -129,7 +128,7 @@ public class ProfessorController {
 			model.addAttribute("instituicao", instituicao);
 			
 			
-			return "/professor/sala";
+			return "/professor/listSala";
 		}
 		
 		
@@ -178,11 +177,11 @@ public class ProfessorController {
 			//instituicao = instituicaoRepository.findById(id)
 			
 			
-			return "redirect:/professor/sala/" + id;
+			return "redirect:/professor/listSala/" + id;
 			
 		}
 		
-		@GetMapping("professor/perfil/{salvo}")
+		@GetMapping("/professor/perfil/{salvo}")
 		public String perfilProfessor(Model model, @PathVariable int salvo ) {
 			String email = SecurityContextHolder.getContext().getAuthentication().getName();
 			model.addAttribute("professor", professorRepository.findByEmail(email));
@@ -190,19 +189,38 @@ public class ProfessorController {
 			return "/professor/perfil";
 		}
 		
-		@GetMapping("/professor/salaentrou/{id}")
-		public String salaentrou(@PathVariable long id, Model model ) {
+		@GetMapping("/professor/sala/{id}")
+		public String sala(@PathVariable long id, Model model ) {
 			
-			Instituicao instituicao = instituicaoRepository.findById(id);
+
 			Sala sala = salaRepository.findById(id);
-			
+			Instituicao instituicao = instituicaoRepository.findBySalas(sala);
 			
 			model.addAttribute("instituicao", instituicao);
 			model.addAttribute("alunos", alunoRepository.findBySalasA(sala));
 			model.addAttribute("professores", professorRepository.findBySalaP(sala));
 			
-			return "/professor/salaentrou";
+			return "/professor/sala";
 		}
-		
-		
+
+	@GetMapping("/professor/criaSala/{id}")
+	public String criaSala(Model model,@PathVariable long id) {
+
+		model.addAttribute("sala", new Sala());
+		model.addAttribute("instituicao", instituicaoRepository.findById(id));
+
+		return "/professor/criaSala";
+	}
+
+	@PostMapping("/professor/saiSala/{id}")
+	public  String saiSala(Model model, @PathVariable long id){
+
+		Instituicao instituicao = instituicaoRepository.findById(id);
+		model.addAttribute("salas", salaRepository.findByInstituicao(instituicao));
+
+
+			return "/professor/saiSala";
+	}
+
+
 }

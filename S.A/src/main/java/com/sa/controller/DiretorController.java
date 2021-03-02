@@ -1,12 +1,7 @@
 package com.sa.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
-
+import com.sa.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -15,10 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.sa.model.Aluno;
-import com.sa.model.Diretor;
-import com.sa.model.Instituicao;
-import com.sa.model.Sala;
 import com.sa.repository.AlunoRepository;
 import com.sa.repository.DiretorRepository;
 import com.sa.repository.InstituicaoRepository;
@@ -147,8 +138,8 @@ public class DiretorController {
 		
 	}
 	
-	@GetMapping("/diretor/sala/{id}")
-	public String salaDiretor(Model model,@PathVariable long id) {
+	@GetMapping("/diretor/listSala/{id}")
+	public String listSalaDiretor(Model model,@PathVariable long id) {
 		
 		Instituicao instituicao = instituicaoRepository.findById(id);;
 		System.out.println("chegou aqui" );
@@ -159,7 +150,7 @@ public class DiretorController {
 		model.addAttribute("instituicao", instituicao);
 		System.out.println("salas: " + salaRepository.findByInstituicao(instituicao));
 		
-		return "/diretor/sala";
+		return "/diretor/listSala";
 	}
 	
 	
@@ -180,7 +171,11 @@ public class DiretorController {
 		int salvo = 0;
 		String path  = "";
 		String email ="";
+		Usuario usuario;
+		Permissao permissao;
 		email = SecurityContextHolder.getContext().getAuthentication().getName();
+		usuario = usuarioRepository.findByEmail(email);
+
 		Instituicao instituicao;
 		instituicao = instituicaoRepository.findById(id);
 		//inicia uma tentativa
@@ -191,8 +186,19 @@ public class DiretorController {
 				sala.setInstituicao(instituicao);
 				//salva o usuario criado anteriormente em "IndexController" agora com informações preenchidas no banco e mostra as informações salvas no console para conferencia e manutenção
 				System.out.print(salaRepository.save(sala));
+
+
+			permissao = permissaoRepository.findByNome("diretor");
+			if(usuario.getPermissoes().contains(permissao)) {
 				//seta a variavel "path" para que redirecione para tela de cadastro e mostre se o cadastro foi salvo ou nao
-				path  = "redirect:/diretor/sala/" + id; //+ salvo;
+				path  = "redirect:/diretor/listSala/" + id; //+ salvo;
+			}
+			permissao = permissaoRepository.findByNome("professor");
+			if(usuario.getPermissoes().contains(permissao)) {
+				//seta a variavel "path" para que redirecione para tela de cadastro e mostre se o cadastro foi salvo ou nao
+				path  = "redirect:/professor/listSala/" + id; //+ salvo;
+			}
+
 				
 			
 		}
@@ -206,24 +212,33 @@ public class DiretorController {
 			//confere se há um usuario logado ou se ele esta em "logout" ou seja usuario anonimo.
 			//caso seja anonimo mostrara uma mensagem de erro tela de cadastro.
 			//caso haja um usuario logado, ou seja "email!="anonymousUser"" ele mostrara uma mensagem de erro na tela de perfil.
-			path  = "redirect:/diretor/sala" + id; //+ salvo;
+			permissao = permissaoRepository.findByNome("diretor");
+			if(usuario.getPermissoes().contains(permissao)) {
+				//seta a variavel "path" para que redirecione para tela de cadastro e mostre se o cadastro foi salvo ou nao
+				path  = "redirect:/diretor/listSala/" + id; //+ salvo;
+			}
+			permissao = permissaoRepository.findByNome("professor");
+			if(usuario.getPermissoes().contains(permissao)) {
+				//seta a variavel "path" para que redirecione para tela de cadastro e mostre se o cadastro foi salvo ou nao
+				path  = "redirect:/professor/listSala/" + id; //+ salvo;
+			}
 		}	
 		//redireciona para a tela setada por path
 		return path;
 	}
 
-	@GetMapping("/diretor/salaentrou/{id}")
-	public String salaentrou(@PathVariable long id, Model model ) {
-		
-		Instituicao instituicao = instituicaoRepository.findById(id);
+	@GetMapping("/diretor/sala/{id}")
+	public String sala(@PathVariable long id, Model model ) {
+
 		Sala sala = salaRepository.findById(id);
+		Instituicao instituicao = instituicaoRepository.findBySalas(sala);
 		
 		
 		model.addAttribute("instituicao", instituicao);
 		model.addAttribute("alunos", alunoRepository.findBySalasA(sala));
 		model.addAttribute("professores", professorRepository.findBySalaP(sala));
 		
-		return "/diretor/salaentrou";
+		return "/diretor/sala";
 	}
 	
 }
