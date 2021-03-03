@@ -33,18 +33,16 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter{
 			.antMatchers("/aluno/perfil/**").hasRole("aluno")
 			.antMatchers("/diretor/perfil/**").hasRole("diretor")
 			.antMatchers("/professor/perfil/**").hasRole("professor")
-			.antMatchers("/professor/instituicao/**").hasRole("professor")
-			.antMatchers("/diretor/instituicao/**").hasRole("diretor")
-			.antMatchers("/aluno/instituicao/**").hasRole("aluno")
-			.antMatchers("/instituicao/**").permitAll()
-			.antMatchers("/diretor/addiInstituicao/**").hasRole("diretor")
-			.antMatchers("/diretor/add/**").hasRole("diretor")
+				//permissoes instituicao
+			.antMatchers("/instituicao/listInstituicoes/**").hasAnyRole("professor","diretor","aluno")
+			.antMatchers("/instituicao/addinstituicao/**").hasAnyRole("diretor", "aluno", "professor")
 			.antMatchers("/aluno/insertinstituicao").hasRole("aluno")
 			.antMatchers("/professor/insertinstituicao").hasRole("professor")
+				//permissoes sala
 			.antMatchers("/sala/addsala/**").hasAnyRole("diretor","aluno","professor")
 			.antMatchers("/sala/criaSala/**").hasAnyRole("professor","diretor")
 			.antMatchers("/sala/save/**").hasAnyRole("diretor","professor")
-				.antMatchers("/sala/insertSala/**").hasAnyRole("professor","aluno")
+			.antMatchers("/sala/insertSala/**").hasAnyRole("professor","aluno")
 				//Habilitar statics ou seja as bibliotecas
 			.antMatchers("/bootstrap-4.5.2/**").permitAll()
 			.antMatchers("/css/**").permitAll()
@@ -63,7 +61,7 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter{
 				//url para pagina padrao de login
 				.loginPage("/login")
 				//caso o login seja efetuado com sucesso
-				.defaultSuccessUrl("/instituicao", true)
+				.defaultSuccessUrl("/instituicao/listInstituicoes/", true)
 				.permitAll()
 			.and()
 			//Relembrar usuario logado
