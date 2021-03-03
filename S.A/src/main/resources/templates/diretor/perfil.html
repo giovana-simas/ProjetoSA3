@@ -22,7 +22,7 @@
             Usuário não salvo
         </div>
 		<img class="login" th:src="@{/src/login.png}">
-            <form th:action="@{/usuario/save}" th:object="${diretor}" method="POST">
+            <form th:action="@{/diretor/save}" th:object="${diretor}" method="POST">
 
             	<input id="editId" type="text" placeholder="&#32 ID" class="css-email" th:field="${diretor.id}" readonly hidden />
                 <input id="editNome" type="text" placeholder="&#32 NOME" class="css-email" th:field="${diretor.nome}" readonly />

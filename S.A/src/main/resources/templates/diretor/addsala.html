@@ -24,15 +24,16 @@
        
 		
         <div >
-            <form th:action="|@{/sala/save/} + ${instituicao.id}|" th:object="${sala}" method="POST">
+            <form th:action="@{'/sala/save/' + ${instituicao.id}}" th:object="${sala}" method="POST">
 
                 <input type="text" placeholder="&#32 NOME" class="css-email" th:field="*{id}" required hidden/>
             <input type="text" placeholder="&#32 NOME" class="css-email" th:field="*{nome}" required />
-            <button id="salvar" type="submit" class="myButton">CADASTRA-SE</button>
+            <button id="salvar" type="submit" class="myButton">criar sala</button>
 
 
             </form>
-            <button type="button" th:onclick="|window.location.href='/diretor/listSala/' + ${instituicao.id}|" class="myButton">Voltar</button>
+
+            <button type="button" th:onclick="|window.location.href='/sala/listSala/' + ${instituicao.id}|" class="myButton">Voltar</button>
 
             
         </div>

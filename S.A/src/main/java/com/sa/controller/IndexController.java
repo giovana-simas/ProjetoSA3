@@ -39,44 +39,12 @@ public class IndexController {
 		return "/login";
 	}
 	
-	//pega uma informação incapsulada e é chamado atravez do metodo "/cadastro/{salvo}"
-	@GetMapping("/aluno/cadastroAluno/{salvo}")
-	//cria o metodo de redirecionamento para a tela de cadastro com um model para registrar as informações do usuario no banco
-	public String addAluno(@PathVariable int salvo, Model model) {
-		//adiciona um atributo que pode ser chamado atravez de "usuario" que guarda um novo objeto usuario vazio
-		model.addAttribute("aluno", new Aluno());
-		//adciona um atributo que pode ser chamado atravez de "salvo" que guarda um numero que irá indicar se o usuario foi salvo ou nao
-		//esse numero é setado no Usuario controller
-		model.addAttribute("salvo",salvo);
-		//retorna a pagina cadastro para o usuario
-		return "/aluno/cadastroAluno";
-	}
+
 	
-	@GetMapping("/professor/cadastroProfessor/{salvo}")
-	//cria o metodo de redirecionamento para a tela de cadastro com um model para registrar as informações do usuario no banco
-	public String addProfessor(@PathVariable int salvo, Model model) {
-		//adiciona um atributo que pode ser chamado atravez de "usuario" que guarda um novo objeto usuario vazio
-		model.addAttribute("professor", new Professor());
-		//adciona um atributo que pode ser chamado atravez de "salvo" que guarda um numero que irá indicar se o usuario foi salvo ou nao
-		//esse numero é setado no Usuario controller
-		model.addAttribute("salvo",salvo);
-		//retorna a pagina cadastro para o usuario
-		return "/professor/cadastroProfessor";
-	}
+
 	
 		
-		//pega uma informação incapsulada e é chamado atravez do metodo "/cadastro/{salvo}"
-		@GetMapping("/diretor/cadastroDiretor/{salvo}")
-		//cria o metodo de redirecionamento para a tela de cadastro com um model para registrar as informações do usuario no banco
-		public String addDiretor(@PathVariable int salvo, Model model) {
-			//adiciona um atributo que pode ser chamado atravez de "usuario" que guarda um novo objeto usuario vazio
-			model.addAttribute("diretor", new Diretor());
-			//adciona um atributo que pode ser chamado atravez de "salvo" que guarda um numero que irá indicar se o usuario foi salvo ou nao
-			//esse numero é setado no Usuario controller
-			model.addAttribute("salvo",salvo);
-			//retorna a pagina cadastro para o usuario
-			return "/diretor/cadastroDiretor";
-		}
+
 		
 	
 }

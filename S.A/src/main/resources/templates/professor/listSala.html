@@ -26,7 +26,7 @@
                 </thead>
 
                 <tbody>
-                    <tr th:each="sala : ${salas}" th:onclick="|window.location.href='/professor/sala/' + ${sala.id} |">
+                    <tr th:each="sala : ${salas}" th:onclick="|window.location.href='/sala/' + ${sala.id} |">
                         <td th:text="${sala.nome}"></td>
                     </tr>
                 </tbody>
@@ -35,8 +35,8 @@
 
         </div>
         <div class="fab" >
-            <a th:onclick="|window.location.href='/professor/addsala/' + ${instituicao.id}|" class="myButton">+</a>
-            <a th:onclick="|window.location.href='/professor/criaSala/' + ${instituicao.id}|" class="myButton">Criar sala</a>
+            <a th:onclick="|window.location.href='/sala/addsala/' + ${instituicao.id}|" class="myButton">+</a>
+            <a th:onclick="|window.location.href='/sala/criaSala/' + ${instituicao.id}|" class="myButton">Criar sala</a>
             <a onclick="window.location.href='/professor/perfil/0'" class="myButton">perfil</a>
          
            

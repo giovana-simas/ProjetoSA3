@@ -90,19 +90,34 @@ public class InstituicaoController {
 			return path;
 			
 		}
-		
+
 		@GetMapping("/diretor/addinstituicao")
 		public String addInstituicao(Model model) {
-			String email ="";
-			email = SecurityContextHolder.getContext().getAuthentication().getName();
-			
-			model.addAttribute("instituicao", new Instituicao());
-			model.addAttribute("diretor", diretorRepository.findByEmail(email));
-			
-			return "/diretor/addinstituicao";
+		String email ="";
+		email = SecurityContextHolder.getContext().getAuthentication().getName();
+
+		model.addAttribute("instituicao", new Instituicao());
+		model.addAttribute("diretor", diretorRepository.findByEmail(email));
+
+		return "/diretor/addinstituicao";
 		}
-		
-		@PostMapping("/instituicao/save")
+
+		@GetMapping("/diretor/instituicao")
+		public String instituicaoDiretor(Model model) {
+		String email = "";
+		Diretor diretor;
+
+//		verifica o usuario logado e aplica a instancia de conferencia(neste caso é o email do usuario logado) na variavel "email"
+		email = SecurityContextHolder.getContext().getAuthentication().getName();
+		diretor = diretorRepository.findByEmail(email);
+		model.addAttribute("instituicoes", instituicaoRepository.findByDiretor(diretor));
+
+
+		return "/diretor/instituicao";
+	}
+
+
+	@PostMapping("/instituicao/save")
 		//cria o metodo de salvamento com um objeto Usuario
 		public String saveInstituicao(Instituicao instituicao) {
 			//instancia informações que serão usadas
@@ -140,8 +155,22 @@ public class InstituicaoController {
 			//redireciona para a tela setada por path
 			return path;
 		}
-		
-		
+
+		@GetMapping("/aluno/instituicao")
+		public String alunoInstituicao(Model model) {
+
+
+		String email = "";
+		Aluno aluno;
+
+//		verifica o usuario logado e aplica a instancia de conferencia(neste caso é o email do usuario logado) na variavel "email"
+		email = SecurityContextHolder.getContext().getAuthentication().getName();
+		aluno = alunoRepository.findByEmail(email);
+		model.addAttribute("instituicoes", instituicaoRepository.findByAlunosI(aluno));
+
+
+		return "/aluno/instituicao";
+	}
 		
 		@GetMapping("/aluno/addinstituicao")
 		public String addinstituicaoAluno(Model model) {
@@ -201,6 +230,20 @@ public class InstituicaoController {
 			return "/professor/addinstituicao";
 			
 		}
+
+		@GetMapping("/professor/instituicao")
+		public String professorInstituicao(Model model) {
+		String email = "";
+		Professor professor;
+
+//			verifica o usuario logado e aplica a instancia de conferencia(neste caso é o email do usuario logado) na variavel "email"
+		email = SecurityContextHolder.getContext().getAuthentication().getName();
+		professor = professorRepository.findByEmail(email);
+		model.addAttribute("instituicoes", instituicaoRepository.findByProfessoresI(professor));
+
+
+		return "/professor/instituicao";
+	}
 		
 		@PostMapping("/professor/insertinstituicao")
 		public String addProfessorInstituicao(Instituicao instituicoes,Professor professor) {

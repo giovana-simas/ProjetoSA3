@@ -39,7 +39,20 @@ public class AlunoController {
 	
 	@Autowired
 	SalaRepository salaRepository;
-	
+
+	//pega uma informação incapsulada e é chamado atravez do metodo "/cadastro/{salvo}"
+	@GetMapping("/aluno/cadastroAluno/{salvo}")
+	//cria o metodo de redirecionamento para a tela de cadastro com um model para registrar as informações do usuario no banco
+	public String addAluno(@PathVariable int salvo, Model model) {
+		//adiciona um atributo que pode ser chamado atravez de "usuario" que guarda um novo objeto usuario vazio
+		model.addAttribute("aluno", new Aluno());
+		//adciona um atributo que pode ser chamado atravez de "salvo" que guarda um numero que irá indicar se o usuario foi salvo ou nao
+		//esse numero é setado no Usuario controller
+		model.addAttribute("salvo",salvo);
+		//retorna a pagina cadastro para o usuario
+		return "/aluno/cadastroAluno";
+	}
+
 	//incapsula e envia informação e é chamado atravez do metodo "/usuario/save"
 	@PostMapping("/aluno/save")
 	//cria o metodo de salvamento com um objeto Usuario
@@ -127,97 +140,9 @@ public class AlunoController {
 		
 	}
 	
-	@GetMapping("/aluno/instituicao")
-	public String alunoInstituicao(Model model) {
 
-		
-		String email = "";
-		Aluno aluno;
-		
-//		verifica o usuario logado e aplica a instancia de conferencia(neste caso é o email do usuario logado) na variavel "email"
-		email = SecurityContextHolder.getContext().getAuthentication().getName();
-		aluno = alunoRepository.findByEmail(email);
-		model.addAttribute("instituicoes", instituicaoRepository.findByAlunosI(aluno));
 
-		
-		return "/aluno/instituicao";
-	}
 
-	@GetMapping("/aluno/listSala/{id}")
-	public String listSalaAluno(Model model,@PathVariable long id) {
-		
-		Instituicao instituicao = instituicaoRepository.findById(id);
-		System.out.println("chegou aqui" );
-		//verifica o usuario logado e aplica a instancia de conferencia(neste caso é o email do usuario logado) na variavel "email"
-		
-		model.addAttribute("salas", salaRepository.findByInstituicao(instituicao));
-		model.addAttribute("instituicao", instituicao);
-		
-		
-		return "/aluno/listSala";
-	}
-	
-	
-	@GetMapping("/aluno/addsala/{id}")
-	public String addAluno(Model model,@PathVariable long id) {
-		
-		String email = "";
-		Aluno aluno;
-		Instituicao instituicao = instituicaoRepository.findById(id);
-//		verifica o usuario logado e aplica a instancia de conferencia(neste caso é o email do usuario logado) na variavel "email"
-		email = SecurityContextHolder.getContext().getAuthentication().getName();
-		aluno = alunoRepository.findByEmail(email);
-		
-		System.out.println("id: " + id);
-		System.out.println("id: " + instituicao);
-		
-		model.addAttribute("salas", salaRepository.findByInstituicao(instituicao));
-		model.addAttribute("instituicao", instituicao);
-		model.addAttribute("aluno", aluno);
-		System.out.println("salas: " + salaRepository.findByInstituicao(instituicao));
-		return "/aluno/addsala";
-	}
-	
-
-	@PostMapping("/aluno/insertsala/{id}")
-	public String insertSalaAluno(Sala sala,Aluno aluno, @PathVariable int id) {
-		
-		
-		String email;
-		List<Sala> salaAux;
-		
-		email = SecurityContextHolder.getContext().getAuthentication().getName();
-		System.out.println(email);
-		salaAux = alunoRepository.findByEmail(email).getSalasA();
-
-		try {
-			salaAux.addAll(aluno.getSalasA());
-			aluno.setSalasA(salaAux);
-			System.out.println(alunoRepository.save(aluno));
-			
-		} catch (Exception e) {
-			System.out.println("error: " + e);
-		}
-		//instituicao = instituicaoRepository.findById(id)
-		
-		
-		return "redirect:/aluno/listSala/" + id;
-		
-	}
-	
-	@GetMapping("/aluno/sala/{id}")
-	public String sala(@PathVariable long id, Model model ) {
-
-		Sala sala = salaRepository.findById(id);
-		Instituicao instituicao = instituicaoRepository.findBySalas(sala);
-		
-		
-		model.addAttribute("instituicao", instituicao);
-		model.addAttribute("alunos", alunoRepository.findBySalasA(sala));
-		model.addAttribute("professores", professorRepository.findBySalaP(sala));
-		
-		return "/aluno/sala";
-	}
 	
 	
 	

@@ -39,7 +39,19 @@ public class ProfessorController {
 		
 		@Autowired
 		SalaRepository salaRepository;
-		
+
+		@GetMapping("/professor/cadastroProfessor/{salvo}")
+		//cria o metodo de redirecionamento para a tela de cadastro com um model para registrar as informações do usuario no banco
+		public String addProfessor(@PathVariable int salvo, Model model) {
+		//adiciona um atributo que pode ser chamado atravez de "usuario" que guarda um novo objeto usuario vazio
+		model.addAttribute("professor", new Professor());
+		//adciona um atributo que pode ser chamado atravez de "salvo" que guarda um numero que irá indicar se o usuario foi salvo ou nao
+		//esse numero é setado no Usuario controller
+		model.addAttribute("salvo",salvo);
+		//retorna a pagina cadastro para o usuario
+		return "/professor/cadastroProfessor";
+	}
+
 		//incapsula e envia informação e é chamado atravez do metodo "/usuario/save"
 		@PostMapping("/professor/save")
 		//cria o metodo de salvamento com um objeto Usuario
@@ -102,84 +114,7 @@ public class ProfessorController {
 			//redireciona para a tela setada por path
 			return path;
 		}
-		
-		@GetMapping("/professor/instituicao")
-		public String professorInstituicao(Model model) {
-			String email = "";
-			Professor professor;
-			
-//			verifica o usuario logado e aplica a instancia de conferencia(neste caso é o email do usuario logado) na variavel "email"
-			email = SecurityContextHolder.getContext().getAuthentication().getName();
-			professor = professorRepository.findByEmail(email);
-			model.addAttribute("instituicoes", instituicaoRepository.findByProfessoresI(professor));
 
-			
-			return "/professor/instituicao";
-		}
-		
-		@GetMapping("/professor/listSala/{id}")
-		public String listSalaProfessor(Model model,@PathVariable long id) {
-			
-			Instituicao instituicao = instituicaoRepository.findById(id);
-			System.out.println("chegou aqui" );
-			//verifica o usuario logado e aplica a instancia de conferencia(neste caso é o email do usuario logado) na variavel "email"
-			
-			model.addAttribute("salas", salaRepository.findByInstituicao(instituicao));
-			model.addAttribute("instituicao", instituicao);
-			
-			
-			return "/professor/listSala";
-		}
-		
-		
-		@GetMapping("/professor/addsala/{id}")
-		public String addProfessor(Model model,@PathVariable long id) {
-			
-			String email = "";
-			Professor professor;
-			Instituicao instituicao = instituicaoRepository.findById(id);
-//			verifica o usuario logado e aplica a instancia de conferencia(neste caso é o email do usuario logado) na variavel "email"
-			email = SecurityContextHolder.getContext().getAuthentication().getName();
-			professor = professorRepository.findByEmail(email);
-			
-			System.out.println("id: " + id);
-			System.out.println("id: " + instituicao);
-			
-			model.addAttribute("salas", salaRepository.findByInstituicao(instituicao));
-			model.addAttribute("instituicao", instituicao);
-			model.addAttribute("professor", professor);
-			System.out.println("salas: " + salaRepository.findByInstituicao(instituicao));
-			return "/professor/addsala";
-		}
-		
-		
-		
-		
-		@PostMapping("/professor/insertsala/{id}")
-		public String insertSalaProfessor(Sala sala,Professor professor, @PathVariable int id) {
-			
-			
-			String email;
-			List<Sala> salaAux;
-			
-			email = SecurityContextHolder.getContext().getAuthentication().getName();
-			System.out.println(email);
-			salaAux = professorRepository.findByEmail(email).getSalaP();
-
-			try {
-				salaAux.addAll(professor.getSalaP());
-				professor.setSalaP(salaAux);
-				System.out.println(professorRepository.save(professor));
-				
-			} catch (Exception e) {
-				System.out.println("error: " + e);
-			}
-			//instituicao = instituicaoRepository.findById(id)
-			
-			
-			return "redirect:/professor/listSala/" + id;
-			
-		}
 		
 		@GetMapping("/professor/perfil/{salvo}")
 		public String perfilProfessor(Model model, @PathVariable int salvo ) {
@@ -189,38 +124,8 @@ public class ProfessorController {
 			return "/professor/perfil";
 		}
 		
-		@GetMapping("/professor/sala/{id}")
-		public String sala(@PathVariable long id, Model model ) {
-			
-
-			Sala sala = salaRepository.findById(id);
-			Instituicao instituicao = instituicaoRepository.findBySalas(sala);
-			
-			model.addAttribute("instituicao", instituicao);
-			model.addAttribute("alunos", alunoRepository.findBySalasA(sala));
-			model.addAttribute("professores", professorRepository.findBySalaP(sala));
-			
-			return "/professor/sala";
-		}
-
-	@GetMapping("/professor/criaSala/{id}")
-	public String criaSala(Model model,@PathVariable long id) {
-
-		model.addAttribute("sala", new Sala());
-		model.addAttribute("instituicao", instituicaoRepository.findById(id));
-
-		return "/professor/criaSala";
-	}
-
-	@PostMapping("/professor/saiSala/{id}")
-	public  String saiSala(Model model, @PathVariable long id){
-
-		Instituicao instituicao = instituicaoRepository.findById(id);
-		model.addAttribute("salas", salaRepository.findByInstituicao(instituicao));
 
 
-			return "/professor/saiSala";
-	}
 
 
 }
