@@ -1,7 +1,10 @@
 package com.sa.controller;
 
 import java.util.List;
+import java.util.Optional;
 
+import com.sa.model.*;
+import com.sa.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -10,15 +13,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-
-import com.sa.model.Aluno;
-import com.sa.model.Instituicao;
-import com.sa.model.Sala;
-import com.sa.repository.AlunoRepository;
-import com.sa.repository.InstituicaoRepository;
-import com.sa.repository.PermissaoRepository;
-import com.sa.repository.ProfessorRepository;
-import com.sa.repository.SalaRepository;
 
 @Controller
 public class AlunoController {
@@ -31,6 +25,13 @@ public class AlunoController {
 	
 	@Autowired
 	AlunoRepository alunoRepository;
+
+	@Autowired
+	UsuarioRepository usuarioRepository;
+
+	@Autowired
+	DiretorRepository diretorRepository;
+
 	@Autowired
 	InstituicaoRepository instituicaoRepository;
 	
@@ -128,7 +129,7 @@ public class AlunoController {
 	//pega uma informação incapsulada e é chamado atravez do metodo "/usuario/perfil/{salvo}"
 	@GetMapping("/aluno/perfil/{salvo}")
 	//cria o metodo de redirecionamento para a tela de perfil com um model para pegar as informações do usuario logado e enviar para tela
-	public String perfilUsuario(Model model,@PathVariable int salvo) {
+	public String perfilAluno(Model model,@PathVariable int salvo) {
 		//pega o email do usuario logado e quarda na variavel "email"
 		String email = SecurityContextHolder.getContext().getAuthentication().getName();
 		//adiciona um atributo no model pegando a informação do repositoria ultilizando o email logado
@@ -139,9 +140,6 @@ public class AlunoController {
 		return "/aluno/perfil";
 		
 	}
-	
-
-
 
 	
 	

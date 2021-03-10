@@ -174,7 +174,7 @@ public class InstituicaoController {
 					//salva o usuario criado anteriormente em "IndexController" agora com informações preenchidas no banco e mostra as informações salvas no console para conferencia e manutenção
 					System.out.print(instituicaoRepository.save(instituicao));
 					//seta a variavel "path" para que redirecione para tela de cadastro e mostre se o cadastro foi salvo ou nao
-					path  = "redirect:/diretor/instituicao"; //+ salvo;
+					path  = "redirect:/instituicao/listInstituicoes/"; //+ salvo;
 					
 				
 			}
@@ -188,7 +188,7 @@ public class InstituicaoController {
 				//confere se há um usuario logado ou se ele esta em "logout" ou seja usuario anonimo.
 				//caso seja anonimo mostrara uma mensagem de erro tela de cadastro.
 				//caso haja um usuario logado, ou seja "email!="anonymousUser"" ele mostrara uma mensagem de erro na tela de perfil.
-				path  = "redirect:/diretor/instituicao"; //+ salvo;
+				path  = "redirect:/instituicao/listInstituicoes/"; //+ salvo;
 			}	
 			//redireciona para a tela setada por path
 			return path;
@@ -217,7 +217,7 @@ public class InstituicaoController {
 		//instituicao = instituicaoRepository.findById(id)
 
 
-		return "redirect:/aluno/instituicao";
+		return "redirect:/instituicao/listInstituicoes/";
 
 	}
 
@@ -244,7 +244,7 @@ public class InstituicaoController {
 			//instituicao = instituicaoRepository.findById(id)
 			
 			
-			return "redirect:/professor/instituicao";
+			return "redirect:/instituicao/listInstituicoes/";
 			
 		}
 		
