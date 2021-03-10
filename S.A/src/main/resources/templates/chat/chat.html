@@ -16,35 +16,24 @@
         <link rel="stylesheet" th:href="@{/bootstrap-4.5.2/css/bootstrap.min.css}">
         <link rel="stylesheet" th:href="@{/fontawesome-5.14.0/css/all.min.css}">
 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
     </head>
     <body>
 
 
     <div class="form-tabela" style="background-color: mediumpurple">
+        <div class="form-group">
+            <label >Usuarios</label>
+            <select class="form-control" th:size="5" id="select-state" placeholder="Pick a state..." required>
+                <option th:each="usuario : ${usuarios}" th:value="${usuario.id}" th:text="${usuario.nome}"></option>
+            </select>
 
-
-
-        <table class="table table-striped">
-            <thead class="thead-dark">
-            <tr>
-                <th>Nome</th>
-            </tr>
-            </thead>
-
-            <tbody>
-            <tr th:each="usuario : ${usuarios}" >
-                <td th:text="${usuario.nome}"></td>
-            </tr>
-            </tbody>
-
-        </table>
+        </div>
 
     </div>
 
-    <div>
 
-
-    </div>
 
 
 

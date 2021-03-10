@@ -1,6 +1,7 @@
 package com.sa.controller;
 
 import com.sa.model.Usuario;
+import com.sa.repository.SalaRepository;
 import com.sa.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +13,8 @@ public class ChatController {
 
 	@Autowired
 	UsuarioRepository usuarioRepository;
+	@Autowired
+	SalaRepository salaRepository;
 	
 	@GetMapping("/chat")
 	public String chat(Model model) {
