@@ -32,6 +32,7 @@ public class IndexController {
 		return "/index";
 	}
 	
+	
 	//pega uma informação incapsulada e é chamado atravez do metodo "/login"
 	@GetMapping("/login")
 	public String getLogin() {
