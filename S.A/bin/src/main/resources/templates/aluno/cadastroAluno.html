@@ -13,35 +13,31 @@
 
         
 
-    </head>
-    <img class="login" th:src="@{/src/login.png}">
-        
-    <div th:if="${salvo} == 1" class="alert alert-success">
-        Usuário salvo com sucesso
-    </div>
-    <div th:if="${salvo} == 2" class="alert alert-danger">
-        Usuário não salvo
-    </div>
-		 
-    <body background="/src/back.png" onload="">
+    </head>      	 
+    <body>
     
-    
-		
+        <div th:if="${salvo} == 1" class="alert alert-success">
+            Usuário salvo com sucesso
+        </div>
+        <div th:if="${salvo} == 2" class="alert alert-danger">
+            Usuário não salvo
+        </div>
        
 		
-        <div >
+        <div class="container1">
             <form th:action="@{/aluno/save}" th:object="${aluno}" method="POST">
 
-            
-            <input type="text" placeholder="&#32 NOME" class="css-email" th:field="*{nome}" required />
-            <input type="text" placeholder="&#32 E-MAIL" class="css-email" th:field="*{email}" required />
-            <input id="senha1" type="password" placeholder="&#32 SENHA" class="css-senha" th:field="*{senha}" required />
-            <input id="senha2" type="password" onblur="compararSenha()" placeholder="&#32 CONFIRMAR SENHA" class="css-senha" required /> 
-            <button id="salvar" type="submit" class="myButton">CADASTRA-SE</button>
+            <h3>Cadastrar aluno</h3>
+            <input type="text" placeholder="&#32 NOME" class="css-email1" th:field="*{nome}" required /><br>
+            <input type="text" placeholder="&#32 E-MAIL" class="css-email1" th:field="*{email}" required /><br>
+            <input id="senha1" type="password" placeholder="&#32 SENHA" class="css-senha1" th:field="*{senha}" required /><br>
+            <input id="senha2" type="password" onblur="compararSenha()" placeholder="&#32 CONFIRMAR SENHA" class="css-senha1" required /> <br>
+
+            <button id="salvar" onclick="verificaEmail() + compararSenha() " type="submit"  class="myButton1">CADASTRA-SE</button><br>
 
 
             </form>
-            <button type="button" onclick="window.location.href='/login/'" class="myButton">LOGIN</button>
+            <button type="button" onclick="window.location.href='/login/'" class="myButton1">LOGIN</button>
 
             
         </div>

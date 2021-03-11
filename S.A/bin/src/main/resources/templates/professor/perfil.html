@@ -31,10 +31,10 @@
                 <input id="editPermissoes" type="text" placeholder="&#32 PERMISSÃO" class="css-email" th:field="${professor.permissoes}" readonly hidden />
                 <input id="editinstituicoes" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${professor.instituicaoP}" readonly hidden />
                 <input id="editsalas" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${professor.salaP}" readonly hidden />
-                <input id="editMaterias" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${professor.materiasLecionadas}" readonly hidden />
+                <input id="editMaterias" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${professor.materiasLecionadas}" readonly  />
                
 
-            <button id="editSalvar" type="submit"  class="myButton" disabled>SALVAR</button>
+            <button id="editSalvar" type="submit"  class="myButton" hidden>SALVAR</button>
             </form>
             
             <form th:action="|@{/logout}|" class="navbar-from" method="POST">
@@ -42,9 +42,14 @@
              <button class="btn btn-dark" type="submit">
                     <i class="fas fa-sign-out-alt"></i>
              </button>
-             
-                <div>
-                    <input type="checkbox" onclick="editarPerfil()" id="editar" name="editar"/>
+
+                <div >
+                    <button id="cancelar" onclick="cancelarEditar()" hidden  />
+                    <label class="" >cancelar</label>
+                </div>
+
+                <div >
+                    <button id="editar" onclick="editarPerfil()"  />
                     <label class="" >editar perfil</label>
                 </div>
              </form>

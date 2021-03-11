@@ -24,7 +24,7 @@
        
 		
         <div >
-            <form th:action="|@{/aluno/insertsala/} + ${instituicao.id}|" th:object="${aluno}" method="POST">
+            <form th:action="|@{/aluno/insertSala/} + ${instituicao.id}|" th:object="${aluno}" method="POST">
   
                 <input id="editId" type="text" placeholder="&#32 ID" class="css-email" th:field="${aluno.id}" readonly hidden />
                 <input id="editNome" type="text" placeholder="&#32 NOME" class="css-email" th:field="${aluno.nome}" readonly hidden />
@@ -43,7 +43,7 @@
             </div>
             <button id="salvar" type="submit" class="myButton">CADASTRA-SE</button>
             </form>
-            <button type="button" th:onclick="|window.location.href='/aluno/sala/' + ${instituicao.id}|" class="myButton">Voltar</button>
+            <button type="button" th:onclick="|window.location.href='/sala/listSala/' + ${instituicao.id}|" class="myButton">Voltar</button>
 
             
         </div>
