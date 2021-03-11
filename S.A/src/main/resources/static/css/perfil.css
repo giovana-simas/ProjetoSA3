@@ -1,3 +1,8 @@
+textarea:focus, input:focus, select:focus {
+  box-shadow: 0 0 0 0;
+  border-bottom: 1px solid gray;
+  outline: 0;
+} 
 .majorDiv{
   height: 100vh;
   width: 100vw;
@@ -11,7 +16,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #848CCE;
+  background: white;
   width: 350px;
   height: 450px;
   border-radius: 20px;
@@ -32,10 +37,13 @@
   width: 100%;
   border: 0;
   border-bottom: 1px solid gray;
-  background-color: #848CCE;
+  background-color: white;
 }
 .boxActions{
   gap: 20px;
   display: flex;
   margin: 20px 0 0 0;
+}
+.alert{
+  margin-top: 20px;
 }
