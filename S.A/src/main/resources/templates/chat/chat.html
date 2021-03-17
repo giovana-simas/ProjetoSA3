@@ -7,8 +7,12 @@
 
         <!--BIBLIOTECAS E EXTENSOS-->
         <link  rel="stylesheet" th:href="@{/css/estilo.css}">
+        
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.0/handlebars.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.1.1/list.min.js"></script>
+        <script type="text/javascript" th:src="@{/js/chat.js}"></script>
+        
         <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.4.0/sockjs.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
 
@@ -19,24 +23,62 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
     </head>
-    <body>
+    <body th:onload="|conectarChat(${usuarioConnect.id})|">
 
+        <div style="width: 100%;height: 100%;position: fixed;align-items: center;justify-content: center;display: flex;">   
+            <div style="height: 90%; width: 85%;  display: flex;">
+                <div class="form-tabela" style="background-color: mediumpurple; width: 35%; height: 100%;">
+                    <div class="form-group">
+                        <label >Usuarios</label>
+                        <select class="form-control" th:size="5" id="select-state" placeholder="Pick a state..." required>
+                            <option id="userName" th:each="usuario : ${usuarios}" th:value="${usuario.id}" th:text="${usuario.nome}" th:onclick="|usuarioselecionado(${usuario.id})|"></option>
+                        </select>
 
-    <div class="form-tabela" style="background-color: mediumpurple">
-        <div class="form-group">
-            <label >Usuarios</label>
-            <select class="form-control" th:size="5" id="select-state" placeholder="Pick a state..." required>
-                <option th:each="usuario : ${usuarios}" th:value="${usuario.id}" th:text="${usuario.nome}"></option>
-            </select>
+                    </div>
 
+                </div>
+                <div class="chat" style="width: 100%; height: 100%; background-color: aqua; display: flex; flex-wrap: wrap;">
+                    <div class="chat-history" style="width: 100%; height: 90%; background-color: whitesmoke;">
+                        <ul>
+            
+                        </ul>
+                    </div> <!-- end chat-history -->
+            
+                    <div class="chat-message clearfix" style="width: 100%; height: 10%; background-color: wheat; display: flex;">
+                        <textarea style="width: 95%; height: 100%;" id="message-to-send" name="message-to-send" placeholder="Type your message" rows="1"></textarea>
+                        <button  id="sendBtn" style="width: 5%; height: 100%;">Send</button>
+                    </div> <!-- end chat-message -->
+                </div>
+            </div>
         </div>
+        <script id="message-template" type="text/x-handlebars-template">
+            <li class="clearfix">
+                <div class="message-data align-right">
+                    <span class="message-data-time">{{time}}, Today</span> &nbsp; &nbsp;
+                    <span class="message-data-name">You</span> <i class="fa fa-circle me"></i>
+                </div>
+                <div class="message other-message float-right">
+                    {{messageOutput}}
+                </div>
+            </li>
+        </script>
+        
+        <script id="message-response-template" type="text/x-handlebars-template">
+            <li>
+                <div class="message-data">
+                    <span class="message-data-name"><i class="fa fa-circle online"></i> {{userName}}</span>
+                    <span class="message-data-time">{{time}}, Today</span>
+                </div>
+                <div class="message my-message">
+                    {{response}}
+                </div>
+            </li>
+        </script>
+        
 
-    </div>
 
 
-
-
-
-        <script type="text/javascript" th:src="@{/js/chat.js}"></script>
+        
+        <script type="text/javascript" th:src="@{/js/custom.js}"></script>
     </body>
 </html>

@@ -4,6 +4,7 @@ import com.sa.model.Usuario;
 import com.sa.repository.SalaRepository;
 import com.sa.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +19,11 @@ public class ChatController {
 	
 	@GetMapping("/chat")
 	public String chat(Model model) {
-		model.addAttribute("usuarios",usuarioRepository.findAll());
+		System.out.println("KARALHUDOS CHEGOU AQ");
+		String email = SecurityContextHolder.getContext().getAuthentication().getName();
+		model.addAttribute("usuarioConnect",usuarioRepository.findByEmail(email));
+		model.addAttribute("usuarios",usuarioRepository.findAllByEmailNot(email));
+		
 
 		return "/chat/chat";
 	}

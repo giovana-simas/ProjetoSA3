@@ -6,7 +6,6 @@ INSERT INTO `sa_db`.`permissao` (`nome`) VALUES ('aluno');
 INSERT INTO `sa_db`.`permissao` (`nome`) VALUES ('professor');
 INSERT INTO `sa_db`.`permissao` (`nome`) VALUES ('diretor');
 
-
 delimiter $$
 
 create trigger tr_insert_usuario  after insert on usuario for each row
