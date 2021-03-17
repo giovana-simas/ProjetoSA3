@@ -15,7 +15,7 @@
 	<description>Projeto de Situação de Aprendizagem SENAI</description>
 
 	<properties>
-		<java.version>1.8</java.version>
+		<java.version>15</java.version>
 	</properties>
 
 	<dependencies>
