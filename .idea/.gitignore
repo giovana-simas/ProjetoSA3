@@ -2,7 +2,7 @@
 /shelf/
 /workspace.xml
 # Datasource local storage ignored files
-/../../../../../../../:\Users\User\Documents\workspace-spring-tool-suite-4-4.7.1.RELEASE\ProjetoSA3\.idea/dataSources/
+/../../../../../../:\Users\gicas\IdeaProjects\ProjetoSA3\.idea/dataSources/
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/
