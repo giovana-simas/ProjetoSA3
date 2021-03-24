@@ -15,25 +15,39 @@
 
     </head>
     <body background="/src/back.png">
-   
+
+
+
         <div class="majorDiv">
-           
+
+            <div  th:if="${aluno.querAjudar.displayValue} == 'Quer ajudar' "  class="alert alert-success">
+                Aluno disponivel para Ajudar
+            </div>
+
+            <div  th:if="${aluno.querAjudar.displayValue} == 'Precisa de ajuda' "  class="alert alert-success">
+                Aluno precisa de ajuda
+            </div>
+
             <div class="divMenor">
 		<img class="login" th:src="@{/src/login.png}">
             <form th:action="@{/aluno/save}" th:object="${aluno}" method="POST" class="formUser">
-                
+
+
             	<input id="editId" type="text" placeholder="&#32 ID" class="css-email" th:field="${aluno.id}" readonly hidden />
                 <input id="editNome" type="text" placeholder="&#32 NOME" class="css-email" th:field="${aluno.nome}" readonly />
                 <input id="editEmail" type="text" placeholder="&#32 E-MAIL"  class="css-email" th:field="${aluno.email}" readonly />
                 <input id="editSenha" type="text" placeholder="&#32 SENHA" class="css-email" th:field="${aluno.senha}" readonly hidden />
                 <input id="editPermissoes" type="text" placeholder="&#32 PERMISSÃO" class="css-email" th:field="${aluno.permissoes}" readonly hidden />
-                <input id="editAjuda" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${aluno.querAjudar}" readonly  />
+                <select id="editAjuda" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${aluno.querAjudar}" readonly  hidden>
+                    <option th:each="querAjudarOpt : ${T(com.sa.model.Aluno.QuerAjudar).values()}" th:value="${querAjudarOpt}" th:text="${querAjudarOpt.displayValue}"></option>
+                </select>
                 <input id="editinstituicoes" type="text" placeholder="&#32 INSTITUIÇÕES" class="css-email" th:field="${aluno.instituicoesA}" readonly hidden />
                 <input id="editsalas" type="text" placeholder="&#32 SALAS" class="css-email" th:field="${aluno.salasA}" readonly hidden />
-                <input id="editmateria" type="text" placeholder="&#32 MATERIAS" class="css-email" th:field="${aluno.materiaAluno}" readonly />
-               
+                <input id="editmateria" type="text" placeholder="&#32 MATERIAS" class="css-email" th:field="${aluno.materiaAluno}" hidden readonly />
+                <textarea id="editDescricao" placeholder="&#32 Descrição, até 500 caracteres para descrever as materias que você tem facilidade ou dificuldade e interesses academicos" maxlength="500" class="css-email" th:field="${aluno.descricao}" readonly ></textarea>
 
-            <button id="editSalvar" type="submit"  class="myButton" hidden>SALVAR</button>
+
+                <button id="editSalvar" type="submit"  class="myButton" hidden>SALVAR</button>
             </form><!---->
             
             <form th:action="|@{/logout}|" class="boxActions" method="POST">

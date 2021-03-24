@@ -32,11 +32,11 @@
                 <input id="editSenha" type="text" placeholder="&#32 SENHA" class="css-email" th:field="${aluno.senha}" readonly hidden />
                 <input id="editPermissoes" type="text" placeholder="&#32 PERMISSÃO" class="css-email" th:field="${aluno.permissoes}" readonly hidden />
                 <input id="editAjuda" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${aluno.querAjudar}" readonly hidden />
-                            
+                <input id="editDescricao" type="text" placeholder="&#32 Descrição" class="css-email" th:field="${aluno.descricao}" readonly hidden />
+
                 <input id="editsalas" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${aluno.salasA}" readonly hidden />
                 <input id="editmateria" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${aluno.materiaAluno}" readonly hidden />
                
-            <!--<input type="text" placeholder="&#32 id" class="css-email" th:field="${id}" required />-->
             <div class="form-group">
                 <select class="form-control" th:field="*{instituicoesA}"  required>
                    <option th:each="instituicoesA : ${instituicoes}" th:value="${instituicoesA.id}" th:text="${instituicoesA.nome}"></option>

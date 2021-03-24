@@ -14,7 +14,9 @@ const compararSenha = function(){
  const editarPerfil = function(){
 
     $('#editNome').attr('readonly', false);
-
+     $('#editAjuda').attr('readonly', false);
+     $('#editAjuda').attr('hidden', false);
+     $('#editDescricao').attr('readonly', false);
     $('#editSalvar').attr('hidden', false);
     $('#cancelar').attr('hidden', false);
      $('#editar').attr('hidden', true);
@@ -24,8 +26,11 @@ const compararSenha = function(){
 
  function cancelarEditar(){
 
+     $('#editAjuda').attr('readonly', true);
+     $('#editAjuda').attr('hidden', true);
     $('#editNome').attr('readonly', true);
-    $('#editSalvar').attr('hidden', true);
+     $('#editDescricao').attr('readonly', true);
+     $('#editSalvar').attr('hidden', true);
     $('#cancelar').attr('hidden', true);
     $('#editar').attr('hidden', false);
 

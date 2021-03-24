@@ -2,22 +2,38 @@ package com.sa.model;
 
 import java.util.List;
 import java.util.Set;
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
+import javax.validation.constraints.Size;
+
 
 
 @Entity
 @DiscriminatorValue(value = "A")
 public class Aluno extends Usuario{
 
-	
-	String querAjudar;
-	
+	@Size(max=500)
+	String descricao;
+
+
+
+	@Enumerated(EnumType.STRING)
+	@Column(name = "querAjudar", columnDefinition = "naoQuerAjudar")
+	private QuerAjudar querAjudar;
+
+	public enum QuerAjudar {
+		querAjudar("Quer ajudar"), naoQuerAjudar("Não quer ajudar"), precisaDeAjuda("Precisa de ajuda");
+
+		private final String displayValue;
+
+		private QuerAjudar(String displayValue) {
+			this.displayValue = displayValue;
+		}
+
+		public String getDisplayValue() {
+			return displayValue;
+		}
+	}
+
 
 	@OneToMany(mappedBy = "aluno")
 	private List<MateriaAluno> materiaAluno;
@@ -38,13 +54,12 @@ public class Aluno extends Usuario{
 			)
 	private Set<Instituicao> instituicoesA;
 
-	
 
-	public String getQuerAjudar() {
+	public QuerAjudar getQuerAjudar() {
 		return querAjudar;
 	}
 
-	public void setQuerAjudar(String querAjudar) {
+	public void setQuerAjudar(QuerAjudar querAjudar) {
 		this.querAjudar = querAjudar;
 	}
 
@@ -74,6 +89,11 @@ public class Aluno extends Usuario{
 		this.instituicoesA = instituicoesA;
 	}
 
-	
-	
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
 }

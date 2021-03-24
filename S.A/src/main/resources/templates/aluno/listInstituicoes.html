@@ -44,7 +44,7 @@
                         <div class="title"> <p class="titleP">Contato</p></div>
                     </div>
                     
-                    <div class="infosInstituicao" th:each="instituicao : ${instituicoes}">
+                    <div class="infosInstituicao" th:each="instituicao : ${instituicoes}" th:onclick="|window.location.href='/sala/listSala/' + ${instituicao.id}|">
                         <div class="nameInstituicao" th:text="${instituicao.nome}"></div>
                         <div class="enderecoInstituicao" th:text="${instituicao.endereco}"> teste</div>
                         <div class="contatoInstituicao" th:text="${instituicao.endereco}"> teste</div>
