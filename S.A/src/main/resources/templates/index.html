@@ -32,30 +32,38 @@
             </div>
         </div>
 
-        <!--IMAGEM E TEXTO PRINCIPAL-->
-        <div class="container-inicial-info">
-            <div>
-                <h1 class="animate__animated animate__backInLeft">Do&nbsp;questionamento,<br>ao&nbsp;entendimento.</h1>
-                <p class="animate__animated animate__backInLeft">Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br>
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,<br>
-                when an unknown printer took a galley of type.</p>
-            </div>
-            <div>
-                <img class="animate__animated animate__backInDown" id="image" th:src="@{/src/imageindex.png}">
-        </div><br>
-         
+        <!--background-->
 
-        <!--ONDAS-->
-        <div>
-            </div><img class="animate__animated animate__backInUp" id="onda" th:src="@{/src/fundo.png}">
+        <div class="container-back">
+            <div>
+            </div>
         </div>
-        <div>
-            <h2 id="subtitulo">Aprenda do sofá<br> da sua casa.</h2>
-            <h6 id="tex">Lorem Ipsum is simply dummy text of the printing<br>
-                 and typesetting industry. Lorem Ipsum has been the<br>
-                industry's standard dummy text ever since the 1500s,<br>
-                when an unknown printer took a galley of type.</h6>
-        </Div><br>
+
+        <div class="text">
+            <h1>Do questionamento ao entedimento.</h1>
+            <h4>uma forma alternativa de aprender!</h4>
+        </div>
+
+        <div class="info">
+            <div class="img-div">
+                <img id="img" th:src="@{/src/img.png}">
+            </div>
+
+            <div class="descricao-div">
+                <h2>Estude do sofá<br>da sua casa.</h2>
+                <p>Está com dificuldade em aprender? Temos a solução para você.<br>
+                    O estude aqui é uma plataforma onde você é aluno ou professor,<br>
+                    você terá ajuda dos seus colegas que são bons no conteudo que<br>
+                    será publicado. Assim como, você pode ajudar alguém com dificuldade<br>
+                    em alguma materia que você domina.</p>
+
+            </div>
+
+        </div>
+
+
+
+
 
         <!--DESENVOLVEDORES-->
           <div>
@@ -97,9 +105,6 @@
                 </ul>
             </div>
           </div><BR>
-
-
-            
 
         
         <form th:action="@{/logout}" method="post" th:hidden="true" name="logoutForm">
