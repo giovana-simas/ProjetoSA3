@@ -15,31 +15,14 @@ public class Aluno extends Usuario{
 
 
 
-	@Enumerated(EnumType.STRING)
-	@Column(name = "querAjudar", columnDefinition = "naoQuerAjudar")
-	private statusAjuda statusAjuda;
 
-	public enum statusAjuda {
-		querAjudar("Quer ajudar"), naoQuerAjudar("Não quer ajudar"), precisaDeAjuda("Precisa de ajuda");
+	@Column(name = "statusAjuda",length = 32, columnDefinition = "varchar(32) default 'naoQuerAjudar'")
+	@Enumerated(value = EnumType.STRING)
+	StatusAjuda statusAjuda = StatusAjuda.naoQuerAjudar;
 
-		private final String displayValue;
 
-		private statusAjuda(String displayValue) {
-			this.displayValue = displayValue;
-		}
 
-		public String getDisplayValue() {
-			return displayValue;
-		}
-	}
 
-	public Aluno.statusAjuda getStatusAjuda() {
-		return statusAjuda;
-	}
-
-	public void setStatusAjuda(Aluno.statusAjuda statusAjuda) {
-		this.statusAjuda = statusAjuda;
-	}
 
 	@OneToMany(mappedBy = "aluno")
 	private List<MateriaAluno> materiaAluno;
@@ -61,13 +44,6 @@ public class Aluno extends Usuario{
 	private Set<Instituicao> instituicoesA;
 
 
-	public statusAjuda getQuerAjudar() {
-		return statusAjuda;
-	}
-
-	public void setQuerAjudar(statusAjuda querAjudar) {
-		this.statusAjuda = querAjudar;
-	}
 
 	public List<MateriaAluno> getMateriaAluno() {
 		return materiaAluno;
@@ -101,5 +77,20 @@ public class Aluno extends Usuario{
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+}
+
+
+	enum StatusAjuda {
+	querAjudar("Quer ajudar"), naoQuerAjudar("Não quer ajudar"), precisaDeAjuda("Precisa de ajuda");
+
+	private final String displayValue;
+
+	private StatusAjuda(String displayValue) {
+		this.displayValue = displayValue;
+	}
+
+	public String getDisplayValue() {
+		return displayValue;
 	}
 }
