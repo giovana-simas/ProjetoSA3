@@ -72,6 +72,7 @@ public class InstituicaoController {
 			usuario = usuarioRepository.findByEmail(email);
 			permissao = permissaoRepository.findByNome("aluno");
 
+			model.addAttribute("usuario", usuarioRepository.findByEmail(email));
 
 			if(usuario.getPermissoes().contains(permissao)) {
 				Aluno aluno;
