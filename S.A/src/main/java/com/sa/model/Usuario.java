@@ -59,6 +59,14 @@ public class Usuario {
 			inverseJoinColumns=@JoinColumn(name="permissao_id")
 			)
 	private List<Permissao> permissoes;
+	
+	@ManyToMany
+	@JoinTable(
+			name="usuario_chat",
+			joinColumns=@JoinColumn(name="usuario_id"),
+			inverseJoinColumns=@JoinColumn(name="chat_id"))
+	public List<Chat> chat;
+	
 
 
 	public String getDescricao() {

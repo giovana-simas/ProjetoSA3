@@ -19,7 +19,6 @@ public class ChatController {
 	
 	@GetMapping("/chat")
 	public String chat(Model model) {
-		System.out.println("KARALHUDOS CHEGOU AQ");
 		String email = SecurityContextHolder.getContext().getAuthentication().getName();
 		model.addAttribute("usuarioConnect",usuarioRepository.findByEmail(email));
 		model.addAttribute("usuarios",usuarioRepository.findAllByEmailNot(email));
