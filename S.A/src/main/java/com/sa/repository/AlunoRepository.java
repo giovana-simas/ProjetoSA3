@@ -11,6 +11,5 @@ import com.sa.model.Usuario;
 
 public interface AlunoRepository extends JpaRepository<Aluno, Long>{
 	public Aluno findByEmail(String email);
-	
 	public List<Aluno> findBySalasA(Sala sala);
 }

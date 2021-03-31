@@ -22,8 +22,8 @@
                         <p>Aluno(a)</p>
                     </div>
                     <div class="infos">
-                        <div class="name">
-                            <p>Giovana</p>
+                        <div th:text="${usuario.nome}" class="name">
+
                         </div>
                         <div class="actions">
                             <a onclick="window.location.href='/aluno/perfil/0'"><p>Perfil</p></a>
@@ -49,7 +49,7 @@
                         <div class="enderecoInstituicao" th:text="${instituicao.endereco}"> teste</div>
                         <div class="contatoInstituicao" th:text="${instituicao.numeroContato}"> teste</div>
                     </div>
-                
+
                 </div>
 
             </div>

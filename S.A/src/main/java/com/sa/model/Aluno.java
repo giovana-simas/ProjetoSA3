@@ -11,21 +11,20 @@ import javax.validation.constraints.Size;
 @DiscriminatorValue(value = "A")
 public class Aluno extends Usuario{
 
-	@Size(max=500)
-	String descricao;
+
 
 
 
 	@Enumerated(EnumType.STRING)
 	@Column(name = "querAjudar", columnDefinition = "naoQuerAjudar")
-	private QuerAjudar querAjudar;
+	private statusAjuda statusAjuda;
 
-	public enum QuerAjudar {
+	public enum statusAjuda {
 		querAjudar("Quer ajudar"), naoQuerAjudar("Não quer ajudar"), precisaDeAjuda("Precisa de ajuda");
 
 		private final String displayValue;
 
-		private QuerAjudar(String displayValue) {
+		private statusAjuda(String displayValue) {
 			this.displayValue = displayValue;
 		}
 
@@ -34,6 +33,13 @@ public class Aluno extends Usuario{
 		}
 	}
 
+	public Aluno.statusAjuda getStatusAjuda() {
+		return statusAjuda;
+	}
+
+	public void setStatusAjuda(Aluno.statusAjuda statusAjuda) {
+		this.statusAjuda = statusAjuda;
+	}
 
 	@OneToMany(mappedBy = "aluno")
 	private List<MateriaAluno> materiaAluno;
@@ -55,12 +61,12 @@ public class Aluno extends Usuario{
 	private Set<Instituicao> instituicoesA;
 
 
-	public QuerAjudar getQuerAjudar() {
-		return querAjudar;
+	public statusAjuda getQuerAjudar() {
+		return statusAjuda;
 	}
 
-	public void setQuerAjudar(QuerAjudar querAjudar) {
-		this.querAjudar = querAjudar;
+	public void setQuerAjudar(statusAjuda querAjudar) {
+		this.statusAjuda = querAjudar;
 	}
 
 	public List<MateriaAluno> getMateriaAluno() {

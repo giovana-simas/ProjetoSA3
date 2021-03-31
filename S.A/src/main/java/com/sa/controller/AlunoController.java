@@ -45,7 +45,7 @@ public class AlunoController {
 	@GetMapping("/aluno/cadastroAluno/{salvo}")
 	//cria o metodo de redirecionamento para a tela de cadastro com um model para registrar as informações do usuario no banco
 	public String addAluno(@PathVariable int salvo, Model model) {
-		//adiciona um atributo que pode ser chamado atravez de "usuario" que guarda um novo objeto usuario vazio
+		//adiciona um atributo que pode ser chamado atravez de "Aluno" que guarda um novo objeto usuario Aluno
 		model.addAttribute("aluno", new Aluno());
 		//adciona um atributo que pode ser chamado atravez de "salvo" que guarda um numero que irá indicar se o usuario foi salvo ou nao
 		//esse numero é setado no Usuario controller
@@ -84,7 +84,7 @@ public class AlunoController {
 				//salva o usuario criado anteriormente em "IndexController" agora com informações preenchidas no banco e mostra as informações salvas no console para conferencia e manutenção
 				System.out.println("incriptou a seja e salvou o aluno novo");
 
-				System.out.print(alunoRepository.save(aluno));
+				alunoRepository.save(aluno);
 				//seta a variavel "path" para que redirecione para tela de cadastro e mostre se o cadastro foi salvo ou nao
 				path  = "redirect:/aluno/cadastroAluno/" + salvo;
 				}else {
