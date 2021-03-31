@@ -14,7 +14,6 @@
         
 
     </head>
-    <img class="login" th:src="@{/src/login.png}">
 		
 		 
     <body background="/src/back.png" onload="">
@@ -23,12 +22,13 @@
         
        
 		
-        <div >
+        <div class="container5">
+            <h3>Crie uma sala</h3>
             <form th:action="|@{/sala/save/} + ${instituicao.id}|" th:object="${sala}" method="POST">
 
-                <input type="text" placeholder="&#32 NOME" class="css-email" th:field="*{id}" required hidden/>
-            <input type="text" placeholder="&#32 NOME" class="css-email" th:field="*{nome}" required />
-            <button id="salvar" type="submit" class="myButton">CADASTRA-SE</button>
+                <input type="text" placeholder="&#32 NOME" class="css-email" th:field="*{id}" required hidden/><br>
+            <input type="text" placeholder="&#32 NOME" class="css-email" th:field="*{nome}" required /><br>
+            <button id="salvar" type="submit" class="myButton">CADASTRA-SE</button><br>
 
 
             </form>

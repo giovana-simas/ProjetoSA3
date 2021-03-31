@@ -7,7 +7,13 @@
     font-family: "Poppins", sans-serif;
 }
 
-
+.container5 {
+    background: white;
+    min-height: 40vh;
+    padding: 2rem;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
 /*CONTAINER E LOGIN*/
 body {
     background: linear-gradient(45deg, #A7B8BE, #D2D8D7);
