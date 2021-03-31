@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="https://thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Estude Aqui!</title>
+
+        <!--BIBLIOTECAS E EXTENSOS-->
+            <link  rel="stylesheet" th:href="@{/css/estiloIndex.css}">
+            <script type="text/javascript" th:src="@{/js/js.js}"></script>
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+            <script src="https://kit.fontawesome.com/77b55126cc.js"crossorigin="anonymous"></script>
+    </head>
+    <body>
+
+        <!--MENU-->
+        <div class="container-inicial">
+            <div>
+                <img id="logo" th:src="@{/src/logo.png}">
+            </div>
+            <div id=botao1>
+                <a class="menu-mobile js--nav-icon"> 
+                    <i class="fas fa-times fa-2x"></i>
+                </a>
+                <ul class="main-nav js--main-nav">
+                    <li><a th:href="@{/login}" onclick="window.location.href='/login/'+false" class="myButton" id="">ENTRAR</a></li>
+                    <li><a th:href="@{/aluno/cadastroAluno/0}" class="myButton" id="">CADASTRAR ALUNO</a></li>
+                    <li><a th:href="@{/diretor/cadastroDiretor/0}" class="myButton" id="">CADASTRAR DIRETOR</a></li>
+                    <li><a th:href="@{/professor/cadastroProfessor/0}" class="myButton" id="">CADASTRAR PROFESSOR</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!--background-->
+
+        <div class="container-back">
+            <div>
+            </div>
+        </div>
+
+        <div class="text">
+            <h1>Do questionamento ao entedimento.</h1>
+            <h4>uma forma alternativa de aprender!</h4>
+        </div>
+
+        <div class="info">
+            <div class="img-div">
+                <img id="img" th:src="@{/src/img.png}">
+            </div>
+
+            <div class="descricao-div">
+                <h2>Estude do sofá<br>da sua casa.</h2>
+                <p>Está com dificuldade em aprender? Temosssss a solução para você.<br>
+                    O estude aqui é uma plataforma onde você é aluno ou professor,<br>
+                    você terá ajuda dos seus colegas que são bons no conteudo que<br>
+                    será publicado. Assim como, você pode ajudar alguém com dificuldade<br>
+                    em alguma materia que você domina.</p>
+
+            </div>
+
+        </div>
+
+
+
+
+
+        <!--DESENVOLVEDORES-->
+          <div>
+              <h3>Desenvolvedores:</h3>
+            <div id="box">
+                <ul class="estilizacao">
+                    <li>
+                        <img th:src="@{/src/giovana.jpg}" alt="">
+                        <div class="conteudo">
+                            <p class="nome-secao">Giovana Ferreira de Simas</p>
+                            <p class="descricao">+55 48 996023680</p>
+                            <a href="" class="btn-more">Ver mais</a>
+                        </div>
+                    </li>
+                    <li>
+                        <img th:src="@{/src/gabriel.jpg}" alt="">
+                        <div class="conteudo">
+                            <p class="nome-secao">Gabriel Vieira Barcelos</p>
+                            <p class="descricao">+55 48 99696-2581</p>
+                            <a href="" class="btn-more">Ver mais</a>
+                        </div>
+                    </li>
+                    <li>
+                        <img th:src="@{/src/freitas.jpg}" alt="">
+                        <div class="conteudo">
+                            <p class="nome-secao">Artur Freitas</p>
+                            <p class="descricao">+55 48 99610-0970</p>
+                            <a href="" class="btn-more">Ver mais</a>
+                        </div>
+                    </li>
+                    <li>
+                        <img th:src="@{/src/eller.jpg}" alt="">
+                        <div class="conteudo">
+                            <p class="nome-secao">Artur Eller</p>
+                            <p class="descricao">+55 48 98415-8294</p>
+                            <a href="" class="btn-more">Ver mais</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+          </div><BR>
+
+        
+        <form th:action="@{/logout}" method="post" th:hidden="true" name="logoutForm">
+            <input type="submit" value="Logout" />
+        </form>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+        <input type="text" hidden  th:value="${#httpServletRequest.remoteUser}" id="logout" >
+        <script th:src="@{/js/jquery-3.5.1.min.js}"></script>
+        <script th:src="@{/bootstrap-4.5.2/js/bootstrap.min.js}"></script>
+        <script src="/js/script.js"></script>
+        <script>
+            $(function(){
+                if($('#logout').val() != ""){
+              
+                    document.logoutForm.submit()                
+                }
+            
+            
+            })
+            $('.js--nav-icon').click(function() {
+            var nav = $('.js--main-nav');
+            var icon = $('.js--nav-icon i')
+
+            nav.slideToggle(200);
+
+            if (icon.hasClass('fa-bars')){
+                icon.addClass('fa-times');
+                icon.removeClass('fa-bars');
+            } else {
+                icon.addClass('fa-bars');
+                icon.removeClass('fa-times');
+            }
+            })
+        </script>
+    </body>
+</html>
