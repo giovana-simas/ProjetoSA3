@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Projeto S.A</title>
+        <link  rel="stylesheet" th:href="@{/css/estilo.css}">
+
+
+    </head>
+    <body>
+
+         <div class="container">
+            <form th:action="@{/login}" method="POST">
+                <h2>Login</h2>
+                <input name="username" type="text" placeholder="&#32 E-MAIL" class="css-email" /><br>
+                <input name="password" type="password" placeholder="&#32 PASSWORD" class="css-senha" /> <br>
+                <button type="submit" class="myButton">entrar</button>
+                
+                <p id="texto">Não possui cadastro?</p>
+                <a th:href="@{/}" class="cadastrar">clique aqui!</a>
+            </form>
+        </div>
+        
+        <form th:action="@{/logout}" method="post" th:hidden="true" name="logoutForm">
+            <input type="submit" value="Logout" />
+        </form>
+
+        <input type="text" hidden  th:value="${#httpServletRequest.remoteUser}" id="logout" >
+
+        <script th:src="@{/js/jquery-3.5.1.min.js}"></script>
+        <script th:src="@{/bootstrap-4.5.2/js/bootstrap.min.js}"></script>
+        <script src="/js/script.js"></script>
+        <script>
+            $(function(){
+                if($('#logout').val() != ""){
+                    
+                    document.logoutForm.submit()                
+                }
+                
+            
+            })
+           
+        </script>
+    </body>
+</html>
