@@ -49,7 +49,9 @@ public class Usuario {
 	@NonNull
 	@Size(max=255)
 	String senha;
-	
+
+	@Size(max=500)
+	String descricao;
 	@ManyToMany
 	@JoinTable(
 			name="usuario_permissao",
@@ -57,8 +59,15 @@ public class Usuario {
 			inverseJoinColumns=@JoinColumn(name="permissao_id")
 			)
 	private List<Permissao> permissoes;
-	
-	
+
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
 
 	public List<Permissao> getPermissoes() {
 		return permissoes;
