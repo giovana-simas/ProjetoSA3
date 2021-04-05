@@ -15,12 +15,23 @@ public class Aluno extends Usuario{
 
 
 
+	@Enumerated(EnumType.STRING)
+	@Column(name = "statusAjuda", columnDefinition = "varchar(32) default 'naoQuerAjudar'")
+	public StatusAjuda statusAjuda = StatusAjuda.naoQuerAjudar;
 
-	@Column(name = "statusAjuda",length = 32, columnDefinition = "varchar(32) default 'naoQuerAjudar'")
-	@Enumerated(value = EnumType.STRING)
-	StatusAjuda statusAjuda = StatusAjuda.naoQuerAjudar;
+	public enum StatusAjuda {
+		querAjudar("Quer ajudar"), naoQuerAjudar("Não quer ajudar"), precisaDeAjuda("Precisa de ajuda");
 
+		public final String displayValue;
 
+		private StatusAjuda(String displayValue) {
+			this.displayValue = displayValue;
+		}
+
+		public String getDisplayValue() {
+			return displayValue;
+		}
+	}
 
 
 
@@ -43,7 +54,13 @@ public class Aluno extends Usuario{
 			)
 	private Set<Instituicao> instituicoesA;
 
+	public StatusAjuda getStatusAjuda() {
+		return statusAjuda;
+	}
 
+	public void setStatusAjuda(StatusAjuda statusAjuda) {
+		this.statusAjuda = statusAjuda;
+	}
 
 	public List<MateriaAluno> getMateriaAluno() {
 		return materiaAluno;
@@ -77,20 +94,5 @@ public class Aluno extends Usuario{
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
-	}
-}
-
-
-	enum StatusAjuda {
-	querAjudar("Quer ajudar"), naoQuerAjudar("Não quer ajudar"), precisaDeAjuda("Precisa de ajuda");
-
-	private final String displayValue;
-
-	private StatusAjuda(String displayValue) {
-		this.displayValue = displayValue;
-	}
-
-	public String getDisplayValue() {
-		return displayValue;
 	}
 }

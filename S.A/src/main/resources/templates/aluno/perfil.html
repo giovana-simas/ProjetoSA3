@@ -20,13 +20,14 @@
 
         <div class="majorDiv">
 
-            <div  th:if="${aluno.statusAjuda.displayValue} == 'Quer ajudar' "  class="alert alert-success">
-                Aluno disponivel para Ajudar
-            </div>
+<!--            <div th:if="${aluno.statusAjuda} == ${aluno.statusAjuda.querAjudar}"  class="alert alert-success">-->
+<!--                Aluno disponivel para Ajudar-->
+<!--            </div>-->
 
-            <div  th:if="${aluno.statusAjuda.displayValue} == 'Precisa de ajuda' "  class="alert alert-success">
-                Aluno precisa de ajuda
-            </div>
+<!--            <div th:object="${aluno}"  th:if="${aluno.statusAjuda} == ${aluno.statusAjuda.precisaDeAjuda} "  class="alert alert-success">-->
+<!--                Aluno precisa de ajuda-->
+<!--            </div>-->
+
 
             <div class="divMenor">
 		<img class="login" th:src="@{/src/login.png}">
@@ -39,7 +40,7 @@
                 <input id="editSenha" type="text" placeholder="&#32 SENHA" class="css-email" th:field="${aluno.senha}" readonly hidden />
                 <input id="editPermissoes" type="text" placeholder="&#32 PERMISSÃO" class="css-email" th:field="${aluno.permissoes}" readonly hidden />
                 <select id="editAjuda" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${aluno.statusAjuda}" readonly  hidden>
-                    <option th:each="statusAjudaOpt : ${T(com.sa.model.Aluno.statusAjuda).values()}" th:value="${statusAjudaOpt}" th:text="${statusAjudaOpt.displayValue}"></option>
+                    <option th:each="statusAjudaOpt : ${T(com.sa.model.Aluno.StatusAjuda).values()}" th:value="${statusAjudaOpt}" th:text="${statusAjudaOpt.displayValue}"></option>
                 </select>
                 <input id="editinstituicoes" type="text" placeholder="&#32 INSTITUIÇÕES" class="css-email" th:field="${aluno.instituicoesA}" readonly hidden />
                 <input id="editsalas" type="text" placeholder="&#32 SALAS" class="css-email" th:field="${aluno.salasA}" readonly hidden />
