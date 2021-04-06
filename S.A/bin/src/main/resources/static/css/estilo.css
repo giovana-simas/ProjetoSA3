@@ -9,7 +9,7 @@
 
 /*CONTAINER E LOGIN*/
 body {
-    background: linear-gradient(45deg, #4B548A, #38577C);
+    background: linear-gradient(45deg, #02BDD8, #457ED6);
     background-repeat: no-repeat;
     min-height: 100vh;
     min-width: 100vw;
@@ -51,7 +51,7 @@ body {
         height: 30px;
         margin-left: 20px;
         padding: 0.4rem;
-        background: linear-gradient(to left, #38577C, #4B548A);
+        background: linear-gradient(45deg, #02BDD8, #457ED6);
         cursor: pointer;
         color: rgb(255, 255, 255);
         font-size: 0.9rem;
@@ -62,7 +62,7 @@ body {
     
 .myButton:hover{
         letter-spacing: 0.5px;
-        background: linear-gradient(to right, #38577C, #4B548A);
+        background: linear-gradient(45deg,  #457ED6, #02BDD8);
     }
 h2{
     margin-left: 110px;
@@ -83,7 +83,6 @@ h2{
 
 
 
-/*CADASTRO ALUNO*/
 .container1{
     background: white;
     min-height: 40vh;
@@ -121,7 +120,7 @@ h3{
     height: 30px;
     margin-left: 10px;
     padding: 0.4rem;
-    background: linear-gradient(to left, #38577C, #4B548A);
+    background: linear-gradient(45deg, #02BDD8, #457ED6);
     cursor: pointer;
     color: rgb(255, 255, 255);
     font-size: 0.9rem;

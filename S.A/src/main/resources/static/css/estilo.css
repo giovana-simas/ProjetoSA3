@@ -16,7 +16,7 @@
 }
 /*CONTAINER E LOGIN*/
 body {
-    background: linear-gradient(45deg, #A7B8BE, #D2D8D7);
+    background: linear-gradient(to left, #02BED8, #457ED6);
     background-repeat: no-repeat;
     min-height: 100vh;
     min-width: 100vw;
@@ -58,7 +58,7 @@ body {
         height: 30px;
         margin-left: 20px;
         padding: 0.4rem;
-        background: linear-gradient(to left, #A7B8BE, #D2D8D7);
+        background: linear-gradient(to left, #02BED8, #457ED6);;
         cursor: pointer;
         color: rgb(255, 255, 255);
         font-size: 0.9rem;
@@ -69,7 +69,7 @@ body {
     
 .myButton:hover{
         letter-spacing: 0.5px;
-        background: linear-gradient(to right, #A7B8BE, #D2D8D7);
+        background: linear-gradient(to right, #02BED8, #457ED6);
     }
 h2{
     margin-left: 110px;
@@ -83,7 +83,7 @@ h2{
 }
 .cadastrar{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #38577C;
+    color: #457ED6;
     margin-left: 100px;
     text-decoration: none;
 }
@@ -128,7 +128,7 @@ h3{
     height: 30px;
     margin-left: 10px;
     padding: 0.4rem;
-    background: linear-gradient(to left, #A7B8BE, #D2D8D7);
+    background: linear-gradient(to left, #02BED8, #457ED6);
     cursor: pointer;
     color: rgb(255, 255, 255);
     font-size: 0.9rem;
@@ -139,5 +139,5 @@ h3{
 
 .myButton1:hover{
     letter-spacing: 0.5px;
-    background: linear-gradient(to right, #A7B8BE, #D2D8D7);
+    background: linear-gradient(to right, #02BED8, #457ED6);
 }
