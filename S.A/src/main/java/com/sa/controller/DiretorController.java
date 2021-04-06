@@ -77,6 +77,7 @@ public class DiretorController {
 			if(diretor != null) {
 				//seta a variavel salvo para 1 onde vai indicar que o usuario foi salvo atravez de um model
 				salvo = 1;
+				System.out.println(email);
 				//confere se há um usuario logado ou se ele esta em "logout" ou seja usuario anonimo.
 				//caso seja anonimo o usuario será salvo como novo usuario atravez da tela de cadastro.
 				//caso haja um usuario logado, ou seja "email!="anonymousUser"" ele estara editando um usuario ja existente na tela de perfil.

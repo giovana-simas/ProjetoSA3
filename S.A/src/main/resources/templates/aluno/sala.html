@@ -42,7 +42,7 @@
 
                 <tbody>
                     <tr th:each="aluno : ${alunos}" th:onclick="|window.location.href='/perfil/' + ${aluno.id} |">
-                        <td th:text="${aluno.nome}"></td>
+                        <td th:text="${aluno.nome} + ' ' + ${aluno.statusAjuda}"></td>
                     </tr>
                 </tbody>
 

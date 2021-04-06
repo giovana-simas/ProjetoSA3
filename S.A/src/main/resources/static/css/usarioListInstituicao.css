@@ -1,7 +1,7 @@
 .majorContainer{
   width: 100vw;
   height: 100vh;
-  background: -webkit-linear-gradient(-135deg, #497bd6, #00bfd8);
+  background: linear-gradient(to left, #02BED8, #457ED6);
   margin: 0;
   padding: 0;
   max-width: 999999px;

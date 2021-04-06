@@ -14,6 +14,7 @@ function bindEvents() {
     $textarea.on('keyup', addMessageEnter.bind(this));
 }
 
+
 function cacheDOM() {
     $chatHistory = $('.chat-history');
     $button = $('#sendBtn');
@@ -38,7 +39,7 @@ function render(message, userName) {
 }
 
 function sendMessage(message) {
-    let username = $('#userName').val();
+    let username = $('#userName').data("value");
     console.log(username + "custom")
     enviarMensagem(username, message);
     scrollToBottom();

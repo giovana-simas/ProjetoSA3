@@ -57,12 +57,12 @@ public class AlunoController {
 	//incapsula e envia informação e é chamado atravez do metodo "/usuario/save"
 	@PostMapping("/aluno/save")
 	//cria o metodo de salvamento com um objeto Usuario
-	public String saveUsuario(Aluno aluno) {
+	public String saveAluno(Aluno aluno) {
 		//instancia informações que serão usadas
 		int salvo = 0;
 		String path  = "";
 		String email = "";
-		System.out.println("chamou save");
+
 
 		
 //		verifica o usuario logado e aplica a instancia de conferencia(neste caso é o email do usuario logado) na variavel "email"
@@ -73,7 +73,7 @@ public class AlunoController {
 			if(aluno != null) {
 				//seta a variavel salvo para 1 onde vai indicar que o usuario foi salvo atravez de um model
 				salvo = 1;
-				System.out.println("passou pelo try");
+
 
 				//confere se há um usuario logado ou se ele esta em "logout" ou seja usuario anonimo.
 				//caso seja anonimo o usuario será salvo como novo usuario atravez da tela de cadastro.

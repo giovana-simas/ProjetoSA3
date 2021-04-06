@@ -59,14 +59,16 @@ public class UsuarioController {
 	public String perfil (Model model, @PathVariable long id){
 		String path = "";
 		Permissao permissao;
+		String email = SecurityContextHolder.getContext().getAuthentication().getName();
 
 		//verifica o usuario logado e aplica a instancia de conferencia(neste caso é o email do usuario logado) na variavel "email"
 		Usuario usuario = usuarioRepository.findById(id);
 		System.out.println(usuario);
 		permissao = permissaoRepository.findByNome("aluno");
+
 		if (usuario.getPermissoes().contains(permissao)){
 
-			model.addAttribute("aluno", alunoRepository.findById(id));
+			model.addAttribute("aluno", alunoRepository.findById(id).get());
 
 			path = "/aluno/perfil";
 		}
@@ -74,18 +76,23 @@ public class UsuarioController {
 		permissao = permissaoRepository.findByNome("professor");
 		if (usuario.getPermissoes().contains(permissao)){
 
-			model.addAttribute("professor", professorRepository.findById(id));
+			model.addAttribute("professor", professorRepository.findById(id).get());
 
 			path = "/professor/perfil";
 		}
 		permissao = permissaoRepository.findByNome("diretor");
 		if (usuario.getPermissoes().contains(permissao)){
 
-			model.addAttribute("diretor", diretorRepository.findById(id));
+			model.addAttribute("diretor", diretorRepository.findById(id).get());
 
 			path = "/diretor/perfil";
 		}
 
+		if (usuario.getEmail().equals(email)){
+			model.addAttribute("editavel", true);
+		}else{
+			model.addAttribute("editavel", false);
+		}
 
 		return path;
 
