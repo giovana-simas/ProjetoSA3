@@ -20,7 +20,10 @@ let usuarioselect
 
 function usuarioselecionado(id){
     usuarioselect = id;
+    nomeUsuario = $('#usuarioname').text();
     console.log("Usuario selecionado: " + usuarioselect)
+    $('#usuarioChat').html('');
+    $('#usuarioChat').append('Chat com ' + nomeUsuario);
 
 }
 

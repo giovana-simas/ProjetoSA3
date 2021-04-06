@@ -7,78 +7,188 @@
 
         <!--BIBLIOTECAS E EXTENSOS-->
         <link  rel="stylesheet" th:href="@{/css/estilo.css}">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.0/handlebars.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.1.1/list.min.js"></script>
         <script type="text/javascript" th:src="@{/js/chat.js}"></script>
-        
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.4.0/sockjs.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
 
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" th:href="@{/bootstrap-4.5.2/css/bootstrap.min.css}">
         <link rel="stylesheet" th:href="@{/fontawesome-5.14.0/css/all.min.css}">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.0/handlebars.min.js"></script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
+        <script>
+            $(document).ready(function(){
+                $('#action_menu_btn').click(function(){
+                    $('.action_menu').toggle();
+                });
+                    });    
+        </script>
     </head>
     <body th:onload="|conectarChat(${usuarioConnect.id})|">
-
-        <div style="width: 100%;height: 100%;position: fixed;align-items: center;justify-content: center;display: flex;">   
-            <div style="height: 90%; width: 85%;  display: flex;">
-                <div class="form-tabela" style="background-color: mediumpurple; width: 35%; height: 100%;">
-                    <div class="form-group">
-                        <label >Usuarios</label>
-                        <select class="form-control" th:size="5" id="select-state" placeholder="Pick a state..." required>
-                            <option id="userName" th:each="usuario : ${usuarios}" th:value="${usuario.id}" th:text="${usuario.nome}" th:onclick="|usuarioselecionado(${usuario.id})|"></option>
-                        </select>
-
-                    </div>
-
-                </div>
-                <div class="chat" style="width: 100%; height: 100%; background-color: aqua; display: flex; flex-wrap: wrap;">
-                    <div class="chat-history" style="width: 100%; height: 90%; background-color: whitesmoke;">
+        <!-- <div>   
+            <div>
+                
+                <div class="chat" >
+                    <div class="chat-history">
                         <ul>
             
                         </ul>
-                    </div> <!-- end chat-history -->
+                    </div> 
             
-                    <div class="chat-message clearfix" style="width: 100%; height: 10%; background-color: wheat; display: flex;">
-                        <textarea style="width: 95%; height: 100%;" id="message-to-send" name="message-to-send" placeholder="Type your message" rows="1"></textarea>
-                        <button  id="sendBtn" style="width: 5%; height: 100%;">Send</button>
-                    </div> <!-- end chat-message -->
+                    <div class="chat-message clearfix">
+                        <textarea id="message-to-send" name="message-to-send" rows="1"></textarea>
+                        <button  id="sendBtn" >Send</button>
+                    </div> 
+                </div>
+            </div>
+        </div> -->
+
+    <div class="container-fluid h-100">
+        <div class="row justify-content-center h-100">
+            <div class="col-md-4 col-xl-3 chat"><div class="card mb-sm-3 mb-md-0 contacts_card">
+                <div class="card-header">
+                    <div class="input-group">
+                        <input type="text" placeholder="Pesquisar..." name="" class="form-control search">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text search_btn"><i class="fas fa-search"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body contacts_body">
+                    <ui class="contacts">
+
+                        <li class="active" th:each="usuario : ${usuarios}" th:onclick="|usuarioselecionado(${usuario.id})|">
+                            <div class="d-flex bd-highlight">
+                                <div class="img_cont">
+                                    <img class="rounded-circle user_img">
+                                    <span class="online_icon"></span>
+                                </div>
+                                <div id="userName" class="user_info" th:data-value="${usuario.id}">
+                                    <span id="usuarioname" th:text="${usuario.nome}"></span>
+                                </div>
+                            </div>
+                        </li>
+                    </ui>
+                </div>
+                <div class="card-footer"></div>
+            </div></div>
+            <div class="col-md-8 col-xl-6 chat">
+                <div class="card">
+                    <div class="card-header msg_head">
+                        <div class="d-flex bd-highlight">
+                            <div class="img_cont">
+                                <img class="rounded-circle user_img">
+                                <span class="online_icon"></span>
+                            </div>
+                            <div class="user_info">
+                                <span id="usuarioChat"></span>
+                                <p id="numMsg"></p>
+                            </div>
+                        </div>
+                        <!-- <span id="action_menu_btn"><i class="fas fa-ellipsis-v"></i></span>
+                        <div class="action_menu">
+                            <ul>
+                                <li><i class="fas fa-user-circle"></i> View profile</li>
+                                <li><i class="fas fa-users"></i> Add to close friends</li>
+                                <li><i class="fas fa-plus"></i> Add to group</li>
+                                <li><i class="fas fa-ban"></i> Block</li>
+                            </ul>
+                        </div> -->
+                    </div>
+                    <div class="chat-history card-body">
+                        <ul class="chat-ul">
+
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <div class="input-group chat-message clearfix">
+                            <textarea id="message-to-send" name="message-to-send" rows="1" class="form-control type_msg" placeholder="Escreva sua mensagem..."></textarea>
+                            <div class="input-group-append">
+                                <button id="sendBtn" class="input-group-text send_btn">
+                                    <span><i class="fas fa-location-arrow"></i></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
+
+
+
+<!-- 
+                        <div class="d-flex justify-content-start mb-4">
+                            <div class="img_cont_msg">
+                                <img class="rounded-circle user_img_msg">
+                            </div>
+                            <div class="msg_cotainer">
+                                tão nego
+                                <span class="msg_time">Hoje, 18:40</span>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-end mb-4">
+                            <div class="msg_cotainer_send">
+                                Fala feiu
+                                <span class="msg_time_send">Hoje, 18:54</span>
+                            </div>
+                            <div class="img_cont_msg">
+                                <img class="rounded-circle user_img_msg">
+                            </div>
+                        </div> -->
+
+
+        
+
+
         <script id="message-template" type="text/x-handlebars-template">
             <li class="clearfix">
-                <div class="message-data align-right">
+                <div class="d-flex justify-content-end mb-4">
+                    <div class="msg_cotainer_send" style="margin: 0px;">
+                        {{messageOutput}}
+                        <span class="msg_time_send">{{time}}</span>
+                    </div>
+                    <div class="img_cont_msg">
+                        <img class="rounded-circle user_img_msg">
+                    </div>
+                </div>
+            <!--<div class="message-data align-right">
                     <span class="message-data-time">{{time}}, Today</span> &nbsp; &nbsp;
                     <span class="message-data-name">You</span> <i class="fa fa-circle me"></i>
                 </div>
                 <div class="message other-message float-right">
                     {{messageOutput}}
-                </div>
+                </div> -->
             </li>
         </script>
         
         <script id="message-response-template" type="text/x-handlebars-template">
             <li>
-                <div class="message-data">
+                <div class="d-flex justify-content-start mb-4">
+                    <div class="img_cont_msg">
+                        <img class="rounded-circle user_img_msg">
+                    </div>
+                    <div class="msg_cotainer chat-msg" >
+                        {{response}}
+                        <span class="msg_time">{{time}}</span>
+                    </div>
+                </div>
+                <!-- <div class="message-data">
                     <span class="message-data-name"><i class="fa fa-circle online"></i> {{userName}}</span>
                     <span class="message-data-time">{{time}}, Today</span>
                 </div>
                 <div class="message my-message">
                     {{response}}
-                </div>
+                </div> -->
             </li>
         </script>
-        
 
-
-
-        
         <script type="text/javascript" th:src="@{/js/custom.js}"></script>
     </body>
 </html>
