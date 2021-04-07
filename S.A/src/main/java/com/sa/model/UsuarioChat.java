@@ -8,27 +8,24 @@ public class UsuarioChat implements Serializable{
 
 
 
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @ManyToOne
-    @MapsId("usuarioId")
     @JoinColumn(name = "usuario_id1")
     Usuario usuario1;
 
 
     @ManyToOne
-    @MapsId("chatId")
-    @JoinColumn(name = "chat_Id")
+    @JoinColumn(name = "chat_id")
     Chat chat;
 
     @ManyToOne
-    @MapsId("usuarioId")
     @JoinColumn(name = "usuario_id2")
     Usuario usuario2;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+
 
 
 
@@ -62,5 +59,15 @@ public class UsuarioChat implements Serializable{
 
     public Long getId() {
         return id;
+    }
+
+    @Override
+    public String toString() {
+        return "UsuarioChat{" +
+                "usuario1=" + usuario1 +
+                ", chat=" + chat +
+                ", usuario2=" + usuario2 +
+                ", id=" + id +
+                '}';
     }
 }

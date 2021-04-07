@@ -12,7 +12,7 @@ public class Chat {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	long id;
 
 	@OneToMany(targetEntity = Message.class, mappedBy = "chat")
 	public List<Message> message;
@@ -49,4 +49,11 @@ public class Chat {
 		this.message = message;
 	}
 
+	@Override
+	public String toString() {
+		return "Chat{" +
+				"id=" + id +
+				", message=" + message + "}"
+				;
+	}
 }

@@ -34,12 +34,13 @@ public class ChatController {
 	public String chat(Model model) {
 		String email = SecurityContextHolder.getContext().getAuthentication().getName();
 		model.addAttribute("usuarioConnect",usuarioRepository.findByEmail(email));
-		model.addAttribute("chats",usuarioChatRepository.findByUsuario1(usuarioRepository.findByEmail(email)));
+		model.addAttribute("chats",usuarioChatRepository.findByUsuario1OrUsuario2(usuarioRepository.findByEmail(email),usuarioRepository.findByEmail(email)));
 
 
 
 		return "/chat/chat";
 	}
+
 
 	@GetMapping("/chat/add/{id}")
 	public  String addChat(@PathVariable long id){
@@ -55,27 +56,44 @@ public class ChatController {
 		System.out.println("entrou no metodo");
 		usuarioChat = usuarioChatRepository.findByUsuario1AndUsuario2(usuario1, usuario2);
 
+
 		try {
 			System.out.println("entrou no try");
-			if (usuarioChat == null){
-				Chat chat = new Chat();
-				chat.addUsuarioChats(usuarioChat);
+			System.out.println(usuarioChat);
+			if (usuarioChat == null && usuario2.getEmail() != usuario1.getEmail()){
+				usuarioChat = usuarioChatRepository.findByUsuario1AndUsuario2(usuario2, usuario1);
+				System.out.println(usuarioChat);
+				if (usuarioChat == null && usuario2.getEmail() != usuario1.getEmail()){
 
-				usuario1.addUsuarioChats1(usuarioChat);
-				usuario2.addUsuarioChats2(usuarioChat);
+					System.out.println("entrou no if");
+					Chat chat = new Chat();
+					usuarioChat = new UsuarioChat();
 
-				usuarioChat.setUsuario1(usuario1);
-				usuarioChat.setUsuario2(usuario2);
-				usuarioChat.setChat(chat);
+					System.out.println(usuario1);
+					System.out.println(usuario2);
 
-				chatRepository.save(chat);
+					System.out.println("entrou no if3");
+					usuarioChat.setUsuario1(usuario1);
+					usuarioChat.setUsuario2(usuario2);
 
-				usuarioRepository.save(usuario1);
-				usuarioRepository.save(usuario2);
-				System.out.println("chat nulo");
 
-				usuarioChatRepository.save(usuarioChat);
-				path = "redirect:/chat";
+					System.out.println("entrou no if4");
+
+
+
+
+					usuarioChat.setChat(chatRepository.save(chat));
+					usuarioRepository.save(usuario1);
+					usuarioRepository.save(usuario2);
+
+					usuarioChatRepository.save(usuarioChat);
+
+					path = "redirect:/chat";
+				}else{
+					System.out.println("chat n nulo");
+					path = "redirect:/chat";
+				}
+
 			}else{
 				System.out.println("chat n nulo");
 				path = "redirect:/chat";

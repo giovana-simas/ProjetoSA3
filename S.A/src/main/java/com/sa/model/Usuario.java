@@ -92,7 +92,7 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return "Usuario [id=" + id + ", nome=" + nome + ", email=" + email + ", login="  + ", senha=" + senha
+		return "Usuario [id=" + id + ", nome=" + nome + ", email=" + email + ", senha=" + senha
 				+ ", permissoes=" + permissoes + "]";
 	}
 
