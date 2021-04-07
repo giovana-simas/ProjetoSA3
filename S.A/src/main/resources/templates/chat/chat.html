@@ -22,32 +22,9 @@
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
-        <script>
-            $(document).ready(function(){
-                $('#action_menu_btn').click(function(){
-                    $('.action_menu').toggle();
-                });
-                    });    
-        </script>
+
     </head>
     <body th:onload="|conectarChat(${usuarioConnect.id})|">
-        <!-- <div>   
-            <div>
-                
-                <div class="chat" >
-                    <div class="chat-history">
-                        <ul>
-            
-                        </ul>
-                    </div> 
-            
-                    <div class="chat-message clearfix">
-                        <textarea id="message-to-send" name="message-to-send" rows="1"></textarea>
-                        <button  id="sendBtn" >Send</button>
-                    </div> 
-                </div>
-            </div>
-        </div> -->
 
     <div class="container-fluid h-100">
         <div class="row justify-content-center h-100">
@@ -81,7 +58,7 @@
             </div></div>
             <div class="col-md-8 col-xl-6 chat">
                 <div class="card">
-                    <div class="card-header msg_head">
+                    <div class="card-header msg_head hiddenChat">
                         <div class="d-flex bd-highlight">
                             <div class="img_cont">
                                 <img class="rounded-circle user_img">
@@ -92,22 +69,13 @@
                                 <p id="numMsg"></p>
                             </div>
                         </div>
-                        <!-- <span id="action_menu_btn"><i class="fas fa-ellipsis-v"></i></span>
-                        <div class="action_menu">
-                            <ul>
-                                <li><i class="fas fa-user-circle"></i> View profile</li>
-                                <li><i class="fas fa-users"></i> Add to close friends</li>
-                                <li><i class="fas fa-plus"></i> Add to group</li>
-                                <li><i class="fas fa-ban"></i> Block</li>
-                            </ul>
-                        </div> -->
                     </div>
-                    <div class="chat-history card-body">
+                    <div class="chat-history card-body hiddenChat">
                         <ul class="chat-ul">
 
                         </ul>
                     </div>
-                    <div class="card-footer">
+                    <div class="card-footer hiddenChat">
                         <div class="input-group chat-message clearfix">
                             <textarea id="message-to-send" name="message-to-send" rows="1" class="form-control type_msg" placeholder="Escreva sua mensagem..."></textarea>
                             <div class="input-group-append">
@@ -116,6 +84,9 @@
                                 </button>
                             </div>
                         </div>
+                    </div>
+                    <div class="hiddenChatMsg" hidden>
+                        <span>Selecione uma conversa</span>
                     </div>
                 </div>
             </div>
@@ -159,13 +130,6 @@
                         <img class="rounded-circle user_img_msg">
                     </div>
                 </div>
-            <!--<div class="message-data align-right">
-                    <span class="message-data-time">{{time}}, Today</span> &nbsp; &nbsp;
-                    <span class="message-data-name">You</span> <i class="fa fa-circle me"></i>
-                </div>
-                <div class="message other-message float-right">
-                    {{messageOutput}}
-                </div> -->
             </li>
         </script>
         
@@ -180,13 +144,6 @@
                         <span class="msg_time">{{time}}</span>
                     </div>
                 </div>
-                <!-- <div class="message-data">
-                    <span class="message-data-name"><i class="fa fa-circle online"></i> {{userName}}</span>
-                    <span class="message-data-time">{{time}}, Today</span>
-                </div>
-                <div class="message my-message">
-                    {{response}}
-                </div> -->
             </li>
         </script>
 

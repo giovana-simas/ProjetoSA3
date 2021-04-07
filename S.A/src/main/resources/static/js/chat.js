@@ -3,9 +3,20 @@ let stompClient;
 let usuarioselect
 
 
+function msgHiddenChat(){
+    if(usuarioselect == null){
+        $('.hiddenChat').attr('hidden', true);
+        $('.hiddenChatMsg').attr('hidden', false);
+        
+    }else{
+        $('.hiddenChat').attr('hidden', false);
+        $('.hiddenChatMsg').attr('hidden', true);
+    }
+}
 
  function conectarChat(id){
     console.log("Conectando com o chat...")
+    msgHiddenChat()
 
     let socket = new SockJS(url + '/chat');
     stompClient = Stomp.over(socket);
@@ -20,6 +31,7 @@ let usuarioselect
 
 function usuarioselecionado(id){
     usuarioselect = id;
+    msgHiddenChat()
     nomeUsuario = $('#usuarioname').text();
     console.log("Usuario selecionado: " + usuarioselect)
     $('#usuarioChat').html('');

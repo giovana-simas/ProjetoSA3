@@ -1,20 +1,4 @@
 
-* {
-    margin: 0;
-    border: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-}
-
-.container5 {
-    background: white;
-    min-height: 40vh;
-    padding: 2rem;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-}
-/*CONTAINER E LOGIN*/
 body {
     background: linear-gradient(to left, #02BED8, #457ED6);
     background-repeat: no-repeat;
@@ -24,126 +8,65 @@ body {
     align-items: center;
     justify-content: center;
 }
-.container {
+/*DENTRO DA INSTITUIÇÃO*/
+.container-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background: white;
     width: 350px;
-    min-height: 40vh;
-    padding: 2rem;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
+    height: 450px;
+    border-radius: 20px;
 }
-.css-email{
-    margin-top: 40px;
-    border: 0;
-    border-bottom: 2px solid #9e9e9e;
-    width: 250px;
-    margin-left: 15px;
-    outline: none;
-    transition: .2s ease-in-out;
-    box-sizing: border-box;
+.buttons{
+    margin-top: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
-.css-senha{
-    margin-top: 30px;
-    border: 0;
-    border-bottom: 2px solid #9e9e9e;
-    width: 250px;
-    margin-left: 15px;
-    outline: none;
-    transition: .2s ease-in-out;
-    box-sizing: border-box;
+.nameSala{
+    color: black;
+    font-family: "Segoe UI Semibold";
+    font-size: 25px;
 }
-.myButton {
-        margin-top: 2rem;
-        width: 250px;
-        height: 30px;
-        margin-left: 20px;
-        padding: 0.4rem;
-        background: linear-gradient(to left, #02BED8, #457ED6);;
-        cursor: pointer;
-        color: rgb(255, 255, 255);
-        font-size: 0.9rem;
-        font-weight: 300;
-        border-radius: 4px;
-        transition: all 0.3s ease;
-    }
-    
-.myButton:hover{
-        letter-spacing: 0.5px;
-        background: linear-gradient(to right, #02BED8, #457ED6);
-    }
-h2{
-    margin-left: 110px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.button-new{
+    margin: 10px 0px 10px 0px;
+    cursor:pointer;
 }
-#texto{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin-left: 65px;
+
+.sala-css{
     color: grey;
-    margin-top: 15px;
-}
-.cadastrar{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #457ED6;
-    margin-left: 100px;
-    text-decoration: none;
-}
-
-
-
-/*CADASTRO ALUNO*/
-.container1{
-    background: white;
-    min-height: 40vh;
-    padding: 2rem;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-}
-h3{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin-left: 30px;
-}
-.css-email1{
-    margin-top: 40px;
-    border: 0;
-    border-bottom: 2px solid #9e9e9e;
-    width: 250px;
-    margin-left: 5px;
-    outline: none;
-    transition: .2s ease-in-out;
-    box-sizing: border-box;
-}
-.css-senha1{
-    margin-top: 30px;
-    border: 0;
-    border-bottom: 2px solid #9e9e9e;
-    width: 250px;
-    margin-left: 5px;
-    outline: none;
-    transition: .2s ease-in-out;
-    box-sizing: border-box;
-}
-.myButton1 {
-    margin-top: 2rem;
-    width: 250px;
-    height: 30px;
-    margin-left: 10px;
-    padding: 0.4rem;
-    background: linear-gradient(to left, #02BED8, #457ED6);
+    font-size: 20px;
+    font-family: "Segoe UI Light";
+    padding: 10px 0px 10px 0px;
     cursor: pointer;
-    color: rgb(255, 255, 255);
-    font-size: 0.9rem;
-    font-weight: 300;
-    border-radius: 4px;
-    transition: all 0.3s ease;
 }
-
-.myButton1:hover{
-    letter-spacing: 0.5px;
-    background: linear-gradient(to right, #02BED8, #457ED6);
+.sala-css:hover{
+    color: black;
 }
 
 
-/*CHAT*/
+
+
+
+
+
+/*=========================CHAT=========================*/
+
+.hiddenChatMsg{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center
+
+}
+.hiddenChatMsg span{
+    font-size: 20px;
+    color: white;
+    text-justify: auto;
+}
 
 .chat-ul{
     list-style-type: none;
