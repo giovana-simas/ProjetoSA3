@@ -54,3 +54,15 @@ function verificaEmail(){
     }
 
 }
+
+function closeBar(){
+    console.log("teste")
+    if ($("#filtro").is(":hidden")) {
+        $( "#filtro" ).show();
+        $( "#iconMenu" ).hide();
+
+    }else{
+        $( "#filtro" ).hide()
+        $( "#iconMenu" ).show();
+    }
+}

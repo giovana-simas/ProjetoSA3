@@ -1,52 +1,94 @@
 <!DOCTYPE html>
 <html lang="pt-br" xmlns:th="https://thymeleaf.org">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Projeto S.A</title>
-        <link  rel="stylesheet" th:href="@{/css/estilo.css}">
+<head>
+	<title>Cadastro Diretor</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="stylesheet" th:href="@{/bootstrap-4.5.2/css/bootstrap.min.css}">
-    <link rel="stylesheet" th:href="@{/fontawesome-5.14.0/css/all.min.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{css/bootstrap.css}">
 
-        <script src="/js/script.js"></script>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/animate.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css-hamburgers/hamburgers.min.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/select2.min.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/util.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/main.css}">
+	<script src="https://kit.fontawesome.com/77b55126cc.js"crossorigin="anonymous"></script>
 
-        
-
-    </head>
-		
+</head>
 		 
-    <body background="/src/back.png">
+    <body background="/src/back.png" onload="">
+        <div class="limiter">
+            <div class="container-login100">
+                <div class="wrap-login100Cadastro">
+                    <div class="login100-pic js-tilt" data-tilt>
+                        <img th:src="@{/src/img-01.png}" alt="IMG">
+                    </div>
+                    
+            <div th:if="${salvo} == 1" class="alert alert-success">
+                Usuário salvo com sucesso
+            </div>
+            <div th:if="${salvo} == 2" class="alert alert-danger">
+                Usuário não salvo
+            </div>  
+                    <form class="login100-form validate-form" th:action="@{/diretor/save}"  th:object="${diretor}" method="POST" required>
+                        <span class="login100-form-title">
+                            Cadastrar Diretor
+                        </span>
+                        <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+                            <input class="input100" name="username" type="text" placeholder="Nome" th:field="*{nome}">
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                            </span>
+                        </div>
     
-    
-        <div th:if="${salvo} == 1" class="alert alert-success">
-            Usuário salvo com sucesso
-        </div>
-        <div th:if="${salvo} == 2" class="alert alert-danger">
-            Usuário não salvo
-        </div>	
-       
-		
-        <div class="container1">
-            <form th:action="@{/diretor/save}" th:object="${diretor}" method="POST">
-
-            <H3>Cadastrar diretor</H3>
-            <input type="text" placeholder="&#32 NOME" class="css-email1" th:field="*{nome}" required /><br>
-            <input type="text" placeholder="&#32 E-MAIL" class="css-email1" th:field="*{email}" required /><br>
-            <input id="senha1" type="password" placeholder="&#32 SENHA" class="css-senha1" th:field="*{senha}" required /><br>
-            <input id="senha2" type="password" onblur="compararSenha()" placeholder="&#32 CONFIRMAR SENHA" class="css-senha1" required /> <br>
-                <input type="text" placeholder="&#32 NOME" class="css-email1" th:field="*{descricao}" hidden /><br>
-            <button id="salvar" type="submit" onclick="verificaEmail() + compararSenha() " class="myButton1">CADASTRA-SE</button><br>
-
-
-            </form>
-            
-            <button type="button" onclick="window.location.href='/login/'" class="myButton1">LOGIN</button>
-
-            
-        </div>
-        <script th:src="@{/js/jquery-3.5.1.min.js}"></script>
-        <script th:src="@{/bootstrap-4.5.2/js/bootstrap.min.js}"></script>
-        <script src="/js/script.js"></script>
+                        <div class="wrap-input100 validate-input" data-validate = "Email is required" >
+                            <input class="input100" type="email" name="password" placeholder="Email" th:field="*{email}" required >
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                        
+                        <div class="wrap-input100 validate-input" data-validate = "Password is required">
+                            <input id="senha1" class="input100" type="password" name="password" placeholder="Senha" th:field="*{senha}" required>
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+                                <i class="fa fa-lock" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                        
+                        <div class="wrap-input100 validate-input" data-validate = "Password is required">
+                            <input class="input100" type="password" name="password" placeholder="Confirmar Senha"  id="senha2" onblur="compararSenha()"required >
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+                                <i class="fa fa-lock" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                        <input type="text" placeholder="&#32 NOME" class="css-email1" th:field="*{descricao}" hidden /><br>
+                        
+                        <div class="container-login100-form-btn">
+                            <button class="login100-form-btn"  type="submit" >
+                                Criar Conta
+                            </button>
+                        </div>
+                    </form>
+                     
+                </div>
+            </div>
+	<script th:src="@{/js/jquery-3.5.1.min.js}"></script>
+	<script th:src="@{/js/popper.min.js}"></script>
+	<script th:src="@{/js/bootstrap.min.js}"></script>
+	<script th:src="@{/js/select2.min.js}"></script>
+	<script th:src="@{/js/tilt.jquery.min.js}"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+	<script th:src="@{/js/main.js}"></script>
+    <script src="/js/script.js"></script>
     </body>
 </html>
+	
+

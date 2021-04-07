@@ -9,9 +9,13 @@
   justify-content: flex-start;
 }
 .boxLateral{
-  width: 10%;
+  width: 25%;
   display: flex;
   align-items: flex-end;
+  display: none;
+}
+.titleAluno{
+  margin: 30px 0px;
 }
 .majorBoxMiddle{
   width: 90%;
@@ -27,12 +31,13 @@
 }
 .lateral{
   width: 100%;
-  height: 70%;
+  height: 100%;
   background-color: white;
-  border-radius: 0px 15px 0px 0px;
 }
 .labelAluno{
-  height: 65px;
+  height: 20%;
+  display: flex;
+  flex-direction: column;
   background-color: white;
   border-radius: 0px 15px 0px 0px;
   border-bottom: 3px solid rgb(219, 214, 214);
@@ -41,7 +46,20 @@
   align-items: center;
 }
 .infos{
-  height: 90%;
+  height: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+.boxAddandList{
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 200px;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 .name{
   height: 10%;
@@ -51,8 +69,8 @@
   justify-content: center;
 }
 .actions{
+  width: 100%;
   background-color:white;
-  height: 90%;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -81,7 +99,9 @@
 
 }
 .nameInstituicao{
-  width: 33.4%;
+  margin: 15px 0px;
+  color: #1c79f1;
+  cursor: pointer;
 }
 .enderecoInstituicao{
   width: 33.4%;
@@ -120,6 +140,22 @@ body{
   justify-content: center;
   align: center;
   justify-items: center;
+}
+.iconClose{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 10px 20px 0px 0px;
+  width: 100%;
+}
+.iconMenu{
+  padding: 15px 0px 0px 15px;
+  font-size: 30px;
+  color: white;
+
+}
+#iconMenu{
+  width: 25%;
 }
 
 .container .card{
