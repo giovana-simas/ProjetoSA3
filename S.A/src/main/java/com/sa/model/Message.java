@@ -25,7 +25,8 @@ public class Message {
 	
 	@NonNull
 	private String fromLogin;
-	
+
+
 	private Timestamp hrmsg;
 	
 	@ManyToOne

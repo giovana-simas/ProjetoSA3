@@ -40,7 +40,7 @@ function usuarioselecionado(id){
 
 }
 
-function enviarMensagem(from, text){
+function enviarMensagem(from, text, dataMsg){
     stompClient.send("/app/chat/" + usuarioselect, {}, JSON.stringify({
         fromLogin: from,
         mensagem: text,

@@ -41,6 +41,7 @@ function render(message, userName) {
 function sendMessage(message) {
     let username = usuarioConectado
     let dataMsg = getCurrentData();
+    console.log(dataMsg)
     enviarMensagem(username, message, dataMsg);
     scrollToBottom();
     if (message.trim() !== '') {
@@ -66,7 +67,16 @@ function getCurrentTime() {
 }
 function getCurrentData() {
     now = new Date()
-    data = (now.getDate()+"/"+(now.getMonth()+1)+"/"+now.getFullYear()+ " " + now.toLocaleTimeString());
+    data = (now.getFullYear()+"-"+(now.getMonth()+1)+"-"+now.getDate()+ "T" + now.toLocaleTimeString());
+    if(now.getMonth()<10&&now.getDate()<10){
+        var data = data.substr(0,5) + "0" + data.substr(5,2) + "0" +data.substr(7)
+    }
+    else if(now.getDate()<10){
+        var data = data.substr(0,5) + "0" + data.substr(5,2) + "" +data.substr(7)
+    } else if(now.getMonth()<10){
+        var data = data.substr(0,5) + "" + data.substr(5,2) + "0" +data.substr(7)    }
+        data += "-03:00"
+        //data = "2021-04-07T19:34"
     return data;
 }
 
