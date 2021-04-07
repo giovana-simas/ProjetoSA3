@@ -1,6 +1,7 @@
 package com.sa.model;
 
-import java.sql.Date;
+
+import java.sql.Timestamp;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.lang.NonNull;
 
 @Entity
@@ -24,8 +26,7 @@ public class Message {
 	@NonNull
 	private String fromLogin;
 	
-	@NonNull
-	private Date hrmsg;
+	private Timestamp hrmsg;
 	
 	@ManyToOne
 	@JoinColumn(name = "chat_id", referencedColumnName = "id")
@@ -52,15 +53,16 @@ public class Message {
 		this.fromLogin = fromLogin;
 	}
 	
-	public Date getHrmsg() {
+	public Timestamp getHrmsg() {
 		return hrmsg;
 	}
-	public void setHrmsg(Date hrmsg) {
+	public void setHrmsg(Timestamp hrmsg) {
 		this.hrmsg = hrmsg;
 	}
+	
 	@Override
 	public String toString() {
-		return "Mensagem: " + mensagem + "De: " + fromLogin;
+		return "Mensagem: " + mensagem + " De: " + fromLogin;
 	}
 	
 	

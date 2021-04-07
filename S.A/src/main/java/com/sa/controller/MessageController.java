@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sa.model.Message;
@@ -23,7 +22,7 @@ public class MessageController {
 	
 	@MessageMapping("/chat/{id}")
 	public void sendMessage(@DestinationVariable long id, Message mensagem) {
-		System.out.println("Mensagem: " + mensagem + "Para: " + id);
+		System.out.println("MensagemController: " + mensagem.getMensagem() + " De: " + mensagem.getFromLogin() + " Para: " + id);
 		
 		if(usuarioRepository.findById(id) != null) {
 			simpMessagingTemplate.convertAndSend("/topic/mensagens/" + id, mensagem);

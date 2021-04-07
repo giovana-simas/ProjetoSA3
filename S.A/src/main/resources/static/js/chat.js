@@ -1,7 +1,7 @@
 const url= 'http://localhost:8080';
 let stompClient;
 let usuarioselect
-
+let usuarioConectado
 
 function msgHiddenChat(){
     if(usuarioselect == null){
@@ -15,6 +15,7 @@ function msgHiddenChat(){
 }
 
  function conectarChat(id){
+    usuarioConectado = id
     console.log("Conectando com o chat...")
     msgHiddenChat()
 
@@ -42,7 +43,8 @@ function usuarioselecionado(id){
 function enviarMensagem(from, text){
     stompClient.send("/app/chat/" + usuarioselect, {}, JSON.stringify({
         fromLogin: from,
-        mensagem: text
+        mensagem: text,
+        hrmsg: dataMsg
     }));
 }
 

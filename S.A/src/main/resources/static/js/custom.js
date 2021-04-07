@@ -39,9 +39,9 @@ function render(message, userName) {
 }
 
 function sendMessage(message) {
-    let username = $('#userName').data("value");
-    console.log(username + "custom")
-    enviarMensagem(username, message);
+    let username = usuarioConectado
+    let dataMsg = getCurrentData();
+    enviarMensagem(username, message, dataMsg);
     scrollToBottom();
     if (message.trim() !== '') {
         var template = Handlebars.compile($("#message-template").html());
@@ -63,6 +63,11 @@ function scrollToBottom() {
 
 function getCurrentTime() {
     return new Date().toLocaleTimeString().replace(/([\d]+:[\d]{2})(:[\d]{2})(.*)/, "$1$3");
+}
+function getCurrentData() {
+    now = new Date()
+    data = (now.getDate()+"/"+(now.getMonth()+1)+"/"+now.getFullYear()+ " " + now.toLocaleTimeString());
+    return data;
 }
 
 function addMessage() {
