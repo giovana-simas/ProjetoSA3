@@ -26,8 +26,12 @@
 .middle{
   background: white;
   width: 90%;
-  height: 90%;
+  height: 15%;
   border-radius: 15px;
+}
+.chatdiv{
+  background: purple;
+  width: 30%;
 }
 .lateral{
   width: 100%;
