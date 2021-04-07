@@ -63,14 +63,14 @@
                 <div class="card-body contacts_body">
                     <ui class="contacts">
 
-                        <li class="active" th:each="usuario : ${usuarios}" th:onclick="|usuarioselecionado(${usuario.id})|">
+                        <li class="active" th:each="chat : ${chats}" th:onclick="|usuarioselecionado(${chat.usuarios.get(0).getId()})|">
                             <div class="d-flex bd-highlight">
                                 <div class="img_cont">
                                     <img class="rounded-circle user_img">
                                     <span class="online_icon"></span>
                                 </div>
-                                <div id="userName" class="user_info" th:data-value="${usuario.id}">
-                                    <span id="usuarioname" th:text="${usuario.nome}"></span>
+                                <div id="userName" class="user_info" th:data-value="${chat.id}">
+                                    <span id="usuarioname" th:text="${chat.usuarios.get(0).getNome()}"></span>
                                 </div>
                             </div>
                         </li>

@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.sa.security.SaDetailService;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 
 @EnableWebSecurity
@@ -68,6 +69,12 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter{
 				.defaultSuccessUrl("/instituicao/listInstituicoes/", true)
 				.permitAll()
 			.and()
+				.logout()
+				.logoutUrl("/logout")
+				.logoutSuccessUrl("/")
+				.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+				.permitAll()
+				.and()
 			//Relembrar usuario logado
 			.rememberMe();
 	}

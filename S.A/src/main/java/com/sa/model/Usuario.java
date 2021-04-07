@@ -2,19 +2,7 @@ package com.sa.model;
 
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.DiscriminatorColumn;
-import javax.persistence.DiscriminatorType;
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
+import javax.persistence.*;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.UniqueElements;
@@ -59,15 +47,36 @@ public class Usuario {
 			inverseJoinColumns=@JoinColumn(name="permissao_id")
 			)
 	private List<Permissao> permissoes;
-	
-	@ManyToMany
-	@JoinTable(
-			name="usuario_chat",
-			joinColumns=@JoinColumn(name="usuario_id"),
-			inverseJoinColumns=@JoinColumn(name="chat_id"))
-	public List<Chat> chat;
-	
 
+	@OneToMany(mappedBy = "usuario1")
+	public List<UsuarioChat> usuarioChats1;
+
+	@OneToMany(mappedBy = "usuario2")
+	public List<UsuarioChat> usuarioChats2;
+
+	public List<UsuarioChat> getUsuarioChats1() {
+		return usuarioChats1;
+	}
+
+	public void addUsuarioChats1(UsuarioChat usuarioChats) {
+		this.usuarioChats1.add(usuarioChats) ;
+	}
+
+	public void addUsuarioChats2(UsuarioChat usuarioChats) {
+		this.usuarioChats2.add(usuarioChats) ;
+	}
+
+	public void setUsuarioChats1(List<UsuarioChat> usuarioChats1) {
+		this.usuarioChats1 = usuarioChats1;
+	}
+
+	public List<UsuarioChat> getUsuarioChats2() {
+		return usuarioChats2;
+	}
+
+	public void setUsuarioChats2(List<UsuarioChat> usuarioChats2) {
+		this.usuarioChats2 = usuarioChats2;
+	}
 
 	public String getDescricao() {
 		return descricao;

@@ -16,7 +16,7 @@
     </head>
 		
 		 
-    <body background="/src/back.png" onload="">
+    <body background="/src/back.png" th:onload="|@{/logout}|">
     
         <div th:if="${salvo} == 1" class="alert alert-success">
             Usuário salvo com sucesso

@@ -54,3 +54,9 @@ function verificaEmail(){
     }
 
 }
+
+function logout(){
+    $("#logout").submit();
+    $("#logout").attr('hidden', true);
+
+}

@@ -1,6 +1,7 @@
 package com.sa.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,7 +28,15 @@ public class IndexController {
 	
 	//pega uma informação incapsulada e é chamado atravez do metodo "/"
 	@GetMapping("/")
-	public String index() {
+	public String index(Model model) {
+		String email = SecurityContextHolder.getContext().getAuthentication().getName();
+		if(email == "anonymousUser"){
+			model.addAttribute("logado", false);
+		}else {
+			model.addAttribute("logado", true);
+		}
+
+
 		//retorna a pagina index para o usuario
 		return "/index";
 	}

@@ -1,5 +1,5 @@
     <!DOCTYPE html>
-        <html lang="PT-BR">
+        <html lang="pt-br" xmlns:th="https://thymeleaf.org">
         <head>
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -27,10 +27,16 @@
             <link th:href="@{css/styles.css}" rel="stylesheet">
             <script src="https://kit.fontawesome.com/77b55126cc.js"crossorigin="anonymous"></script>
             <link rel="icon" href="/src/faviconwe.png123">
-        </head>
-        <body data-spy="scroll" data-target=".fixed-top">
+            <script src="/js/script.js"></script>
 
-            <!-- bolinhas iniciais -->
+        </head>
+        <body data-spy="scroll" data-target=".fixed-top" onload="logout()">
+
+        <form th:if="${logado} == true"  id="logout" th:action="|@{/logout}|"  class="boxActions" method="POST">
+        </form>
+
+
+        <!-- bolinhas iniciais -->
             <div class="spinner-wrapper">
                 <div class="spinner">
                     <div class="bounce1"></div>

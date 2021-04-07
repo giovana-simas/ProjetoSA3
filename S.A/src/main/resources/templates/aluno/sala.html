@@ -41,9 +41,11 @@
                 </thead>
 
                 <tbody>
-                    <tr th:each="aluno : ${alunos}" th:onclick="|window.location.href='/perfil/' + ${aluno.id} |">
-                        <td th:text="${aluno.nome} + ' ' + ${aluno.statusAjuda}"></td>
+                    <tr th:each="aluno : ${alunos}" >
+                        <td th:onclick="|window.location.href='/perfil/' + ${aluno.id} |" th:text="${aluno.nome} + ' ' + ${aluno.statusAjuda}"> </td>
+                        <td th:onclick="|window.location.href='/chat/add/' + ${aluno.id} |" ><i class="fas fa-location-arrow"></i> </td>
                     </tr>
+
                 </tbody>
 
             </table>
