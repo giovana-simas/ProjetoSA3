@@ -143,7 +143,21 @@ h3{
 }
 
 
-/*CHAT*/
+/*=========================CHAT=========================*/
+
+.hiddenChatMsg{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center
+
+}
+.hiddenChatMsg span{
+    font-size: 20px;
+    color: white;
+    text-justify: auto;
+}
 
 .chat-ul{
     list-style-type: none;

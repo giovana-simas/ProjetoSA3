@@ -28,6 +28,9 @@ public class Materia {
 	
 	@OneToMany(mappedBy = "materia")
 	private List<MateriaAluno> materiaAluno;
+	
+	@OneToMany(targetEntity = Publicacao.class, mappedBy = "materia")
+	public List<Publicacao> publicacao;
 
 	public long getId() {
 		return id;

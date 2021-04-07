@@ -48,7 +48,8 @@ public class Instituicao {
 	@ManyToMany(mappedBy = "instituicoesA")
 	private List<Aluno> alunosI;
 	
-	
+	@OneToMany(targetEntity = Publicacao.class, mappedBy = "instituicao")
+	private List<Publicacao> publicacao;
 
 	public Diretor getDiretor() {
 		return diretor;
