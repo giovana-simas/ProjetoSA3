@@ -40,15 +40,25 @@
                 <div class="card-body contacts_body">
                     <ui class="contacts">
 
-                        <li class="active" th:each="chat : ${chats}" th:onclick="|usuarioselecionado(${chat.usuario2.getId()})|">
+                        <li th:if="${chat.usuario2.getId()} == ${usuarioConnect.id}" class="active" th:each="chat : ${chats}" th:value="${chat.getChat.getId()" th:id="${chat.getUsuario1.getId()}" th:onclick="|usuarioselecionado(${chat.getUsuario1.getId()})|">
                             <div class="d-flex bd-highlight">
                                 <div class="img_cont">
                                     <img class="rounded-circle user_img">
                                     <span class="online_icon"></span>
                                 </div>
                                 <div id="userName" class="user_info" th:data-value="${chat.id}">
-                                    <span th:if="${chat.usuario2.getId()} == ${usuarioConnect.id}" id="usuarioname" th:text="${chat.usuario1.getNome()}"></span>
-                                    <span th:if="${chat.usuario2.getId()} != ${usuarioConnect.id}" id="usuarioname" th:text="${chat.usuario2.getNome()}"></span>
+                                    <span th:id="${chat.usuario1.getId()}"  th:text="${chat.usuario1.getNome()}"></span>
+                                </div>
+                            </div>
+                        </li>
+                        <li th:if="${chat.usuario2.getId()} != ${usuarioConnect.id}" class="active" th:each="chat : ${chats}" th:value="|${chat.chat.getId()}|" th:id="|${chat.usuario2.getId()}|" th:onclick="|usuarioselecionado(${chat.usuario2.getId()}); |">
+                            <div class="d-flex bd-highlight">
+                                <div class="img_cont">
+                                    <img class="rounded-circle user_img">
+                                    <span class="online_icon"></span>
+                                </div>
+                                <div id="userName" class="user_info" th:data-value="${chat.id}">
+                                    <span  th:id="${chat.usuario2.getId()}" th:text="${chat.usuario2.getNome()}"></span>
                                 </div>
                             </div>
                         </li>
@@ -117,8 +127,8 @@
                         </div> -->
 
 
-        
-    <input type="datetime-local">
+
+
 
         <script id="message-template" type="text/x-handlebars-template">
             <li class="clearfix">

@@ -20,6 +20,7 @@ function msgHiddenChat(){
     msgHiddenChat()
 
     let socket = new SockJS(url + '/chat');
+
     stompClient = Stomp.over(socket);
     stompClient.connect({}, function(frame){
         console.log("Conectado com: " + frame);
@@ -33,12 +34,18 @@ function msgHiddenChat(){
 function usuarioselecionado(id){
     usuarioselect = id;
     msgHiddenChat()
-    nomeUsuario = $('#usuarioname').text();
+    nomeUsuario = $('#'+id).text();
     console.log("Usuario selecionado: " + usuarioselect)
     $('#usuarioChat').html('');
     $('#usuarioChat').append('Chat com ' + nomeUsuario);
+    window.location.href="redirect:/chat/list/" + document.getElementById(id).value
+    render();
 
 }
+onmessage = function (event) {
+    console.log(event.data);
+}
+
 
 function enviarMensagem(from, text, dataMsg){
     stompClient.send("/app/chat/" + usuarioselect, {}, JSON.stringify({

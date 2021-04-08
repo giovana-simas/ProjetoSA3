@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import org.springframework.format.annotation.DateTimeFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.lang.NonNull;
 
 @Entity
@@ -28,12 +28,21 @@ public class Message {
 
 
 	private Timestamp hrmsg;
-	
+
+
 	@ManyToOne
 	@JoinColumn(name = "chat_id", referencedColumnName = "id")
+	@JsonIgnore
 	public Chat chat;
-	
-	
+
+	public Chat getChat() {
+		return chat;
+	}
+
+	public void setChat(Chat chat) {
+		this.chat = chat;
+	}
+
 	public long getId() {
 		return id;
 	}
@@ -60,12 +69,15 @@ public class Message {
 	public void setHrmsg(Timestamp hrmsg) {
 		this.hrmsg = hrmsg;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Mensagem: " + mensagem + " De: " + fromLogin;
+		return "Message{" +
+				"id=" + id +
+				", mensagem='" + mensagem + '\'' +
+				", fromLogin='" + fromLogin + '\'' +
+				", hrmsg=" + hrmsg +
+				//", chat=" + chat +
+				'}';
 	}
-	
-	
-
 }

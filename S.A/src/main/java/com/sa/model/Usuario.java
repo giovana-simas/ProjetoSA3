@@ -1,6 +1,7 @@
 package com.sa.model;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
@@ -40,13 +41,14 @@ public class Usuario {
 
 	@Size(max=500)
 	String descricao;
-	@ManyToMany
+
+	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(
 			name="usuario_permissao",
 			joinColumns=@JoinColumn(name="usuario_id"),
 			inverseJoinColumns=@JoinColumn(name="permissao_id")
 			)
-	private List<Permissao> permissoes;
+	private Set<Permissao> permissoes;
 
 	@OneToMany(mappedBy = "usuario1")
 	public List<UsuarioChat> usuarioChats1;
@@ -58,13 +60,7 @@ public class Usuario {
 		return usuarioChats1;
 	}
 
-	public void addUsuarioChats1(UsuarioChat usuarioChats) {
-		this.usuarioChats1.add(usuarioChats) ;
-	}
 
-	public void addUsuarioChats2(UsuarioChat usuarioChats) {
-		this.usuarioChats2.add(usuarioChats) ;
-	}
 
 	public void setUsuarioChats1(List<UsuarioChat> usuarioChats1) {
 		this.usuarioChats1 = usuarioChats1;
@@ -78,6 +74,14 @@ public class Usuario {
 		this.usuarioChats2 = usuarioChats2;
 	}
 
+	public void addUsuarioChats1(UsuarioChat usuarioChats) {
+		this.usuarioChats1.add(usuarioChats) ;
+	}
+
+	public void addUsuarioChats2(UsuarioChat usuarioChats) {
+		this.usuarioChats2.add(usuarioChats) ;
+	}
+
 	public String getDescricao() {
 		return descricao;
 	}
@@ -86,8 +90,12 @@ public class Usuario {
 		this.descricao = descricao;
 	}
 
-	public List<Permissao> getPermissoes() {
+	public Set<Permissao> getPermissoes() {
 		return permissoes;
+	}
+
+	public void setPermissoes(Set<Permissao> permissoes) {
+		this.permissoes = permissoes;
 	}
 
 	@Override
@@ -96,9 +104,6 @@ public class Usuario {
 				+ ", permissoes=" + permissoes + "]";
 	}
 
-	public void setPermissoes(List<Permissao> permissoes) {
-		this.permissoes = permissoes;
-	}
 
 	public long getId() {
 		return id;

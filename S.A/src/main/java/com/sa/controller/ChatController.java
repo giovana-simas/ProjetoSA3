@@ -42,7 +42,7 @@ public class ChatController {
 	}
 
 
-	@GetMapping("/chat/add/{id}")
+	@PostMapping("/chat/add/{id}")
 	public  String addChat(@PathVariable long id){
 		String email = SecurityContextHolder.getContext().getAuthentication().getName();
 		String path = "";
@@ -54,16 +54,15 @@ public class ChatController {
 
 		UsuarioChat usuarioChat;
 		System.out.println("entrou no metodo");
-		usuarioChat = usuarioChatRepository.findByUsuario1AndUsuario2(usuario1, usuario2);
+		usuarioChat = usuarioChatRepository.findByUsuario1AndUsuario2OrUsuario2AndUsuario1(usuario1, usuario2,usuario2,usuario1);
 
 
 		try {
 			System.out.println("entrou no try");
 			System.out.println(usuarioChat);
-			if (usuarioChat == null && usuario2.getEmail() != usuario1.getEmail()){
-				usuarioChat = usuarioChatRepository.findByUsuario1AndUsuario2(usuario2, usuario1);
-				System.out.println(usuarioChat);
-				if (usuarioChat == null && usuario2.getEmail() != usuario1.getEmail()){
+			if (usuarioChat == null && usuario1 != usuario2 && usuario2 !=usuario1){
+
+
 
 					System.out.println("entrou no if");
 					Chat chat = new Chat();
@@ -89,10 +88,7 @@ public class ChatController {
 					usuarioChatRepository.save(usuarioChat);
 
 					path = "redirect:/chat";
-				}else{
-					System.out.println("chat n nulo");
-					path = "redirect:/chat";
-				}
+
 
 			}else{
 				System.out.println("chat n nulo");
