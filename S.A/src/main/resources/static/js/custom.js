@@ -35,7 +35,34 @@ function render(message, userName) {
     setTimeout(function () {
         $chatHistoryList.append(templateResponse(contextResponse));
         scrollToBottom();
-    }.bind(this), 1500);
+    }.bind(this), 200);
+}
+
+function renderdb(message, userName, time, usurioConectado) {
+    scrollToBottom();
+    // responses
+
+    if (userName != usurioConectado){
+        var templateResponse = Handlebars.compile($("#message-response-template").html());
+        var contextResponse = {
+            response: message,
+            time: time
+        };
+    }
+
+    if (userName == usurioConectado){
+        var templateResponse = Handlebars.compile($("#message-template").html());
+        var contextResponse = {
+            messageOutput: message,
+            time: time
+        };
+    }
+
+
+    setTimeout(function () {
+        $chatHistoryList.append(templateResponse(contextResponse));
+        scrollToBottom();
+    }.bind(this), 200);
 }
 
 function sendMessage(message) {

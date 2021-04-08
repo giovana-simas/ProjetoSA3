@@ -42,7 +42,7 @@ public class ChatController {
 	}
 
 
-	@PostMapping("/chat/add/{id}")
+	@GetMapping("/chat/add/{id}")
 	public  String addChat(@PathVariable long id){
 		String email = SecurityContextHolder.getContext().getAuthentication().getName();
 		String path = "";
@@ -54,13 +54,13 @@ public class ChatController {
 
 		UsuarioChat usuarioChat;
 		System.out.println("entrou no metodo");
-		usuarioChat = usuarioChatRepository.findByUsuario1AndUsuario2OrUsuario2AndUsuario1(usuario1, usuario2,usuario2,usuario1);
+		usuarioChat = usuarioChatRepository.findByUsuario1AndUsuario2OrUsuario2AndUsuario1(usuario1, usuario2,usuario1,usuario2);
 
 
 		try {
 			System.out.println("entrou no try");
 			System.out.println(usuarioChat);
-			if (usuarioChat == null && usuario1 != usuario2 && usuario2 !=usuario1){
+			if (usuarioChat == null && usuario1 != usuario2 ){
 
 
 

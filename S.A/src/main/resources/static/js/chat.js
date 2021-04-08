@@ -26,7 +26,10 @@ function msgHiddenChat(){
         console.log("Conectado com: " + frame);
         stompClient.subscribe("/topic/mensagens/" + id, function(response){
             let data = JSON.parse(response.body);
-            render(data.mensagem, data.fromLogin);
+            if (usuarioselect==data.fromLogin){
+                render(data.mensagem, data.fromLogin);
+            }
+
         })
     });
 }
@@ -38,12 +41,52 @@ function usuarioselecionado(id){
     console.log("Usuario selecionado: " + usuarioselect)
     $('#usuarioChat').html('');
     $('#usuarioChat').append('Chat com ' + nomeUsuario);
-    window.location.href="redirect:/chat/list/" + document.getElementById(id).value
-    render();
+    $('#chat-ul').empty();
+
+    puxa(id);
 
 }
-onmessage = function (event) {
-    console.log(event.data);
+
+function puxa (id){
+    var mensagem = {
+        id:document.querySelector('#id').value,
+        fromLogin:document.querySelector('#login').value,
+        hrmsg:document.querySelector('#hrmsg').value,
+        mensagem:document.querySelector('#mensagem').value,
+        chat:document.querySelector('#chatId').value
+    }
+
+    var formData = new FormData();
+
+    let invocation = new XMLHttpRequest();
+
+    formData.append("mensagem1", JSON.stringify(mensagem));
+    console.log(id + "             " + document.getElementById(id).value)
+
+
+    invocation.responseType = "json"
+    invocation.open("GET", "/chat/list/" + document.getElementById(id).value, true)
+    invocation.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            mensagem = invocation.response
+
+            for (var i=0;i< mensagem.length ;i++){
+                mensagem[i].hrmsg = parseInt(mensagem[i].hrmsg.substr(11,2))-3 + ":" + mensagem[i].hrmsg.substr(14,2);
+                console.log(mensagem[i].mensagem)
+                renderdb(mensagem[i].mensagem, mensagem[i].fromLogin, mensagem[i].hrmsg, usuarioConectado);
+            }
+
+
+        }
+    };
+
+    invocation.send();
+
+
+
+
+
+
 }
 
 

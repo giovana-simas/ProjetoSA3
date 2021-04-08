@@ -40,7 +40,7 @@
                 <div class="card-body contacts_body">
                     <ui class="contacts">
 
-                        <li th:if="${chat.usuario2.getId()} == ${usuarioConnect.id}" class="active" th:each="chat : ${chats}" th:value="${chat.getChat.getId()" th:id="${chat.getUsuario1.getId()}" th:onclick="|usuarioselecionado(${chat.getUsuario1.getId()})|">
+                        <li th:if="${chat.usuario2.getId()} == ${usuarioConnect.id}" class="active" th:each="chat : ${chats}" th:value="|${chat.chat.getId()}|" th:id="|${chat.usuario1.getId()}|" th:onclick="|usuarioselecionado(${chat.usuario1.getId()}); |">
                             <div class="d-flex bd-highlight">
                                 <div class="img_cont">
                                     <img class="rounded-circle user_img">
@@ -82,7 +82,7 @@
                         </div>
                     </div>
                     <div class="chat-history card-body hiddenChat">
-                        <ul class="chat-ul">
+                        <ul id="chat-ul" class="chat-ul">
 
                         </ul>
                     </div>
@@ -131,7 +131,7 @@
 
 
         <script id="message-template" type="text/x-handlebars-template">
-            <li class="clearfix">
+            <li  class="clearfix">
                 <div class="d-flex justify-content-end mb-4">
                     <div class="msg_cotainer_send" style="margin: 0px;">
                         {{messageOutput}}
@@ -157,6 +157,11 @@
                 </div>
             </li>
         </script>
+    <div id="id"></div>
+    <div id="login"></div>
+    <div id="hrmsg"></div>
+    <div id="mensagem"></div>
+    <div id="chatId"></div>
 
         <script type="text/javascript" th:src="@{/js/custom.js}"></script>
     </body>

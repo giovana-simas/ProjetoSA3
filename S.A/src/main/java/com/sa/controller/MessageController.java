@@ -7,18 +7,25 @@ import com.sa.repository.ChatRepository;
 import com.sa.repository.MessageRepository;
 import com.sa.repository.UsuarioChatRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.sa.model.Message;
 import com.sa.repository.UsuarioRepository;
+import sun.tools.jconsole.JConsole;
+
+import javax.servlet.http.HttpServletResponse;
+import java.util.Collection;
+import java.util.List;
+import java.util.Optional;
 
 @RestController
+//@RequestMapping("api")
 public class MessageController {
 	
 	@Autowired
@@ -49,7 +56,7 @@ public class MessageController {
 
 			UsuarioChat usuarioChat = null;
 
-			usuarioChat = usuarioChatRepository.findByUsuario1AndUsuario2OrUsuario2AndUsuario1(usuario1,usuario2,usuario2,usuario1);
+			usuarioChat = usuarioChatRepository.findByUsuario1AndUsuario2OrUsuario2AndUsuario1(usuario1,usuario2,usuario1,usuario2);
 
 
 			System.out.println(usuarioChat);
@@ -85,10 +92,32 @@ public class MessageController {
 		
 	}
 
-	@GetMapping("/chat/list/{id}")
-	public void listChat(@PathVariable long id, Model model){
+
+	@GetMapping(path = "/chat/list/{id}")
+	public @ResponseBody ResponseEntity<Iterable<Message>> list(HttpServletResponse response, @PathVariable("id") long id, Message message1) {
 		Chat chat = chatRepository.findById(id);
-		model.addAttribute("mensagens", messageRepository.findByChat(chat));
+		try {
+			System.out.println("passou por aqui");
+
+			Iterable<Message> message = messageRepository.findByChat(chat);
+
+			response.setContentType("text/plain");
+			response.setCharacterEncoding("UTF-8");
+
+			if (((Collection<?>) message).size() == 0) {
+				System.out.println(message);
+				return new ResponseEntity<>(HttpStatus.OK);
+			} else {
+				System.out.println(message);
+				return new ResponseEntity<>(message,HttpStatus.OK );
+			}
+
+		} catch(Exception e) {
+			System.out.println("catch");
+			return new  ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+
+		}
+
 
 	}
 
