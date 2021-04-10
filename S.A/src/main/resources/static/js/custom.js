@@ -92,6 +92,8 @@ function scrollToBottom() {
 function getCurrentTime() {
     return new Date().toLocaleTimeString().replace(/([\d]+:[\d]{2})(:[\d]{2})(.*)/, "$1$3");
 }
+
+
 function getCurrentData() {
     now = new Date()
     data = (now.getFullYear()+"-"+(now.getMonth()+1)+"-"+now.getDate()+ "T" + now.toLocaleTimeString());
@@ -99,9 +101,9 @@ function getCurrentData() {
         var data = data.substr(0,5) + "0" + data.substr(5,2) + "0" +data.substr(7)
     }
     else if(now.getDate()<10){
-        var data = data.substr(0,5) + "0" + data.substr(5,2) + "" +data.substr(7)
-    } else if(now.getMonth()<10){
-        var data = data.substr(0,5) + "" + data.substr(5,2) + "0" +data.substr(7)    }
+        var data = data.substr(0,5) + "" + data.substr(5,2) + "0" +data.substr(7)
+    } else if(now.getMonth()+1<10){
+        var data = data.substr(0,5) + "0" + data.substr(5,2) + "" +data.substr(7)    }
         data += "-03:00"
         //data = "2021-04-07T19:34"
     return data;
