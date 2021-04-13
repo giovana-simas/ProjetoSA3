@@ -4,6 +4,10 @@ body {
     background-repeat: no-repeat;
     min-height: 100vh;
     min-width: 100vw;
+}
+.fundo{
+    min-height: 100vh;
+    min-width: 100vw;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -17,6 +21,9 @@ body {
     width: 350px;
     height: 450px;
     border-radius: 20px;
+    justify-content: center;
+    align-content: center;
+
 }
 .buttons{
     margin-top: 280px;
@@ -39,12 +46,101 @@ body {
     color: grey;
     font-size: 20px;
     font-family: "Segoe UI Light";
-    padding: 10px 0px 10px 0px;
+    padding: 0px 0px 10px 0px;
     cursor: pointer;
 }
 .sala-css:hover{
     color: black;
 }
+
+
+
+
+
+/*CSS DE QUANDO ENTRA NA SALA*/
+.majorContainer{
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to left, #02BED8, #457ED6);
+    margin: 0;
+    padding: 0;
+    max-width: 999999px;
+    display: flex;
+    justify-content: flex-start;
+}
+.chatdiv{
+    width: 20%;
+}
+.feed-sala{
+    background: white;
+    width: 80%;
+    height: 15%;
+    border-radius: 15px;
+}
+.fundo-feed{
+    width: 65%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container-info{
+    width: 15%;
+    height: 100vh;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.container-prof{
+    height: 20vh;
+    text-align: center;
+
+}
+.container-alunos{
+    height: 50vh;
+    text-align: center;
+}
+.names{
+    font-family: "Segoe UI Light";
+    color: #1c79f1;
+    font-size: 20px;
+}
+.name-aluno{
+    padding: 10px 0px 10px 0px;
+    font-family: "Segoe UI Light";
+    color: grey;
+    cursor: pointer;
+}
+.name-aluno:hover{
+    color:black;
+}
+.button-back{
+    margin-top: 150%;
+    box-shadow:inset 0px -3px 7px 0px #29bbff;
+    background:linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
+    background-color:#2dabf9;
+    border-radius:42px;
+    border:0px;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:15px;
+    padding:10px 35px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #263666;
+}
+.button-back:hover {
+    background:linear-gradient(to bottom, #0688fa 5%, #2dabf9 100%);
+    background-color:#0688fa;
+}
+.button-back:active {
+    position:relative;
+    top:1px;
+}
+
+
 
 
 
