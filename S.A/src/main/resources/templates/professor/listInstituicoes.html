@@ -16,40 +16,59 @@
     </head>
     <body >
         <div class="majorContainer">
-            <div class="boxLateral">
+            <div  id="iconMenu">
+                <i class="fas fa-bars iconMenu" aria-hidden="true" onclick="closeBar()" ></i>
+            </div>
+            <div class="boxLateral" id="filtro">
+               
                 <div class="lateral">
+             
                     <div class="labelAluno">
-                        <p>Aluno(a)</p>
+                        <div class="iconClose">
+                            <i class="fas fa-times" onclick="closeBar()" ></i>
+                           </div>
+                        <p class="titleAluno">Aluno(a)</p>
+                        <p th:text="${usuario.nome}"></p>
+                        <p th:text="${usuario.email}"></p>
                     </div>
                     <div class="infos">
-                        <div class="name">
-                            <p>Giovana</p>
-                        </div>
-                        <div class="actions">
-                            <a onclick="window.location.href='/aluno/perfil/0'"><p>Perfil</p></a>
+                        <div>
+                            <div class="boxAddandList">
+                                Lista de Instituições:
+                                <div th:each="instituicao : ${instituicoes}" th:onclick="|window.location.href='/sala/listSala/' + ${instituicao.id}|">
+                                    <div class="nameInstituicao" th:text="${instituicao.nome}"></div>
+
+                                </div>
+                   
+    
+                            </div>
                             <a onclick="window.location.href='/instituicao/addinstituicao/'"><p>Adicionar</p></a>
+                        </div>
+                     
+                        <div class="actions">
+                            <a onclick="window.location.href='/professor/perfil/0'"><p>Perfil</p></a>
+
                             <a onclick="window.location.href='/'" class="sair">Sair</a>
                         </div>
 
                     </div>
 
                 </div>
+
             </div>
             <div class="majorBoxMiddle">
                 <div class="middle">
-                    <div class="titulosInstituicao">
-                        <div class="title"> <p class="titleP">Instituições</p></div>
-                        <div class="title"> <p class="titleP">Endereço</p></div>
-                        <div class="title"> <p class="titleP">Contato</p></div>
+                    <div class="infosInstituicao" >
+                       
+                        <div class="container">
+                            
+                            </div>
+                        </div>
                     </div>
-                    
-                    <div class="infosInstituicao" th:each="instituicao : ${instituicoes}" th:onclick="|window.location.href='/sala/listSala/' + ${instituicao.id}|">
-                        <div class="nameInstituicao" th:text="${instituicao.nome}"></div>
-                        <div class="enderecoInstituicao" th:text="${instituicao.endereco}"> teste</div>
-                        <div class="contatoInstituicao" th:text="${instituicao.numeroContato}"> teste</div>
-                    </div>
-                
                 </div>
+            <div class="chatdiv">
+
+            </div>
 
             </div>
         </div>

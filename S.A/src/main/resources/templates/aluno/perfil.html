@@ -37,6 +37,7 @@
             	<input id="editId" type="text" placeholder="&#32 ID" class="css-email" th:field="${aluno.id}" readonly hidden />
                 <input id="editNome" type="text" placeholder="&#32 NOME" class="css-email" th:field="${aluno.nome}" readonly />
                 <input id="editEmail" type="text" placeholder="&#32 E-MAIL"  class="css-email" th:field="${aluno.email}" readonly />
+                <div class="linhaEspacamento"></div>
                 <input id="editSenha" type="text" placeholder="&#32 SENHA" class="css-email" th:field="${aluno.senha}" readonly hidden />
                 <input id="editPermissoes" type="text" placeholder="&#32 PERMISSÃO" class="css-email" th:field="${aluno.permissoes}" readonly hidden />
                 <select id="editAjuda" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${aluno.statusAjuda}" readonly  hidden>
@@ -45,19 +46,16 @@
                 <input id="editinstituicoes" type="text" placeholder="&#32 INSTITUIÇÕES" class="css-email" th:field="${aluno.instituicoesA}" readonly hidden />
                 <input id="editsalas" type="text" placeholder="&#32 SALAS" class="css-email" th:field="${aluno.salasA}" readonly hidden />
                 <input id="editmateria" type="text" placeholder="&#32 MATERIAS" class="css-email" th:field="${aluno.materiaAluno}" hidden readonly />
-                <textarea id="editDescricao" placeholder="&#32 Descrição, até 500 caracteres para descrever as materias que você tem facilidade ou dificuldade e interesses academicos" maxlength="500" class="css-email" th:field="${aluno.descricao}" readonly ></textarea>
+                <textarea id="editDescricao" placeholder="Descrição, até 500 caracteres para descrever as materias que você tem facilidade ou dificuldade e interesses academicos" maxlength="500" class="css-email" th:field="${aluno.descricao}" readonly ></textarea>
 
 
-                <button id="editSalvar" type="submit"  class="myButton" hidden>SALVAR</button>
-            </form>
-            
-            <form th:if="${editavel}" th:action="|@{/logout}|" class="boxActions" method="POST">
-
+                <button id="editSalvar" type="submit"  class="myButton">Atualizar perfil</button>
                 
-                <div >
-                    <button id="cancelar" onclick="cancelarEditar()" hidden  />
-                    <label class="" >cancelar</label>
-                </div>
+            </form>
+            <button id="cancelar" onclick="cancelarEditar()" class="myButton">Sair da edição</button>
+            <form th:if="${editavel}" th:action="|@{/logout}|" class="boxActions" method="POST">
+                
+                    
 
                 <div th:if="${editavel}" >
                     <button id="editar" onclick="editarPerfil()"  />

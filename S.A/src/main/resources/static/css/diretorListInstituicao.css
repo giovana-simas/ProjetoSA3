@@ -9,9 +9,13 @@
   justify-content: flex-start;
 }
 .boxLateral{
-  width: 10%;
+  width: 25%;
   display: flex;
   align-items: flex-end;
+  display: none;
+}
+.titleAluno{
+  margin: 30px 0px;
 }
 .majorBoxMiddle{
   width: 90%;
@@ -22,17 +26,22 @@
 .middle{
   background: white;
   width: 90%;
-  height: 90%;
+  height: 15%;
   border-radius: 15px;
+}
+.chatdiv{
+
+  width: 30%;
 }
 .lateral{
   width: 100%;
-  height: 70%;
+  height: 100%;
   background-color: white;
-  border-radius: 0px 15px 0px 0px;
 }
 .labelAluno{
-  height: 65px;
+  height: 20%;
+  display: flex;
+  flex-direction: column;
   background-color: white;
   border-radius: 0px 15px 0px 0px;
   border-bottom: 3px solid rgb(219, 214, 214);
@@ -41,7 +50,20 @@
   align-items: center;
 }
 .infos{
-  height: 90%;
+  height: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+.boxAddandList{
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 200px;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 .name{
   height: 10%;
@@ -51,8 +73,8 @@
   justify-content: center;
 }
 .actions{
+  width: 100%;
   background-color:white;
-  height: 90%;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -81,7 +103,9 @@
 
 }
 .nameInstituicao{
-  width: 33.4%;
+  margin: 15px 0px;
+  color: #1c79f1;
+  cursor: pointer;
 }
 .enderecoInstituicao{
   width: 33.4%;
@@ -97,4 +121,143 @@
 }
 .titleP{
   margin: 0;
+}
+body{
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: consolas;
+}
+
+.container{
+  width: 1000px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+  align: center;
+  justify-items: center;
+}
+.iconClose{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 10px 20px 0px 0px;
+  width: 100%;
+}
+.iconMenu{
+  padding: 15px 0px 0px 15px;
+  font-size: 30px;
+  color: white;
+
+}
+#iconMenu{
+  width: 25%;
+}
+
+.container .card{
+  position: relative;
+  cursor: pointer;
+  border: 0;
+}
+
+.container .card .face{
+  width: 300px;
+  height: 200px;
+  transition: 0.5s;
+}
+
+.container .card .face.face1{
+  position: relative;
+  background: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  transform: translateY(100px);
+}
+
+.container .card:hover .face.face1{
+  background: #ff0057;
+  transform: translateY(0);
+}
+
+.container .card .face.face1 .content{
+  opacity: 0.2;
+  transition: 0.5s;
+}
+
+.container .card:hover .face.face1 .content{
+  opacity: 1;
+}
+
+.container .card .face.face1 .content img{
+  max-width: 100px;
+}
+
+.container .card .face.face1 .content h3{
+  margin: 10px 0 0;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.container .card .face.face2{
+  position: relative;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+  transform: translateY(-100px);
+}
+
+.container .card:hover .face.face2{
+  transform: translateY(0);
+}
+
+.container .card .face.face2 .content p{
+  margin: 0;
+  padding: 0;
+}
+
+.container .card .face.face2 .content a{
+  margin: 15px 0 0;
+  display:  inline-block;
+  text-decoration: none;
+  font-weight: 900;
+  color: #333;
+  padding: 5px;
+  border: 1px solid #333;
+}
+
+.container .card .face.face2 .content a:hover{
+  background: #333;
+  color: #fff;
+}
+@media screen and (max-width: 1200px) {
+  .container{
+    grid-template-columns: 1fr 1fr;
+
+  }
+
+
+}
+@media screen and (max-width: 790px) {
+  .container{
+    grid-template-columns: 1fr;
+
+  }
+
+
 }
