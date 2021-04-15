@@ -29,6 +29,14 @@
   height: 15%;
   border-radius: 15px;
 }
+.add{
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+}
+.add:hover{
+  color: #1c79f1;
+}
 .chatdiv{
 
   width: 30%;
@@ -82,11 +90,16 @@
 }
 .sair{
   color: red;
+  padding-bottom: 80px;
+  padding-top: 15px;
+  cursor: pointer;
+}
+.perfilname{
+  cursor: pointer;
 }
 .titulosInstituicao{
   height: 50px;
   width: 100%;
-
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   flex-direction: row;
