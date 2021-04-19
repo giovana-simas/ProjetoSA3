@@ -19,7 +19,6 @@ const compararSenha = function(){
     $('#cancelar').attr('hidden', false);
      $('#editar').attr('hidden', true);
 
-
  }
 
  function cancelarEditar(){

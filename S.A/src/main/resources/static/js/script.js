@@ -57,15 +57,20 @@ function verificaEmail(){
 }
 
 function closeBar(){
-    console.log("teste")
     if ($("#filtro").is(":hidden")) {
-        $( "#filtro" ).show();
-        $( "#iconMenu" ).hide();
+        $( "#filtro" ).animate({
+            width: "toggle",
+            
+          });
+        $( "#iconMenu").hide()
 
     }else{
-        $( "#filtro" ).hide()
-        $( "#iconMenu" ).show();
+        $( "#filtro" ).animate({
+            width: "toggle"
+          });
+        $( "#iconMenu" ).show(1500);
     }
+       
 }
 
 
