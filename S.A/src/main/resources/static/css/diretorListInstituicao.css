@@ -232,6 +232,9 @@ body{
   margin: 0;
   padding: 0;
 }
+.add{
+  text-align: center;
+}
 
 .container .card .face.face2 .content a{
   margin: 15px 0 0;
