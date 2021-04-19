@@ -25,14 +25,15 @@ const compararSenha = function(){
  }
 
  function cancelarEditar(){
-
-     $('#editAjuda').attr('readonly', true);
-     $('#editAjuda').attr('hidden', true);
-    $('#editNome').attr('readonly', true);
-     $('#editDescricao').attr('readonly', true);
-     $('#editSalvar').attr('hidden', true);
-    $('#cancelar').attr('hidden', true);
-    $('#editar').attr('hidden', false);
+    window.history.back();
+    console.error("Aaaa")
+    //  $('#editAjuda').attr('readonly', true);
+    //  $('#editAjuda').attr('hidden', true);
+    // $('#editNome').attr('readonly', true);
+    //  $('#editDescricao').attr('readonly', true);
+    //  $('#editSalvar').attr('hidden', true);
+    // $('#cancelar').attr('hidden', true);
+    // $('#editar').attr('hidden', false);
 
 }
 

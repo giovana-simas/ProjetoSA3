@@ -1,3 +1,8 @@
+textarea:focus, input:focus, select:focus {
+  box-shadow: 0 0 0 0;
+  border-bottom: 1px solid gray;
+  outline: 0;
+} 
 .majorDiv{
   height: 100vh;
   width: 100vw;
@@ -12,9 +17,10 @@
   flex-direction: column;
   align-items: center;
   background: white;
-  width: 350px;
-  height: 400px;
+  width: 60%;
+  height: 75%;
   border-radius: 20px;
+  background: none;
 }
 .login{
   max-width: 100px;
@@ -29,10 +35,20 @@
     width: 90%;
 }
 .css-email{
-  width: 100%;
   border: 0;
-  border-bottom: 1px solid gray;
-  background-color: white;
+  width: 70%;
+  background: rgba(0,0,0,0.1);
+  border-radius: 5px;
+  height: 40px;
+  color: white;
+  padding-left: 15px;
+}
+#editDescricao{
+  height: 200px;
+  color: white;
+}
+#editDescricao::placeholder{
+  color: white;
 }
 .boxActions{
   gap: 20px;
@@ -41,4 +57,25 @@
 }
 .alert{
   margin-top: 20px;
+}
+.linhaEspacamento{
+  height: 1px;
+  background: rgba(0,0,0,0.1);
+  width: 70%;
+  margin: 10px 0px;
+}
+.myButton{
+  width: 70%;
+  border: 0;
+  background-color: #3359c5;
+  color: #ffffff;
+  height: 45px;
+  border-radius: 5px;
+  font-size: 16px;
+
+}
+#cancelar{
+  background-color: #f83636;
+  margin-top: 7px;
+  width: 63.2%
 }

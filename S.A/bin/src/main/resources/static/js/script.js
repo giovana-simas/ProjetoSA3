@@ -23,7 +23,8 @@ const compararSenha = function(){
  }
 
  function cancelarEditar(){
-
+    window.history.back();
+    console.error("Aaaa")
     $('#editNome').attr('readonly', true);
     $('#editSalvar').attr('hidden', true);
     $('#cancelar').attr('hidden', true);

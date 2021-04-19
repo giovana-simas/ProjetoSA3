@@ -29,13 +29,13 @@
                 <input id="editinstituicoes" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${diretor.instituicao}" readonly hidden />
                
 
-            <button id="editSalvar" type="submit"  class="myButton" hidden>SALVAR</button>
+            <button id="editSalvar" type="submit"  class="myButton">Salvar</button>
             </form>
+            <button id="cancelar" onclick="cancelarEditar()" class="myButton">Sair da edição</button>
             
                 <form th:if="${editavel}" th:action="|@{/logout}|" class="navbar-from" method="POST" >
                     <div class="boxActions" >
                         <div >
-                            <button id="cancelar" onclick="cancelarEditar()" hidden  />
                             <label class="" >cancelar</label>
                         </div>
 
