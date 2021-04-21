@@ -15,57 +15,58 @@
 
     </head> 
     <body >
-        <div class="majorContainer">
-            <div class="container-info"> <!--DIV DO LADO PARA FICAR BRANCO-->
+
+    <div class="majorContainer">
+        <div class="container-info"> <!--DIV DO LADO PARA FICAR BRANCO-->
             <div class="container-prof"> <!--DIV DO PROFESSOR-->
-                <table>
-                    <thead>
-                        <tr>
-                            <th class="names">Professores</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr th:each="professor : ${professores}" th:onclick="|window.location.href='/perfil/' + ${professor.id}|">
-                            <td th:text="${professor.nome}"></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div> <!--FECHANDO DIV PROF-->
+            <table>
+                <thead>
+                    <tr>
+                        <th class="names">Professores</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="professor : ${professores}" th:onclick="|window.location.href='/perfil/' + ${professor.id}|">
+                        <td th:text="${professor.nome}"></td>
+                    </tr>
+                </tbody>
+            </table>
 
+            </div><!--FECHANDO PROF-->
             <div class="container-alunos"> <!--DIV ALUNO-->
-                <table>
-                    <thead>
-                        <tr>
-                            <th class="names">Alunos</th>
-                        </tr>
-                    </thead>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="names">Alunos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="aluno : ${alunos}" th:onclick="|window.location.href='/perfil/' + ${aluno.id}|">
+                        <td th:text="${aluno.nome}"></td>
+                    </tr>
+                </tbody>
+            </table>
+                <button type="button" th:onclick="|window.location.href='/sala/listSala/' + ${instituicao.id} |" class="button-back">Voltar</button>
+            </div> <!--FECHANDO DIV ALUNO-->
 
-                    <tbody>
-                        <tr th:each="aluno : ${alunos}" th:onclick="|window.location.href='/perfil/' + ${aluno.id}|">
-                            <td th:text="${aluno.nome}"></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <button type="button" th:onclick="|window.location.href='/sala/listSala/' + ${instituicao.id} |" class="button-back" >Voltar</button>
-            </div> <!--FECHANDO ALUNO-->
-            </div> <!--fechando a div lateral-->
-
-            <div class="fundo-feed">
-                <div class="feed-sala"> <!--abrindo div para o feed de alunos-->
-                    <div class="fotinho">
-                        <h1>foto</h1>
-                    </div>
-
+        </div>
+        </div> <!--fechando a div lateral-->
+        <div class="fundo-feed">
+            <div class="feed-sala"> <!--abrindo div para o feed de alunos-->
+                <div class="fotinho">
+                    <h1>foto</h1>
                 </div>
-            </div>
-
-
-
-            <div class="chatdiv">
 
             </div>
+        </div>
 
-        </div> <!--major container-->
+
+
+        <div class="chatdiv">
+
+
+        </div>
+    </div><!--FECHANDO MAJOR CONTAINER-->
 
         <script th:src="@{/js/jquery-3.5.1.min.js}"></script>
         <script th:src="@{/bootstrap-4.5.2/js/bootstrap.min.js}"></script>

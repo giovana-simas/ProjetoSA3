@@ -91,12 +91,6 @@
 }
 .sair{
   color: red;
-  padding-bottom: 80px;
-  padding-top: 15px;
-  cursor: pointer;
-}
-.perfilname{
-  cursor: pointer;
 }
 .titulosInstituicao{
   height: 50px;
