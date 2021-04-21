@@ -89,8 +89,22 @@
   justify-content: flex-end;
   flex-direction: column;
 }
+.add{
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+}
+.add:hover{
+  color: #1c79f1;
+}
 .sair{
   color: red;
+  padding-bottom: 80px;
+  padding-top: 15px;
+  cursor: pointer;
+}
+.perfilname{
+  cursor: pointer;
 }
 .titulosInstituicao{
   height: 50px;
