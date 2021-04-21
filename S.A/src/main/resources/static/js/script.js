@@ -58,17 +58,12 @@ function verificaEmail(){
 
 function closeBar(){
     if ($("#filtro").is(":hidden")) {
-        $( "#filtro" ).animate({
-            width: "toggle",
-            
-          });
+        $( "#filtro" ).show()
         $( "#iconMenu").hide()
 
     }else{
-        $( "#filtro" ).animate({
-            width: "toggle"
-          });
-        $( "#iconMenu" ).show(1500);
+        $( "#filtro" ).hide()
+        $( "#iconMenu" ).show();
     }
        
 }
