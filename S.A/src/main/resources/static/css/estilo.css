@@ -68,18 +68,7 @@ body {
 .chatdiv{
     width: 20%;
 }
-.feed-sala{
-    background: white;
-    width: 80%;
-    height: 15%;
-    border-radius: 15px;
-}
-.fundo-feed{
-    width: 65%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+
 .container-info{
     width: 15%;
     height: 100vh;
@@ -137,22 +126,23 @@ body {
     top:1px;
 }
 
-/*FEED DENTRO DA SALA*/
-.fotinho{
-    background-color: blue;
-    z-index: 9999;
-    width: 15%;
-    height: 15vh;
-    border-radius: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+
+
+/*AS DIVISORIAS DENTRO DA SALA*/
+.boxLateral{
+    width: 20%;
+    background-color: #0b0b0b;
+}
+.meio-feed{
+    width: 60%;
+}
+.infos-pessoas{
+    width: 20%;
+    background-color: white;
 }
 
-
-
-
-
+/*informações no container da esquerda*/
 
 
 
