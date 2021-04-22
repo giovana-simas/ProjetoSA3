@@ -94,9 +94,12 @@ width: 20%;
     background-color: grey;
     display: none;
 }
+
+
 .meio-feed{
     width: 60%;
 }
+
 .infos-pessoas{ /*DA ESQUERDA PARTE BRANCA*/
     width: 20%;
     background-color: #ffffffd6;
@@ -106,6 +109,22 @@ width: 20%;
     align-items: center;
 }
 
+/*ESTRUTURA DO FEED*/
+.estrutura-feed{
+    width: 80%;
+    height: 15vh;
+    background-color: white;
+    border-radius: 15px;
+    display: flex;
+    padding-top: 30px;
+}
+.name-feed{
+    color: white;
+    font-family: "Segoe UI Light";
+    font-size: 20px;
+    padding-top: 50px;
+    padding-bottom: 25px;
+}
 
 
 

@@ -28,19 +28,37 @@
 }
 .majorBoxMiddle{
   width: 90%;
-  display: flex;
-  align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 .middle{
   background: white;
   width: 90%;
   height: 15%;
+  padding-top: 15px;
   border-radius: 15px;
+}
+.text-inst{
+  color: white;
+  font-family: "Segoe UI Light";
+  font-size: 20px;
+  padding-top: 50px;
+  padding-bottom: 25px;
 }
 .chatdiv{
 
   width: 30%;
+}
+.resto-chat{
+  height: 94%;
+}
+.color-chat{
+  color: black;
+  background-color: white;
+  height: 6%;
+  border-radius: 15px 15px 0px 0px;
+  width: 95%;
+  text-align: center;
 }
 .lateral{
   width: 100%;
