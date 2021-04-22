@@ -67,6 +67,22 @@ body {
 .sala-css:hover{
     color: black;
 }
+.iconMenu{
+    padding: 15px 0px 0px 15px;
+    font-size: 30px;
+    color: white;
+  }
+#iconMenu{
+width: 20%;
+}
+.iconClose{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px 20px 0px 0px;
+    width: 100%;
+    color: white;
+  }
 /*----------AQUI TA OK-------*/
 
 
@@ -76,6 +92,7 @@ body {
 .boxLateral{
     width: 20%;
     background-color: #0b0b0b;
+    display: none;
 }
 .meio-feed{
     width: 60%;
