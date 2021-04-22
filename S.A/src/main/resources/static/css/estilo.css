@@ -91,7 +91,7 @@ width: 20%;
 /*AS DIVISORIAS DENTRO DA SALA*/
 .boxLateral{
     width: 20%;
-    background-color: #0b0b0b;
+    background-color: grey;
     display: none;
 }
 .meio-feed{
@@ -99,7 +99,7 @@ width: 20%;
 }
 .infos-pessoas{ /*DA ESQUERDA PARTE BRANCA*/
     width: 20%;
-    background-color: #ffffffb3;
+    background-color: #ffffffd6;
     border-radius: 25px 0px 0px 25px;
     display: flex;
     flex-direction: column;
@@ -129,6 +129,7 @@ width: 20%;
     padding-bottom: 15px;
     color: #1c79f1;
 }
+
 
 
 
