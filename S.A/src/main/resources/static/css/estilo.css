@@ -1,4 +1,5 @@
 
+/*PREDEFINICIOS NO BODY*/
 body {
     background: linear-gradient(to left, #02BED8, #457ED6);
     background-repeat: no-repeat;
@@ -12,7 +13,21 @@ body {
     align-items: center;
     justify-content: center;
 }
-/*DENTRO DA INSTITUIÇÃO*/
+.majorContainer{ /*CSS PARA A TELA TODA*/
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to left, #02BED8, #457ED6);
+    margin: 0;
+    padding: 0;
+    max-width: 999999px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+
+
+
+/*DENTRO DA INSTITUIÇÃO-salas*/
 .container-list{
     display: flex;
     flex-direction: column;
@@ -52,55 +67,57 @@ body {
 .sala-css:hover{
     color: black;
 }
+/*----------AQUI TA OK-------*/
 
 
-/*CSS DE QUANDO ENTRA NA SALA*/
-.majorContainer{
-    width: 100vw;
-    height: 100vh;
-    background: linear-gradient(to left, #02BED8, #457ED6);
-    margin: 0;
-    padding: 0;
-    max-width: 999999px;
-    display: flex;
-    justify-content: flex-start;
-}
-.chatdiv{
+
+
+/*AS DIVISORIAS DENTRO DA SALA*/
+.boxLateral{
     width: 20%;
+    background-color: #0b0b0b;
+}
+.meio-feed{
+    width: 60%;
+}
+.infos-pessoas{ /*DA ESQUERDA PARTE BRANCA*/
+    width: 20%;
+    background-color: #ffffffb3;
+    border-radius: 25px 0px 0px 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.container-info{
-    width: 15%;
-    height: 100vh;
-    background: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
+
+
+
+/*PROF E ALUNO DENTRO DO CONTAINER*/
+
+
 .container-prof{
     height: 20vh;
     text-align: center;
 
 }
+
 .container-alunos{
     height: 50vh;
     text-align: center;
 }
-.names{
+.nomes-prof-aluno{
     font-family: "Segoe UI Light";
-    color: #1c79f1;
     font-size: 20px;
+    padding-top: 30px;
+    padding-bottom: 15px;
+    color: #1c79f1;
 }
-.name-aluno{
-    padding: 10px 0px 10px 0px;
-    font-family: "Segoe UI Light";
-    color: grey;
-    cursor: pointer;
-}
-.name-aluno:hover{
-    color:black;
-}
+
+
+
+
+
+/*--------------BOTÕES--------------S*/
 .button-back{
     margin-top: 150%;
     box-shadow:inset 0px -3px 7px 0px #29bbff;
@@ -127,22 +144,6 @@ body {
 }
 
 
-
-
-/*AS DIVISORIAS DENTRO DA SALA*/
-.boxLateral{
-    width: 20%;
-    background-color: #0b0b0b;
-}
-.meio-feed{
-    width: 60%;
-}
-.infos-pessoas{
-    width: 20%;
-    background-color: white;
-}
-
-/*informações no container da esquerda*/
 
 
 
