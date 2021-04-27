@@ -34,9 +34,10 @@
 
             </div>
             <div class="buttons">
-                <div>
-                    <a th:onclick="|window.location.href='/sala/addsala/' + ${instituicao.id}|" class="button-new">Entrar em uma nova sala.</a>
-                </div>
+
+                <a th:onclick="|window.location.href='/sala/addsala/' + ${instituicao.id}|" class="button-new">Entrar em uma nova sala.</a>
+
+                <a th:onclick="|window.location.href='/sala/criaSala/' + ${instituicao.id}|" class="button-new">Criar uma nova sala.</a>
 
                 <a onclick="window.location.href='/instituicao/listInstituicoes/'" class="button-new">Voltar</a>
             </div>

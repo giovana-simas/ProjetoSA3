@@ -1,58 +1,169 @@
 <!DOCTYPE html>
 <html lang="pt-br" xmlns:th="https://thymeleaf.org">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Projeto S.A</title>
-        <link  rel="stylesheet" th:href="@{/css/estilo.css}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto S.A</title>
+    <link  rel="stylesheet" th:href="@{/css/estilo.css}">
 
-        <link rel="stylesheet" th:href="@{/bootstrap-4.5.2/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/bootstrap-4.5.2/css/bootstrap.min.css}">
     <link rel="stylesheet" th:href="@{/fontawesome-5.14.0/css/all.min.css}">
 
-        <script src="/js/script.js"></script>
+    <script src="/js/script.js"></script>
 
-        
 
-    </head> 
-    <body >
-    
-        <div class="form-tabela">
 
-            <table class="table table-striped">
-                <thead class="thead-dark">
-                    <tr>
-                        <th>Nome professores</th>
-                    </tr>
+</head>
+<body >
+
+
+<div class="majorContainer">
+    <div  id="iconMenu">
+        <i class="fas fa-bars iconMenu" aria-hidden="true" onclick="closeBar()" ></i>
+    </div>
+
+
+    <div class="boxLateral" id="filtro">
+        <div class="lateral">
+
+            <div class="labelAluno">
+                <div class="iconClose">
+                    <i class="fas fa-times" onclick="closeBar()" ></i>
+                </div>
+                <p class="titleAluno">Aluno(a)</p>
+                <p>gabriel</p>
+                <p>a@gmail.com</p>
+            </div>
+            <div class="infos">
+                <div>
+                    <div class="boxAddandList">
+                        Lista de Instituições:
+                        <div th:each="instituicao : ${instituicoes}" th:onclick="|window.location.href='/sala/listSala/' + ${instituicao.id}|">
+                            <div class="nameInstituicao" th:text="${instituicao.nome}"></div>
+                        </div>
+                        <div>colocar o do banco</div>
+                        <div>colocar o do banco</div>
+                    </div>
+                    <a onclick="window.location.href='/instituicao/addinstituicao/'"><p class="add">Adicionar</p></a>
+                </div>
+
+                <div class="actions">
+                    <a onclick="window.location.href='/aluno/perfil/0'"><p class="perfilname">Perfil</p></a>
+
+                    <a onclick="window.location.href='/'" class="sair">Sair</a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="meio-feed"> <!--AQUI COMEÇA A DIV CENTRAL, PARA O FEED-->
+        <div class="name-feed">
+            <h3>FEED dos alunos:</h3>
+        </div>
+        <div class="estrutura-feed">
+
+        </div>
+    </div>
+
+
+    <div class="infos-pessoas"> <!--AQUI É A DIV QUE FICA NA ESQUERDA COM AS INFOS-->
+        <div class="container-prof"> <!--DIV DO PROF-->
+            <table>
+                <thead>
+                <tr>
+                    <th class="nomes-prof-aluno">PROFESSORES</th>
+                </tr>
                 </thead>
-
                 <tbody>
-                    <tr th:each="professor : ${professores}" th:onclick="|window.location.href='/perfil/' + ${professor.id} |">
-                        <td th:text="${professor.nome}"></td>
-                    </tr>
+                <tr th:each="professor : ${professores}" th:onclick="|window.location.href='/perfil/' + ${professor.id}|">
+                    <td th:text="${professor.nome}"></td>
+                </tr>
                 </tbody>
-
-            </table>
-
-            <table class="table table-striped">
-                <thead class="thead-dark">
-                    <tr>
-                        <th>Nome</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <tr th:each="aluno : ${alunos}" th:onclick="|window.location.href='/perfil/' + ${aluno.id}|">
-                        <td th:text="${aluno.nome}"></td>
-                    </tr>
-                </tbody>
-
             </table>
 
         </div>
 
-        <button type="button" th:onclick="|window.location.href='/sala/listSala/' + ${instituicao.id}|" class="myButton">Voltar</button>
-        <script th:src="@{/js/jquery-3.5.1.min.js}"></script>
-        <script th:src="@{/bootstrap-4.5.2/js/bootstrap.min.js}"></script>
-        <script src="/js/script.js"></script>
-    </body>
+        <div class="container-alunos"> <!--DIV DO ALUNO-->
+            <table>
+                <thead>
+                <tr>
+                    <th class="nomes-prof-aluno">ALUNOS</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="aluno : ${alunos}" >
+                    <td th:text="${aluno.nome}" th:onclick="|window.location.href='/perfil/' + ${aluno.id}|"></td>
+                    <td th:onclick="|window.location.href='/chat/add/' + ${aluno.id} |" ><i class="fas fa-comments"></i> </td>
+                </tr>
+                </tbody>
+            </table>
+            <button type="button" th:onclick="|window.location.href='/sala/listSala/' + ${instituicao.id} |" class="button-back">Voltar</button>
+        </div>
+    </div> <!--fechando as info-->
+
+
+
+    <!--
+    <div class="container-info">
+        <div class="container-prof">
+            <thead>
+                <tr>
+                    <th class="names">PROFESSORES</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="professor : ${professores}" th:onclick="|window.location.href='/perfil/' + ${professor.id}|">
+                    <td th:text="${professor.nome}"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        </div>
+        <div class="container-alunos">
+        <table>
+            <thead>
+                <tr>
+                    <th class="names">ALUNOS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="aluno : ${alunos}" th:onclick="|window.location.href='/perfil/' + ${aluno.id}|">
+                    <td th:text="${aluno.nome}"></td>
+                </tr>
+            </tbody>
+        </table>
+            <button type="button" th:onclick="|window.location.href='/sala/listSala/' + ${instituicao.id} |" class="button-back">Voltar</button>
+        </div>
+    </div>
+    </div>
+
+
+    <div class="fundo-feed">
+        <div class="feed-sala">
+            <div class="fotinho">
+                <h1>foto</h1>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <div class="chatdiv">
+
+    </div>
+
+    </div> -->
+
+</div><!--FECHANDO MAJOR CONTAINER-->
+
+<script th:src="@{/js/jquery-3.5.1.min.js}"></script>
+<script th:src="@{/bootstrap-4.5.2/js/bootstrap.min.js}"></script>
+<script src="/js/script.js"></script>
+</body>
 </html>

@@ -20,6 +20,12 @@
 
         <div class="majorDiv">
 
+            <div th:if="${salvo} == 1" class="alert alert-success">
+                Usuário salvo com sucesso
+            </div>
+            <div th:if="${salvo} == 2" class="alert alert-danger">
+                Usuário não salvo
+            </div>
             <div th:if="${aluno.statusAjuda} == ${aluno.statusAjuda.querAjudar}"  class="alert alert-success">
                 Aluno disponivel para Ajudar
             </div>
@@ -49,31 +55,29 @@
                 <textarea id="editDescricao" placeholder="Descrição, até 500 caracteres para descrever as materias que você tem facilidade ou dificuldade e interesses academicos" maxlength="500" class="css-email" th:field="${aluno.descricao}" readonly ></textarea>
 
 
-                <button id="editSalvar" type="submit"  class="myButton">Atualizar perfil</button>
+                <button id="editSalvar" type="submit"  class="myButton" hidden>Atualizar perfil</button>
                 
             </form>
-            <button id="cancelar" onclick="cancelarEditar()" class="myButton">Sair da edição</button>
+
+
+            <button  id="cancelar" onclick="cancelarEditar()" class="myButton" hidden>Sair da edição</button>
             <form th:if="${editavel}" th:action="|@{/logout}|" class="boxActions" method="POST">
-                
-                    
+
+                <button class="btn btn-dark" type="submit">
+                    SAIR
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>
+            </form>
 
                 <div th:if="${editavel}" >
                     <button id="editar" onclick="editarPerfil()"  />
                     <label class="" >editar perfil</label>
                 </div>
-                <button class="btn btn-dark" type="submit">
-                SAIR
-                    <i class="fas fa-sign-out-alt"></i>
-             </button>
-             </form>
+
+
+
             </div>
-            <div th:if="${salvo} == 1" class="alert alert-success">
-                Usuário salvo com sucesso
-            </div>
-            <div th:if="${salvo} == 2" class="alert alert-danger">
-                Usuário não salvo
-            </div>
-            </div>
+
         </div>
        
         <script th:src="@{/js/jquery-3.5.1.min.js}"></script>

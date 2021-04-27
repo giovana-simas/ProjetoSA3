@@ -89,8 +89,11 @@ public class UsuarioController {
 		}
 
 		if (usuario.getEmail().equals(email)){
+			System.out.println("true");
 			model.addAttribute("editavel", true);
 		}else{
+			System.out.println("false");
+
 			model.addAttribute("editavel", false);
 		}
 

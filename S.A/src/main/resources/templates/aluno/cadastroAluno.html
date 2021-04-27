@@ -13,26 +13,26 @@
 	<link rel="stylesheet" type="text/css" th:href="@{/css/util.css}">
 	<link rel="stylesheet" type="text/css" th:href="@{/css/main.css}">
 	<script src="https://kit.fontawesome.com/77b55126cc.js"crossorigin="anonymous"></script>
-
+	<link rel="stylesheet" th:href="@{/bootstrap-4.5.2/css/bootstrap.min.css}">
 </head>
 <body >
 
 
 
-</form>
 	<div class="limiter">
+
+
 		<div class="container-login100">
+
+
+
 			<div class="wrap-login100Cadastro">
+
+
 				<div class="login100-pic js-tilt" data-tilt>
 					<img th:src="@{/src/img-01.png}" alt="IMG">
 				</div>
-                
-        <div th:if="${salvo} == 1" class="alert alert-success">
-            Usuário salvo com sucesso
-        </div>
-        <div th:if="${salvo} == 2" class="alert alert-danger">
-            Usuário não salvo
-        </div>
+
                 <!--
                              <form th:action="@{/aluno/save}" th:object="${aluno}" method="POST">
 
@@ -52,8 +52,14 @@
 
 
                 -->
-                   
+
 				<form class="login100-form validate-form" th:action="@{/aluno/save}"  th:object="${aluno}" method="POST" required>
+					<div th:if="${salvo} == 1" class="alert alert-success">
+						Usuário salvo com sucesso
+					</div>
+					<div th:if="${salvo} == 2" class="alert alert-danger">
+						Usuário não salvo
+					</div>
 					<span class="login100-form-title">
 						Cadastra Aluno
 					</span>
@@ -89,18 +95,21 @@
 						</span>
 					</div>
                     <input type="text" placeholder="&#32 NOME" class="css-email1" th:field="*{descricao}" hidden /><br>
-					
+
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn"  type="submit" >
 							Criar Conta
 						</button>
 					</div>
+
 				</form>
-                 
+
 			</div>
+
 		</div>
+
 	
-	
+	</div>
 
 	
 
