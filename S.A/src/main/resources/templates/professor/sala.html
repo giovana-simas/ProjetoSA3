@@ -23,9 +23,38 @@
         </div>
 
 
-        <div class="boxLateral" id="filtro"> <!--COLOCAR O BOTÃO COM AS INSTITUIÇÕES-->
-            <div class="iconClose">
-                <i class="fas fa-times" onclick="closeBar()" ></i>
+        <div class="boxLateral" id="filtro">
+            <div class="lateral">
+             
+                <div class="labelAluno">
+                    <div class="iconClose">
+                        <i class="fas fa-times" onclick="closeBar()" ></i>
+                    </div>
+                    <p class="titleAluno">Aluno(a)</p>
+                    <p>gabriel</p>
+                    <p>a@gmail.com</p>
+                </div>
+                <div class="infos">
+                    <div>
+                        <div class="boxAddandList">
+                            Lista de Instituições:
+                            <div th:each="instituicao : ${instituicoes}" th:onclick="|window.location.href='/sala/listSala/' + ${instituicao.id}|">
+                                <div class="nameInstituicao" th:text="${instituicao.nome}"></div>
+                            </div>
+                            <div>colocar o do banco</div>
+                            <div>colocar o do banco</div>
+                        </div>
+                        <a onclick="window.location.href='/instituicao/addinstituicao/'"><p class="add">Adicionar</p></a>
+                    </div>
+                 
+                    <div class="actions">
+                        <a onclick="window.location.href='/aluno/perfil/0'"><p class="perfilname">Perfil</p></a>
+
+                        <a onclick="window.location.href='/'" class="sair">Sair</a>
+                    </div>
+
+                </div>
+
             </div>
 
         </div>
