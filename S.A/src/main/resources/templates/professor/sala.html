@@ -30,9 +30,9 @@
                     <div class="iconClose">
                         <i class="fas fa-times" onclick="closeBar()" ></i>
                     </div>
-                    <p class="titleAluno">Aluno(a)</p>
-                    <p>gabriel</p>
-                    <p>a@gmail.com</p>
+                    <p class="titleAluno">Professor(a)</p>
+                    <p th:text="${usuario.nome}"></p>
+                    <p th:text="${usuario.email}"></p>
                 </div>
                 <div class="infos">
                     <div>
@@ -41,8 +41,7 @@
                             <div th:each="instituicao : ${instituicoes}" th:onclick="|window.location.href='/sala/listSala/' + ${instituicao.id}|">
                                 <div class="nameInstituicao" th:text="${instituicao.nome}"></div>
                             </div>
-                            <div>colocar o do banco</div>
-                            <div>colocar o do banco</div>
+
                         </div>
                         <a onclick="window.location.href='/instituicao/addinstituicao/'"><p class="add">Adicionar</p></a>
                     </div>

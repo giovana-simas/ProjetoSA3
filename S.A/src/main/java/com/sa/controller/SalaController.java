@@ -36,6 +36,8 @@ public class SalaController {
     @Autowired
     UsuarioRepository usuarioRepository;
 
+    @Autowired
+    DiretorRepository diretorRepository;
 
     @PostMapping("/sala/save/{id}")
     //cria o metodo de salvamento com um objeto Usuario
@@ -238,7 +240,12 @@ public class SalaController {
         permissao = permissaoRepository.findByNome("aluno");
 
         if (usuario.getPermissoes().contains(permissao)){
+            Aluno aluno;
+
+            aluno = alunoRepository.findByEmail(email);
+            model.addAttribute("usuario", usuario);
             model.addAttribute("instituicao", instituicao);
+            model.addAttribute("instituicoes", instituicaoRepository.findByAlunosI(aluno));
             model.addAttribute("alunos", alunoRepository.findBySalasA(sala));
             model.addAttribute("professores", professorRepository.findBySalaP(sala));
 
@@ -247,8 +254,13 @@ public class SalaController {
         permissao = permissaoRepository.findByNome("diretor");
         if (usuario.getPermissoes().contains(permissao)){
 
+            Diretor diretor;
 
+            diretor = diretorRepository.findByEmail(email);
+            model.addAttribute("instituicoes", instituicaoRepository.findByDiretor(diretor));
+            model.addAttribute("usuario", usuario);
             model.addAttribute("instituicao", instituicao);
+
             model.addAttribute("alunos", alunoRepository.findBySalasA(sala));
             model.addAttribute("professores", professorRepository.findBySalaP(sala));
             path = "/diretor/sala";
@@ -256,6 +268,11 @@ public class SalaController {
         permissao = permissaoRepository.findByNome("professor");
         if (usuario.getPermissoes().contains(permissao)){
 
+            Professor professor;
+
+            professor = professorRepository.findByEmail(email);
+            model.addAttribute("usuario", usuario);
+            model.addAttribute("instituicoes", instituicaoRepository.findByProfessoresI(professor));
             model.addAttribute("instituicao", instituicao);
             model.addAttribute("alunos", alunoRepository.findBySalasA(sala));
             model.addAttribute("professores", professorRepository.findBySalaP(sala));
