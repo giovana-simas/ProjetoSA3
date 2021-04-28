@@ -35,8 +35,20 @@
   background: white;
   width: 90%;
   height: 15%;
-  padding-top: 15px;
   border-radius: 15px;
+  display: flex;
+}
+.ft-inst{
+  width: 15%;
+  height: 100%;
+  border-radius: 100px;
+  display: flex;
+}
+.info-inst{
+  display: flex;
+  border-radius: 15px;
+  background-color: black;
+  width: 85%;
 }
 .text-inst{
   color: white;
