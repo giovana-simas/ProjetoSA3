@@ -93,7 +93,7 @@ public class DiretorController {
 					//salva a edição do usuario feito na tela perfil em um usuario ja existente
 					System.out.print(diretorRepository.save(diretor));
 					//seta a variavel "path" para que redirecione para tela de perfil e mostre se a edição foi salva ou nao
-					path  = "redirect:/diretor/perfil/" + salvo;
+					path  = "redirect:/perfil/" + diretor.getId();
 				}
 				
 			}
@@ -116,7 +116,7 @@ public class DiretorController {
 				path  = "redirect:diretor/cadastroDiretor/" + salvo;
 			}else {
 				//seta a variavel "path" para que redirecione para tela de perfil e mostre se a edição foi salva ou nao
-				path  = "redirect:/diretor/perfil/" + salvo;
+				path  = "redirect:/perfil/" + diretor.getId();
 			}
 		}	
 		//redireciona para a tela setada por path

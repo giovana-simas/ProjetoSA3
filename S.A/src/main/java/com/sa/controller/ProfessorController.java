@@ -85,7 +85,7 @@ public class ProfessorController {
 						//salva a edição do usuario feito na tela perfil em um usuario ja existente
 						System.out.print(professorRepository.save(professor));
 						//seta a variavel "path" para que redirecione para tela de perfil e mostre se a edição foi salva ou nao
-						path  = "redirect:/professor/perfil/" + salvo;
+						path  = "redirect:/perfil/" + professor.getId();
 					}
 					
 				}
@@ -108,7 +108,7 @@ public class ProfessorController {
 					path  = "redirect:/professor/cadastroProfessor/" + salvo;
 				}else {
 					//seta a variavel "path" para que redirecione para tela de perfil e mostre se a edição foi salva ou nao
-					path  = "redirect:/professor/perfil/" + salvo;
+					path  = "redirect:/perfil/" + professor.getId();
 				}
 			}	
 			//redireciona para a tela setada por path

@@ -94,7 +94,7 @@ public class AlunoController {
 					//salva a edição do usuario feito na tela perfil em um usuario ja existente
 					System.out.print(alunoRepository.save(aluno));
 					//seta a variavel "path" para que redirecione para tela de perfil e mostre se a edição foi salva ou nao
-					path  = "redirect:/aluno/perfil/" + salvo;
+					path  = "redirect:/perfil/" + aluno.getId();
 				}
 			}
 		}
@@ -119,7 +119,7 @@ public class AlunoController {
 				path  = "redirect:/aluno/cadastroAluno/" + salvo;
 			}else {
 				//seta a variavel "path" para que redirecione para tela de perfil e mostre se a edição foi salva ou nao
-				path  = "redirect:/aluno/perfil/" + salvo;
+				path  = "redirect:/perfil/" + aluno.getId();
 			}
 		}	
 		//redireciona para a tela setada por path

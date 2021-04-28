@@ -29,29 +29,27 @@
                 <input id="editinstituicoes" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${diretor.instituicao}" readonly hidden />
                
 
-            <button id="editSalvar" type="submit"  class="myButton">Salvar</button>
+            <button id="editSalvar" type="submit"  class="myButton" hidden>Salvar</button>
             </form>
-            <button id="cancelar" onclick="cancelarEditar()" class="myButton">Sair da edição</button>
-            
-                <form th:if="${editavel}" th:action="|@{/logout}|" class="navbar-from" method="POST" >
-                    <div class="boxActions" >
-                        <div >
-                            <label class="" >cancelar</label>
-                        </div>
+            <button  id="cancelar" onclick="cancelarEditar()" class="myButton" hidden>Sair da edição</button>
+            <form th:if="${editavel}" th:action="|@{/logout}|" class="boxActions" method="POST">
 
-                        <div th:if="${editavel}">
-                            <button id="editar" onclick="editarPerfil()"  />
-                            <label class="" >editar perfil</label>
-                        </div>
-                        <button class="btn btn-dark" type="submit">
-                            SAIR
-                            <i class="fas fa-sign-out-alt"></i>
-                    </button>
-                </div>
-                
-                </form>
-                
+                <button class="btn btn-dark" type="submit">
+                    SAIR
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>
+            </form>
+
+            <div th:if="${editavel}" >
+                <button id="editar" onclick="editarPerfil()"  />
+                <label class="" >editar perfil</label>
             </div>
+            <div  >
+                <button  onclick="window.location.href='/instituicao/listInstituicoes/'" />
+                <label class="" >Voltar</label>
+            </div>
+
+        </div>
             <div th:if="${salvo} == 1" class="alert alert-success">
                 Usuário salvo com sucesso
             </div>
