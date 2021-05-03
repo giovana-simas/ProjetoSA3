@@ -75,6 +75,7 @@ public class AlunoController {
 				salvo = 1;
 
 
+
 				//confere se há um usuario logado ou se ele esta em "logout" ou seja usuario anonimo.
 				//caso seja anonimo o usuario será salvo como novo usuario atravez da tela de cadastro.
 				//caso haja um usuario logado, ou seja "email!="anonymousUser"" ele estara editando um usuario ja existente na tela de perfil.

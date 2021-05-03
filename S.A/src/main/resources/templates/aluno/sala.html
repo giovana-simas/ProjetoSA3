@@ -47,7 +47,7 @@
                 </div>
 
                 <div class="actions">
-                    <a onclick="window.location.href='/aluno/perfil/0'"><p class="perfilname">Perfil</p></a>
+                    <a th:onclick="|window.location.href='/perfil/' + ${usuario.id}|"><p class="perfilname">Perfil</p></a>
 
                     <a onclick="window.location.href='/'" class="sair">Sair</a>
                 </div>
