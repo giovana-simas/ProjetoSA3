@@ -100,7 +100,7 @@ width: 20%;
     align-items: center;
   }
   .infos{
-    height: 80%;
+    height: 65%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -132,9 +132,12 @@ width: 20%;
   }
   .sair{
     color: red;
+    margin-top: 5%;
+      cursor: pointer;
   }
   .add{
     text-align: center;
+      cursor: pointer;
   }
 /*----------AQUI TA OK-------*/
 
@@ -146,6 +149,7 @@ width: 20%;
     width: 20%;
     background-color: grey;
     display: none;
+    margin-right: 50px;
 }
 
 
@@ -161,24 +165,6 @@ width: 20%;
     flex-direction: column;
     align-items: center;
 }
-
-/*ESTRUTURA DO FEED*/
-.estrutura-feed{
-    width: 80%;
-    height: 15vh;
-    background-color: white;
-    border-radius: 15px;
-    display: flex;
-    padding-top: 30px;
-}
-.name-feed{
-    color: white;
-    font-family: "Segoe UI Light";
-    font-size: 20px;
-    padding-top: 50px;
-    padding-bottom: 25px;
-}
-
 
 
 /*PROF E ALUNO DENTRO DO CONTAINER*/
@@ -201,7 +187,41 @@ width: 20%;
     padding-bottom: 15px;
     color: #1c79f1;
 }
-
+/*ESTRUTURA PARA O FEED*/
+.estrutura-feed{
+    background: #ffffffbd;
+    width: 90%;
+    height: 15%;
+    border-radius: 15px;
+    display: flex;
+    box-shadow: 20px 20px 50px -30px #515151;
+}
+.name-feed{
+    color: white;
+    font-family: "Segoe UI Light";
+    font-size: 20px;
+    padding-top: 50px;
+    padding-bottom: 25px;
+}
+.ft-inst{
+    width: 15%;
+    height: 100%;
+    border-radius: 100px;
+    padding-left: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.info-inst{
+    display: flex;
+    border-radius: 15px;
+    padding: 20px;
+    width: 60%;
+}
+.img-inst{
+    width: 80%;
+    height: 80%;
+}
 
 
 

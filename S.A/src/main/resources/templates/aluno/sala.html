@@ -43,7 +43,6 @@
                         </div>
 
                     </div>
-                    <a onclick="window.location.href='/instituicao/addinstituicao/'"><p class="add">Adicionar</p></a>
                 </div>
 
                 <div class="actions">
@@ -60,11 +59,21 @@
 
 
 
+
     <div class="meio-feed"> <!--AQUI COMEÇA A DIV CENTRAL, PARA O FEED-->
         <div class="name-feed">
             <h3>FEED dos alunos:</h3>
         </div>
         <div class="estrutura-feed">
+
+            <div class="ft-inst">
+                <img class="img-inst" th:src="@{/src/icon-aluno.png}">
+
+            </div>
+
+            <div class="info-inst">
+                <h4>Oi, eu me chamo </h4>
+            </div>
 
         </div>
     </div>
@@ -107,59 +116,6 @@
 
 
 
-    <!--
-    <div class="container-info">
-        <div class="container-prof">
-            <thead>
-                <tr>
-                    <th class="names">PROFESSORES</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="professor : ${professores}" th:onclick="|window.location.href='/perfil/' + ${professor.id}|">
-                    <td th:text="${professor.nome}"></td>
-                </tr>
-            </tbody>
-        </table>
-
-        </div>
-        <div class="container-alunos">
-        <table>
-            <thead>
-                <tr>
-                    <th class="names">ALUNOS</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="aluno : ${alunos}" th:onclick="|window.location.href='/perfil/' + ${aluno.id}|">
-                    <td th:text="${aluno.nome}"></td>
-                </tr>
-            </tbody>
-        </table>
-            <button type="button" th:onclick="|window.location.href='/sala/listSala/' + ${instituicao.id} |" class="button-back">Voltar</button>
-        </div>
-    </div>
-    </div>
-
-
-    <div class="fundo-feed">
-        <div class="feed-sala">
-            <div class="fotinho">
-                <h1>foto</h1>
-            </div>
-
-        </div>
-    </div>
-
-
-
-    <div class="chatdiv">
-
-    </div>
-
-    </div> -->
-
-</div><!--FECHANDO MAJOR CONTAINER-->
 
 <script th:src="@{/js/jquery-3.5.1.min.js}"></script>
 <script th:src="@{/bootstrap-4.5.2/js/bootstrap.min.js}"></script>
