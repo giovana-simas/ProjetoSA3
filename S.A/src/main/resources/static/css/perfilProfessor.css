@@ -4,15 +4,16 @@ textarea:focus, input:focus, select:focus {
   outline: 0;
 } 
 .majorDiv{
-  height: 100vh;
-  width: 100vw;
+
   display: flex;
+
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background: linear-gradient(to left, #02BED8, #457ED6);
 }
 .divMenor{
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;

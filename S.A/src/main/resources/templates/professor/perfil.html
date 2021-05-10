@@ -31,6 +31,9 @@
             	<input id="editId" type="text" placeholder="&#32 ID" class="css-email" th:field="${professor.id}" readonly hidden />
                 <input id="editNome" type="text" placeholder="&#32 NOME" class="css-email" th:field="${professor.nome}" readonly />
                 <input id="editEmail" type="text" placeholder="&#32 E-MAIL" class="css-email" th:field="${professor.email}" readonly />
+                <select id="editSexo" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${aluno.sexo}" readonly  hidden>
+                    <option th:each="sexoOpt : ${T(com.sa.model.Usuario.Sexo).values()}" th:value="${sexoOpt}" th:text="${sexoOpt.displayValue}"></option>
+                </select>
                 <div class="linhaEspacamento"></div>
                 <input id="editSenha" type="text" placeholder="&#32 SENHA" class="css-email" th:field="${professor.senha}" readonly hidden />
                 <input id="editPermissoes" type="text" placeholder="&#32 PERMISSÃO" class="css-email" th:field="${professor.permissoes}" readonly hidden />

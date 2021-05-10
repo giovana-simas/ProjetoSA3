@@ -2,10 +2,8 @@ package com.sa.model;
 
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.lang.NonNull;
 
@@ -13,10 +11,11 @@ import org.springframework.lang.NonNull;
 public class Materia {
 
 	@Id
-	@NonNull
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@NotNull
 	long id;
 	
-	@NonNull
+	@NotNull
 	String nome;
 	
 	@ManyToMany(mappedBy = "materiasLecionadas")

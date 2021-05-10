@@ -30,6 +30,10 @@ public class Usuario {
 	@NonNull
 	@Size(max=255)
 	String nome;
+
+	@Enumerated(EnumType.STRING)
+	@Column(name = "sexo", columnDefinition = "varchar(32) default 'Outro'")
+	Sexo sexo;
 	
 	@NonNull
 	@Size(max=255)
@@ -60,7 +64,27 @@ public class Usuario {
 		return usuarioChats1;
 	}
 
+	public enum Sexo {
+		masculino("Masculino"), feminino("feminino"), outro("Outro");
 
+		public final String displayValue;
+
+		private Sexo(String displayValue) {
+			this.displayValue = displayValue;
+		}
+
+		public String getDisplayValue() {
+			return displayValue;
+		}
+	}
+
+	public Sexo getSexo() {
+		return sexo;
+	}
+
+	public void setSexo(Sexo sexo) {
+		this.sexo = sexo;
+	}
 
 	public void setUsuarioChats1(List<UsuarioChat> usuarioChats1) {
 		this.usuarioChats1 = usuarioChats1;

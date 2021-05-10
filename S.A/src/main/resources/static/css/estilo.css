@@ -568,14 +568,12 @@ margin-bottom: 15px !important;
 
 /*janela flutuante*/
 .flutuante{
-    border-radius: 2px;
+    border-radius: 12px;
     background-color: white;
     position: relative;
     z-index: 10;
     width: 40%;
-    height: 300px;
     align-items: center;
-    position: center;
-    left: 30%;
-    top: 500px;
+    top: 150px;
+
 }

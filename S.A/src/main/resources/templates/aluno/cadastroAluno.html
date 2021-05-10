@@ -33,25 +33,6 @@
 					<img th:src="@{/src/img-01.png}" alt="IMG">
 				</div>
 
-                <!--
-                             <form th:action="@{/aluno/save}" th:object="${aluno}" method="POST">
-
-            <h3>Cadastrar aluno</h3>
-            <input type="text" placeholder="&#32 NOME" class="css-email1" th:field="*{nome}" required /><br>
-            <input type="text" placeholder="&#32 E-MAIL" class="css-email1" th:field="*{email}" required /><br>
-            <input id="senha1" type="password" placeholder="&#32 SENHA" class="css-senha1" th:field="*{senha}" required /><br>
-            <input id="senha2" type="password" onblur="compararSenha()" placeholder="&#32 CONFIRMAR SENHA" class="css-senha1" required /> <br>
-
-            <button id="salvar" onclick="verificaEmail() + compararSenha() " type="submit"  class="myButton1">CADASTRA-SE</button><br>
-
-
-            </form>
-
-
-
-
-
-                -->
 
 				<form class="login100-form validate-form" th:action="@{/aluno/save}"  th:object="${aluno}" method="POST" required>
 					<div th:if="${salvo} == 1" class="alert alert-success">

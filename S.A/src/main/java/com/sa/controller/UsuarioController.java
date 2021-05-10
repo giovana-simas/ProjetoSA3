@@ -3,6 +3,7 @@ package com.sa.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.sa.model.MateriaSugerida;
 import com.sa.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -69,6 +70,7 @@ public class UsuarioController {
 		if (usuario.getPermissoes().contains(permissao)){
 
 			model.addAttribute("aluno", alunoRepository.findById(id).get());
+			model.addAttribute("materiaSugerida", new MateriaSugerida());
 
 			path = "/aluno/perfil";
 		}
