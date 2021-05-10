@@ -182,7 +182,7 @@ width: 20%;
 
 .infos-pessoas{ /*DA ESQUERDA PARTE BRANCA*/
     width: 20%;
-    background-color: #ffffffd6;
+    background-color: white;
     border-radius: 25px 0px 0px 25px;
     display: flex;
     flex-direction: column;
@@ -214,12 +214,12 @@ width: 20%;
 
 /*ESTRUTURA PARA O FEED*/
 .estrutura-feed{
-    background: #ffffffbd;
+    background: white;
     width: 90%;
     height: 15%;
     border-radius: 15px;
     display: flex;
-    box-shadow: 20px 20px 50px -30px #515151;
+    box-shadow: 20px 20px 50px -30px #000000e6;
 }
 .name-feed{
     color: white;
