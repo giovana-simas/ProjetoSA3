@@ -23,6 +23,8 @@
        <div class="fundo">
 		
         <div class="container5 container-list">
+            <img class="add-inst" th:src="@{/src/school.jpg}">
+
             <form th:action="@{/aluno/insertinstituicao}" th:object="${aluno}" method="POST">
                 
                 <input id="editId" type="text" placeholder="&#32 ID" class="css-email" th:field="${aluno.id}" readonly hidden />
@@ -42,11 +44,11 @@
                 </select>
                   
             </div>
-            <button id="salvar" type="submit" class="myButton">CADASTRA-SE</button>
+            <button id="salvar" type="submit" class="button-entrar">Clique para cadastrar.</button>
 
 
             </form>
-            <button type="button" onclick="window.location.href='/instituicao/listInstituicoes/'" class="myButton">Voltar</button>
+            <button type="button" onclick="window.location.href='/instituicao/listInstituicoes/'" class="button-voltar">Voltar</button>
 
             
         </div>

@@ -57,10 +57,31 @@
 }
 .info-inst{
   display: flex;
+  flex-direction: column;
   border-radius: 15px;
   padding: 20px;
   width: 60%;
 }
+.info-inst2{
+  width: 25%;
+  font-family: "Segoe UI Light";
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding-right: 3%;
+  padding-bottom: 1%;
+}
+.nome-inst{
+  display: flex;
+}
+.endereco-inst{
+  display: flex;
+}
+.contato-inst{
+  display: flex;
+}
+
+
 
 h4{
   font-family: "Segoe UI Light";
