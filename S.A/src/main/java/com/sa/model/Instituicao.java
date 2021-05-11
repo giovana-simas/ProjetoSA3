@@ -37,7 +37,11 @@ public class Instituicao {
 	
 	@OneToMany(targetEntity=Sala.class, mappedBy="instituicao")    
 	private List<Sala> salas;
-	
+
+	@OneToMany(targetEntity=MateriaSugerida.class, mappedBy="instituicao")
+	private List<MateriaSugerida> materiaSugeridas;
+
+
 	@ManyToOne()
 	@JoinColumn(name="diretor_id", referencedColumnName = "id")    
 	private Diretor diretor;

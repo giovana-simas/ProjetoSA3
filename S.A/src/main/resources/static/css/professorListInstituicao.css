@@ -37,6 +37,7 @@
 .middle{
   background: #ffffffbd;
   width: 90%;
+  margin-bottom: 10px;
   height: 15%;
   border-radius: 15px;
   display: flex;

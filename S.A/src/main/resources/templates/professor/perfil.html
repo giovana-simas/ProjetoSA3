@@ -5,13 +5,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Projeto S.A</title>
         <link  rel="stylesheet" th:href="@{/css/perfilProfessor.css}">
-
         <link rel="stylesheet" th:href="@{/bootstrap-4.5.2/css/bootstrap.min.css}">
-    <link rel="stylesheet" th:href="@{/fontawesome-5.14.0/css/all.min.css}">
+        <link rel="stylesheet" th:href="@{/fontawesome-5.14.0/css/all.min.css}">
 
         <script src="/js/script.js"></script>
 
         
+
+
+
+
 
     </head>
     <body background="/src/back.png">
@@ -31,7 +34,7 @@
             	<input id="editId" type="text" placeholder="&#32 ID" class="css-email" th:field="${professor.id}" readonly hidden />
                 <input id="editNome" type="text" placeholder="&#32 NOME" class="css-email" th:field="${professor.nome}" readonly />
                 <input id="editEmail" type="text" placeholder="&#32 E-MAIL" class="css-email" th:field="${professor.email}" readonly />
-                <select id="editSexo" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${aluno.sexo}" readonly  hidden>
+                <select id="editSexo" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${professor.sexo}" readonly  hidden>
                     <option th:each="sexoOpt : ${T(com.sa.model.Usuario.Sexo).values()}" th:value="${sexoOpt}" th:text="${sexoOpt.displayValue}"></option>
                 </select>
                 <div class="linhaEspacamento"></div>

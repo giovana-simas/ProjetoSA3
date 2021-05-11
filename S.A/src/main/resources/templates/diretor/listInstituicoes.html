@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" th:href="@{/bootstrap-4.5.2/css/bootstrap.min.css}">
     <link rel="stylesheet" th:href="@{/fontawesome-5.14.0/css/all.min.css}">
+    <link rel="stylesheet" th:href="@{/css/estilo.css}">
 
     <script src="/js/script.js"></script>
 
@@ -20,6 +21,8 @@
 
 
 <div class="majorContainer">
+
+
     <div  id="iconMenu">
         <i class="fas fa-bars iconMenu" aria-hidden="true" onclick="closeBar()" ></i>
     </div>
@@ -53,6 +56,9 @@
 
                 <div class="actions">
                     <a th:onclick="|window.location.href='/perfil/' + ${usuario.id}|"><p class="perfilname">Perfil</p></a>
+                    <a onclick="sugerirMateria(false)" class="btn btn-dark" type="button">materias sugeridas</a>
+
+
 
                     <a onclick="window.location.href='/'" class="sair">Sair</a>
                 </div>
@@ -62,7 +68,22 @@
         </div>
 
     </div>
-    <div class="majorBoxMiddle">
+
+    <div class="flutuante" id="flutuante" hidden>
+        <div class="flutuante-container">
+
+                <label for="exampleInputEmail1" class="form-label">Materia sugerida:</label>
+                <div class="mb-3" th:each="materiaSugerida : ${materiasSugerida}">
+                    <input type="text" th:value="${materiaSugerida.id}" class="form-control" placeholder="Nome da materia"  aria-describedby="emailHelp" readonly hidden>
+                    <input  type="text" th:value="${materiaSugerida.nome}" class="form-control"  id="exampleInputEmail1" aria-describedby="emailHelp" readonly>
+                    <input  type="text" th:value="${materiaSugerida.instituicao.nome}" class="form-control"   aria-describedby="emailHelp" readonly>
+                </div>
+
+        </div>
+
+
+    </div>
+    <div class="majorBoxMiddle" >
         <div class="text-inst">
             <h3>
                 Lista de instituições:

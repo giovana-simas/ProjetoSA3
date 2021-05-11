@@ -32,11 +32,12 @@
                     <tbody>
                         <tr th:each="sala : ${salas}" th:onclick="|window.location.href='/sala/' + ${sala.id} |">
                             <td th:text="${sala.nome}" class="sala-css"></td>
-                        </tr>
+
                     </tbody>
                 </table>
 
             </div>
+
             <div class="buttons">
                 <div>
                     <a th:onclick="|window.location.href='/sala/addsala/' + ${instituicao.id}|" class="button-new">Entrar em uma nova sala.</a>

@@ -72,7 +72,7 @@
         </div>
 
         <!--------MEIO COM FEED--------->
-        <div class="middle">
+        <div class="middle" th:each="instituicao : ${instituicoes}">
             <div class="ft-inst">
                 <img class="img-inst" th:src="@{/src/icon-inst.svg}">
             </div>
@@ -80,19 +80,19 @@
         <!--INFORMAÇÕES DA INSTITUIÇÕES-->
             <div class="info-inst">
                 <div class="nome-inst">
-                    <h4>Instituição:</h4> &nbsp <h4>Nome aqui</h4>
+                    <h4>Instituição:</h4> &nbsp <h4 th:text="${instituicao.nome}"></h4>
                 </div>
                 <div class="endereco-inst">
-                    <h4>Endereço:</h4> &nbsp  <h4>Endereço aqui</h4>
+                    <h4>Endereço:</h4> &nbsp  <h4 th:text="${instituicao.endereco}"></h4>
                 </div>
                 <div class="contato-inst">
-                    <h4>Contato:</h4>  &nbsp <h4>Contato aqui</h4>
+                <h4>Contato:</h4>  &nbsp <h4 th:text="${instituicao.numeroContato}"></h4>
                 </div>
             </div>
 
             <!--ENTRAR NA INST-->
             <div class="info-inst2">
-                <h4>entrar</h4>
+                <h4 th:onclick="|window.location.href='/sala/listSala/' + ${instituicao.id}|">entrar</h4>
             </div>
 
 

@@ -4,10 +4,10 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Projeto S.A</title>
-        <link  rel="stylesheet" th:href="@{/css/perfilUsuario.css}">
-        <link  rel="stylesheet" th:href="@{/css/estilo.css}">
+        <link rel="stylesheet" th:href="@{/css/perfilUsuario.css}">
+        <link rel="stylesheet" th:href="@{/css/estilo.css}">
         <link rel="stylesheet" th:href="@{/bootstrap-4.5.2/css/bootstrap.min.css}">
-    <link rel="stylesheet" th:href="@{/fontawesome-5.14.0/css/all.min.css}">
+        <link rel="stylesheet" th:href="@{/fontawesome-5.14.0/css/all.min.css}">
 
         <script src="/js/script.js"></script>
 
@@ -30,17 +30,23 @@
 
 
 
-                <div class="flutuante">
+                <div class="flutuante" id="flutuante" hidden>
                     <div class="flutuante-container">
-                        <form th:action="@{/materiaSugerida/save}"  method="post" >
+                        <form th:action="@{/materiaSugerida/save}" th:object="${materiaSugerida}" method="post" >
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Materia sugerida:</label>
-                                <input type="text"  class="form-control" placeholder="Nome da materia" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                <input type="text" th:field="*{nome}" class="form-control" placeholder="Nome da materia" id="exampleInputEmail1" aria-describedby="emailHelp">
+
                             </div>
 
+                            <div class="form-group">
+                                <select class="form-control" th:field="*{instituicao}"  required>
+                                    <option th:each="instituicoesA : ${aluno.instituicoesA}" th:value="${instituicoesA.id}" th:text="${instituicoesA.nome}"></option>
+                                </select>
+                            </div>
 
                             <button type="submit" class="btn btn-primary">Enviar</button>
-                            <button type="button" class="btn btn-secondary">Cancelar</button>
+                            <button type="button" onclick="sugerirMateria(true)" class="btn btn-secondary">Cancelar</button>
                         </form>
 
                     </div>
@@ -84,7 +90,12 @@
                         </select>
                         <input id="editinstituicoes" type="text" placeholder="&#32 INSTITUIÇÕES" class="css-email" th:field="${aluno.instituicoesA}" readonly hidden />
                         <input id="editsalas" type="text" placeholder="&#32 SALAS" class="css-email" th:field="${aluno.salasA}" readonly hidden />
-                        <input id="editmateria" type="text" placeholder="&#32 MATERIAS" class="css-email" th:field="${aluno.materiaAluno}" hidden readonly />
+                        <input id="editmateria" type="text" placeholder="&#32 MATERIAS" class="css-email" th:field="${aluno.materiaAluno}" readonly />
+                        <button onclick="sugerirMateria(false)" class="btn btn-dark" type="button">
+                            sugerir materia
+
+                        </button>
+
                         <textarea id="editDescricao" placeholder="Descrição, até 500 caracteres para descrever as materias que você tem facilidade ou dificuldade e interesses academicos" maxlength="500" class="css-email" th:field="${aluno.descricao}" readonly ></textarea>
 
 

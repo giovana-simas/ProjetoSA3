@@ -72,6 +72,8 @@ public class UsuarioController {
 			model.addAttribute("aluno", alunoRepository.findById(id).get());
 			model.addAttribute("materiaSugerida", new MateriaSugerida());
 
+
+
 			path = "/aluno/perfil";
 		}
 

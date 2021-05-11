@@ -23,7 +23,7 @@
 
             	<input id="editId" type="text" placeholder="&#32 ID" class="css-email" th:field="${diretor.id}" readonly hidden />
                 <input id="editNome" type="text" placeholder="&#32 NOME" class="css-email" th:field="${diretor.nome}" readonly />
-                <select id="editSexo" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${aluno.sexo}" readonly  hidden>
+                <select id="editSexo" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${diretor.sexo}" readonly  hidden>
                     <option th:each="sexoOpt : ${T(com.sa.model.Usuario.Sexo).values()}" th:value="${sexoOpt}" th:text="${sexoOpt.displayValue}"></option>
                 </select>
                 <input id="editEmail" type="text" placeholder="&#32 E-MAIL" class="css-email" th:field="${diretor.email}" readonly />

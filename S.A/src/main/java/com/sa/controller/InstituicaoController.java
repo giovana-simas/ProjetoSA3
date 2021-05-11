@@ -2,6 +2,7 @@ package com.sa.controller;
 import java.util.List;
 import java.util.Set;
 
+import com.sa.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Sort;
@@ -19,13 +20,6 @@ import com.sa.model.Instituicao;
 import com.sa.model.Permissao;
 import com.sa.model.Professor;
 import com.sa.model.Usuario;
-import com.sa.repository.AlunoRepository;
-import com.sa.repository.DiretorRepository;
-import com.sa.repository.InstituicaoRepository;
-import com.sa.repository.PermissaoRepository;
-import com.sa.repository.ProfessorRepository;
-import com.sa.repository.SalaRepository;
-import com.sa.repository.UsuarioRepository;
 
 import javassist.expr.NewArray;
 
@@ -59,6 +53,9 @@ public class InstituicaoController {
 
 		@Autowired
 		DiretorRepository diretorRepository;
+
+		@Autowired
+		MateriaSugeridaRepository materiaSugeridaRepository;
 		
 		@GetMapping("/instituicao/listInstituicoes/")
 		public String instituicao(Model model) {
@@ -102,6 +99,7 @@ public class InstituicaoController {
 
 				diretor = diretorRepository.findByEmail(email);
 				model.addAttribute("instituicoes", instituicaoRepository.findByDiretor(diretor));
+				model.addAttribute("materiasSugerida", materiaSugeridaRepository.findByInstituicaoIn(instituicaoRepository.findByDiretor(diretor)));
 
 				path = "/diretor/listInstituicoes";
 			}

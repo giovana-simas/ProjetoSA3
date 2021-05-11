@@ -24,6 +24,10 @@ const compararSenha = function(){
 
  }
 
+ function sugerirMateria(verdadeiro){
+     $('#flutuante').attr('hidden', verdadeiro);
+ }
+
  function cancelarEditar(){
     window.history.back();
     console.error("Aaaa")

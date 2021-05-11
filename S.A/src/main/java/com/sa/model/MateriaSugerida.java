@@ -1,9 +1,6 @@
 package com.sa.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -11,11 +8,30 @@ public class MateriaSugerida {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @NotNull
     long id;
 
     @NotNull
     String nome;
+
+    @ManyToOne
+    @JoinColumn(name="instituicao_id", referencedColumnName = "id")
+    Instituicao instituicao;
+
+    public Instituicao getInstituicao() {
+        return instituicao;
+    }
+
+    public void setInstituicao(Instituicao instituicao) {
+        this.instituicao = instituicao;
+    }
+
+    @Override
+    public String toString() {
+        return "MateriaSugerida{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                '}';
+    }
 
     public long getId() {
         return id;
