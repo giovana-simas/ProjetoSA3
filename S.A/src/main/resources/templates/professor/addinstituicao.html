@@ -20,7 +20,10 @@
 
 
     <div class="fundo">
-        <div class="container5">
+        <div class="container5 container-list">
+            <h6>Cadastrar instituição</h6>
+            <img class="add-inst" th:src="@{/src/school.jpg}">
+
             <form th:action="@{/professor/insertinstituicao}" th:object="${professor}" method="POST">
 
             
@@ -37,11 +40,11 @@
                 <select class="form-control" th:field="*{instituicaoP}" >
                    <option th:each="instituicaoP : ${instituicoes}" th:value="${instituicaoP.id}" th:text="${instituicaoP.nome}"></option>
                 </select>
-            <button id="salvar" type="submit" class="myButton">CADASTRA-SE</button>
+            <button id="salvar" type="submit" class="button-entrar">Cadastrar</button>
 
 
             </form>
-            <button type="button" onclick="window.location.href='/instituicao/listInstituicoes/'" class="button-new">Voltar</button>
+            <button type="button" onclick="window.location.href='/instituicao/listInstituicoes/'" class="button-voltar">Voltar</button>
 
             
         </div>

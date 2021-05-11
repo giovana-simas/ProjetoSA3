@@ -17,23 +17,25 @@
 		
 		 
     <body background="/src/back.png" onload="">
-    
-    
-		
+
        
 		<div class="fundo">
         <div class="container5 container-list">
+
+            <h6>Cadastrar instituição</h6>
+            <img class="add-inst" th:src="@{/src/school.jpg}">
+
             <form th:action="@{/instituicao/save}" th:object="${instituicao}" method="POST">
 
             
             <input type="text" placeholder="&#32 NOME" class="css-email" th:field="*{nome}" required /><br>
             <input type="text" placeholder="&#32 Endereco" class="css-email" th:field="*{endereco}" required /><br>
             <input type="text" placeholder="&#32 Numero para Contato" class="css-email" th:field="*{numeroContato}" /><br>
-            <button id="salvar" type="submit" class="myButton">CADASTRA-SE</button><br>
+            <button id="salvar" type="submit" class="button-entrar">Cadastrar</button><br>
 
 
             </form>
-            <button type="button" onclick="window.location.href='/instituicao/listInstituicoes/'" class="myButton">Voltar</button>
+            <button type="button" onclick="window.location.href='/instituicao/listInstituicoes/'" class="button-voltar">Voltar</button>
 
         </div>
         </div>

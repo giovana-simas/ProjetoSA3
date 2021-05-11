@@ -37,10 +37,6 @@
             <button  id="cancelar" onclick="cancelarEditar()" class="myButton" hidden>Sair da edição</button>
             <form th:if="${editavel}" th:action="|@{/logout}|" class="boxActions" method="POST">
 
-                <button class="btn btn-dark" type="submit">
-                    SAIR
-                    <i class="fas fa-sign-out-alt"></i>
-                </button>
             </form>
 
             <div th:if="${editavel}" >

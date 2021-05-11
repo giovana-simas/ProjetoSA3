@@ -4,13 +4,13 @@ textarea:focus, input:focus, select:focus {
   outline: 0;
 } 
 .majorDiv{
- position: relative;
-  width: 100vw;
+  position: relative;
+  width: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background: linear-gradient(to left, #02BED8, #457ED6);
+  justify-content: flex-start;
 }
 .divMenor{
   position: absolute;
@@ -38,15 +38,15 @@ textarea:focus, input:focus, select:focus {
 .css-email{
   border: 0;
   width: 70%;
-  background: rgba(0,0,0,0.1);
+  background: #dee2e6c2;
   border-radius: 5px;
   height: 40px;
-  color: white;
+  color: #000000;
   padding-left: 15px;
 }
 #editDescricao{
   height: 200px;
-  color: white;
+  color: black;
 }
 #editDescricao::placeholder{
   color: white;
