@@ -43,7 +43,7 @@
                             </div>
 
                             <button type="submit" class="btn btn-primary">Enviar</button>
-                            <button type="button" onclick="sugerirMateria(true)" class="btn btn-secondary">Cancelar</button>
+                            <button type="button" onclick="sugerirMateria()" class="btn btn-secondary">Cancelar</button>
                         </form>
 
                     </div>
@@ -69,8 +69,8 @@
 
                     </div>
 
-                    <img th:if="${aluno.sexo}== 'mulher'" class="login" th:src="@{/src/testimonial-2.svg}">
-                    <img th:if="${aluno.sexo}== 'homem'" class="login" th:src="@{/src/testimonial-3.svg}">
+                    <img th:if="${aluno.sexo}== ${aluno.sexo.masculino.feminino}" class="login" th:src="@{/src/testimonial-2.svg}">
+                    <img th:if="${aluno.sexo}== ${aluno.sexo.masculino}" class="login" th:src="@{/src/testimonial-3.svg}">
                     <form th:action="@{/aluno/save}" th:object="${aluno}" method="POST" class="formUser">
 
 
@@ -89,7 +89,7 @@
                         <input id="editinstituicoes" type="text" placeholder="&#32 INSTITUIÇÕES" class="css-email" th:field="${aluno.instituicoesA}" readonly hidden />
                         <input id="editsalas" type="text" placeholder="&#32 SALAS" class="css-email" th:field="${aluno.salasA}" readonly hidden />
                         <input id="editmateria" type="text" placeholder="&#32 MATERIAS" class="css-email" th:field="${aluno.materiaAluno}" readonly />
-                        <button onclick="sugerirMateria(false)" class="btn btn-dark" type="button">
+                        <button onclick="sugerirMateria()" class="btn btn-dark" type="button">
                             sugerir materia
 
                         </button>
@@ -102,13 +102,14 @@
                     </form>
 
                     <div class="buttons-perfil">
-                        <button  id="cancelar" onclick="cancelarEditar()" class="myButton" hidden>Sair da edição</button>
+                        <button  id="cancelar" onclick="editarPerfil()" class="myButton" hidden>Sair da edição</button>
+
                         <form th:if="${editavel}" th:action="|@{/logout}|" class="boxActions" method="POST">
 
                         </form>
 
-                        <div th:if="${editavel}" >
-                            <button class="myButton" onclick="editarPerfil()"  />
+                        <div th:if="${editavel}" id="editar">
+                            <button class="myButton"  onclick="editarPerfil()"  />
                             <label class="" >editar perfil</label>
                         </div>
 

@@ -13,33 +13,29 @@ const compararSenha = function(){
 
  const editarPerfil = function(){
 
-    $('#editNome').attr('readonly', false);
-     $('#editAjuda').attr('readonly', false);
-     $('#editAjuda').attr('hidden', false);
-     $('#editDescricao').attr('readonly', false);
-    $('#editSalvar').attr('hidden', false);
-    $('#cancelar').attr('hidden', false);
-     $('#editar').attr('hidden', true);
+     var some = $('#editNome').attr('readonly');
+     some = !some;
+
+    $('#editNome').attr('readonly', some);
+     $('#editAjuda').attr('readonly', some);
+     $('#editAjuda').attr('hidden', some);
+
+     $('#editSexo').attr('hidden', some);
+     $('#editDescricao').attr('readonly', some);
+    $('#editSalvar').attr('hidden', some);
+    $('#cancelar').attr('hidden', some);
+     $('#editar').attr('hidden', !some);
 
 
  }
 
- function sugerirMateria(verdadeiro){
-     $('#flutuante').attr('hidden', verdadeiro);
+ function sugerirMateria(){
+    var some = $('#flutuante').attr('hidden');
+    some = !some;
+     $('#flutuante').attr('hidden', some);
  }
 
- function cancelarEditar(){
-    window.history.back();
-    console.error("Aaaa")
-    //  $('#editAjuda').attr('readonly', true);
-    //  $('#editAjuda').attr('hidden', true);
-    // $('#editNome').attr('readonly', true);
-    //  $('#editDescricao').attr('readonly', true);
-    //  $('#editSalvar').attr('hidden', true);
-    // $('#cancelar').attr('hidden', true);
-    // $('#editar').attr('hidden', false);
 
-}
 
 function verificaEmail(){
     var email = document.getElementById("emailCadastro").value;

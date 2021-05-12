@@ -65,7 +65,7 @@ public class Usuario {
 	}
 
 	public enum Sexo {
-		masculino("Masculino"), feminino("feminino"), outro("Outro");
+		masculino("Masculino"), feminino("feminino");
 
 		public final String displayValue;
 
