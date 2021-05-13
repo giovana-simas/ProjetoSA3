@@ -34,8 +34,10 @@
                 <input id="editPermissoes" type="text" placeholder="&#32 PERMISSÃO" class="css-email" th:field="${professor.permissoes}" readonly hidden />
                 <input id="editsalas" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${professor.salaP}" readonly hidden />
                 <input id="editmateria" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${professor.materiasLecionadas}" readonly hidden />
-               
-                <!--<input type="text" placeholder="&#32 id" class="css-email" th:field="${id}" required />-->
+                <textarea id="editDescricao"   placeholder="Descrição, até 155 caracteres para descrever as materias que você tem facilidade ou dificuldade e interesses academicos" maxlength="155" class="bloco-form" th:field="${professor.descricao}" readonly hidden></textarea>
+                <input id="editSexo" type="text"th:field="${professor.sexo}"readonly hidden>
+
+
                     <div class="form-group">
                 <select class="form-control" th:field="*{instituicaoP}" >
                    <option th:each="instituicaoP : ${instituicoes}" th:value="${instituicaoP.id}" th:text="${instituicaoP.nome}"></option>

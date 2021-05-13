@@ -33,7 +33,7 @@ public class Usuario {
 
 	@Enumerated(EnumType.STRING)
 	@Column(name = "sexo", columnDefinition = "varchar(32) default 'feminino'")
-	Sexo sexo;
+	Sexo sexo = Sexo.feminino;
 	
 	@NonNull
 	@Size(max=255)

@@ -4,116 +4,205 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Projeto S.A</title>
-        <link rel="stylesheet" th:href="@{/css/perfilUsuario.css}">
-        <link rel="stylesheet" th:href="@{/css/estilo.css}">
         <link rel="stylesheet" th:href="@{/bootstrap-4.5.2/css/bootstrap.min.css}">
         <link rel="stylesheet" th:href="@{/fontawesome-5.14.0/css/all.min.css}">
-
+        <link rel="stylesheet" th:href="@{/css/arturFreitas.css}">
+        <link  rel="stylesheet" th:href="@{/css/professorListInstituicao.css}">
         <script src="/js/script.js"></script>
 
-        <style>
-            .flutuante-container{
-                align-items: center;
-                padding: 5%;
-            }
-        </style>
 
     </head>
     <body background="/src/back.png">
 
 
 
-        <div class="majorDiv">
+        <div class="container-principal">
 
 
 
-                <div class="flutuante" id="flutuante" hidden>
-                    <div class="flutuante-container">
-                        <form th:action="@{/materiaSugerida/save}" th:object="${materiaSugerida}" method="post" >
-                            <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Materia sugerida:</label>
-                                <input type="text" th:field="*{nome}" class="form-control" placeholder="Nome da materia" id="exampleInputEmail1" aria-describedby="emailHelp">
 
-                            </div>
 
-                            <div class="form-group">
-                                <select class="form-control" th:field="*{instituicao}"  required>
-                                    <option th:each="instituicoesA : ${aluno.instituicoesA}" th:value="${instituicoesA.id}" th:text="${instituicoesA.nome}"></option>
-                                </select>
-                            </div>
+            <div class="barra-lateral">
 
-                            <button type="submit" class="btn btn-primary">Enviar</button>
-                            <button type="button" onclick="sugerirMateria()" class="btn btn-secondary">Cancelar</button>
-                        </form>
-
+                <div class="status-ajuda">
+                    <div th:if="${salvo} == 1" class="alert alert-success">
+                        Usuário salvo com sucesso
+                    </div>
+                    <div th:if="${salvo} == 2" class="alert alert-danger">
+                        Usuário não salvo
+                    </div>
+                    <div th:if="${aluno.statusAjuda} == ${aluno.statusAjuda.querAjudar}"  class="alert alert-success">
+                        Aluno disponivel para Ajudar
                     </div>
 
+                    <div  th:if="${aluno.statusAjuda} == ${aluno.statusAjuda.precisaDeAjuda} "  class="alert alert-success">
+                        Aluno precisa de ajuda
+                    </div>
 
                 </div>
-                <div class="divMenor">
 
-                    <div class="status">
-                        <div th:if="${salvo} == 1" class="alert alert-success">
-                            Usuário salvo com sucesso
-                        </div>
-                        <div th:if="${salvo} == 2" class="alert alert-danger">
-                            Usuário não salvo
-                        </div>
-                        <div th:if="${aluno.statusAjuda} == ${aluno.statusAjuda.querAjudar}"  class="alert alert-success">
-                            Aluno disponivel para Ajudar
-                        </div>
+                <div class="conteiner-img">
+                    <img th:if="${aluno.sexo}== ${aluno.sexo.feminino}" class="img-perfil" th:src="@{/src/testimonial-2.svg}">
+                    <img th:if="${aluno.sexo}== ${aluno.sexo.masculino}" class="img-perfil" th:src="@{/src/testimonial-3.svg}">
+                </div>
+                <div class="info-user">
+                    <h3 th:text="${aluno.nome}"></h3>
 
-                        <div  th:if="${aluno.statusAjuda} == ${aluno.statusAjuda.precisaDeAjuda} "  class="alert alert-success">
-                            Aluno precisa de ajuda
-                        </div>
+                    <div class="descricao-lateral"  th:text="${aluno.descricao}"></div>
+                    <form th:if="${editavel}" th:action="|@{/logout}|"  method="POST">
+                        <button class="botao-lateral" type="submit">logout</button>
+                    </form>
+                </div>
 
+
+
+            </div>
+
+
+                <div class="container-secundario">
+
+                    <div class="titulo-perfil">
+                        <h1>PERFIL</h1>
                     </div>
 
-                    <img th:if="${aluno.sexo}== ${aluno.sexo.masculino.feminino}" class="login" th:src="@{/src/testimonial-2.svg}">
-                    <img th:if="${aluno.sexo}== ${aluno.sexo.masculino}" class="login" th:src="@{/src/testimonial-3.svg}">
-                    <form th:action="@{/aluno/save}" th:object="${aluno}" method="POST" class="formUser">
 
 
-                        <input id="editId" type="text" placeholder="&#32 ID" class="css-email" th:field="${aluno.id}" readonly hidden />
-                        <input id="editNome" type="text" placeholder="&#32 NOME" class="css-email" th:field="${aluno.nome}" readonly />
-                        <input id="editEmail" type="text" placeholder="&#32 E-MAIL"  class="css-email" th:field="${aluno.email}" readonly />
-                        <select id="editSexo" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${aluno.sexo}" readonly  hidden>
-                            <option th:each="sexoOpt : ${T(com.sa.model.Usuario.Sexo).values()}" th:value="${sexoOpt}" th:text="${sexoOpt.displayValue}"></option>
-                        </select>
-                        <div class="linhaEspacamento"></div>
-                        <input id="editSenha" type="text" placeholder="&#32 SENHA" class="css-email" th:field="${aluno.senha}" readonly hidden />
-                        <input id="editPermissoes" type="text" placeholder="&#32 PERMISSÃO" class="css-email" th:field="${aluno.permissoes}" readonly hidden />
-                        <select id="editAjuda" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${aluno.statusAjuda}" readonly  hidden>
-                            <option th:each="statusAjudaOpt : ${T(com.sa.model.Aluno.StatusAjuda).values()}" th:value="${statusAjudaOpt}" th:text="${statusAjudaOpt.displayValue}"></option>
-                        </select>
-                        <input id="editinstituicoes" type="text" placeholder="&#32 INSTITUIÇÕES" class="css-email" th:field="${aluno.instituicoesA}" readonly hidden />
-                        <input id="editsalas" type="text" placeholder="&#32 SALAS" class="css-email" th:field="${aluno.salasA}" readonly hidden />
-                        <input id="editmateria" type="text" placeholder="&#32 MATERIAS" class="css-email" th:field="${aluno.materiaAluno}" readonly />
-                        <button onclick="sugerirMateria()" class="btn btn-dark" type="button">
-                            sugerir materia
-
-                        </button>
-
-                        <textarea id="editDescricao" placeholder="Descrição, até 500 caracteres para descrever as materias que você tem facilidade ou dificuldade e interesses academicos" maxlength="500" class="css-email" th:field="${aluno.descricao}" readonly ></textarea>
+                    <form th:action="@{/aluno/save}" id="formPerfil" th:object="${aluno}" method="POST" class="formUser">
 
 
-                        <button id="editSalvar" type="submit"  class="myButton" hidden>Atualizar perfil</button>
+                            <div hidden>
+                                <input id="editId" type="text" placeholder="&#32 ID" class="input-perfil" th:field="${aluno.id}" readonly hidden />
+                                <input id="editsalas" type="text" placeholder="&#32 SALAS" class="input-perfil" th:field="${aluno.salasA}" readonly hidden />
+                                <div>
+                                    <div class="info-form-user" hidden>
+                                        <label>Senha:</label><br>
+                                        <input id="editSenha" type="text" placeholder="&#32 SENHA" class="input-perfil" th:field="${aluno.senha}" readonly hidden />
+                                    </div>
+
+                                    <div class="info-form-user">
+                                        <label>Instituições:</label><br>
+                                        <input id="editinstituicoes" type="text" placeholder="&#32 INSTITUIÇÕES" class="input-perfil" th:field="${aluno.instituicoesA}" readonly hidden />
+
+                                    </div>
+                                </div>
+                                <input id="editPermissoes" type="text" placeholder="&#32 PERMISSÃO" class="input-perfil" th:field="${aluno.permissoes}" readonly hidden />
+                            </div>
+                            <div>
+                                <div class="info-form-user">
+                                    <label>Nome:</label><br>
+                                    <input id="editNome" type="text" placeholder="&#32 NOME" class="input-perfil" th:field="${aluno.nome}" readonly />
+                                </div>
+                                <div class="info-form-user">
+                                    <label>Email:</label><br>
+                                    <input id="editEmail" type="text" placeholder="&#32 E-MAIL"  class="input-perfil" th:field="${aluno.email}" readonly />
+                                </div>
+                            </div>
+                            <div>
+                                <div class="info-form-user">
+                                    <label>Sexo:</label><br>
+                                    <input id="inputSexo" class="input-perfil" type="text" th:value="${aluno.sexo.displayValue}" readonly>
+                                    <select id="editSexo" type="text" placeholder="&#32 QUER AJUDAR?" class="input-perfil" th:field="${aluno.sexo}" readonly  hidden>
+                                        <option th:each="sexoOpt : ${T(com.sa.model.Usuario.Sexo).values()}" th:value="${sexoOpt}" th:text="${sexoOpt.displayValue}"></option>
+                                    </select>
+                                </div>
+                                <div class="info-form-user">
+                                    <label>Status de Ajuda:</label><br>
+                                    <input id="inputAjuda" type="text" th:value="${aluno.statusAjuda.displayValue}" readonly  >
+                                    <select id="editAjuda" type="text" placeholder="&#32 QUER AJUDAR?" class="input-perfil" th:field="${aluno.statusAjuda}" readonly  hidden>
+                                        <option th:each="statusAjudaOpt : ${T(com.sa.model.Aluno.StatusAjuda).values()}" th:value="${statusAjudaOpt}" th:text="${statusAjudaOpt.displayValue}"></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="bloco-form">
+
+                                <div class="info-form-user bloco-form">
+                                    <label>Descrição:</label><br>
+                                    <textarea id="editDescricao"   placeholder="Descrição, até 155 caracteres para descrever as materias que você tem facilidade ou dificuldade e interesses academicos" maxlength="155" class="bloco-form" th:field="${aluno.descricao}" readonly ></textarea>
+
+                                </div>
+                            </div>
+                            <div>
+
+                                <div class="info-form-user">
+                                    <label>Materias:</label><br>
+                                    <input id="editmateria" type="text" placeholder="&#32 MATERIAS" class="input-perfil" th:field="${aluno.materiaAluno}" readonly />
+                                    <a onclick="sugerirMateria()" th:if="${editavel}" type="button">sugerir materia</a>
+
+                                </div>
+                            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                     </form>
 
-                    <div class="buttons-perfil">
-                        <button  id="cancelar" onclick="editarPerfil()" class="myButton" hidden>Sair da edição</button>
-
-                        <form th:if="${editavel}" th:action="|@{/logout}|" class="boxActions" method="POST">
-
-                        </form>
-
-                        <div th:if="${editavel}" id="editar">
-                            <button class="myButton"  onclick="editarPerfil()"  />
-                            <label class="" >editar perfil</label>
+                    <div class="container-instituicao-primario">
+                        <div class="titulo-perfil">
+                            <h3>INSTITUICÕES</h3>
                         </div>
 
-                        <div>
+                        <div class="container-interno">
+                            <div th:each="instituicao : ${aluno.instituicoesA}" class="container-instituicoes">
+
+
+                                <img  width="10%" th:src="@{/src/icon-inst.svg}">
+
+
+
+                                <div class="info-instituicao">
+                                    <div class="enfileirar" th:text="|Instituicao: ${instituicao.nome}|">
+
+                                    </div>
+                                    <div class="enfileirar" th:text="|Numero: ${instituicao.numeroContato} Diretor: ${instituicao.diretor.nome}|">
+
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+
+                    <div class="buttons-perfil">
+
+
+
+
+
+                        <div class="enfileirar">
+                            <button id="editSalvar" type="button"  class="myButton" onclick="submit('formPerfil')" hidden>Atualizar perfil</button>
+                        </div>
+                        <div class="enfileirar" th:if="${editavel}" id="editar">
+                            <button class="myButton"  onclick="editarPerfil()"  />
+                            <label id="editarL" >editar</label>
+                        </div>
+
+                        <div class="enfileirar">
                             <button class="voltar" onclick="window.location.href='/instituicao/listInstituicoes/'" />
                             <label>Voltar</label>
                         </div>
@@ -121,6 +210,29 @@
 
 
                 </div>
+
+            <div class="flutuante" id="flutuante" hidden>
+                <div class="flutuante-container">
+                    <form th:action="@{/materiaSugerida/save}" th:object="${materiaSugerida}" method="post" >
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Materia sugerida:</label>
+                            <input type="text" th:field="*{nome}" class="form-control" placeholder="Nome da materia" id="exampleInputEmail1" aria-describedby="emailHelp">
+
+                        </div>
+
+                        <div class="form-group">
+                            <select class="form-control" th:field="*{instituicao}"  required>
+                                <option th:each="instituicoesA : ${aluno.instituicoesA}" th:value="${instituicoesA.id}" th:text="${instituicoesA.nome}"></option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                        <button type="button" onclick="sugerirMateria()" class="btn btn-secondary">Cancelar</button>
+                    </form>
+
+                </div>
+
+            </div>
 
 
             </div>

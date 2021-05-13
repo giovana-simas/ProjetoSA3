@@ -569,14 +569,3 @@ margin-bottom: 15px !important;
 }
 
 
-/*janela flutuante*/
-.flutuante{
-    border-radius: 12px;
-    background-color: white;
-    position: relative;
-    z-index: 10;
-    width: 40%;
-    align-items: center;
-    top: 150px;
-
-}

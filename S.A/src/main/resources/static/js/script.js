@@ -19,15 +19,24 @@ const compararSenha = function(){
     $('#editNome').attr('readonly', some);
      $('#editAjuda').attr('readonly', some);
      $('#editAjuda').attr('hidden', some);
+     $('#inputAjuda').attr('hidden', !some);
 
      $('#editSexo').attr('hidden', some);
+     $('#inputSexo').attr('hidden', !some);
      $('#editDescricao').attr('readonly', some);
     $('#editSalvar').attr('hidden', some);
     $('#cancelar').attr('hidden', some);
-     $('#editar').attr('hidden', !some);
 
+
+     if (!some){
+         document.getElementById("editarL").innerText = "cancelar edição"
+     }else {
+         document.getElementById("editarL").innerText = "editar"
+     }
 
  }
+
+
 
  function sugerirMateria(){
     var some = $('#flutuante').attr('hidden');
@@ -72,5 +81,11 @@ function closeBar(){
 function logout(){
     $("#logout").submit();
     $("#logout").attr('hidden', true);
+
+}
+
+function submit(id){
+    $("#"+ id).submit();
+
 
 }

@@ -1,64 +1,197 @@
 <!DOCTYPE html>
 <html lang="pt-br" xmlns:th="https://thymeleaf.org">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Projeto S.A</title>
-        <link  rel="stylesheet" th:href="@{/css/perfilDiretor.css}">
-
-        <link rel="stylesheet" th:href="@{/bootstrap-4.5.2/css/bootstrap.min.css}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto S.A</title>
+    <link rel="stylesheet" th:href="@{/bootstrap-4.5.2/css/bootstrap.min.css}">
     <link rel="stylesheet" th:href="@{/fontawesome-5.14.0/css/all.min.css}">
+    <link rel="stylesheet" th:href="@{/css/arturFreitas.css}">
+    <link  rel="stylesheet" th:href="@{/css/professorListInstituicao.css}">
+    <script src="/js/script.js"></script>
 
-        <script src="/js/script.js"></script>
 
-        
+</head>
+<body background="/src/back.png">
 
-    </head>
-    <body background="/src/back.png">
-        <div class="majorDiv">
-        <div class="divMenor">
-    
-		<img class="login" th:src="@{/src/login.png}">
-            <form th:action="@{/diretor/save}" th:object="${diretor}" method="POST" class="formUser">
 
-            	<input id="editId" type="text" placeholder="&#32 ID" class="css-email" th:field="${diretor.id}" readonly hidden />
-                <input id="editNome" type="text" placeholder="&#32 NOME" class="css-email" th:field="${diretor.nome}" readonly />
-                <select id="editSexo" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${diretor.sexo}" readonly  hidden>
-                    <option th:each="sexoOpt : ${T(com.sa.model.Usuario.Sexo).values()}" th:value="${sexoOpt}" th:text="${sexoOpt.displayValue}"></option>
-                </select>
-                <input id="editEmail" type="text" placeholder="&#32 E-MAIL" class="css-email" th:field="${diretor.email}" readonly />
-                <input id="editSenha" type="text" placeholder="&#32 SENHA" class="css-email" th:field="${diretor.senha}" readonly hidden />
-                <input id="editPermissoes" type="text" placeholder="&#32 PERMISSÃO" class="css-email" th:field="${diretor.permissoes}" readonly hidden />
-                <input id="editinstituicoes" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${diretor.instituicao}" readonly hidden />
-               
 
-            <button id="editSalvar" type="submit"  class="myButton" hidden>Salvar</button>
-            </form>
-            <button  id="cancelar" onclick="cancelarEditar()" class="myButton" hidden>Sair da edição</button>
-            <form th:if="${editavel}" th:action="|@{/logout}|" class="boxActions" method="POST">
+<div class="container-principal">
 
-            </form>
 
-            <div th:if="${editavel}" >
-                <button id="editar" onclick="editarPerfil()"  />
-                <label class="" >editar perfil</label>
-            </div>
-            <div  >
-                <button  onclick="window.location.href='/instituicao/listInstituicoes/'" />
-                <label class="" >Voltar</label>
-            </div>
 
+
+
+    <div class="barra-lateral">
+
+
+        <div class="conteiner-img">
+            <img th:if="${diretor.sexo}== ${diretor.sexo.feminino}" class="img-perfil" th:src="@{/src/testimonial-2.svg}">
+            <img th:if="${diretor.sexo}== ${diretor.sexo.masculino}" class="img-perfil" th:src="@{/src/testimonial-3.svg}">
         </div>
-            <div th:if="${salvo} == 1" class="alert alert-success">
-                Usuário salvo com sucesso
-            </div>
-            <div th:if="${salvo} == 2" class="alert alert-danger">
-                Usuário não salvo
-            </div>
+        <div class="info-user">
+            <h3 th:text="${diretor.nome}"></h3>
+
+            <div class="descricao-lateral"  th:text="${diretor.descricao}"></div>
+            <form th:if="${editavel}" th:action="|@{/logout}|"  method="POST">
+                <button class="botao-lateral" type="submit">logout</button>
+            </form>
         </div>
+
+
+
     </div>
-        <script th:src="@{/js/jquery-3.5.1.min.js}"></script>
-        <script th:src="@{/bootstrap-4.5.2/js/bootstrap.min.js}"></script>
-        <script src="/js/script.js"></script>
-    </body>
+
+
+    <div class="container-secundario">
+
+        <div class="titulo-perfil">
+            <h1>PERFIL</h1>
+        </div>
+
+
+
+        <form th:action="@{/diretor/save}" id="formPerfil" th:object="${diretor}" method="POST" class="formUser">
+
+
+            <div hidden>
+                <input id="editId" type="text" placeholder="&#32 ID" class="input-perfil" th:field="${diretor.id}" readonly hidden />
+
+                <div>
+                    <div class="info-form-user" hidden>
+                        <label>Senha:</label><br>
+                        <input id="editSenha" type="text" placeholder="&#32 SENHA" class="input-perfil" th:field="${diretor.senha}" readonly hidden />
+                    </div>
+
+                    <div class="info-form-user">
+                        <label>Instituições:</label><br>
+                        <input id="editinstituicoes" type="text" placeholder="&#32 INSTITUIÇÕES" class="input-perfil" th:field="${diretor.instituicao}" readonly hidden />
+
+                    </div>
+                </div>
+                <input id="editPermissoes" type="text" placeholder="&#32 PERMISSÃO" class="input-perfil" th:field="${diretor.permissoes}" readonly hidden />
+            </div>
+            <div>
+                <div class="info-form-user">
+                    <label>Nome:</label><br>
+                    <input id="editNome" type="text" placeholder="&#32 NOME" class="input-perfil" th:field="${diretor.nome}" readonly />
+                </div>
+                <div class="info-form-user">
+                    <label>Email:</label><br>
+                    <input id="editEmail" type="text" placeholder="&#32 E-MAIL"  class="input-perfil" th:field="${diretor.email}" readonly />
+                </div>
+            </div>
+            <div>
+                <div class="info-form-user">
+                    <label>Sexo:</label><br>
+                    <input id="inputSexo" class="input-perfil" type="text" th:value="${diretor.sexo.displayValue}" readonly>
+                    <select id="editSexo" type="text" placeholder="&#32 QUER AJUDAR?" class="input-perfil" th:field="${diretor.sexo}" readonly  hidden>
+                        <option th:each="sexoOpt : ${T(com.sa.model.Usuario.Sexo).values()}" th:value="${sexoOpt}" th:text="${sexoOpt.displayValue}"></option>
+                    </select>
+                </div>
+
+            </div>
+            <div class="bloco-form">
+
+                <div class="info-form-user bloco-form">
+                    <label>Descrição:</label><br>
+                    <textarea id="editDescricao"   placeholder="Descrição, até 155 caracteres para descrever as materias que você tem facilidade ou dificuldade e interesses academicos" maxlength="155" class="bloco-form" th:field="${diretor.descricao}" readonly ></textarea>
+
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </form>
+
+        <div class="container-instituicao-primario">
+            <div class="titulo-perfil">
+                <h3>INSTITUICÕES</h3>
+            </div>
+
+            <div class="container-interno">
+                <div th:each="instituicao : ${diretor.instituicao}" class="container-instituicoes">
+
+
+                    <img  width="10%" th:src="@{/src/icon-inst.svg}">
+
+
+
+                    <div class="info-instituicao">
+                        <div class="enfileirar" th:text="|Instituicao: ${instituicao.nome}|">
+
+                        </div>
+                        <div class="enfileirar" th:text="|Numero: ${instituicao.numeroContato} Diretor: ${instituicao.diretor.nome}|">
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+        <div class="buttons-perfil">
+
+
+
+
+
+            <div class="enfileirar">
+                <button id="editSalvar" type="button"  class="myButton" onclick="submit('formPerfil')" hidden>Atualizar perfil</button>
+            </div>
+            <div class="enfileirar" th:if="${editavel}" id="editar">
+                <button class="myButton"  onclick="editarPerfil()"  />
+                <label id="editarL" >editar</label>
+            </div>
+
+            <div class="enfileirar">
+                <button class="voltar" onclick="window.location.href='/instituicao/listInstituicoes/'" />
+                <label>Voltar</label>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+</div>
+
+
+
+
+
+
+<script th:src="@{/js/jquery-3.5.1.min.js}"></script>
+<script th:src="@{/bootstrap-4.5.2/js/bootstrap.min.js}"></script>
+<script src="/js/script.js"></script>
+</body>
 </html>

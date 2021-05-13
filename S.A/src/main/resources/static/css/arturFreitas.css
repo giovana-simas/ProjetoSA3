@@ -1,0 +1,167 @@
+/*##92e3a9*/
+
+
+/*janela flutuante*/
+.flutuante{
+    border-radius: 12px;
+    background-color: white;
+    position: absolute;
+    z-index: 10;
+    width: 40%;
+    align-items: center;
+    margin-top: 5%;
+    left: 30%;
+
+}
+
+.flutuante-container{
+    align-items: center;
+    padding: 5%;
+}
+
+.img-perfil{
+    /*height: 10%;*/
+    /*width: 10%;*/
+    border: grey 1px solid;
+    border-radius: 50%;
+}
+
+.container-principal{
+    position: absolute;
+    background-color: whitesmoke;
+    width: 100%;
+    height: 100%;
+    display: flex;
+
+}
+
+
+.formUser{
+    position: relative;
+    display: table;
+    float: left;
+    width: 50%;
+
+}
+.bloco-form{
+    width: 99.2%;
+    resize: none;
+
+
+}
+#editDescricao{
+    height: 103px;
+}
+.info-form-user{
+    position: relative;
+    float: left;
+    margin-left: 5%;
+    margin-bottom: 5%;
+
+
+}
+.input-perfil{
+
+}
+
+.barra-lateral{
+    position: relative;
+    height: 100%;
+    width: 20%;
+    float: left;
+    padding: 2%;
+
+}
+
+
+
+.info-user{
+    margin-top: 10%;
+    align-items: center;
+    width: border-box;
+    word-wrap: anywhere;
+}
+
+.container-secundario{
+    position: relative;
+    padding: 2%;
+    float: left;
+    flex-direction: column;
+    width: 100%;
+
+
+}
+
+
+
+.status-ajuda{
+    align-items: center;
+    text-align: center;
+}
+.botao-lateral{
+    align-items: center;
+    width: 100%;
+}
+
+.titulo-perfil{
+    text-align: left;
+    border-bottom: darkgrey solid 1px;
+
+}
+
+.container-instituicao-primario{
+    position: relative;
+        display: flex;
+    float: left;
+    padding-left: 3%;
+    flex-direction: column;
+    height: 85vh;
+    width: 50%;
+
+
+}
+.container-instituicoes{
+    width: 100%;
+    position: relative;
+    display: flex;
+
+    margin-top: 10px;
+    background: #ffffffbd;
+    border-radius: 15px;
+    padding: 1%;
+    align-items: center;
+    box-shadow: 5px 5px 25px -10px #515151;
+}
+.container-interno{
+    width: 100%;
+    max-height: 40vh;
+    overflow-y: scroll;
+    padding: 3%;
+}
+
+.info-instituicao{
+margin-left: 5%;
+}
+
+.buttons-perfil{
+    position: absolute;
+    display: flex;
+    bottom: 3%;
+    right: 3%;
+}
+
+.espacamento{
+    margin-bottom: 5%;
+}
+
+.enfileirar{
+    position: relative;
+
+}
+
+.descricao-lateral{
+    max-height: 132px;
+    overflow-y: scroll;
+    margin-bottom: 10%;
+
+}

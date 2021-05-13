@@ -33,7 +33,10 @@
                 <input id="editEmail" type="text" placeholder="&#32 E-MAIL" class="css-email" th:field="${professor.email}" readonly hidden/>
                 <input id="editSenha" type="text" placeholder="&#32 SENHA" class="css-email" th:field="${professor.senha}" readonly hidden />
                 <input id="editPermissoes" type="text" placeholder="&#32 PERMISSÃO" class="css-email" th:field="${professor.permissoes}" readonly hidden />
-                            
+
+                    <textarea id="editDescricao"   placeholder="Descrição, até 155 caracteres para descrever as materias que você tem facilidade ou dificuldade e interesses academicos" maxlength="155" class="bloco-form" th:field="${professor.descricao}" readonly  hidden></textarea>
+                    <input id="editSexo" type="text"th:field="${professor.sexo}"readonly hidden>
+
                 <input id="editsalas" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${professor.instituicaoP}" readonly hidden />
                 <input id="editmateria" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${professor.materiasLecionadas}" readonly hidden />
                
