@@ -102,8 +102,7 @@
 
 /*entrar novas instituições atalho pelo middle*/
 .entrar-inst{
-  width: 90%;
-  height: 50vh;
+  height: 30vh;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -111,15 +110,22 @@
 }
 .btn-solid-lg {
   margin-top: 15px;
-  display: inline-block;
+  display: flex;
   padding: 1.375rem 2.625rem 1.375rem 2.625rem;
   border: 0.125rem solid #6094CE;
   border-radius: 2rem;
   background-color: #6094CE;
-  color: #000000;
+  color: #ffffff;
   font: 700 0.75rem/0 "Raleway", sans-serif;
   text-decoration: none;
   transition: all 0.2s;
+  width: 50%;
+  align-items: center;
+  justify-content: center;
+  font-family: arial;
+  font-size: 18px;
+  height: 6vh;
+
 }
 
 .btn-solid-lg:hover {
@@ -411,4 +417,59 @@ body{
   }
 
 
+}
+@media (max-width: 1500px) {
+  .majorBoxMiddle {
+    justify-content: center;
+    flex-direction: column;
+  }
+  .middle{
+    height: 13vh;
+    display: flex;
+    align-items: center;
+    font-family: arial;
+  }
+  .img-inst {
+    width: 90px;
+    height: 90px;
+  }
+}
+@media (max-width: 1075px) {
+  .majorBoxMiddle {
+    justify-content: center;
+    flex-direction: column;
+  }
+  .chatdiv{
+    width: 20%;
+  }
+  .img-chat{
+    height: 15%;
+    width: 70%;
+  }
+}
+@media (max-width: 1020px) {
+  .chatdiv{
+    display: none;
+  }
+  .btn-solid-lg{
+    display: none;
+  }
+}
+
+@media (max-width: 750px) {
+  .middle{
+    height: 35vh;
+    width: 80%;
+    word-wrap: normal;
+    flex-direction: column;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+  }
+  .img-inst {
+    padding-left: 50%;
+  }
+  .ft-inst{
+    padding-left: 50px;
+  }
 }
