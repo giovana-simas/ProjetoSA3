@@ -28,10 +28,11 @@
 
 .container-principal{
     position: absolute;
-    background-color: whitesmoke;
+    background: linear-gradient(to left, #f4f9fd, #e4f2fd);
     width: 100%;
     height: 100%;
     display: flex;
+    font-family: "Segoe UI Light";
 
 }
 
@@ -46,11 +47,13 @@
 .bloco-form{
     width: 99.2%;
     resize: none;
-
-
 }
 #editDescricao{
-    height: 103px;
+    height: 180px;
+    border-radius: 8px;
+    border: none;
+    background-color: #80808030;
+    width: 90%;
 }
 .info-form-user{
     position: relative;
@@ -61,7 +64,16 @@
 
 }
 .input-perfil{
-
+    border-radius: 8px;
+    border: none;
+    background-color: #80808030;
+    height: 3.3vh;
+}
+#inputAjuda{
+    border-radius: 8px;
+    border: none;
+    background-color: #80808030;
+    height: 3.3vh;
 }
 
 .barra-lateral{
@@ -101,6 +113,14 @@
 .botao-lateral{
     align-items: center;
     width: 100%;
+    border-radius: 15px;
+    background-color: red;
+    border: none;
+    color: white;
+    font-size: 20px;
+    font-family: arial;
+    display: flex;
+    justify-content: center;
 }
 
 .titulo-perfil{
@@ -126,7 +146,7 @@
     display: flex;
 
     margin-top: 10px;
-    background: #ffffffbd;
+    background: #ffffff5c;
     border-radius: 15px;
     padding: 1%;
     align-items: center;
@@ -163,5 +183,28 @@ margin-left: 5%;
     max-height: 132px;
     overflow-y: scroll;
     margin-bottom: 10%;
-
+}
+.buttonSalvar{
+    align-items: center;
+    width: 100%;
+    border-radius: 15px;
+    background-color: green;
+    border: none;
+    color: white;
+    font-size: 20px;
+    font-family: arial;
+    display: flex;
+    justify-content: center;
+}
+.voltar{
+    align-items: center;
+    width: 100%;
+    border-radius: 15px;
+    background-color: #1c79f1;
+    border: none;
+    color: white;
+    font-size: 20px;
+    font-family: arial;
+    display: flex;
+    justify-content: center;
 }

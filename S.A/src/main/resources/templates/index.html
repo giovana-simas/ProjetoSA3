@@ -30,6 +30,10 @@
             <script src="/js/script.js"></script>
 
         </head>
+
+
+
+
         <body data-spy="scroll" data-target=".fixed-top" onload="logout()">
 
         <form th:if="${logado} == true"  id="logout" th:action="|@{/logout}|"  class="boxActions" method="POST">
@@ -59,12 +63,6 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link page-scroll" th:href="@{/login}"style="color: #0b0b0b">Login<span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link page-scroll" href="#services" style="color: #0b0b0b">O que somos?</a>
-                        </li>
 
                         <!-- Dropdown Menu -->
                         <li class="nav-item dropdown">
@@ -77,6 +75,11 @@
                                 <a class="dropdown-item" th:href="@{/diretor/cadastroDiretor/0}"><span class="item-text">Cadastrar Diretor</span></a>
                             </div>
                         </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link page-scroll" th:href="@{/login}"style="color: #0b0b0b">Login<span class="sr-only">(current)</span></a>
+                        </li>
+
                     </ul>
                 </div>
             </nav>
@@ -88,14 +91,14 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="text-container">
-                                    <h1><span class="turquoise">Do questionamento,</span> ao entendimento.</h1>
+                                    <h1 class="text-index"><span class="turquoise">Do questionamento,</span> ao entendimento.</h1>
                                     <p class="p-large">Uma maneira divertida de aprender. Ajude e seja ajudado.</p>
                                     <a class="btn-solid-lg page-scroll" href="#services">Ler mais...</a>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="image-container">
-                                    <img class="img-fluid" th:src="@{/src/header-teamwork.svg}" alt="alternative">
+                                    <img class="img-fluid" th:src="@{/src/img-inicial.png}" alt="alternative">
                                 </div>
                             </div>
                         </div>
@@ -109,7 +112,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h2>Conheça o Estude Aqui.</h2>
+                            <h2>Venha conhecer um pouco mais das nossas funcionalidades.</h2>
                             <p class="p-heading p-large">Essa plataforma foi pensada por estudantes, visando uma maneira divertida de aprender à distância. Você pode ajudar um amigo com dificuldade ou pode ser ajudado.</p>
                         </div>
                     </div>
@@ -117,7 +120,7 @@
                         <div class="col-lg-12">
                             <!-- Cards -->
                             <div class="card">
-                                <img class="card-image" th:src="@{/src/services-icon-1.svg}" alt="alternative">
+                                <img class="card-image" th:src="@{/src/conversa.png}" alt="alternative">
                                 <div class="card-body">
                                     <h4 class="card-title">Converse online</h4>
                                     <p>Converse online com seu amigo, professor ou diretor. Tire suas duvidas de forma rápida.</p>
@@ -126,7 +129,7 @@
 
                             <!-- Card -->
                             <div class="card">
-                                <img class="card-image" th:src="@{/src/services-icon-2.svg}" alt="alternative">
+                                <img class="card-image" th:src="@{/src/book.png}" alt="alternative">
                                 <div class="card-body">
                                     <h4 class="card-title">Facilidade</h4>
                                     <p>O Estude Aqui facilita a sua vida escolar. Ficou fácil aprender agora. Além disso, divertido.</p>
@@ -135,10 +138,10 @@
 
                             <!-- Card -->
                             <div class="card">
-                                <img class="card-image" th:src="@{/src/services-icon-3.svg}" alt="alternative">
+                                <img class="card-image" th:src="@{/src/friend.png}" alt="alternative">
                                 <div class="card-body">
                                     <h4 class="card-title">Amizades</h4>
-                                    <p>Sua sala de aula virtual, com chats e perfis pensados para você.</p>
+                                    <p>Sua sala de aula virtual, com chats e perfis pensados para você. Uma experiencia otima.</p>
                                 </div>
                             </div>
 
@@ -148,28 +151,6 @@
             </div>
 
 
-            <!-- infos -->
-            <div class="basic-1">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="text-container">
-                                <h2>Aprenda a qualquer momento.</h2>
-
-                                <p>Está com dificuldade em aprender?
-                                    O Estude Aqui é uma plataforma onde você é simultaneamente aluno e professor.
-                                    Você ajudará os seus colegas com dificuldades e será por eles ajudado. Ajude alguém 
-                                    em matéria que você domina ou conte com alunos aptos no conteúdo.</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="image-container">
-                                <img class="img-fluid" th:src="@{/src/details-1-office-worker.svg}" alt="alternative">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             <!-- Opniões -->
             <div class="slider-2">
@@ -177,7 +158,7 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="image-container">
-                                <img class="img-fluid" th:src="@{/src/testimonials-2-men-talking.svg}" alt="alternative">
+                                <img class="img-fluid" th:src="@{/src/sugestoes.jpg}" alt="alternative">
                             </div> <!-- end of image-container -->
                         </div> <!-- end of col -->
                         <div class="col-lg-6">
@@ -251,7 +232,7 @@
                             <!-- Team Member -->
                             <div class="team-member">
                                 <div class="image-wrapper">
-                                    <img class="img-fluid" th:src="@{/src/team-member-2.svg}" alt="alternative">
+                                    <img class="img-fluid" th:src="@{/src/eller.jpg}" alt="alternative">
                                 </div> <!-- end of image-wrapper -->
                                 <p class="p-large"><strong>Artur Eller</strong></p>
                                 <p class="job-title">Back-end</p>
@@ -260,7 +241,7 @@
 
                             <div class="team-member">
                                 <div class="image-wrapper">
-                                    <img class="img-fluid" th:src="@{/src/team-member-4.svg}" alt="alternative">
+                                    <img class="img-fluid" th:src="@{/src/giovana.jpg}" alt="alternative">
                                 </div>
                                 <p class="p-large"><strong>Giovana Simas</strong></p>
                                 <p class="job-title">Front-end</p>
@@ -270,13 +251,14 @@
 
                             <div class="team-member">
                                 <div class="image-wrapper">
-                                    <img class="img-fluid" th:src="@{/src/team-member-2.svg}" alt="alternative">
+                                    <img class="img-fluid" th:src="@{/src/freitas.jpg}" alt="alternative">
                                 </div>
                                 <p class="p-large"><strong>Artur Freitas</strong></p>
                                 <p class="job-title">Back-end</p>
 
                             </div>
 
+                            <p>Tivemos contribuição do aluno Gabriel Barcelos no Front-End. Nessa tela e na de login.</p>
 
                         </div>
                     </div>

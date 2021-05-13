@@ -1,7 +1,7 @@
 
 /*PREDEFINICIOS NO BODY*/
 body {
-    background: linear-gradient(to left, #02BED8, #457ED6);
+    background: linear-gradient(to left, #f4f9fd, #e4f2fd);
     background-repeat: no-repeat;
     min-height: 100vh;
     min-width: 100vw;
@@ -16,7 +16,7 @@ body {
 .majorContainer{ /*CSS PARA A TELA TODA*/
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(to left, #02BED8, #457ED6);
+    background: linear-gradient(to left, #e3e3e3, #ffffff);
     margin: 0;
     padding: 0;
     max-width: 999999px;
@@ -93,7 +93,7 @@ body {
 .iconMenu{
     padding: 15px 0px 0px 15px;
     font-size: 30px;
-    color: white;
+    color: #414141;
   }
 #iconMenu{
 width: 20%;

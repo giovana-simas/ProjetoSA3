@@ -65,38 +65,50 @@
 
     <!--DIV DO MEIO PARA CENTRALIZAR-->
     <div class="majorBoxMiddle">
-        <div class="text-inst">
-            <h3>
-                Lista de instituições:
-            </h3>
+        <div class="navbar-inst">
+            <h5>BOTÃO | BOTÃO</h5>
         </div>
-
-        <!--------MEIO COM FEED--------->
-        <div class="middle" th:each="instituicao : ${instituicoes}">
-            <div class="ft-inst">
-                <img class="img-inst" th:src="@{/src/icon-inst.svg}">
+        <!--feed-->
+        <div>
+            <div class="text-inst">
+                <h3>
+                    Lista de instituições:
+                </h3>
             </div>
 
-        <!--INFORMAÇÕES DA INSTITUIÇÕES-->
-            <div class="info-inst">
-                <div class="nome-inst">
-                    <h4>Instituição:</h4> &nbsp <h4 th:text="${instituicao.nome}"></h4>
+            <!--------MEIO COM FEED--------->
+
+            <div class="middle" th:each="instituicao : ${instituicoes}">
+                <div class="ft-inst">
+                    <img class="img-inst" th:src="@{/src/icon-escola.png}">
                 </div>
-                <div class="endereco-inst">
-                    <h4>Endereço:</h4> &nbsp  <h4 th:text="${instituicao.endereco}"></h4>
+
+            <!--INFORMAÇÕES DA INSTITUIÇÕES-->
+                <div class="info-inst">
+                    <div class="nome-inst">
+                        <h4>Instituição:</h4> &nbsp <h4 th:text="${instituicao.nome}"></h4>
+                    </div>
+                    <div class="endereco-inst">
+                        <h4>Endereço:</h4> &nbsp  <h4 th:text="${instituicao.endereco}"></h4>
+                    </div>
+                    <div class="contato-inst">
+                    <h4>Contato:</h4>  &nbsp <h4 th:text="${instituicao.numeroContato}"></h4>
+                    </div>
                 </div>
-                <div class="contato-inst">
-                <h4>Contato:</h4>  &nbsp <h4 th:text="${instituicao.numeroContato}"></h4>
-                </div>
+
+                <!--ENTRAR NA INST-->
+                <div class="info-inst2">
+                    <h4 th:onclick="|window.location.href='/sala/listSala/' + ${instituicao.id}|">entrar</h4>
+                </div> <!--fechando estrutura do feed-->
             </div>
 
-            <!--ENTRAR NA INST-->
-            <div class="info-inst2">
-                <h4 th:onclick="|window.location.href='/sala/listSala/' + ${instituicao.id}|">entrar</h4>
+
+            <!--PARTE DE BOTÃO-->
+            <div class="entrar-inst">
+                <h1>Entre em novas instituições:</h1>
+                <a class="btn-solid-lg page-scroll" href="#">adicionar</a>
+
             </div>
-
-
-
         </div>
 
 
@@ -107,8 +119,8 @@
     <div class="chatdiv">
         <div class="resto-chat"></div>
 
-        <div class="color-chat">
-            <p>CHAT</p>
+            <img class="img-chat" th:src="@{/src/img-chat.png}">
+        </div>
         </div>
     </div>
 

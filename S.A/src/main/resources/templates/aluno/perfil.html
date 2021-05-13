@@ -117,7 +117,7 @@
 
                                 <div class="info-form-user bloco-form">
                                     <label>Descrição:</label><br>
-                                    <textarea id="editDescricao"   placeholder="Descrição, até 155 caracteres para descrever as materias que você tem facilidade ou dificuldade e interesses academicos" maxlength="155" class="bloco-form" th:field="${aluno.descricao}" readonly ></textarea>
+                                    <textarea  id="editDescricao"   placeholder="Descrição, até 155 caracteres para descrever as materias que você tem facilidade ou dificuldade e interesses academicos" maxlength="155" class="bloco-form" th:field="${aluno.descricao}" readonly ></textarea>
 
                                 </div>
                             </div>
@@ -165,7 +165,7 @@
                             <div th:each="instituicao : ${aluno.instituicoesA}" class="container-instituicoes">
 
 
-                                <img  width="10%" th:src="@{/src/icon-inst.svg}">
+                                <img  width="10%" th:src="@{/src/icon-escola.png}">
 
 
 
@@ -195,10 +195,10 @@
 
 
                         <div class="enfileirar">
-                            <button id="editSalvar" type="button"  class="myButton" onclick="submit('formPerfil')" hidden>Atualizar perfil</button>
+                            <button id="editSalvar" type="button"  class="buttonSalvar" onclick="submit('formPerfil')" hidden>Atualizar perfil</button>
                         </div>
                         <div class="enfileirar" th:if="${editavel}" id="editar">
-                            <button class="myButton"  onclick="editarPerfil()"  />
+                            <button class="buttonSalvar"  onclick="editarPerfil()"  />
                             <label id="editarL" >editar</label>
                         </div>
 
@@ -227,7 +227,7 @@
                         </div>
 
                         <button type="submit" class="btn btn-primary">Enviar</button>
-                        <button type="button" onclick="sugerirMateria()" class="btn btn-secondary">Cancelar</button>
+                        <button type="button"  onclick="sugerirMateria()" class="btn btn-secondary">Cancelar</button>
                     </form>
 
                 </div>

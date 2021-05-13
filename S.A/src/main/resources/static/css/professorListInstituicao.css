@@ -1,12 +1,13 @@
 .majorContainer{
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(to left, #02BED8, #457ED6);
+  background: linear-gradient(to left, #f4f9fd, #e4f2fd);
   margin: 0;
   padding: 0;
   max-width: 999999px;
   display: flex;
   justify-content: flex-start;
+
 }
 .boxLateral{
   width: 25%;
@@ -33,6 +34,18 @@
   justify-content: center;
   flex-direction: column;
 }
+/*NAV BAR DA LIST INSTITUIÇÃO*/
+.navbar-inst{
+  height: 7vh;
+  font-family: "Segoe UI Semibold";
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  font-size: 5%;
+
+
+}
+
 /*INSTITUIÇÕES FEED*/
 .middle{
   background: #ffffffbd;
@@ -41,9 +54,11 @@
   height: 15%;
   border-radius: 15px;
   display: flex;
+  border: 1px solid #d1e6cf;
   box-shadow: 20px 20px 50px -30px #515151;
 }
 .img-inst{
+  padding-top: 10px;
   width: 80%;
   height: 80%;
 }
@@ -84,6 +99,36 @@
 
 
 
+
+/*entrar novas instituições atalho pelo middle*/
+.entrar-inst{
+  width: 90%;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: column;
+}
+.btn-solid-lg {
+  margin-top: 15px;
+  display: inline-block;
+  padding: 1.375rem 2.625rem 1.375rem 2.625rem;
+  border: 0.125rem solid #6094CE;
+  border-radius: 2rem;
+  background-color: #6094CE;
+  color: #000000;
+  font: 700 0.75rem/0 "Raleway", sans-serif;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.btn-solid-lg:hover {
+  background-color: transparent;
+  color: #000000;
+  text-decoration: none;
+}
+
+
 h4{
   font-family: "Segoe UI Light";
 }
@@ -91,26 +136,39 @@ p{
   font-family: "Segoe UI Light"
 }
 .text-inst{
-  color: white;
+  color: #414141;
   font-family: "Segoe UI Light";
   font-size: 20px;
   padding-top: 50px;
   padding-bottom: 25px;
 }
-.chatdiv{
-
-  width: 30%;
-}
-.resto-chat{
+.chatdiv {
   height: 94%;
+  width: 30%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
 }
+
 .color-chat{
   color: black;
-  background-color: white;
-  height: 6%;
-  border-radius: 15px 15px 0px 0px;
-  width: 95%;
+  background: linear-gradient(to left, #6094CE, #76a1cf);
+  height: 10%;
+  border-radius: 50%;
+  width: 24%;
+  display: flex;
   text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+.img-chat{
+  height: 18%;
+  width: 38%;
+}
+.img-chat:hover{
+  cursor: pointer;
+  height: 17%;
+  width: 37%;
 }
 .lateral{
   width: 100%;
@@ -248,7 +306,7 @@ body{
 .iconMenu{
   padding: 15px 0px 0px 15px;
   font-size: 30px;
-  color: white;
+  color: #6094CE;
 
 }
 #iconMenu{

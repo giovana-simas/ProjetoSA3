@@ -54,7 +54,7 @@ a:focus {
 
 a:hover {
 	text-decoration: none;
-  color: #00bfd8;
+  color: #6094CE;
 }
 
 /*---------------------------------------------*/
@@ -165,26 +165,22 @@ iframe {
   align-items: center;
   padding: 15px;
   background: #9053c7;
-  background: -webkit-linear-gradient(-135deg, #497bd6, #00bfd8);
-  background: -o-linear-gradient(-135deg, #497bd6, #00bfd8);
-  background: -moz-linear-gradient(-135deg, #497bd6, #00bfd8);
-  background: linear-gradient(-135deg, #497bd6, #00bfd8);
+  background-color: white;
 }
 
 .wrap-login100 {
-  width: 960px;
-  background: #fff;
-  border-radius: 10px;
+  width: 660px;
+  background: linear-gradient(to left, #f2f9ff, #eff8ff);
+  border-radius: 15px;
   overflow: hidden;
-
   display: -webkit-box;
   display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   padding: 177px 130px 33px 95px;
+  align-items: center;
+  box-shadow: 20px 20px 50px -30px #797979;
 }
 .wrap-login100Cadastro{
   width: 960px;
@@ -267,7 +263,7 @@ iframe {
   width: 100%;
   height: 100%;
   box-shadow: 0px 0px 0px 0px;
-  color: #00bfd8
+  color: #6094CE;
 }
 
 .input100:focus + .focus-input100 {
@@ -315,7 +311,7 @@ iframe {
 }
 
 .input100:focus + .focus-input100 + .symbol-input100 {
-  color: #00bfd8;
+  color: #6094CE;
   padding-left: 28px;
 }
 
@@ -343,7 +339,7 @@ iframe {
   width: 100%;
   height: 50px;
   border-radius: 25px;
-  background: #00bfd8;
+  background: #6094CE;
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
