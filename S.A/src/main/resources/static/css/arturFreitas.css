@@ -208,3 +208,18 @@ margin-left: 5%;
     display: flex;
     justify-content: center;
 }
+@media (max-width: 1000px) {
+    .container-secundario{
+        display: flex;
+        flex-direction: column;
+    }
+    .barra-lateral{
+        width: 50%;
+    }
+    .input-perfil{
+        width: 100%;
+    }
+
+
+}
+

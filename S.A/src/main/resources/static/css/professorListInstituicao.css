@@ -418,3 +418,58 @@ body{
 
 
 }
+@media (max-width: 1500px) {
+  .majorBoxMiddle {
+    justify-content: center;
+    flex-direction: column;
+  }
+  .middle{
+    height: 13vh;
+    display: flex;
+    align-items: center;
+    font-family: arial;
+  }
+  .img-inst {
+    width: 90px;
+    height: 90px;
+  }
+}
+@media (max-width: 1075px) {
+  .majorBoxMiddle {
+    justify-content: center;
+    flex-direction: column;
+  }
+  .chatdiv{
+    width: 20%;
+  }
+  .img-chat{
+    height: 15%;
+    width: 70%;
+  }
+}
+@media (max-width: 1020px) {
+  .chatdiv{
+    display: none;
+  }
+  .btn-solid-lg{
+    display: none;
+  }
+}
+
+@media (max-width: 750px) {
+  .middle{
+    height: 35vh;
+    width: 80%;
+    word-wrap: normal;
+    flex-direction: column;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+  }
+  .img-inst {
+    padding-left: 50%;
+  }
+  .ft-inst{
+    padding-left: 50px;
+  }
+}
