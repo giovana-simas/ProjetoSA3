@@ -59,7 +59,10 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter{
 			.antMatchers("/aluno/save").permitAll()
 			.antMatchers("/diretor/save").permitAll()
 			.antMatchers("/professor/save").permitAll()
-			.anyRequest().authenticated()
+				.antMatchers("/materia/*").permitAll()
+
+
+				.anyRequest().authenticated()
 			.and()
 			//definir pagina de login
 			.formLogin()

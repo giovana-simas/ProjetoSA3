@@ -89,3 +89,12 @@ function submit(id){
 
 
 }
+
+function deleteMateria(id){
+
+    $.ajax({
+        url: '/materia/'+id,
+        type: 'POST',
+
+    });
+}
