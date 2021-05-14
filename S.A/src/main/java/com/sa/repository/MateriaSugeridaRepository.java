@@ -12,4 +12,5 @@ public interface MateriaSugeridaRepository extends JpaRepository<MateriaSugerida
 
     public MateriaSugerida findByNomeAndInstituicao(String nome, Instituicao instituicao);
     public List<MateriaSugerida> findByInstituicaoIn(List<Instituicao> instituicao);
+    public MateriaSugerida findById(long id);
 }

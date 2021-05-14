@@ -44,6 +44,11 @@ const compararSenha = function(){
      $('#flutuante').attr('hidden', some);
  }
 
+function sumirJanela(id){
+    var some = $('#'+id).attr('hidden');
+    some = !some;
+    $('#'+id).attr('hidden', some);
+}
 
 
 function verificaEmail(){
@@ -92,9 +97,50 @@ function submit(id){
 
 function deleteMateria(id){
 
-    $.ajax({
-        url: '/materia/'+id,
-        type: 'POST',
+    let invocation = new XMLHttpRequest();
+    let listM = document.getElementById("list-materiaSugerida");
+    invocation.responseType = "json"
+    invocation.open("GET", "/materia/" + id, true)
+    invocation.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
 
-    });
+            $("#tr-"+id).remove();
+
+        }
+    };
+
+    invocation.send();
+}
+
+function saveMateria(){
+
+    let invocation = new XMLHttpRequest();
+    invocation.responseType = "json"
+    invocation.open("GET", "/materia/save/"+document.getElementById("inputMateria").value, true)
+    invocation.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+
+            document.getElementById("inputMateria").value = '';
+
+        }
+    };
+
+    invocation.send();
+}
+
+function convertMateria(id){
+
+    let invocation = new XMLHttpRequest();
+    let listM = document.getElementById("list-materiaSugerida");
+    invocation.responseType = "json"
+    invocation.open("GET", "/materia/convert/"+id, true)
+    invocation.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+
+            $("#tr-"+id).remove();
+
+        }
+    };
+
+    invocation.send();
 }

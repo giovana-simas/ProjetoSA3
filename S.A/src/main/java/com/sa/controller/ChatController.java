@@ -76,8 +76,6 @@ public class ChatController {
 					usuarioChat.setUsuario2(usuario2);
 
 
-					System.out.println("entrou no if4");
-
 
 
 
