@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projeto S.A</title>
     <link  rel="stylesheet" th:href="@{/css/professorListInstituicao.css}">
-    <link rel="stylesheet" th:href="@{/css/arturFreitas.css}">
 
     <link rel="stylesheet" th:href="@{/bootstrap-4.5.2/css/bootstrap.min.css}">
     <link rel="stylesheet" th:href="@{/fontawesome-5.14.0/css/all.min.css}">
     <link rel="stylesheet" th:href="@{/css/estilo.css}">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.0/handlebars.min.js"></script>
+
     <script src="/js/script.js"></script>
 
 
@@ -58,7 +57,6 @@
                 <div class="actions">
                     <a th:onclick="|window.location.href='/perfil/' + ${usuario.id}|"><p class="perfilname">Perfil</p></a>
                     <a onclick="sugerirMateria(false)" class="btn btn-dark" type="button">materias sugeridas</a>
-                    <a onclick="sumirJanela('inserirMateria')" class="btn btn-dark" type="button">adicionar materias</a>
 
 
 
@@ -74,49 +72,17 @@
     <div class="flutuante" id="flutuante" hidden>
         <div class="flutuante-container">
 
-
-                    <table id="list-materiaSugerida" style="width:100%">
-                        <tr>
-                            <th>Instituicao:</th>
-                            <th>Materia:</th>
-                        </tr>
-                        <tr  th:each="materiaSugerida : ${materiasSugerida}" th:id="|tr-${materiaSugerida.id}|">
-                            <td  type="text" th:text="${materiaSugerida.instituicao.nome}"    readonly>
-                            <td  type="text" th:text="${materiaSugerida.nome}"   readonly>
-                            <td  type="text" id="materiaSid"  hidden th:text="${materiaSugerida.id}"  readonly></td>
-                            <td th:onclick="|deleteMateria(${materiaSugerida.id})|" ><i  class="fas fa-trash alert-danger"></i></td>
-                            <td th:onclick="|convertMateria(${materiaSugerida.id})|"><i  class="fas fa-check alert-success"></i></td>
-                        </tr>
-                    </table>
-
-
-            <button type="button"  onclick="sugerirMateria()" class="btn btn-secondary">Fechar</button>
-
-
+                <label for="exampleInputEmail1" class="form-label">Materia sugerida:</label>
+                <div class="mb-3" th:each="materiaSugerida : ${materiasSugerida}">
+                    <input type="text" th:value="${materiaSugerida.id}" class="form-control" placeholder="Nome da materia"  aria-describedby="emailHelp" readonly hidden>
+                    <input  type="text" th:value="${materiaSugerida.nome}" class="form-control"  id="exampleInputEmail1" aria-describedby="emailHelp" readonly>
+                    <input  type="text" th:value="${materiaSugerida.instituicao.nome}" class="form-control"   aria-describedby="emailHelp" readonly>
+                </div>
 
         </div>
 
 
     </div>
-
-    <div class="flutuante" id="inserirMateria" hidden>
-        <div class="flutuante-container">
-
-            <div class="mb-3" style="width:100%">
-                <label for="inputMateria" class="form-label">Nome da materia:</label>
-                <input type="text" class="form-control" placeholder="Nome da materia" id="inputMateria" aria-describedby="emailHelp">
-
-            </div>
-
-            <button type="button" th:onclick="saveMateria()" class="btn btn-primary">Enviar</button>
-            <button type="button"  onclick="sumirJanela('inserirMateria')" class="btn btn-secondary">Cancelar</button>
-
-
-        </div>
-
-
-    </div>
-
     <div class="majorBoxMiddle" >
         <div class="text-inst">
             <h3>
@@ -158,8 +124,6 @@
 
 </div>
 </div>
-
-
 <script th:src="@{/js/jquery-3.5.1.min.js}"></script>
 <script th:src="@{/bootstrap-4.5.2/js/bootstrap.min.js}"></script>
 <script src="/js/script.js"></script>
