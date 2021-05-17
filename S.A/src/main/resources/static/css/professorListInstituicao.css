@@ -31,9 +31,12 @@ body{
 .nameInstituicao{
   margin-top: 8px;
   margin-bottom: 2px;
-  cursor: pointer;
   font-family: "Segoe UI Light";
   font-size: 20px;
+}
+.nameInstituicao:hover{
+  cursor: pointer;
+  font-size: 22px;
 }
 .buttons-lateral{
   flex-direction: column;
@@ -202,4 +205,45 @@ body{
   color: #000000;
   text-decoration: none;
   cursor: pointer;
+}
+
+@media (max-width: 1625px) {
+  .btn-solid-lg {
+    width: 60%;
+  }
+}
+@media (max-width: 1555px) {
+  .btn-solid-lg {
+    width: 70%;
+  }
+}
+@media (max-width: 1165px) {
+  .btn-solid-lg {
+    width: 80%;
+  }
+}
+@media (max-width: 1005px) {
+  .btn-solid-lg {
+    width: 90%;
+  }
+}
+@media (max-width: 900px) {
+  .btn-solid-lg {
+    width: 90%;
+  }
+
+  .middle {
+    display: flex;
+    height: 25vh;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .img-inst {
+    width: 400%;
+  }
+
+  .ft-inst {
+    margin-right: 80px;
+  }
 }

@@ -16,7 +16,7 @@ body {
 .majorContainer{ /*CSS PARA A TELA TODA*/
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(to left, #e3e3e3, #ffffff);
+    background-color: #D7E2F1;
     margin: 0;
     padding: 0;
     max-width: 999999px;
@@ -93,7 +93,7 @@ body {
 .iconMenu{
     padding: 15px 0px 0px 15px;
     font-size: 30px;
-    color: #414141;
+    color: #1c79f1;
   }
 #iconMenu{
 width: 20%;
@@ -168,7 +168,7 @@ width: 20%;
 /*----------AQUI TA OK-------*/
 
 
-
+/**#6094CE**/
 
 /*AS DIVISORIAS DENTRO DA SALA*/
 .boxLateral{
@@ -176,6 +176,18 @@ width: 20%;
     background-color: grey;
     display: none;
     margin-right: 50px;
+    box-shadow: 20px 20px 50px -30px #00000099;
+    font-family: "Segoe UI Light";
+    font-size: 20px;
+}
+.nameInstituicao{
+    margin-bottom: 5px;
+    margin-top: 20px;
+}
+.nameInstituicao:hover{
+    cursor: pointer;
+    color: #1c79f1;
+    font-size: 22px;
 }
 
 
@@ -185,7 +197,7 @@ width: 20%;
 
 .infos-pessoas{ /*DA ESQUERDA PARTE BRANCA*/
     width: 20%;
-    background-color: white;
+    background-color: #6094CE;
     border-radius: 25px 0px 0px 25px;
     display: flex;
     flex-direction: column;
@@ -199,11 +211,11 @@ width: 20%;
 .container-prof{
     height: 20vh;
     text-align: center;
-
 }
 
 .container-alunos{
     height: 50vh;
+    width: 20%;
     text-align: center;
 }
 .nomes-prof-aluno{
@@ -211,7 +223,7 @@ width: 20%;
     font-size: 20px;
     padding-top: 30px;
     padding-bottom: 15px;
-    color: #1c79f1;
+    color: white;
 }
 
 
@@ -225,7 +237,7 @@ width: 20%;
     box-shadow: 20px 20px 50px -30px #000000e6;
 }
 .name-feed{
-    color: white;
+    color: #1c79f1;
     font-family: "Segoe UI Light";
     font-size: 20px;
     padding-top: 50px;
@@ -279,6 +291,10 @@ width: 20%;
     justify-content: space-evenly;
     align-items: flex-end;
 }
+.perfilname:hover{
+    cursor: pointer;
+    font-size: 22px;
+}
 
 
 
@@ -286,12 +302,9 @@ width: 20%;
 
 /*--------------BOTÕES--------------S*/
 .button-back{
-    margin-top: 150%;
-    box-shadow:inset 0px -3px 7px 0px #29bbff;
-    background:linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
-    background-color:#2dabf9;
+    background: transparent;
     border-radius:42px;
-    border:0px;
+    border:1px solid white;
     display:inline-block;
     cursor:pointer;
     color:#ffffff;
@@ -302,12 +315,18 @@ width: 20%;
     text-shadow:0px 1px 0px #263666;
 }
 .button-back:hover {
-    background:linear-gradient(to bottom, #0688fa 5%, #2dabf9 100%);
-    background-color:#0688fa;
+    background-color: white;
+    color: #1c79f1;
 }
 .button-back:active {
     position:relative;
     top:1px;
+}
+.button-div{
+    display: flex;
+    height: 20vh;
+    align-items: flex-end;
+    justify-content: center;
 }
 
 
