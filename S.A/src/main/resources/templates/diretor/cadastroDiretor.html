@@ -21,11 +21,8 @@
 
     <div class="limiter">
             <div class="container-login100">
-                <div class="wrap-login100Cadastro">
-                    <div class="login100-pic js-tilt" data-tilt>
-                        <img th:src="@{/src/img-01.png}" alt="IMG">
-                    </div>
-                    
+                <div class="wrap-login1000">
+
 
                     <form class="login100-form validate-form" th:action="@{/diretor/save}"  th:object="${diretor}" method="POST" required>
                         <div th:if="${salvo} == 1" class="alert alert-success">

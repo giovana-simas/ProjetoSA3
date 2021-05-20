@@ -18,13 +18,11 @@
 </head>
 
 <body background="/src/back.png" onload="">
+
         <div class="limiter">
             <div class="container-login100">
-                <div class="wrap-login100Cadastro">
-                    <div class="login100-pic js-tilt" data-tilt>
-                        <img th:src="@{/src/img-01.png}" alt="IMG">
-                    </div>
-                    
+                <div class="wrap-login1000">
+
 
                     <form class="login100-form validate-form" th:action="@{/professor/save}"  th:object="${professor}" method="POST" required>
                         <div th:if="${salvo} == 1" class="alert alert-success">
@@ -76,7 +74,7 @@
                             </button>
                         </div>
                     </form>
-                     
+                     </div>
                 </div>
             </div>
 	<script th:src="@{/js/jquery-3.5.1.min.js}"></script>

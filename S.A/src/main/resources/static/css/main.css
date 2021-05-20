@@ -182,6 +182,20 @@ iframe {
   align-items: center;
   box-shadow: 20px 20px 50px -30px #797979;
 }
+.wrap-login1000 {
+  width: 660px;
+  background: linear-gradient(to left, #f2f9ff, #eff8ff);
+  border-radius: 15px;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 80px 130px 90px 95px;
+  align-items: center;
+  box-shadow: 20px 20px 50px -30px #797979;
+}
 .wrap-login100Cadastro{
   width: 960px;
   background: #fff;
