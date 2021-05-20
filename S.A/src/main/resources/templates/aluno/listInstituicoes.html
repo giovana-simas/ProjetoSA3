@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projeto S.A</title>
     <link  rel="stylesheet" th:href="@{/css/professorListInstituicao.css}">
-
+    <link rel="stylesheet" th:href="@{/css/arturFreitas.css}">
     <link rel="stylesheet" th:href="@{/bootstrap-4.5.2/css/bootstrap.min.css}">
     <link rel="stylesheet" th:href="@{/fontawesome-5.14.0/css/all.min.css}">
 
@@ -39,7 +39,6 @@
                 <div class="buttons-lateral">
 
                     <a th:onclick="|window.location.href='/perfil/' + ${usuario.id}|"><p class="perfilname">Perfil</p></a>
-
                     <a onclick="window.location.href='/'" class="sair">Sair</a>
 
                 </div>
@@ -72,12 +71,48 @@
             </div>
 
                 <div class="entrar-inst">
-                    <a class="btn-solid-lg page-scroll" onclick="window.location.href='/instituicao/addinstituicao/'">Entre em novas instituições:</a>
+                    <a class="btn-solid-lg page-scroll" onclick="sumirJanela('flutuante2')">Entre em novas instituições:</a>
                 </div>
+
         </div>
 
+            <div class="flutuante" id="flutuante2" hidden>
+                <div class="flutuante-container">
+
+                    <h4>Cadastrar instituição</h4>
+                    <img height="200px" class="add-inst" th:src="@{/src/school.jpg}">
+
+                    <form th:action="@{/aluno/insertinstituicao}" th:object="${aluno}" method="POST">
+
+                        <input id="editId" type="text" placeholder="&#32 ID" class="css-email" th:field="${aluno.id}" readonly hidden />
+                        <input id="editNome" type="text" placeholder="&#32 NOME" class="css-email" th:field="${aluno.nome}" readonly hidden />
+                        <input id="editEmail" type="text" placeholder="&#32 E-MAIL" class="css-email" th:field="${aluno.email}" readonly hidden/>
+                        <input id="editSenha" type="text" placeholder="&#32 SENHA" class="css-email" th:field="${aluno.senha}" readonly hidden />
+                        <input id="editPermissoes" type="text" placeholder="&#32 PERMISSÃO" class="css-email" th:field="${aluno.permissoes}" readonly hidden />
+                        <input id="editAjuda" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${aluno.statusAjuda}" readonly hidden />
+                        <input id="editDescricao" type="text" placeholder="&#32 Descrição" class="css-email" th:field="${aluno.descricao}" readonly hidden />
+
+                        <input id="editsalas" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${aluno.salasA}" readonly hidden />
+                        <input id="editmateria" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${aluno.materiaAluno}" readonly hidden />
+
+                        <div class="form-group">
+                            <select class="form-control" th:field="*{instituicoesA}"  required>
+                                <option th:each="instituicoesA : ${instituicoesadd}" th:value="${instituicoesA.id}" th:text="${instituicoesA.nome}"></option>
+                            </select>
+
+                        </div>
+                        <button id="salvar" type="submit" class="button-entrar">Entrar na instituição.</button>
+                        <button  onclick="sumirJanela('flutuante2')">voltar</button>
 
 
+                    </form>
+
+                </div>
+
+            </div>
+
+
+</div>
 
 <script th:src="@{/js/jquery-3.5.1.min.js}"></script>
 <script th:src="@{/bootstrap-4.5.2/js/bootstrap.min.js}"></script>

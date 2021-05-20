@@ -76,7 +76,8 @@ public class InstituicaoController {
 
 				aluno = alunoRepository.findByEmail(email);
 				model.addAttribute("instituicoes", instituicaoRepository.findByAlunosI(aluno));
-
+				model.addAttribute("aluno", alunoRepository.findByEmail(email));
+				model.addAttribute("instituicoesadd", instituicaoRepository.findAll());
 				path = "/aluno/listInstituicoes";
 				
 			}
@@ -88,8 +89,9 @@ public class InstituicaoController {
 
 				professor = professorRepository.findByEmail(email);
 				model.addAttribute("instituicoes", instituicaoRepository.findByProfessoresI(professor));
+				model.addAttribute("professor", professorRepository.findByEmail(email));
 
-
+				model.addAttribute("instituicoesadd", instituicaoRepository.findAll());
 				path = "/professor/listInstituicoes";
 			}
 
@@ -100,7 +102,8 @@ public class InstituicaoController {
 				diretor = diretorRepository.findByEmail(email);
 				model.addAttribute("instituicoes", instituicaoRepository.findByDiretor(diretor));
 				model.addAttribute("materiasSugerida", materiaSugeridaRepository.findByInstituicaoIn(instituicaoRepository.findByDiretor(diretor)));
-
+				model.addAttribute("diretor", diretorRepository.findByEmail(email));
+				model.addAttribute("instituicaoadd", new Instituicao());
 				path = "/diretor/listInstituicoes";
 			}
 			
