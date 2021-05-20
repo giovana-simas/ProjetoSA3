@@ -83,11 +83,23 @@
             <div class="flutuante-container">
 
                     <label for="exampleInputEmail1" class="form-label">Materia sugerida:</label>
-                    <div class="mb-3" th:each="materiaSugerida : ${materiasSugerida}">
-                        <input type="text" th:value="${materiaSugerida.id}" class="form-control" placeholder="Nome da materia"  aria-describedby="emailHelp" readonly hidden>
-                        <input  type="text" th:value="${materiaSugerida.nome}" class="form-control"  id="exampleInputEmail1" aria-describedby="emailHelp" readonly>
-                        <input  type="text" th:value="${materiaSugerida.instituicao.nome}" class="form-control"   aria-describedby="emailHelp" readonly>
-                    </div>
+                <table id="exampleInputEmail1" style="width: 100%">
+                    <tr>
+                        <th>Nome:</th>
+                        <th>Instituicao:</th>
+                    </tr>
+                    <tr th:each="materiaSugerida : ${materiasSugerida}" th:id="|tr-${materiaSugerida.id}|">
+                        <td th:text="${materiaSugerida.nome}"></td>
+                        <td th:text="${materiaSugerida.instituicao.nome}"></td>
+                        <td th:onclick="|deleteMateria(${materiaSugerida.id})|"><i class="fas fa-trash-alt alert-danger"></i></td>
+                        <td th:onclick="|convertMateria(${materiaSugerida.id})|"><i class="fas fa-check btn-success"></i></td>
+                    </tr>
+
+
+                </table>
+
+                <button class="btn-secondary"  onclick="sumirJanela('flutuante')">voltar</button>
+
 
             </div>
 
