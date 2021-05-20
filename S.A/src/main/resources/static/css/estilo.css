@@ -331,9 +331,16 @@ width: 20%;
 
 
 
-
-
 /*=========================CHAT=========================*/
+
+.containerGeral{
+    height: 100vh!important;
+}
+
+.justify-container-center{
+    align-items: center!important;
+    justify-content: center!important;
+}
 
 .hiddenChatMsg{
     width: 100%;
