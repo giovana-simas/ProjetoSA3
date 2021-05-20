@@ -39,6 +39,12 @@ public class SalaController {
     @Autowired
     DiretorRepository diretorRepository;
 
+    @Autowired
+    MateriaRepository materiaRepository;
+
+    @Autowired
+    PublicacaoRepository publicacaoRepository;
+
     @PostMapping("/sala/save/{id}")
     //cria o metodo de salvamento com um objeto Usuario
     public String saveSala(Sala sala, @PathVariable int id) {
@@ -248,6 +254,11 @@ public class SalaController {
             model.addAttribute("instituicoes", instituicaoRepository.findByAlunosI(aluno));
             model.addAttribute("alunos", alunoRepository.findBySalasA(sala));
             model.addAttribute("professores", professorRepository.findBySalaP(sala));
+            model.addAttribute("sala",sala);
+            model.addAttribute("publicacao",new Publicacao());
+            model.addAttribute("publicacoes",publicacaoRepository.findBySala(sala));
+
+            model.addAttribute("materias",materiaRepository.findAll());
 
             path = "/aluno/sala";
         }
@@ -260,7 +271,7 @@ public class SalaController {
             model.addAttribute("instituicoes", instituicaoRepository.findByDiretor(diretor));
             model.addAttribute("usuario", usuario);
             model.addAttribute("instituicao", instituicao);
-
+            model.addAttribute("sala",sala);
             model.addAttribute("alunos", alunoRepository.findBySalasA(sala));
             model.addAttribute("professores", professorRepository.findBySalaP(sala));
             path = "/diretor/sala";
@@ -276,7 +287,7 @@ public class SalaController {
             model.addAttribute("instituicao", instituicao);
             model.addAttribute("alunos", alunoRepository.findBySalasA(sala));
             model.addAttribute("professores", professorRepository.findBySalaP(sala));
-
+            model.addAttribute("sala",sala);
 
             path = "/professor/sala";
         }

@@ -48,12 +48,23 @@ public class Publicacao {
 	@ManyToOne
 	@JoinColumn(name ="instituicao_id", referencedColumnName = "id")
 	public Instituicao instituicao;
+
+	@ManyToOne
+	@JoinColumn(name ="sala_id", referencedColumnName = "id")
+	public Sala sala;
 	
 	@ManyToOne
 	@JoinColumn(name = "materia_id", referencedColumnName = "id")
 	public Materia materia;
-	
-	
+
+	public Sala getSala() {
+		return sala;
+	}
+
+	public void setSala(Sala sala) {
+		this.sala = sala;
+	}
+
 	public long getId() {
 		return id;
 	}
@@ -72,10 +83,28 @@ public class Publicacao {
 	public void setTipo(Tipo tipo) {
 		this.tipo = tipo;
 	}
-	
-	
-	
-	
 
+	public Usuario getUsuario() {
+		return usuario;
+	}
 
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	public Instituicao getInstituicao() {
+		return instituicao;
+	}
+
+	public void setInstituicao(Instituicao instituicao) {
+		this.instituicao = instituicao;
+	}
+
+	public Materia getMateria() {
+		return materia;
+	}
+
+	public void setMateria(Materia materia) {
+		this.materia = materia;
+	}
 }

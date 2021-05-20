@@ -36,10 +36,21 @@ public class Sala{
 	
 	@ManyToMany(mappedBy = "salaP")
 	private List<Professor> professoresS;
+
+	@OneToMany(targetEntity = Publicacao.class, mappedBy = "sala")
+	private List<Publicacao> publicacao;
 	
 	@ManyToOne()
 	@JoinColumn(name="instituicao_id", referencedColumnName = "id")    
 	private Instituicao instituicao;
+
+	public List<Publicacao> getPublicacao() {
+		return publicacao;
+	}
+
+	public void setPublicacao(List<Publicacao> publicacao) {
+		this.publicacao = publicacao;
+	}
 
 	public long getId() {
 		return id;
