@@ -29,18 +29,6 @@ public class ChatController {
 	SalaRepository salaRepository;
 	@Autowired
 	ChatRepository chatRepository;
-	
-	@GetMapping("/chat")
-	public String chat(Model model) {
-		String email = SecurityContextHolder.getContext().getAuthentication().getName();
-		model.addAttribute("usuarioConnect",usuarioRepository.findByEmail(email));
-		model.addAttribute("chats",usuarioChatRepository.findByUsuario1OrUsuario2(usuarioRepository.findByEmail(email),usuarioRepository.findByEmail(email)));
-
-
-
-		return "/chat/chat";
-	}
-
 
 	@GetMapping("/chat/add/{id}")
 	public  String addChat(@PathVariable long id){

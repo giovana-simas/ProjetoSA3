@@ -12,8 +12,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.sa.model.Message;
 import com.sa.repository.UsuarioRepository;
@@ -41,6 +43,17 @@ public class MessageController {
 
 	@Autowired
 	private SimpMessagingTemplate simpMessagingTemplate;
+	
+	@RequestMapping("/chat")
+	public ModelAndView chat (Model model) {
+	    ModelAndView modelAndView = new ModelAndView();
+	    modelAndView.setViewName("/chat/chat");
+	    
+	    String email = SecurityContextHolder.getContext().getAuthentication().getName();
+		model.addAttribute("usuarioConnect",usuarioRepository.findByEmail(email));
+		model.addAttribute("chats",usuarioChatRepository.findByUsuario1OrUsuario2(usuarioRepository.findByEmail(email),usuarioRepository.findByEmail(email)));
+	    return modelAndView;
+	}
 
 
 	@MessageMapping("/chat/{id}")

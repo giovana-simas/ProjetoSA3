@@ -37,6 +37,8 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter{
 				.antMatchers("/perfil/**").hasAnyRole("professor","diretor","aluno")
 				//permissoes chat
 			.antMatchers("/chat/**").hasAnyRole("professor","diretor","aluno")
+				//permissoes feed
+			.antMatchers("/feed/**").hasAnyRole("professor","diretor","aluno")
 
 				//permissoes instituicao
 			.antMatchers("/instituicao/listInstituicoes/**").hasAnyRole("professor","diretor","aluno")

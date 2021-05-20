@@ -28,6 +28,8 @@ function msgHiddenChat(){
             let data = JSON.parse(response.body);
             if (usuarioselect==data.fromLogin){
                 render(data.mensagem, data.fromLogin);
+            }else{
+                $('#msgNova'+ data.fromLogin).attr('hidden', false)
             }
 
         })
@@ -37,6 +39,7 @@ function msgHiddenChat(){
 function usuarioselecionado(id){
     usuarioselect = id;
     msgHiddenChat()
+    $('#msgNova'+ usuarioselect).attr('hidden', true)
     nomeUsuario = $('#'+id).text();
     console.log("Usuario selecionado: " + usuarioselect)
     $('#usuarioChat').html('');
