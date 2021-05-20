@@ -88,11 +88,14 @@ public class InstituicaoController {
 				Professor professor;
 
 				professor = professorRepository.findByEmail(email);
+
 				model.addAttribute("instituicoes", instituicaoRepository.findByProfessoresI(professor));
 				model.addAttribute("professor", professorRepository.findByEmail(email));
-
+				model.addAttribute("materiasSugerida", materiaSugeridaRepository.findByInstituicaoIn(instituicaoRepository.findByProfessoresI(professor)));
 				model.addAttribute("instituicoesadd", instituicaoRepository.findAll());
+
 				path = "/professor/listInstituicoes";
+
 			}
 
 			permissao = permissaoRepository.findByNome("diretor");

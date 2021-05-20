@@ -11,4 +11,5 @@ import java.util.List;
 public interface MateriaRepository extends JpaRepository<Materia, Long> {
 
     public Materia findByNome(String nome);
+
 }

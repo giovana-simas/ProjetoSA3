@@ -1,8 +1,10 @@
 package com.sa.controller;
 
+import com.sa.model.Materia;
 import com.sa.model.MateriaSugerida;
 import com.sa.model.Usuario;
 import com.sa.repository.InstituicaoRepository;
+import com.sa.repository.MateriaRepository;
 import com.sa.repository.MateriaSugeridaRepository;
 import com.sa.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,8 @@ public class MateriaSugeridaController {
     MateriaSugeridaRepository materiaSugeridaRepository;
     @Autowired
     UsuarioRepository usuarioRepository;
+    @Autowired
+    MateriaRepository materiaRepository;
 
 
     @PostMapping("/materiaSugerida/save")
@@ -31,9 +35,11 @@ public class MateriaSugeridaController {
         Usuario usuario = usuarioRepository.findByEmail(email);
         materiaSugerida.setNome(materiaSugerida.getNome().toLowerCase(Locale.ROOT));
         MateriaSugerida materiaSugerida1 = materiaSugeridaRepository.findByNomeAndInstituicao(materiaSugerida.getNome(), materiaSugerida.getInstituicao());
+        Materia materia = materiaRepository.findByNome(materiaSugerida.getNome());
 
         try{
-            if (materiaSugerida1 == null){
+
+            if (materiaSugerida1 == null && materia == null ){
                 materiaSugeridaRepository.save(materiaSugerida);
             }
 

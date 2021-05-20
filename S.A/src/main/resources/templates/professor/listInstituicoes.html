@@ -39,6 +39,7 @@
                 <div class="buttons-lateral">
 
                     <a th:onclick="|window.location.href='/perfil/' + ${usuario.id}|"><p class="perfilname">Perfil</p></a>
+                    <a onclick="sugerirMateria(false)" class="materias-alunos" type="button">materias sugeridas</a>
 
                     <a onclick="window.location.href='/'" class="sair">Sair</a>
 
@@ -74,6 +75,32 @@
             <div class="entrar-inst">
                 <a class="btn-solid-lg page-scroll" onclick="sumirJanela('flutuante2')">Participe de novas instituições:</a>
             </div>
+        </div>
+
+        <div class="flutuante" id="flutuante" hidden>
+            <div class="flutuante-container">
+
+                <label for="exampleInputEmail1" class="form-label">Materia sugerida:</label>
+                <table id="exampleInputEmail1" style="width: 100%">
+                    <tr>
+                        <th>Nome:</th>
+                        <th>Instituicao:</th>
+                    </tr>
+                    <tr th:each="materiaSugerida : ${materiasSugerida}" th:id="|tr-${materiaSugerida.id}|">
+                        <td th:text="${materiaSugerida.nome}"></td>
+                        <td th:text="${materiaSugerida.instituicao.nome}"></td>
+                        <td th:onclick="|deleteMateria(${materiaSugerida.id})|"><i class="fas fa-trash-alt alert-danger"></i></td>
+                        <td th:onclick="|convertMateria(${materiaSugerida.id})|"><i class="fas fa-check btn-success"></i></td>
+                    </tr>
+
+
+                </table>
+
+                <button class="btn-secondary"  onclick="sumirJanela('flutuante')">voltar</button>
+
+
+            </div>
+
         </div>
 
         <div class="flutuante" id="flutuante2" hidden>
