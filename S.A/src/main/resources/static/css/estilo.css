@@ -12,6 +12,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #5a95ee;
 }
 .majorContainer{ /*CSS PARA A TELA TODA*/
     width: 100vw;
@@ -22,20 +23,23 @@ body {
     max-width: 999999px;
     display: flex;
     justify-content: flex-start;
+
 }
 
 
 /*DENTRO DA INSTITUIÇÃO-salas*/
 .container-list{
     display: flex;
+    padding-top: 30px;
     flex-direction: column;
     align-items: center;
     background: white;
     width: 350px;
     height: 450px;
     border-radius: 20px;
-    justify-content: center;
+    justify-content: flex-start;
     align-content: center;
+    box-shadow: 20px 20px 50px -30px #000000a8;
 
 }
 .add-inst{
@@ -65,9 +69,10 @@ body {
 }
 .buttons{
     margin-top: 50px;
+    height: 50vh;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     flex-direction: column;
 }
 .nameSala{
@@ -79,16 +84,31 @@ body {
     margin: 10px 0px 10px 0px;
     cursor:pointer;
 }
+.entrar-sala{
+    color: #1c79f1;
+    border: 1px solid #1c79f1;
+    background: transparent;
+    border-radius: 5px;
+    height: 30px;
+}
+.entrar-sala:hover{
+    background: #1c79f1;
+    color: white;
+}
 
 .sala-css{
     color: grey;
     font-size: 20px;
-    font-family: "Segoe UI Light";
     padding: 0px 0px 10px 0px;
     cursor: pointer;
+    display: flex;
+    width: 100%;
+    align-items: baseline;
+    justify-content: space-around;
 }
 .sala-css:hover{
     color: black;
+    font-size: 22px;
 }
 .iconMenu{
     padding: 15px 0px 0px 15px;

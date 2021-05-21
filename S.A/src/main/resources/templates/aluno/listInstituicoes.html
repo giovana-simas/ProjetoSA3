@@ -8,8 +8,7 @@
     <link rel="stylesheet" th:href="@{/css/arturFreitas.css}">
     <link rel="stylesheet" th:href="@{/bootstrap-4.5.2/css/bootstrap.min.css}">
     <link rel="stylesheet" th:href="@{/fontawesome-5.14.0/css/all.min.css}">
-
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <script src="/js/script.js"></script>
 
 
@@ -36,14 +35,16 @@
                     <div class="nameInstituicao" th:text="${instituicao.nome}"></div>
                 </div>
 
+                </div>
                 <div class="buttons-lateral">
 
                     <a th:onclick="|window.location.href='/perfil/' + ${usuario.id}|"><p class="perfilname">Perfil</p></a>
                     <a onclick="window.location.href='/'" class="sair">Sair</a>
 
                 </div>
-                </div>
             </div> <!--FECHANDO BARRA LATERAL-->
+
+
 
             <div class="meio">
 
@@ -71,12 +72,12 @@
             </div>
 
                 <div class="entrar-inst">
-                    <a class="btn-solid-lg page-scroll" onclick="sumirJanela('flutuante2')">Entre em novas instituições:</a>
+                    <a class="btn-solid-lg page-scroll animate__backOutDown" onclick="sumirJanela('flutuante2')">Entre em novas instituições:</a>
                 </div>
 
         </div>
 
-            <div class="flutuante" id="flutuante2" hidden>
+            <div class="flutuante animate__animated animate__backInUp" id="flutuante2" hidden>
                 <div class="flutuante-container">
 
                     <h4>Cadastrar instituição</h4>
@@ -101,8 +102,8 @@
                             </select>
 
                         </div>
-                        <button id="salvar" type="submit" class="button-entrar">Entrar na instituição.</button>
-                        <button  onclick="sumirJanela('flutuante2')">voltar</button>
+                        <button id="salvar" type="submit"  class="button-entrar">ENTRAR</button>
+                        <button  onclick="sumirJanela('flutuante2')" class="button-back">VOLTAR</button>
 
 
                     </form>
@@ -113,6 +114,8 @@
 
 
 </div>
+
+
 
 <script th:src="@{/js/jquery-3.5.1.min.js}"></script>
 <script th:src="@{/bootstrap-4.5.2/js/bootstrap.min.js}"></script>

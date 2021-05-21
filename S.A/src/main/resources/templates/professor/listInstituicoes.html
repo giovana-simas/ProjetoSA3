@@ -6,10 +6,9 @@
         <title>Projeto S.A</title>
         <link  rel="stylesheet" th:href="@{/css/professorListInstituicao.css}">
         <link rel="stylesheet" th:href="@{/css/arturFreitas.css}">
-
         <link rel="stylesheet" th:href="@{/bootstrap-4.5.2/css/bootstrap.min.css}">
-    <link rel="stylesheet" th:href="@{/fontawesome-5.14.0/css/all.min.css}">
-
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+        <link rel="stylesheet" th:href="@{/fontawesome-5.14.0/css/all.min.css}">
         <script src="/js/script.js"></script>
 
         
@@ -36,15 +35,19 @@
                     <div class="nameInstituicao" th:text="${instituicao.nome}"></div>
                 </div>
 
-                <div class="buttons-lateral">
 
-                    <a th:onclick="|window.location.href='/perfil/' + ${usuario.id}|"><p class="perfilname">Perfil</p></a>
-                    <a onclick="sugerirMateria(false)" class="materias-alunos" type="button">materias sugeridas</a>
-
-                    <a onclick="window.location.href='/'" class="sair">Sair</a>
-
-                </div>
             </div>
+
+            <div class="buttons-lateral">
+
+                <a onclick="sugerirMateria(false)" class="materias-alunos" type="button">materias sugeridas</a>
+
+                <a th:onclick="|window.location.href='/perfil/' + ${usuario.id}|"><p class="perfilname">Perfil</p></a>
+
+                <a onclick="window.location.href='/'" class="sair">Sair</a>
+
+            </div>
+
         </div> <!--FECHANDO BARRA LATERAL-->
 
         <div class="meio">
@@ -77,7 +80,7 @@
             </div>
         </div>
 
-        <div class="flutuante" id="flutuante" hidden>
+        <div class="flutuante animate__animated animate__backInUp" id="flutuante" hidden>
             <div class="flutuante-container">
 
                 <label for="exampleInputEmail1" class="form-label">Materia sugerida:</label>
@@ -131,7 +134,7 @@
 
                     </div>
                     <button id="salvar" type="submit" class="button-entrar">Cadastrar</button>
-                    <button  onclick="sumirJanela('flutuante2')">voltar</button>
+                    <button  onclick="sumirJanela('flutuante2')" class="button-back">voltar</button>
                 </form>
 
 

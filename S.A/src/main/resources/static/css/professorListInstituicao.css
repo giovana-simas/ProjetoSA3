@@ -41,9 +41,9 @@ body{
 .buttons-lateral{
   flex-direction: column;
   width: 100%;
+  display: flex;
   margin-top: 50%;
-  margin-left: 50%;
-  height: 100%;
+  margin-left: 25%;
 }
 .add{
   align-items: center;
@@ -65,18 +65,18 @@ body{
   align-items: center;
   width: 50%;
   border-radius: 15px;
-  background-color: #986713;
-  border: none;
+  border: 1px solid white;
   color: white;
   font-size: 20px;
   font-family: arial;
   display: flex;
   justify-content: center;
-  margin-top: 10%;
-  margin-bottom: 30%;
+  margin-bottom: 15%;
 }
 .perfilname:hover{
   cursor: pointer;
+  background: white;
+  color: black;
 }
 .sair{
   align-items: center;
@@ -92,16 +92,15 @@ body{
 }
 .materias-alunos{
   align-items: center;
-  width: 50%;
+  width: 58%;
   border-radius: 15px;
-  background-color: #224521;
   border: none;
   color: white;
   font-size: 20px;
   font-family: arial;
   display: flex;
   justify-content: center;
-  margin-bottom: 30%;
+  margin-bottom: 20%;
 }
 .titleAluno{
   margin: 30px 0px;

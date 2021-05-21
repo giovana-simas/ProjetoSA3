@@ -7,17 +7,21 @@
     background-color: white;
     position: absolute;
     z-index: 10;
-    width: 40%;
+    width: 25%;
     align-items: center;
     margin-top: 5%;
     left: 30%;
+    box-shadow: 20px 20px 50px -30px #515151;
 
 }
 
 .flutuante-container{
-    align-items: center;
+    display: flex;
     padding: 5%;
+    flex-direction: column;
+    align-items: center;
 }
+
 
 .img-perfil{
     /*height: 10%;*/
@@ -208,6 +212,43 @@ margin-left: 5%;
     display: flex;
     justify-content: center;
 }
+.button-back{
+    color: red;
+    background: transparent;
+    border: 0px;
+}
+.button-entrar{
+    color: #408d4e;
+    background: transparent;
+    border: 0px;
+}
+.button-back1{
+    color: red;
+    background: transparent;
+    border: 0px;
+    width: 100%;
+    font-size: 20px;
+}
+.button-entrar1{
+    color: #408d4e;
+    background: transparent;
+    border: 0px;
+    width: 100%;
+    font-size: 20px;
+}
+.input-inst{
+    background: #0000001f;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    border: none;
+    height: 35px;
+    width: 100%;
+}
+
+
+
+
 @media (max-width: 1000px) {
     .container-secundario{
         display: flex;

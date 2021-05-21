@@ -22,23 +22,27 @@
         <div class="container-list">
             <div>
                 <table>
+
                     <thead>
                         <tr class="nameSala">
                             <th><div th:text="${instituicao.nome}"></div></th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr th:each="sala : ${salas}" th:onclick="|window.location.href='/sala/' + ${sala.id} |">
-                            <td th:text="${sala.nome}" class="sala-css"></td>
 
-                    </tbody>
+
+
+                        <tbody>
+                            <tr th:each="sala : ${salas}" th:onclick="|window.location.href='/sala/' + ${sala.id} |">
+                                <td th:text="${sala.nome}" class="sala-css"></td>
+                        </tbody>
+
                 </table>
 
             </div>
 
             <div class="buttons">
                 <div>
-                    <button type="button"  onclick="sumirJanela('flutuante')" class="btn btn-secondary">Entrar em uma nova sala.</button>
+                    <button type="button"  onclick="sumirJanela('flutuante')" class="entrar-sala">Entrar em uma nova sala.</button>
 
                 </div>
 
