@@ -194,6 +194,7 @@ public class SalaController {
             model.addAttribute("salas", salaRepository.findByInstituicao(instituicao));
             model.addAttribute("instituicao", instituicao);
 
+            model.addAttribute("aluno", usuario);
             path = "/aluno/listSala";
         }
         permissao = permissaoRepository.findByNome("diretor");
@@ -206,6 +207,7 @@ public class SalaController {
             System.out.println("id: " + instituicao);
             model.addAttribute("salas", salaRepository.findByInstituicao(instituicao));
             model.addAttribute("instituicao", instituicao);
+            model.addAttribute("sala", new Sala());
             System.out.println("salas: " + salaRepository.findByInstituicao(instituicao));
 
             path = "/diretor/listSala";
@@ -215,10 +217,10 @@ public class SalaController {
 
             System.out.println("chegou aqui" );
             //verifica o usuario logado e aplica a instancia de conferencia(neste caso é o email do usuario logado) na variavel "email"
-
+            model.addAttribute("professor", usuario);
             model.addAttribute("salas", salaRepository.findByInstituicao(instituicao));
             model.addAttribute("instituicao", instituicao);
-
+            model.addAttribute("sala", new Sala());
 
             path = "/professor/listSala";
         }
@@ -288,6 +290,7 @@ public class SalaController {
             model.addAttribute("alunos", alunoRepository.findBySalasA(sala));
             model.addAttribute("professores", professorRepository.findBySalaP(sala));
             model.addAttribute("sala",sala);
+
 
             path = "/professor/sala";
         }
