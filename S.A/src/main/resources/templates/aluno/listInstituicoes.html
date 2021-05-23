@@ -52,27 +52,33 @@
                     LISTA DE INSTITUIÇÕES | CHAT
                 </div>
 
-                    <div class="middle" th:each="instituicao : ${instituicoes}">
-                        <div class="ft-inst">
-                            <img class="img-inst" th:src="@{/src/icon-escola.png}">
-                        </div>
 
-                        <!--INFORMAÇÕES DA INSTITUIÇÕES-->
-                        <div class="info-inst">
-                            <div class="nome-inst">
-                                <h4>Instituição:</h4> &nbsp <h4 th:text="${instituicao.nome}"></h4>
+                    <div class="tamanho-feed">
+                        <div class="middle" th:each="instituicao : ${instituicoes}">
+                            <div class="ft-inst">
+                                <img class="img-inst" th:src="@{/src/icon-escola.png}">
                             </div>
-                            <div class="endereco-inst">
-                                <h4>Endereço:</h4> &nbsp  <h4 th:text="${instituicao.endereco}"></h4>
-                            </div>
-                            <div class="contato-inst">
-                                <h4>Contato:</h4>  &nbsp <h4 th:text="${instituicao.numeroContato}"></h4>
-                            </div>
-                        </div>
-            </div>
 
-                <div class="entrar-inst">
-                    <a class="btn-solid-lg page-scroll animate__backOutDown" onclick="sumirJanela('flutuante2')">Entre em novas instituições:</a>
+                            <!--INFORMAÇÕES DA INSTITUIÇÕES-->
+                            <div class="info-inst">
+                                <div class="nome-inst">
+                                    <h4>Instituição:</h4> &nbsp <h4 th:text="${instituicao.nome}"></h4>
+                                </div>
+                                <div class="endereco-inst">
+                                    <h4>Endereço:</h4> &nbsp  <h4 th:text="${instituicao.endereco}"></h4>
+                                </div>
+                                <div class="contato-inst">
+                                    <h4>Contato:</h4>  &nbsp <h4 th:text="${instituicao.numeroContato}"></h4>
+                                </div>
+                            </div>
+                        </div><!--FECHANDO ESTRUTURA FEED-->
+                </div> <!--TAMANHO DO FEEED-->
+
+
+                <div class="tamanho-btn">
+                    <div class="entrar-inst">
+                        <a class="btn-solid-lg page-scroll animate__backOutDown" onclick="sumirJanela('flutuante2')">Entre em novas instituições:</a>
+                    </div>
                 </div>
 
         </div>
