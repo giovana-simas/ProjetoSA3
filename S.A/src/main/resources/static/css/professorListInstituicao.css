@@ -124,6 +124,7 @@ body{
   flex-direction: column;
   align-items: center;
   height: 75vh;
+  overflow-y: auto;
 }
 .tamanho-btn{
   width: 100%;
