@@ -212,7 +212,14 @@ width: 20%;
 
 
 .meio-feed{
-    width: 60%;
+    overflow-y: auto;
+    display: grid;
+    width: 100%;
+}
+
+.feed-historico{
+    height: 100%;
+    width: 100%;
 }
 
 .infos-pessoas{ /*DA ESQUERDA PARTE BRANCA*/
@@ -255,6 +262,7 @@ width: 20%;
     border-radius: 15px;
     display: flex;
     box-shadow: 20px 20px 50px -30px #000000e6;
+    margin-bottom: 25px;
 }
 .name-feed{
     color: #1c79f1;

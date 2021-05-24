@@ -62,34 +62,33 @@
 
     <div class="meio-feed"> <!--AQUI COMEÇA A DIV CENTRAL, PARA O FEED-->
         <div class="name-feed">
-            <h3>FEED dos alunos:</h3>
+            <h3>FEED:</h3>
         </div>
-        <div th:each="publicacao : ${publicacoes}" class="estrutura-feed">
+        <div class="feed-historico">
+            <div th:each="publicacao : ${publicacoes}" class="estrutura-feed">
 
-            <div class="ft-inst">
-                <img class="img-inst" th:src="@{/src/testimonial-3.svg}">
+                <div class="ft-inst">
+                    <img class="img-inst" th:src="@{/src/testimonial-3.svg}">
 
-            </div>
-
-
-            <div class="info-inst">
-                <div class="info-name">
-                    <h4 th:text="${publicacao.usuario.nome}">Artur Eller</h4>
-                    <h4 th:text="${publicacao.tipo}"></h4>
-                </div>
-                <div class="info-descricao">
-                    <h5 th:text="${publicacao.descricao}"></h5>
-                </div>
-            </div>
-
-            <div class="info-perfil-inst"><!--AQUI É O BOTÃO DE PERFIL E INSTITUIÇÃO DA PESSOA-->
-                <div class="inst-feed">
-                    <h5 th:text="${publicacao.instituicao.nome}">NOME INST</h5>
                 </div>
 
+                <div class="info-inst">
+                    <div class="info-name">
+                        <h4 th:text="${publicacao.usuario.nome}">Artur Eller</h4>
+                        <h4 th:text="${publicacao.tipo}"></h4>
+                    </div>
+                    <div class="info-descricao">
+                        <h5 th:text="${publicacao.descricao}"></h5>
+                    </div>
+                </div>
+
+                <div class="info-perfil-inst"><!--AQUI É O BOTÃO DE PERFIL E INSTITUIÇÃO DA PESSOA-->
+                    <div class="inst-feed">
+                        <h5 th:text="${publicacao.instituicao.nome}">NOME INST</h5>
+                    </div>
+                </div>
 
             </div>
-
         </div>
     </div>
 

@@ -52,7 +52,7 @@ public class Aluno extends Usuario{
 			joinColumns=@JoinColumn(name="aluno_id"),
 			inverseJoinColumns=@JoinColumn(name="instituicao_id")
 			)
-	private Set<Instituicao> instituicoesA;
+	private List<Instituicao> instituicoesA;
 
 	public StatusAjuda getStatusAjuda() {
 		return statusAjuda;
@@ -80,11 +80,11 @@ public class Aluno extends Usuario{
 		this.salasA = salasA;
 	}
 
-	public Set<Instituicao> getInstituicoesA() {
+	public List<Instituicao> getInstituicoesA() {
 		return instituicoesA;
 	}
 
-	public void setInstituicoesA(Set<Instituicao> instituicoesA) {
+	public void setInstituicoesA(List<Instituicao> instituicoesA) {
 		this.instituicoesA = instituicoesA;
 	}
 

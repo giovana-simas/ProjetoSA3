@@ -205,7 +205,7 @@ public class InstituicaoController {
 
 
 		String email;
-		Set<Instituicao> instituicoesAux;
+		List<Instituicao> instituicoesAux;
 
 		email = SecurityContextHolder.getContext().getAuthentication().getName();
 		System.out.println(email);
