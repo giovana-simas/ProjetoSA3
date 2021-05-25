@@ -71,22 +71,25 @@
                     <img class="img-inst" th:src="@{/src/testimonial-3.svg}">
 
                 </div>
-
-                <div class="info-inst">
-                    <div class="info-name">
-                        <h4 th:text="${publicacao.usuario.nome}">Artur Eller</h4>
-                        <h4 th:text="${publicacao.tipo}"></h4>
+                <div class="info-publi">
+                    <div class="info-inst">
+                        <div class="info-name">
+                            <div>
+                                <h4 th:text="${publicacao.usuario.nome}"></h4>
+                            </div>
+                            <div>
+                                <h4 th:text="${publicacao.tipo}"></h4>
+                            </div>
+                            <div>
+                               <h4 th:text="${publicacao.instituicao.nome}"></h4>
+                            </div>
+                        </div>
                     </div>
                     <div class="info-descricao">
-                        <h5 th:text="${publicacao.descricao}"></h5>
+                        <p th:text="${publicacao.descricao}"></p>
                     </div>
                 </div>
-
-                <div class="info-perfil-inst"><!--AQUI É O BOTÃO DE PERFIL E INSTITUIÇÃO DA PESSOA-->
-                    <div class="inst-feed">
-                        <h5 th:text="${publicacao.instituicao.nome}">NOME INST</h5>
-                    </div>
-                </div>
+                
 
             </div>
         </div>
@@ -140,19 +143,20 @@
 
             <h4>Publicação</h4>
 
-            <form th:object="${publicacao}" th:action="@{'/publicacaoSala/save/'+${sala.id}}" method="post">
+            <form class="form-modal" th:object="${publicacao}" th:action="@{'/publicacaoSala/save/'+${sala.id}}" method="post">
 
                 <input  th:field="*{id}" hidden></input>
 
                 <textarea placeholder="digite uma descrição da publicação" th:field="*{descricao}"></textarea>
-                <select  type="text" placeholder="tipo de publicacao" class="input-perfil" th:field="*{tipo}" readonly >
-                    <option th:each="tipoOpt : ${T(com.sa.model.Publicacao.Tipo).values()}" th:value="${tipoOpt}" th:text="${tipoOpt.displayValue}"></option>
-                </select>
-                <select class="form-control" th:field="*{materia}"  required>
-                    <option th:each="materias : ${materias}" th:value="${materias.id}" th:text="${materias.nome}"></option>
-                </select>
-
-                <button type="submit">Publicar</button>
+                <div>
+                    <select  type="text" placeholder="tipo de publicacao" class="input-perfil" th:field="*{tipo}" readonly >
+                        <option th:each="tipoOpt : ${T(com.sa.model.Publicacao.Tipo).values()}" th:value="${tipoOpt}" th:text="${tipoOpt.displayValue}"></option>
+                    </select>
+                    <select class="form-control" th:field="*{materia}"  required>
+                        <option th:each="materias : ${materias}" th:value="${materias.id}" th:text="${materias.nome}"></option>
+                    </select>
+                </div>
+                <button class="btn btn-success" type="submit">Publicar</button>
             </form>
 
 
