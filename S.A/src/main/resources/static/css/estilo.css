@@ -90,6 +90,7 @@ body {
     background: transparent;
     border-radius: 5px;
     height: 30px;
+    margin-bottom: 15px;
 }
 .entrar-sala:hover{
     background: #1c79f1;
@@ -192,10 +193,9 @@ width: 20%;
 
 /*AS DIVISORIAS DENTRO DA SALA*/
 .boxLateral{
-    width: 20%;
+    width: 25%;
     background-color: grey;
     display: none;
-    /* margin-right: 50px; */
     box-shadow: 20px 20px 50px -30px #00000099;
     font-family: "Segoe UI Light";
     font-size: 20px;
@@ -224,7 +224,7 @@ width: 20%;
 }
 
 .infos-pessoas{ /*DA ESQUERDA PARTE BRANCA*/
-    width: 20%;
+    width: 22%;
     background-color: #6094CE;
     border-radius: 25px 0px 0px 25px;
     display: flex;
@@ -323,30 +323,40 @@ width: 20%;
     cursor: pointer;
     font-size: 22px;
 }
-
+.name-name{
+    color: white;
+    padding-top: 10%;
+    padding-bottom: 10%;
+    font-size: 16px;
+    font-family: "Segoe UI Light";
+}
+.button-chat{
+    color: white;
+}
 
 
 
 
 /*--------------BOTÕES--------------S*/
-.button-back{
+.button-sala{
     background: transparent;
-    border-radius:42px;
-    border:1px solid white;
-    display:inline-block;
-    cursor:pointer;
-    color:#ffffff;
-    font-family:Arial;
-    font-size:15px;
-    padding:10px 35px;
-    text-decoration:none;
-    text-shadow:0px 1px 0px #263666;
+    border-radius: 42px;
+    border: 1px solid white;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 15px;
+    padding: 5px 30px;
+    margin-bottom: 20px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #263666;
 }
-.button-back:hover {
+.button-sala:hover {
     background-color: white;
     color: #1c79f1;
 }
-.button-back:active {
+.button-sala:active {
     position:relative;
     top:1px;
 }

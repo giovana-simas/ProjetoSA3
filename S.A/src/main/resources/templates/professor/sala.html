@@ -79,7 +79,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr th:each="professor : ${professores}" th:onclick="|window.location.href='/perfil/' + ${professor.id}|">
+                    <tr class="name-name" th:each="professor : ${professores}" th:onclick="|window.location.href='/perfil/' + ${professor.id}|">
                     <td th:text="${professor.nome}"></td>
                     </tr>
                 </tbody>
@@ -96,68 +96,19 @@
                 </thead>
                 <tbody>
                     <tr th:each="aluno : ${alunos}" >
-                    <td th:text="${aluno.nome}" th:onclick="|window.location.href='/perfil/' + ${aluno.id}|"></td>
-                    <td th:onclick="|window.location.href='/chat/add/' + ${aluno.id} |" ><i class="fas fa-comments"></i> </td>
+                    <td class="name-name" th:text="${aluno.nome}" th:onclick="|window.location.href='/perfil/' + ${aluno.id}|"></td>
+                    <td class="button-chat" th:onclick="|window.location.href='/chat/add/' + ${aluno.id} |" ><i class="fas fa-comments"></i> </td>
                 </tr>
                 </tbody>
                 </table>
-                <button type="button" th:onclick="|window.location.href='/sala/listSala/' + ${instituicao.id} |" class="button-back">Voltar</button>
+
+            </div>
+            <div class="button-div">
+                <button type="button" th:onclick="|window.location.href='/sala/listSala/' + ${instituicao.id} |" class="button-sala">Voltar</button>
             </div>
         </div> <!--fechando as info-->
 
 
-
-        <!--
-        <div class="container-info">
-            <div class="container-prof">
-                <thead>
-                    <tr>
-                        <th class="names">PROFESSORES</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr th:each="professor : ${professores}" th:onclick="|window.location.href='/perfil/' + ${professor.id}|">
-                        <td th:text="${professor.nome}"></td>
-                    </tr>
-                </tbody>
-            </table>
-
-            </div>
-            <div class="container-alunos">
-            <table>
-                <thead>
-                    <tr>
-                        <th class="names">ALUNOS</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr th:each="aluno : ${alunos}" th:onclick="|window.location.href='/perfil/' + ${aluno.id}|">
-                        <td th:text="${aluno.nome}"></td>
-                    </tr>
-                </tbody>
-            </table>
-                <button type="button" th:onclick="|window.location.href='/sala/listSala/' + ${instituicao.id} |" class="button-back">Voltar</button>
-            </div>
-        </div>
-        </div>
-
-
-        <div class="fundo-feed">
-            <div class="feed-sala">
-                <div class="fotinho">
-                    <h1>foto</h1>
-                </div>
-
-            </div>
-        </div>
-
-
-
-        <div class="chatdiv">
-
-        </div>
-
-        </div> -->
 
     </div><!--FECHANDO MAJOR CONTAINER-->
 
