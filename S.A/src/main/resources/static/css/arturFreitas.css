@@ -1,18 +1,72 @@
 /*##92e3a9*/
 
 
+/* ================Publicação================ */
+.titulo-publi{
+    display: flex;
+    margin-bottom: 15px;
+}
+.text-publi{
+    height: 100%;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.div-select{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.select-group{
+    display: flex;
+    width: 49%;
+}
+
+.select-publi{
+    width: 100%;
+    text-align-last: center;
+    text-transform: capitalize;
+}
+
+.div-btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.btn-publi{
+    width: 35%;
+}
+
 /*janela flutuante*/
+.major-flutuante{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 10;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.fundo-flutuante{
+    height: 100%;
+    width: 100%;
+    background-color: #00000080;
+
+}
+
 .flutuante{
     border-radius: 12px;
     background-color: white;
-    position: absolute;
-    z-index: 10;
-    width: 30%;
+    height: 40%;
+    min-width: 30%;
     align-items: center;
-    margin-top: 5%;
-    left: 30%;
     box-shadow: 20px 20px 50px -30px #515151;
-
+    position: absolute;
 }
 
 .form-modal{
@@ -24,6 +78,7 @@
 
 .flutuante-container{
     display: flex;
+    height: 100%;
     padding: 5%;
     flex-direction: column;
     align-items: center;
@@ -45,7 +100,6 @@
     font-family: "Segoe UI Light";
 
 }
-
 
 .formUser{
     position: relative;
@@ -70,19 +124,6 @@
     float: left;
     margin-left: 5%;
     margin-bottom: 5%;
-
-
-}
-.input-perfil{
-    border-radius: 8px;
-    border: none;
-    background-color: #80808030;
-}
-#inputAjuda{
-    border-radius: 8px;
-    border: none;
-    background-color: #80808030;
-    height: 3.3vh;
 }
 
 .barra-lateral{

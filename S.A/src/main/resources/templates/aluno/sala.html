@@ -137,32 +137,48 @@
         </div>
         <button class="button-back" type="button"  onclick="sumirJanela('flutuante2')">Publicar</button>
     </div> <!--fechando as info-->
-
-    <div class="flutuante" id="flutuante2" hidden>
-        <div class="flutuante-container">
-
-            <h4>Publicação</h4>
-
-            <form class="form-modal" th:object="${publicacao}" th:action="@{'/publicacaoSala/save/'+${sala.id}}" method="post">
-
-                <input  th:field="*{id}" hidden></input>
-
-                <textarea placeholder="digite uma descrição da publicação" th:field="*{descricao}"></textarea>
-                <div>
-                    <select  type="text" placeholder="tipo de publicacao" class="input-perfil" th:field="*{tipo}" readonly >
-                        <option th:each="tipoOpt : ${T(com.sa.model.Publicacao.Tipo).values()}" th:value="${tipoOpt}" th:text="${tipoOpt.displayValue}"></option>
-                    </select>
-                    <select class="form-control" th:field="*{materia}"  required>
-                        <option th:each="materias : ${materias}" th:value="${materias.id}" th:text="${materias.nome}"></option>
-                    </select>
+    <div id="flutuante2" class="major-flutuante" hidden>
+        <div class="flutuante">
+            <div class="flutuante-container">
+                <div class="titulo-publi">
+                    <h4>Publicação</h4>
                 </div>
-                <button class="btn btn-success" type="submit">Publicar</button>
-            </form>
+                <form class="form-modal" th:object="${publicacao}" th:action="@{'/publicacaoSala/save/'+${sala.id}}" method="post">
 
-
-
+                    <input  th:field="*{id}" hidden></input>
+                    <div class="text-publi">
+                        <textarea class="text-publi" placeholder="Digite a descrição." th:field="*{descricao}"></textarea>
+                    </div>
+                    <div class="div-select">
+                        <div class="select-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect01">Tipo</label>
+                            </div>
+                            <div class="div-select">
+                                <select  type="text" placeholder="tipo de publicacao" class="form-control select-publi" th:field="*{tipo}">
+                                    <option th:each="tipoOpt : ${T(com.sa.model.Publicacao.Tipo).values()}" th:value="${tipoOpt}" th:text="${tipoOpt.displayValue}"></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="select-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect01">Matéria</label>
+                            </div>
+                            <div class="div-select">
+                                <select class="form-control select-publi" th:field="*{materia}"  required>
+                                    <option th:each="materias : ${materias}" th:value="${materias.id}" th:text="${materias.nome}"></option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="div-btn">
+                        <button class="btn btn-success btn-publi" type="submit">Publicar</button>
+                        <button type="button" onclick="sumirJanela('flutuante2')" class="btn btn-danger btn-publi">Cancelar</button>
+                    </div>
+                </form>
+            </div>
         </div>
-
+        <div class="fundo-flutuante" onclick="sumirJanela('flutuante2')"></div>
     </div>
 
 </div>
