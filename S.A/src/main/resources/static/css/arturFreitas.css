@@ -2,9 +2,10 @@
 
 
 /* ================Publicação================ */
-.titulo-publi{
+.titulo-modal{
     display: flex;
     margin-bottom: 15px;
+    font-family: "Segoe UI Light";
 }
 .text-publi{
     height: 100%;
@@ -36,7 +37,7 @@
     justify-content: space-around;
 }
 
-.btn-publi{
+.btn-modal{
     width: 35%;
 }
 
@@ -59,10 +60,37 @@
 
 }
 
-.flutuante{
+
+.div-pequeno{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.flutuante-pequeno{ /* Utilizando em Sala.html(Diretor, Professor e Aluno) e listInstituiçoes.html(Apenas em Aluno)*/
+    border-radius: 12px;
+    background-color: white;
+    height: 25%;
+    min-width: 20%;
+    align-items: center;
+    box-shadow: 20px 20px 50px -30px #515151;
+    position: absolute;
+}
+
+.flutuante{ /* Utilizando em Sala.html(Diretor, Professor e Aluno) e listInstituiçoes.html(Apenas em Aluno)*/
     border-radius: 12px;
     background-color: white;
     height: 40%;
+    min-width: 30%;
+    align-items: center;
+    box-shadow: 20px 20px 50px -30px #515151;
+    position: absolute;
+}
+
+.flutuante-grande {
+    border-radius: 12px;
+    background-color: white;
+    height: 50%;
     min-width: 30%;
     align-items: center;
     box-shadow: 20px 20px 50px -30px #515151;
@@ -74,6 +102,7 @@
     flex-direction: column;
     width: 100%;
     height: 100%;
+    justify-content: center;
 }
 
 .flutuante-container{

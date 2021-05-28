@@ -7,7 +7,8 @@
         <link  rel="stylesheet" th:href="@{/css/estilo.css}">
         <link rel="stylesheet" th:href="@{/css/arturFreitas.css}">
         <link rel="stylesheet" th:href="@{/bootstrap-4.5.2/css/bootstrap.min.css}">
-    <link rel="stylesheet" th:href="@{/fontawesome-5.14.0/css/all.min.css}">
+        <link rel="stylesheet" th:href="@{/fontawesome-5.14.0/css/all.min.css}">
+        <link  rel="stylesheet"th:href="@{https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css}" />
 
         <script src="/js/script.js"></script>
 
@@ -17,46 +18,51 @@
     <body >
 
         <div class="fundo">
-        <div class="container-list">
-            <div>
-                <table>
-                    <thead>
-                        <tr class="nameSala">
-                            <th><div th:text="${instituicao.nome}"></div></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr th:each="sala : ${salas}" th:onclick="|window.location.href='/sala/' + ${sala.id} |">
-                            <td th:text="${sala.nome}" class="sala-css"></td>
-                        </tr>
-                    </tbody>
-                </table>
-
-            </div>
-            <div class="buttons">
+            <div class="container-list">
                 <div>
-                    <button type="button"  onclick="sumirJanela('flutuante2')" class="entrar-sala">Criar nova uma sala</button>
-                </div>
-
-                <a onclick="window.location.href='/instituicao/listInstituicoes/'" class="button-new">Voltar</a>
-            </div>
-        </div>
-
-            <div class="flutuante" id="flutuante2" hidden>
-                <div class="flutuante-container">
-                    <form th:action="|@{/sala/save/} + ${instituicao.id}|" th:object="${sala}" method="POST">
-
-                        <input type="text" placeholder="&#32 NOME" class="css-email" th:field="*{id}" required hidden/><br>
-                        <input type="text" placeholder="&#32 NOME" th:field="*{nome}" required /><br>
-                        <button type="button"  onclick="sumirJanela('flutuante2')" class="btn btn-secondary">Voltar</button>
-                        <button type="submit" class="btn btn-success">CADASTRAR</button>
-                    </form>
+                    <table>
+                        <thead>
+                            <tr class="nameSala">
+                                <th><div th:text="${instituicao.nome}"></div></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="sala : ${salas}" th:onclick="|window.location.href='/sala/' + ${sala.id} |">
+                                <td th:text="${sala.nome}" class="sala-css"></td>
+                            </tr>
+                        </tbody>
+                    </table>
 
                 </div>
+                <div class="buttons">
+                    <div>
+                        <button type="button"  onclick="sumirJanela('flutuante2')" class="entrar-sala">Criar nova uma sala</button>
+                    </div>
 
+                    <a onclick="window.location.href='/instituicao/listInstituicoes/'" class="button-new">Voltar</a>
+                </div>
+            </div>
+            <div id="flutuante2" class="major-flutuante" hidden>
+                <div class="flutuante-pequeno animate__animated animate__backInUp">
+                    <div class="flutuante-container">
+                        <div class="titulo-modal">
+                            <h4>Cadastrar uma sala</h4>
+                        </div>
+                        <form class="form-modal justify-content-around"  th:action="|@{/sala/save/} + ${instituicao.id}|" th:object="${sala}" method="POST">
+                            <input type="text" placeholder="&#32 NOME" class="css-email" th:field="*{id}" required hidden/>
+                            <div class="select-publi">
+                                <input class="input-inst" type="text" placeholder="&#32 Nome" th:field="*{nome}" required />
+                            </div>
+                            <div class="div-btn">
+                                <button type="submit" class="btn btn-success btn-modal">Cadastrar</button>
+                                <button type="button" onclick="sumirJanela('flutuante2')" class="btn btn-danger btn-modal">Voltar</button>
+                            </div> 
+                        </form>
+                    </div>
+                </div>
+                <div class="fundo-flutuante" onclick="sumirJanela('flutuante2')"></div>
             </div>
         </div>
-
         <script th:src="@{/js/jquery-3.5.1.min.js}"></script>
         <script th:src="@{/bootstrap-4.5.2/js/bootstrap.min.js}"></script>
         <script src="/js/script.js"></script>

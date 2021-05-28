@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" th:href="@{/bootstrap-4.5.2/css/bootstrap.min.css}">
     <link rel="stylesheet" th:href="@{/fontawesome-5.14.0/css/all.min.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
     <script src="/js/script.js"></script>
 
@@ -137,10 +138,11 @@
         </div>
         <button class="button-back" type="button"  onclick="sumirJanela('flutuante2')">Publicar</button>
     </div> <!--fechando as info-->
+    
     <div id="flutuante2" class="major-flutuante" hidden>
-        <div class="flutuante">
+        <div class="flutuante animate__animated animate__backInUp">
             <div class="flutuante-container">
-                <div class="titulo-publi">
+                <div class="titulo-modal">
                     <h4>Publicação</h4>
                 </div>
                 <form class="form-modal" th:object="${publicacao}" th:action="@{'/publicacaoSala/save/'+${sala.id}}" method="post">
@@ -172,8 +174,8 @@
                         </div>
                     </div>
                     <div class="div-btn">
-                        <button class="btn btn-success btn-publi" type="submit">Publicar</button>
-                        <button type="button" onclick="sumirJanela('flutuante2')" class="btn btn-danger btn-publi">Cancelar</button>
+                        <button class="btn btn-success btn-modal" type="submit">Publicar</button>
+                        <button type="button" onclick="sumirJanela('flutuante2')" class="btn btn-danger btn-modal">Cancelar</button>
                     </div>
                 </form>
             </div>

@@ -84,53 +84,67 @@
 
 
 
+        <div id="flutuante" class="major-flutuante" hidden>
+            <div class="flutuante animate__animated animate__backInUp">
+                <div class="flutuante-container">
+                <div class="titulo-modal">
+                    <h4>Materia sugerida:</h4>
+                </div>
+                <div class="form-modal justify-content-between">
+                    <div>
+                        <table id="exampleInputEmail1" style="width: 100%">
+                            <tr>
+                                <th>Nome:</th>
+                                <th>Instituicao:</th>
+                            </tr>
+                            <tr th:each="materiaSugerida : ${materiasSugerida}" th:id="|tr-${materiaSugerida.id}|">
+                                <td th:text="${materiaSugerida.nome}"></td>
+                                <td th:text="${materiaSugerida.instituicao.nome}"></td>
+                                <td th:onclick="|deleteMateria(${materiaSugerida.id})|"><i class="fas fa-trash-alt alert-danger"></i></td>
+                                <td th:onclick="|convertMateria(${materiaSugerida.id})|"><i class="fas fa-check btn-success"></i></td>
+                            </tr>
 
-        <div class="flutuante animate__animated animate__backInUp" id="flutuante" hidden>
-            <div class="flutuante-container">
 
-                    <label for="exampleInputEmail1" class="form-label">Materia sugerida:</label>
-                <table id="exampleInputEmail1" style="width: 100%">
-                    <tr>
-                        <th>Nome:</th>
-                        <th>Instituicao:</th>
-                    </tr>
-                    <tr th:each="materiaSugerida : ${materiasSugerida}" th:id="|tr-${materiaSugerida.id}|">
-                        <td th:text="${materiaSugerida.nome}"></td>
-                        <td th:text="${materiaSugerida.instituicao.nome}"></td>
-                        <td th:onclick="|deleteMateria(${materiaSugerida.id})|"><i class="fas fa-trash-alt alert-danger"></i></td>
-                        <td th:onclick="|convertMateria(${materiaSugerida.id})|"><i class="fas fa-check btn-success"></i></td>
-                    </tr>
-
-
-                </table>
-
-                <button class="btn-secondary"  onclick="sumirJanela('flutuante')">voltar</button>
+                        </table>
+                    </div>
+                    <div class="div-btn">
+                        <button type="button" class="btn btn-danger btn-modal" onclick="sumirJanela('flutuante')">Voltar</button>
+                    </div>
+                </div>
+                
 
 
             </div>
-
+            </div>
+            <div class="fundo-flutuante" onclick="sumirJanela('flutuante')"></div>
         </div>
+        
 
-        <div class="flutuante" id="flutuante2" hidden>
-            <div class="flutuante-container">
+        <div id="flutuante2" class="major-flutuante" hidden>
+            <div class="flutuante-grande animate__animated animate__backInUp">
+                <div class="flutuante-container">
 
-                <h4>Cadastrar instituição</h4>
-                <img class="add-inst" height="200" th:src="@{/src/school.jpg}">
-
-                <form th:action="@{/instituicao/save}" th:object="${instituicaoadd}" method="POST">
-
-
-                    <input type="text" placeholder="&#32 NOME" class="input-inst" th:field="*{nome}" required /><br>
-                    <input type="text" placeholder="&#32 Endereco" class="input-inst" th:field="*{endereco}" required /><br>
-                    <input type="text" placeholder="&#32 Numero para Contato" class="input-inst" th:field="*{numeroContato}" required/><br>
-                    <button id="salvar" type="submit" class="button-entrar1">Cadastrar</button><br>
-                    <button  onclick="sumirJanela('flutuante2')" class="button-back1">voltar</button>
-
-
-                </form>
-
+                    <h4>Cadastrar instituição</h4>
+                    <img class="add-inst" height="200" th:src="@{/src/school.jpg}">
+    
+                    <form class="form-modal" th:action="@{/instituicao/save}" th:object="${instituicaoadd}" method="POST">
+    
+                        <div class="d-flex flex-column mb-3 select-publi">
+                            <input type="text" placeholder="&#32 Nome" class="input-inst" th:field="*{nome}" required />
+                            <input type="text" placeholder="&#32 Endereço" class="input-inst" th:field="*{endereco}" required />
+                            <input type="text" placeholder="&#32 Numero para contato" class="input-inst" th:field="*{numeroContato}" required/>
+                        </div>
+                        <div class="div-btn">
+                            <button id="salvar" type="submit" class="btn btn-success btn-modal">Cadastrar</button>
+                            <button type="button" onclick="sumirJanela('flutuante2')" class="btn btn-danger btn-modal">Voltar</button>
+                        </div>
+    
+    
+                    </form>
+    
+                </div>
             </div>
-
+            <div class="fundo-flutuante" onclick="sumirJanela('flutuante2')"></div>
         </div>
 
     </div>

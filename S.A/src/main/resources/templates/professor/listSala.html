@@ -42,47 +42,64 @@
                 <a onclick="window.location.href='/instituicao/listInstituicoes/'" class="button-new">Voltar</a>
             </div>
         </div>
-            <div class="flutuante" id="flutuante" hidden>
-                <div class="flutuante-container">
-                    <form th:action="|@{/professor/insertsala/} + ${instituicao.id}|" th:object="${professor}" method="POST">
-
-                        <input id="editId" type="text" placeholder="&#32 ID" class="css-email" th:field="${professor.id}" readonly hidden />
-                        <input id="editNome" type="text" placeholder="&#32 NOME" class="css-email" th:field="${professor.nome}" readonly hidden />
-                        <input id="editEmail" type="text" placeholder="&#32 E-MAIL" class="css-email" th:field="${professor.email}" readonly hidden/>
-                        <input id="editSenha" type="text" placeholder="&#32 SENHA" class="css-email" th:field="${professor.senha}" readonly hidden />
-                        <input id="editPermissoes" type="text" placeholder="&#32 PERMISSÃO" class="css-email" th:field="${professor.permissoes}" readonly hidden />
-
-                        <textarea id="editDescricao"   placeholder="Descrição, até 155 caracteres para descrever as materias que você tem facilidade ou dificuldade e interesses academicos" maxlength="155" class="bloco-form" th:field="${professor.descricao}" readonly  hidden></textarea>
-                        <input id="editSexo" type="text"th:field="${professor.sexo}"readonly hidden>
-
-                        <input id="editsalas" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${professor.instituicaoP}" readonly hidden />
-                        <input id="editmateria" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${professor.materiasLecionadas}" readonly hidden />
-
-                        <div class="form-group">
-                            <select class="form-control" th:field="*{salaP}"  required>
-                                <option th:each="salaP : ${salas}" th:value="${salaP.id}" th:text="${salaP.nome}"></option>
-                            </select>
+            
+            <div id="flutuante" class="major-flutuante" hidden>
+                <div class="flutuante-pequeno animate__animated animate__backInUp">
+                    <div class="flutuante-container">
+                        <div class="titulo-modal">
+                            <h4>Cadastrar-se em uma Sala</h4>
                         </div>
-                        <button type="button"  onclick="sumirJanela('flutuante')" class="btn btn-secondary">Voltar</button>
-                        <button type="submit" class="btn btn-success">CADASTRA-SE</button>
-                    </form>
+                        <form class="form-modal" th:action="|@{/professor/insertsala/} + ${instituicao.id}|" th:object="${professor}" method="POST">
 
+                            <input id="editId" type="text" placeholder="&#32 ID" class="css-email" th:field="${professor.id}" readonly hidden />
+                            <input id="editNome" type="text" placeholder="&#32 NOME" class="css-email" th:field="${professor.nome}" readonly hidden />
+                            <input id="editEmail" type="text" placeholder="&#32 E-MAIL" class="css-email" th:field="${professor.email}" readonly hidden/>
+                            <input id="editSenha" type="text" placeholder="&#32 SENHA" class="css-email" th:field="${professor.senha}" readonly hidden />
+                            <input id="editPermissoes" type="text" placeholder="&#32 PERMISSÃO" class="css-email" th:field="${professor.permissoes}" readonly hidden />
+    
+                            <textarea id="editDescricao"   placeholder="Descrição, até 155 caracteres para descrever as materias que você tem facilidade ou dificuldade e interesses academicos" maxlength="155" class="bloco-form" th:field="${professor.descricao}" readonly  hidden></textarea>
+                            <input id="editSexo" type="text"th:field="${professor.sexo}"readonly hidden>
+    
+                            <input id="editsalas" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${professor.instituicaoP}" readonly hidden />
+                            <input id="editmateria" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${professor.materiasLecionadas}" readonly hidden />
+    
+                            <div class="form-group">
+                                <select class="form-control select-publi" th:field="*{salaP}"  required>
+                                    <option th:each="salaP : ${salas}" th:value="${salaP.id}" th:text="${salaP.nome}"></option>
+                                </select>
+                            </div>
+                            <div class="div-btn">
+                                <button id="salvar" type="submit" class="btn btn-success">Cadastrar-se</button>
+                                <button type="button"  onclick="sumirJanela('flutuante')" class="btn btn-danger">Voltar</button>
+                            </div>
+                        </form>
+    
+                    </div>
                 </div>
-
+                <div class="fundo-flutuante" onclick="sumirJanela('flutuante')"></div>
             </div>
 
-            <div class="flutuante" id="flutuante2" hidden>
-                <div class="flutuante-container">
-                    <form th:action="|@{/sala/save/} + ${instituicao.id}|" th:object="${sala}" method="POST">
+            <div id="flutuante2" class="major-flutuante" hidden>
+                <div class="flutuante-pequeno animate__animated animate__backInUp">
+                    <div class="flutuante-container">
+                        <div class="titulo-modal">
+                            <h4>Cadastrar uma sala</h4>
+                        </div>
+                        <form class="form-modal" th:action="|@{/sala/save/} + ${instituicao.id}|" th:object="${sala}" method="POST">
 
-                        <input type="text" placeholder="&#32 NOME" class="css-email" th:field="*{id}" required hidden/><br>
-                        <input type="text" placeholder="&#32 NOME" th:field="*{nome}" required /><br>
-                        <button type="button"  onclick="sumirJanela('flutuante2')" class="btn btn-secondary">Voltar</button>
-                        <button type="submit" class="btn btn-success">CADASTRAR</button>
-                    </form>
-
+                            <input type="text" placeholder="&#32 NOME" class="css-email" th:field="*{id}" required hidden/>
+                            <div>
+                                <input  class="select-publi mb-3" type="text" placeholder="&#32 Nome" th:field="*{nome}" required />
+                            </div>
+                            <div class="div-btn">
+                                <button id="salvar" type="submit" class="btn btn-success">Cadastrar-se</button>
+                                <button type="button"  onclick="sumirJanela('flutuante2')" class="btn btn-danger">Voltar</button>
+                            </div>
+                        </form>
+    
+                    </div>
                 </div>
-
+                <div class="fundo-flutuante" onclick="sumirJanela('flutuante2')"></div>
             </div>
         </div>
 

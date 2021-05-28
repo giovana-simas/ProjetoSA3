@@ -82,42 +82,51 @@
                 </div>
 
         </div>
-
-            <div class="flutuante animate__animated animate__backInUp" id="flutuante2" hidden>
+        <div id="flutuante2" class="major-flutuante" hidden>
+            <div class="flutuante-grande animate__animated animate__backInUp">
                 <div class="flutuante-container">
+                    <div class="titulo-modal">
+                        <h4>Cadastrar-se em uma Instituição</h4>
+                    </div>
+                    <div>
+                        <img height="200px" class="add-inst" th:src="@{/src/school.jpg}">
+                    </div>
 
-                    <h4>Cadastrar instituição</h4>
-                    <img height="200px" class="add-inst" th:src="@{/src/school.jpg}">
+                    <form class="form-modal" th:action="@{/aluno/insertinstituicao}" th:object="${aluno}" method="POST">
+                        <div>
+                            <input id="editId" type="text" placeholder="&#32 ID" class="css-email" th:field="${aluno.id}" readonly hidden />
+                            <input id="editNome" type="text" placeholder="&#32 NOME" class="css-email" th:field="${aluno.nome}" readonly hidden />
+                            <input id="editEmail" type="text" placeholder="&#32 E-MAIL" class="css-email" th:field="${aluno.email}" readonly hidden/>
+                            <input id="editSenha" type="text" placeholder="&#32 SENHA" class="css-email" th:field="${aluno.senha}" readonly hidden />
+                            <input id="editPermissoes" type="text" placeholder="&#32 PERMISSÃO" class="css-email" th:field="${aluno.permissoes}" readonly hidden />
+                            <input id="editAjuda" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${aluno.statusAjuda}" readonly hidden />
+                            <input id="editDescricao" type="text" placeholder="&#32 Descrição" class="css-email" th:field="${aluno.descricao}" readonly hidden />
 
-                    <form th:action="@{/aluno/insertinstituicao}" th:object="${aluno}" method="POST">
-
-                        <input id="editId" type="text" placeholder="&#32 ID" class="css-email" th:field="${aluno.id}" readonly hidden />
-                        <input id="editNome" type="text" placeholder="&#32 NOME" class="css-email" th:field="${aluno.nome}" readonly hidden />
-                        <input id="editEmail" type="text" placeholder="&#32 E-MAIL" class="css-email" th:field="${aluno.email}" readonly hidden/>
-                        <input id="editSenha" type="text" placeholder="&#32 SENHA" class="css-email" th:field="${aluno.senha}" readonly hidden />
-                        <input id="editPermissoes" type="text" placeholder="&#32 PERMISSÃO" class="css-email" th:field="${aluno.permissoes}" readonly hidden />
-                        <input id="editAjuda" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${aluno.statusAjuda}" readonly hidden />
-                        <input id="editDescricao" type="text" placeholder="&#32 Descrição" class="css-email" th:field="${aluno.descricao}" readonly hidden />
-
-                        <input id="editsalas" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${aluno.salasA}" readonly hidden />
-                        <input id="editmateria" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${aluno.materiaAluno}" readonly hidden />
-
-                        <div class="form-group">
-                            <select class="form-control" th:field="*{instituicoesA}"  required>
-                                <option th:each="instituicoesA : ${instituicoesadd}" th:value="${instituicoesA.id}" th:text="${instituicoesA.nome}"></option>
-                            </select>
-
+                            <input id="editsalas" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${aluno.salasA}" readonly hidden />
+                            <input id="editmateria" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${aluno.materiaAluno}" readonly hidden />
                         </div>
-                        <button id="salvar" type="submit"  class="button-entrar">ENTRAR</button>
-                        <button  onclick="sumirJanela('flutuante2')" class="button-back">VOLTAR</button>
+                        <div class="d-flex w-100 flex-row mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect01">Instituição</label>
+                            </div>
+                            <div class="div-select">
+                                <select class="form-control select-publi" th:field="*{instituicoesA}"  required>
+                                    <option th:each="instituicoesA : ${instituicoesadd}" th:value="${instituicoesA.id}" th:text="${instituicoesA.nome}"></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="div-btn">
+                            <button id="salvar" type="submit"  class="btn btn-success btn-modal">Entar</button>
+                            <button type="button"  onclick="sumirJanela('flutuante2')" class="btn btn-danger btn-modal">Voltar</button>
+                        </div>
 
 
                     </form>
 
                 </div>
-
             </div>
-
+            <div class="fundo-flutuante" onclick="sumirJanela('flutuante2')"></div>
+        </div>
 
 </div>
 

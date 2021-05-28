@@ -17,8 +17,6 @@
     <body style="background-color: #1C79F1;" >
     <div class="container-principal">
 
-
-
         <div class="barra-lateral">
 
             <div class="info-aluno">
@@ -85,66 +83,84 @@
             </div>
         </div>
 
-        <div class="flutuante animate__animated animate__backInUp" id="flutuante" hidden>
-            <div class="flutuante-container">
+        <div id="flutuante" class="major-flutuante" hidden>
+            <div class="flutuante animate__animated animate__backInUp">
+                <div class="flutuante-container">
+                <div class="titulo-modal">
+                    <h4>Materia sugerida:</h4>
+                </div>
+                <div class="form-modal justify-content-between">
+                    <div>
+                        <table id="exampleInputEmail1" style="width: 100%">
+                            <tr>
+                                <th>Nome:</th>
+                                <th>Instituicao:</th>
+                            </tr>
+                            <tr th:each="materiaSugerida : ${materiasSugerida}" th:id="|tr-${materiaSugerida.id}|">
+                                <td th:text="${materiaSugerida.nome}"></td>
+                                <td th:text="${materiaSugerida.instituicao.nome}"></td>
+                                <td th:onclick="|deleteMateria(${materiaSugerida.id})|"><i class="fas fa-trash-alt alert-danger"></i></td>
+                                <td th:onclick="|convertMateria(${materiaSugerida.id})|"><i class="fas fa-check btn-success"></i></td>
+                            </tr>
 
-                <label for="exampleInputEmail1" class="form-label">Materia sugerida:</label>
-                <table id="exampleInputEmail1" style="width: 100%">
-                    <tr>
-                        <th>Nome:</th>
-                        <th>Instituicao:</th>
-                    </tr>
-                    <tr th:each="materiaSugerida : ${materiasSugerida}" th:id="|tr-${materiaSugerida.id}|">
-                        <td th:text="${materiaSugerida.nome}"></td>
-                        <td th:text="${materiaSugerida.instituicao.nome}"></td>
-                        <td th:onclick="|deleteMateria(${materiaSugerida.id})|"><i class="fas fa-trash-alt alert-danger"></i></td>
-                        <td th:onclick="|convertMateria(${materiaSugerida.id})|"><i class="fas fa-check btn-success"></i></td>
-                    </tr>
 
-
-                </table>
-
-                <button class="btn-secondary"  onclick="sumirJanela('flutuante')">voltar</button>
+                        </table>
+                    </div>
+                    <div class="div-btn">
+                        <button type="button" class="btn btn-danger btn-modal" onclick="sumirJanela('flutuante')">Voltar</button>
+                    </div>
+                </div>
+                
 
 
             </div>
-
+            </div>
+            <div class="fundo-flutuante" onclick="sumirJanela('flutuante')"></div>
         </div>
 
-        <div class="flutuante" id="flutuante2" hidden>
-            <div class="flutuante-container">
-
-                <h4>Cadastrar instituição</h4>
-                <img height="200px" class="add-inst" th:src="@{/src/school.jpg}">
-
-                <form th:action="@{/professor/insertinstituicao}" th:object="${professor}" method="POST">
-
-
-                    <input id="editId" type="text" placeholder="&#32 ID" class="css-email" th:field="${professor.id}" readonly hidden />
-                    <input id="editNome" type="text" placeholder="&#32 NOME" class="css-email" th:field="${professor.nome}" readonly hidden />
-                    <input id="editEmail" type="text" placeholder="&#32 E-MAIL" class="css-email" th:field="${professor.email}" readonly hidden/>
-                    <input id="editSenha" type="text" placeholder="&#32 SENHA" class="css-email" th:field="${professor.senha}" readonly hidden />
-                    <input id="editPermissoes" type="text" placeholder="&#32 PERMISSÃO" class="css-email" th:field="${professor.permissoes}" readonly hidden />
-                    <input id="editsalas" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${professor.salaP}" readonly hidden />
-                    <input id="editmateria" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${professor.materiasLecionadas}" readonly hidden />
-                    <textarea id="editDescricao"   placeholder="Descrição, até 155 caracteres para descrever as materias que você tem facilidade ou dificuldade e interesses academicos" maxlength="155" class="bloco-form" th:field="${professor.descricao}" readonly hidden></textarea>
-                    <input id="editSexo" type="text"th:field="${professor.sexo}"readonly hidden>
-
-
-                    <div class="form-group">
-                        <select class="form-control" th:field="*{instituicaoP}" >
-                            <option th:each="instituicaoP : ${instituicoesadd}" th:value="${instituicaoP.id}" th:text="${instituicaoP.nome}"></option>
-                        </select>
-
-
+        <div id="flutuante2" class="major-flutuante" hidden>
+            <div class="flutuante-grande animate__animated animate__backInUp">
+                <div class="flutuante-container">
+                    <div class="titulo-modal">
+                        <h4>Cadastrar-se em uma Instituição</h4>
                     </div>
-                    <button id="salvar" type="submit" class="button-entrar">Cadastrar</button>
-                    <button  onclick="sumirJanela('flutuante2')" class="button-back">voltar</button>
-                </form>
+                    <div>
+                        <img height="200px" class="add-inst" th:src="@{/src/school.jpg}">
+                    </div>
 
+                    <form class="form-modal" th:action="@{/professor/insertinstituicao}" th:object="${professor}" method="POST">
+    
+                        <div>
+                            <input id="editId" type="text" placeholder="&#32 ID" class="css-email" th:field="${professor.id}" readonly hidden />
+                            <input id="editNome" type="text" placeholder="&#32 NOME" class="css-email" th:field="${professor.nome}" readonly hidden />
+                            <input id="editEmail" type="text" placeholder="&#32 E-MAIL" class="css-email" th:field="${professor.email}" readonly hidden/>
+                            <input id="editSenha" type="text" placeholder="&#32 SENHA" class="css-email" th:field="${professor.senha}" readonly hidden />
+                            <input id="editPermissoes" type="text" placeholder="&#32 PERMISSÃO" class="css-email" th:field="${professor.permissoes}" readonly hidden />
+                            <input id="editsalas" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${professor.salaP}" readonly hidden />
+                            <input id="editmateria" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${professor.materiasLecionadas}" readonly hidden />
+                            <textarea id="editDescricao"   placeholder="Descrição, até 155 caracteres para descrever as materias que você tem facilidade ou dificuldade e interesses academicos" maxlength="155" class="bloco-form" th:field="${professor.descricao}" readonly hidden></textarea>
+                            <input id="editSexo" type="text"th:field="${professor.sexo}"readonly hidden>
+                        </div>
+        
+                        <div class="d-flex w-100 flex-row mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect01">Instituição</label>
+                            </div>
+                            <div class="div-select">
+                                <select class="form-control select-publi" th:field="*{instituicaoP}" >
+                                    <option th:each="instituicaoP : ${instituicoesadd}" th:value="${instituicaoP.id}" th:text="${instituicaoP.nome}"></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="div-btn">
+                            <button id="salvar" type="submit"  class="btn btn-success btn-modal">Entar</button>
+                            <button type="button"  onclick="sumirJanela('flutuante2')" class="btn btn-danger btn-modal">Voltar</button>
+                        </div>
+                    </form>
 
+                </div>
             </div>
-
+            <div class="fundo-flutuante" onclick="sumirJanela('flutuante2')"></div>
         </div>
 
     </div>
