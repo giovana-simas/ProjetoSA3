@@ -121,13 +121,14 @@
     border-radius: 50%;
 }
 
-.container-principal{
+.container-principal1{
     position: absolute;
     width: 100%;
     height: 100%;
     display: flex;
     font-family: "Segoe UI Light";
-
+    background-color: whitesmoke;
+    display: flex;
 }
 
 .formUser{
@@ -155,12 +156,13 @@
     margin-bottom: 5%;
 }
 
-.barra-lateral{
+.barra-lateral1{
     position: relative;
     height: 100%;
     width: 20%;
     float: left;
     padding: 2%;
+    background-color: whitesmoke;
 
 }
 

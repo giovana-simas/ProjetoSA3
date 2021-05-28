@@ -104,10 +104,10 @@
                     <tr>
                         <th class="nomes-prof-aluno">PROFESSORES</th>
                     </tr>
-                    </thead>
-                    <tbody>
-                    <tr th:each="professor : ${professores}" th:onclick="|window.location.href='/perfil/' + ${professor.id}|">
-                        <td th:text="${professor.nome}"></td>
+                </thead>
+                <tbody>
+                    <tr class="name-name" th:each="professor : ${professores}" th:onclick="|window.location.href='/perfil/' + ${professor.id}|">
+                    <td th:text="${professor.nome}"></td>
                     </tr>
                     </tbody>
                 </table>
@@ -131,7 +131,7 @@
             </div>
     
             <div class="button-div">
-                <button type="button" th:onclick="|window.location.href='/sala/listSala/' + ${instituicao.id} |" class="button-back">Voltar</button>
+                <button type="button" th:onclick="|window.location.href='/sala/listSala/' + ${instituicao.id} |" class="button-sala">Voltar</button>
             </div>
             <button class="button-back" type="button"  onclick="sumirJanela('flutuante2')">Publicar</button>
         </div> <!--fechando as info-->
