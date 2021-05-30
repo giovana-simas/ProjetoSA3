@@ -7,6 +7,7 @@ body {
     min-width: 100vw;
 }
 .fundo{
+    position: fixed;
     min-height: 100vh;
     min-width: 100vw;
     display: flex;
@@ -23,7 +24,7 @@ body {
     max-width: 999999px;
     display: flex;
     justify-content: flex-start;
-
+    position: fixed;
 }
 
 

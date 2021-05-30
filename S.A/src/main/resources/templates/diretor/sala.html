@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projeto S.A</title>
     <link  rel="stylesheet" th:href="@{/css/estilo.css}">
-
+    <link  rel="stylesheet" th:href="@{/css/arturFreitas.css}">
     <link rel="stylesheet" th:href="@{/bootstrap-4.5.2/css/bootstrap.min.css}">
     <link rel="stylesheet" th:href="@{/fontawesome-5.14.0/css/all.min.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
     <script src="/js/script.js"></script>
 
@@ -61,13 +62,38 @@
 
     <div class="meio-feed"> <!--AQUI COMEÇA A DIV CENTRAL, PARA O FEED-->
         <div class="name-feed">
-            <h3>FEED dos alunos:</h3>
+            <h3>FEED:</h3>
         </div>
-        <div class="estrutura-feed">
+        <div class="feed-historico">
+            <div th:each="publicacao : ${publicacoes}" class="estrutura-feed">
 
+                <div class="ft-inst">
+                    <img class="img-inst" th:src="@{/src/testimonial-3.svg}">
+
+                </div>
+                <div class="info-publi">
+                    <div class="info-inst">
+                        <div class="info-name">
+                            <div>
+                                <h4 th:text="${publicacao.usuario.nome}"></h4>
+                            </div>
+                            <div>
+                                <h4 th:text="${publicacao.tipo}"></h4>
+                            </div>
+                            <div>
+                               <h4 th:text="${publicacao.instituicao.nome}"></h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-descricao">
+                        <p th:text="${publicacao.descricao}"></p>
+                    </div>
+                </div>
+                
+
+            </div>
         </div>
     </div>
-
 
     <div class="infos-pessoas"> <!--AQUI É A DIV QUE FICA NA ESQUERDA COM AS INFOS-->
         <div class="container-prof"> <!--DIV DO PROF-->
@@ -100,17 +126,60 @@
                 </tr>
                 </tbody>
             </table>
-
         </div>
+
         <div class="button-div">
             <button type="button" th:onclick="|window.location.href='/sala/listSala/' + ${instituicao.id} |" class="button-sala">Voltar</button>
         </div>
+        <button class="button-back" type="button"  onclick="sumirJanela('flutuante2')">Publicar</button>
     </div> <!--fechando as info-->
 
 
 
 
+    <div id="flutuante2" class="major-flutuante" hidden>
+        <div class="flutuante animate__animated animate__backInUp">
+            <div class="flutuante-container">
+                <div class="titulo-modal">
+                    <h4>Publicação</h4>
+                </div>
+                <form class="form-modal" th:object="${publicacao}" th:action="@{'/publicacaoSala/save/'+${sala.id}}" method="post">
 
+                    <input  th:field="*{id}" hidden></input>
+                    <div class="text-publi">
+                        <textarea class="text-publi" placeholder="Digite a descrição." th:field="*{descricao}"></textarea>
+                    </div>
+                    <div class="div-select">
+                        <div class="select-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect01">Tipo</label>
+                            </div>
+                            <div class="div-select">
+                                <select  type="text" placeholder="tipo de publicacao" class="form-control select-publi" th:field="*{tipo}">
+                                    <option th:each="tipoOpt : ${T(com.sa.model.Publicacao.Tipo).values()}" th:value="${tipoOpt}" th:text="${tipoOpt.displayValue}"></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="select-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect01">Matéria</label>
+                            </div>
+                            <div class="div-select">
+                                <select class="form-control select-publi" th:field="*{materia}"  required>
+                                    <option th:each="materias : ${materias}" th:value="${materias.id}" th:text="${materias.nome}"></option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="div-btn">
+                        <button class="btn btn-success btn-modal" type="submit">Publicar</button>
+                        <button type="button" onclick="sumirJanela('flutuante2')" class="btn btn-danger btn-modal">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="fundo-flutuante" onclick="sumirJanela('flutuante2')"></div>
+    </div>
 </div><!--FECHANDO MAJOR CONTAINER-->
 
 <script th:src="@{/js/jquery-3.5.1.min.js}"></script>

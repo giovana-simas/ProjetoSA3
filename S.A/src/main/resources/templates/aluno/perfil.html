@@ -7,6 +7,7 @@
         <link rel="stylesheet" th:href="@{/bootstrap-4.5.2/css/bootstrap.min.css}">
         <link rel="stylesheet" th:href="@{/fontawesome-5.14.0/css/all.min.css}">
         <link rel="stylesheet" th:href="@{/css/arturFreitas.css}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
         <script src="/js/script.js"></script>
 
 
@@ -210,37 +211,42 @@
 
                 </div>
 
-            <div class="flutuante" id="flutuante" hidden>
-                <div class="flutuante-container">
-                    <form th:action="@{/materiaSugerida/save}" th:object="${materiaSugerida}" method="post" >
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Materia sugerida:</label>
-                            <input type="text" th:field="*{nome}" class="form-control" placeholder="Nome da materia" id="exampleInputEmail1" aria-describedby="emailHelp">
-
-                        </div>
-
-                        <div class="form-group">
-                            <select class="form-control" th:field="*{instituicao}"  required>
-                                <option th:each="instituicoesA : ${aluno.instituicoesA}" th:value="${instituicoesA.id}" th:text="${instituicoesA.nome}"></option>
-                            </select>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary">Enviar</button>
-                        <button type="button"  onclick="sugerirMateria()" class="btn btn-secondary">Cancelar</button>
-                    </form>
-
+            <div id="flutuante" class="major-flutuante" hidden>
+                <div class="flutuante-pequeno animate__animated animate__backInUp">
+                    <div class="flutuante-container">
+                        <form class="form-modal" th:action="@{/materiaSugerida/save}" th:object="${materiaSugerida}" method="post" >
+                            <div class="d-flex flex-column mb-3">                       
+                                <div class="d-flex w-100 flex-row mb-3">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" for="inputGroupSelect01">Matéria sugerida</label>
+                                    </div>
+                                    <div class="div-select">
+                                        <input type="text" th:field="*{nome}" class="form-control" placeholder="Nome da materia" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                    </div>
+                                </div>
+                                <div class="d-flex w-100 flex-row mb-3">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" for="inputGroupSelect01">Sala</label>
+                                    </div>
+                                    <div class="div-select">
+                                        <select class="form-control select-publi" th:field="*{instituicao}"  required>
+                                            <option th:each="instituicoesA : ${aluno.instituicoesA}" th:value="${instituicoesA.id}" th:text="${instituicoesA.nome}"></option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="div-btn">
+                                <button type="submit" class="btn btn-success btn-modal">Enviar</button>
+                                <button type="button"  onclick="sugerirMateria()" class="btn btn-danger btn-modal">Cancelar</button>
+                            </div>
+                        </form>
+    
+                    </div>
                 </div>
-
+                <div class="fundo-flutuante" onclick="sumirJanela('flutuante2')"></div>
             </div>
 
-
-            </div>
-
-
-
-
-
-       
         <script th:src="@{/js/jquery-3.5.1.min.js}"></script>
         <script th:src="@{/bootstrap-4.5.2/js/bootstrap.min.js}"></script>
         <script src="/js/script.js"></script>

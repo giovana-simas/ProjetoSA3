@@ -276,6 +276,11 @@ public class SalaController {
             model.addAttribute("sala",sala);
             model.addAttribute("alunos", alunoRepository.findBySalasA(sala));
             model.addAttribute("professores", professorRepository.findBySalaP(sala));
+            model.addAttribute("publicacao",new Publicacao());
+            model.addAttribute("publicacoes",publicacaoRepository.findBySala(sala));
+            
+            model.addAttribute("materias",materiaRepository.findAll());
+            
             path = "/diretor/sala";
         }
         permissao = permissaoRepository.findByNome("professor");
@@ -290,8 +295,11 @@ public class SalaController {
             model.addAttribute("alunos", alunoRepository.findBySalasA(sala));
             model.addAttribute("professores", professorRepository.findBySalaP(sala));
             model.addAttribute("sala",sala);
+            model.addAttribute("publicacao",new Publicacao());
+            model.addAttribute("publicacoes",publicacaoRepository.findBySala(sala));
 
-
+            model.addAttribute("materias",materiaRepository.findAll());
+            
             path = "/professor/sala";
         }
 
