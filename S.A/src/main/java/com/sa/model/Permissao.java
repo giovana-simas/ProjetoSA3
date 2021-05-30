@@ -59,6 +59,12 @@ public class Permissao {
 	public void setUsuarios(List<Usuario> usuarios) {
 		this.usuarios = usuarios;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "Permissao{" +
+				"id=" + id +
+				", nome='" + nome + '\'' +
+				'}';
+	}
 }

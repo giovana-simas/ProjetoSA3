@@ -14,4 +14,5 @@ public interface PermissaoRepository extends JpaRepository<Permissao, Long> {
 	public List<Permissao> findByUsuariosIn(Usuario ... usuario);
 	
 	public Permissao findByNome(String nome);
+
 }

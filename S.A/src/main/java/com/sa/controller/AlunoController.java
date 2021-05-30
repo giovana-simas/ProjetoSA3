@@ -1,7 +1,9 @@
 package com.sa.controller;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import com.sa.model.*;
 import com.sa.repository.*;
@@ -62,15 +64,28 @@ public class AlunoController {
 		int salvo = 0;
 		String path  = "";
 		String email = "";
+		Permissao permissao = permissaoRepository.findByNome("aluno");
 
+		if (permissao == null){
+			permissao = new Permissao();
+			Permissao permissao2 = new Permissao();
+			Permissao permissao3 = new Permissao();
 
+			permissao.setNome("aluno");
+			permissaoRepository.save(permissao);
+			permissao2.setNome("professor");
+			permissaoRepository.save(permissao2);
+			permissao3.setNome("diretor");
+			permissaoRepository.save(permissao3);
+			permissao = permissaoRepository.findByNome("aluno");
+		}
 		
 //		verifica o usuario logado e aplica a instancia de conferencia(neste caso é o email do usuario logado) na variavel "email"
 		email = SecurityContextHolder.getContext().getAuthentication().getName();
 		//inicia uma tentativa
 		try {
 			//verifica se o objeto usuario não esta vazio
-			if(aluno != null) {
+			if(aluno != null && permissao != null) {
 				//seta a variavel salvo para 1 onde vai indicar que o usuario foi salvo atravez de um model
 				salvo = 1;
 
@@ -84,7 +99,9 @@ public class AlunoController {
 				aluno.setSenha(new BCryptPasswordEncoder().encode(aluno.getSenha()));
 				//salva o usuario criado anteriormente em "IndexController" agora com informações preenchidas no banco e mostra as informações salvas no console para conferencia e manutenção
 				System.out.println("incriptou a seja e salvou o aluno novo");
-
+					Set<Permissao> permissoes = new HashSet<Permissao>();
+					permissoes.add(permissao);
+				aluno.setPermissoes(permissoes);
 				alunoRepository.save(aluno);
 				//seta a variavel "path" para que redirecione para tela de cadastro e mostre se o cadastro foi salvo ou nao
 				path  = "redirect:/aluno/cadastroAluno/" + salvo;

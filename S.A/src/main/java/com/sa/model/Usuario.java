@@ -161,7 +161,9 @@ public class Usuario {
 		this.senha = senha;
 	}
 	
-	
+	public void addPermissao(Permissao permissao){
+		this.permissoes.add(permissao);
+	}
 	
 	
 }
