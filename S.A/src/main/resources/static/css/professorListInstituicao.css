@@ -93,7 +93,7 @@ body{
 }
 .materias-alunos{
   align-items: center;
-  width: 58%;
+  width: 50%;
   border-radius: 15px;
   border: none;
   color: white;
@@ -102,6 +102,9 @@ body{
   display: flex;
   justify-content: center;
   margin-bottom: 20%;
+}
+.materias-alunos:hover{
+  color: #02BDD8;
 }
 .titleAluno{
   margin: 30px 0px;
