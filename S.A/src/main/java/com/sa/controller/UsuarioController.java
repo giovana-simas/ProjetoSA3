@@ -74,7 +74,7 @@ public class UsuarioController {
 
 
 
-			path = "/aluno/perfil";
+			path = "aluno/perfil";
 		}
 
 		permissao = permissaoRepository.findByNome("professor");
@@ -82,14 +82,14 @@ public class UsuarioController {
 
 			model.addAttribute("professor", professorRepository.findById(id).get());
 
-			path = "/professor/perfil";
+			path = "professor/perfil";
 		}
 		permissao = permissaoRepository.findByNome("diretor");
 		if (usuario.getPermissoes().contains(permissao)){
 
 			model.addAttribute("diretor", diretorRepository.findById(id).get());
 
-			path = "/diretor/perfil";
+			path = "diretor/perfil";
 		}
 
 		if (usuario.getEmail().equals(email)){

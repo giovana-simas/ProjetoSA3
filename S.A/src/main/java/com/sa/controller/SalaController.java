@@ -101,7 +101,7 @@ public class SalaController {
             model.addAttribute("instituicao", instituicao);
             model.addAttribute("aluno", usuario);
             System.out.println("salas: " + salaRepository.findByInstituicao(instituicao));
-            path = "/aluno/addsala";
+            path = "aluno/addsala";
         }
         permissao = permissaoRepository.findByNome("professor");
         if (usuario.getPermissoes().contains(permissao)){
@@ -114,7 +114,7 @@ public class SalaController {
             model.addAttribute("professor", usuario);
             System.out.println("salas: " + salaRepository.findByInstituicao(instituicao));
 
-            path = "/professor/addsala";
+            path = "professor/addsala";
         }
 
 
@@ -195,7 +195,7 @@ public class SalaController {
             model.addAttribute("instituicao", instituicao);
 
             model.addAttribute("aluno", usuario);
-            path = "/aluno/listSala";
+            path = "aluno/listSala";
         }
         permissao = permissaoRepository.findByNome("diretor");
         if (usuario.getPermissoes().contains(permissao)){
@@ -210,7 +210,7 @@ public class SalaController {
             model.addAttribute("sala", new Sala());
             System.out.println("salas: " + salaRepository.findByInstituicao(instituicao));
 
-            path = "/diretor/listSala";
+            path = "diretor/listSala";
         }
         permissao = permissaoRepository.findByNome("professor");
         if (usuario.getPermissoes().contains(permissao)){
@@ -222,7 +222,7 @@ public class SalaController {
             model.addAttribute("instituicao", instituicao);
             model.addAttribute("sala", new Sala());
 
-            path = "/professor/listSala";
+            path = "professor/listSala";
         }
 
 
@@ -262,7 +262,7 @@ public class SalaController {
 
             model.addAttribute("materias",materiaRepository.findAll());
 
-            path = "/aluno/sala";
+            path = "aluno/sala";
         }
         permissao = permissaoRepository.findByNome("diretor");
         if (usuario.getPermissoes().contains(permissao)){
@@ -281,7 +281,7 @@ public class SalaController {
             
             model.addAttribute("materias",materiaRepository.findAll());
             
-            path = "/diretor/sala";
+            path = "diretor/sala";
         }
         permissao = permissaoRepository.findByNome("professor");
         if (usuario.getPermissoes().contains(permissao)){
@@ -300,7 +300,7 @@ public class SalaController {
 
             model.addAttribute("materias",materiaRepository.findAll());
             
-            path = "/professor/sala";
+            path = "professor/sala";
         }
 
 
@@ -326,14 +326,14 @@ public class SalaController {
             model.addAttribute("sala", new Sala());
             model.addAttribute("instituicao", instituicaoRepository.findById(id));
 
-            path = "/professor/criaSala";
+            path = "professor/criaSala";
         }
         permissao = permissaoRepository.findByNome("diretor");
         if (usuario.getPermissoes().contains(permissao)){
             model.addAttribute("sala", new Sala());
             model.addAttribute("instituicao", instituicaoRepository.findById(id));
 
-            path = "/diretor/addsala";
+            path = "diretor/addsala";
         }
         return path;
     }

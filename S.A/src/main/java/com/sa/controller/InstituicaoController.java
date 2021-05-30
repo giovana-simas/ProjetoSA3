@@ -78,7 +78,7 @@ public class InstituicaoController {
 				model.addAttribute("instituicoes", instituicaoRepository.findByAlunosI(aluno));
 				model.addAttribute("aluno", alunoRepository.findByEmail(email));
 				model.addAttribute("instituicoesadd", instituicaoRepository.findAll());
-				path = "/aluno/listInstituicoes";
+				path = "aluno/listInstituicoes";
 				
 			}
 
@@ -94,7 +94,7 @@ public class InstituicaoController {
 				model.addAttribute("materiasSugerida", materiaSugeridaRepository.findByInstituicaoIn(instituicaoRepository.findByProfessoresI(professor)));
 				model.addAttribute("instituicoesadd", instituicaoRepository.findAll());
 
-				path = "/professor/listInstituicoes";
+				path = "professor/listInstituicoes";
 
 			}
 
@@ -107,7 +107,7 @@ public class InstituicaoController {
 				model.addAttribute("materiasSugerida", materiaSugeridaRepository.findByInstituicaoIn(instituicaoRepository.findByDiretor(diretor)));
 				model.addAttribute("diretor", diretorRepository.findByEmail(email));
 				model.addAttribute("instituicaoadd", new Instituicao());
-				path = "/diretor/listInstituicoes";
+				path = "diretor/listInstituicoes";
 			}
 			
 
@@ -135,7 +135,7 @@ public class InstituicaoController {
 			model.addAttribute("aluno", alunoRepository.findByEmail(email));
 
 
-			path = "/aluno/addinstituicao";
+			path = "aluno/addinstituicao";
 		}
 
 		permissao = permissaoRepository.findByNome("professor");
@@ -144,7 +144,7 @@ public class InstituicaoController {
 			model.addAttribute("instituicoes", instituicaoRepository.findAll());
 			model.addAttribute("professor", professorRepository.findByEmail(email));
 
-			path = "/professor/addinstituicao";
+			path = "professor/addinstituicao";
 		}
 		permissao = permissaoRepository.findByNome("diretor");
 		if (usuario.getPermissoes().contains(permissao)){
@@ -152,7 +152,7 @@ public class InstituicaoController {
 			model.addAttribute("instituicao", new Instituicao());
 			model.addAttribute("diretor", diretorRepository.findByEmail(email));
 
-			path = "/diretor/addinstituicao";
+			path = "diretor/addinstituicao";
 		}
 
 

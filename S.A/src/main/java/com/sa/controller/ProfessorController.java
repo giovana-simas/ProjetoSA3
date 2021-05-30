@@ -52,7 +52,7 @@ public class ProfessorController {
 		//esse numero é setado no Usuario controller
 		model.addAttribute("salvo",salvo);
 		//retorna a pagina cadastro para o usuario
-		return "/professor/cadastroProfessor";
+		return "professor/cadastroProfessor";
 	}
 
 		//incapsula e envia informação e é chamado atravez do metodo "/usuario/save"
@@ -139,7 +139,7 @@ public class ProfessorController {
 			String email = SecurityContextHolder.getContext().getAuthentication().getName();
 			model.addAttribute("professor", professorRepository.findByEmail(email));
 			
-			return "/professor/perfil";
+			return "professor/perfil";
 		}
 		
 

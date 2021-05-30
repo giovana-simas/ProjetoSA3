@@ -53,7 +53,7 @@ public class AlunoController {
 		//esse numero é setado no Usuario controller
 		model.addAttribute("salvo",salvo);
 		//retorna a pagina cadastro para o usuario
-		return "/aluno/cadastroAluno";
+		return "aluno/cadastroAluno";
 	}
 
 	//incapsula e envia informação e é chamado atravez do metodo "/usuario/save"
@@ -155,7 +155,7 @@ public class AlunoController {
 		//as informações deste model podem ser puxadas atravez de seu nome ("usuario") e pode ser ultilizada com um th:object="usuario"
 		model.addAttribute("aluno", alunoRepository.findByEmail(email));
 		//redireciona para tela de perfil
-		return "/aluno/perfil";
+		return "aluno/perfil";
 		
 	}
 

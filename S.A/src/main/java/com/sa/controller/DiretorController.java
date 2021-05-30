@@ -58,7 +58,7 @@ public class DiretorController {
 		//esse numero é setado no Usuario controller
 		model.addAttribute("salvo",salvo);
 		//retorna a pagina cadastro para o usuario
-		return "/diretor/cadastroDiretor";
+		return "diretor/cadastroDiretor";
 	}
 
 
@@ -156,7 +156,7 @@ public class DiretorController {
 		//as informações deste model podem ser puxadas atravez de seu nome ("usuario") e pode ser ultilizada com um th:object="usuario"
 		model.addAttribute("diretor", usuarioRepository.findByEmail(email));
 		//redireciona para tela de perfil
-		return "/diretor/perfil";
+		return "diretor/perfil";
 		
 	}
 	

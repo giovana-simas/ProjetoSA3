@@ -87,7 +87,7 @@ public class PublicacaoController {
             model.addAttribute("publicacoes",publicacaoRepository.findByInstituicaoIn(diretor.getInstituicao()));
 		}
 		
-		return "/feed/feed";
+		return "feed/feed";
 	}
 
     @PostMapping("/publicacaoSala/save/{id}")

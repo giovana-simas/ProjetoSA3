@@ -38,7 +38,7 @@ public class IndexController {
 
 
 		//retorna a pagina index para o usuario
-		return "/index";
+		return "index";
 	}
 	
 	
@@ -46,7 +46,7 @@ public class IndexController {
 	@GetMapping("/login")
 	public String getLogin() {
 		//retorna a pagina login para o usuario
-		return "/login";
+		return "login";
 	}
 	
 
