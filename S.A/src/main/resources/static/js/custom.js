@@ -71,7 +71,7 @@ function sendMessage(message) {
     console.log(dataMsg)
     enviarMensagem(username, message, dataMsg);
     scrollToBottom();
-    if (message.trim() !== '') {
+    if (message.trim() !== '' || message.trim() != null || message.trim() != "\n" || message.trim() != "" || message !== '' || message != null || message != "\n" || message != "") {
         var template = Handlebars.compile($("#message-template").html());
         var context = {
             messageOutput: message,
@@ -110,7 +110,10 @@ function getCurrentData() {
 }
 
 function addMessage() {
-    sendMessage($textarea.val());
+    if($textarea.val() !== '' || $textarea.val() != null || $textarea.val() != "\n" ||$textarea.val() != ""){
+        sendMessage($textarea.val());
+    }
+
 }
 
 function addMessageEnter(event) {

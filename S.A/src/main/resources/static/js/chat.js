@@ -1,4 +1,5 @@
 const url= 'http://localhost:8080';
+// const url= 'https://estude-aqui.herokuapp.com';
 let stompClient;
 let usuarioselect
 let usuarioConectado
@@ -41,6 +42,10 @@ function usuarioselecionado(id){
     msgHiddenChat()
     $('#msgNova'+ usuarioselect).attr('hidden', true)
     nomeUsuario = $('#'+id).text();
+
+    img = $("#imgUsuario").attr('src')
+    console.log(img)
+    $('#usuarioChatImg').attr('src',img)
     console.log("Usuario selecionado: " + usuarioselect)
     $('#usuarioChat').html('');
     $('#usuarioChat').append('Chat com ' + nomeUsuario);
