@@ -54,7 +54,7 @@ public class PublicacaoController {
 			model.addAttribute("aluno", alunoRepository.findByEmail(email));
 			model.addAttribute("instituicoesadd", instituicaoRepository.findAll());
             model.addAttribute("publicacao",new Publicacao());
-            model.addAttribute("publicacoes",publicacaoRepository.findByInstituicaoIn(aluno.getInstituicoesA()));
+            model.addAttribute("publicacoes",publicacaoRepository.findByInstituicaoInOrderByIdDesc(aluno.getInstituicoesA()));
 			
 		}
 
@@ -70,7 +70,7 @@ public class PublicacaoController {
 			model.addAttribute("materiasSugerida", materiaSugeridaRepository.findByInstituicaoIn(instituicaoRepository.findByProfessoresI(professor)));
 			model.addAttribute("instituicoesadd", instituicaoRepository.findAll());
 			model.addAttribute("publicacao",new Publicacao());
-            model.addAttribute("publicacoes",publicacaoRepository.findByInstituicaoIn(professor.getInstituicaoP()));
+            model.addAttribute("publicacoes",publicacaoRepository.findByInstituicaoInOrderByIdDesc(professor.getInstituicaoP()));
 
 		}
 
@@ -84,7 +84,7 @@ public class PublicacaoController {
 			model.addAttribute("diretor", diretorRepository.findByEmail(email));
 			model.addAttribute("instituicaoadd", new Instituicao());
 			model.addAttribute("publicacao",new Publicacao());
-            model.addAttribute("publicacoes",publicacaoRepository.findByInstituicaoIn(diretor.getInstituicao()));
+            model.addAttribute("publicacoes",publicacaoRepository.findByInstituicaoInOrderByIdDesc(diretor.getInstituicao()));
 		}
 		
 		return "feed/feed";

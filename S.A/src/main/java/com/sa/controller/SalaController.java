@@ -258,7 +258,7 @@ public class SalaController {
             model.addAttribute("professores", professorRepository.findBySalaP(sala));
             model.addAttribute("sala",sala);
             model.addAttribute("publicacao",new Publicacao());
-            model.addAttribute("publicacoes",publicacaoRepository.findBySala(sala));
+            model.addAttribute("publicacoes",publicacaoRepository.findBySalaOrderByIdDesc(sala));
 
             model.addAttribute("materias",materiaRepository.findAll());
 
@@ -277,7 +277,7 @@ public class SalaController {
             model.addAttribute("alunos", alunoRepository.findBySalasA(sala));
             model.addAttribute("professores", professorRepository.findBySalaP(sala));
             model.addAttribute("publicacao",new Publicacao());
-            model.addAttribute("publicacoes",publicacaoRepository.findBySala(sala));
+            model.addAttribute("publicacoes",publicacaoRepository.findBySalaOrderByIdDesc(sala));
             
             model.addAttribute("materias",materiaRepository.findAll());
             
@@ -296,7 +296,7 @@ public class SalaController {
             model.addAttribute("professores", professorRepository.findBySalaP(sala));
             model.addAttribute("sala",sala);
             model.addAttribute("publicacao",new Publicacao());
-            model.addAttribute("publicacoes",publicacaoRepository.findBySala(sala));
+            model.addAttribute("publicacoes",publicacaoRepository.findBySalaOrderByIdDesc(sala));
 
             model.addAttribute("materias",materiaRepository.findAll());
             
