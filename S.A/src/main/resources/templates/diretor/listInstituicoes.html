@@ -55,7 +55,7 @@
             </div>
 
             <div class="tamanho-feed">
-                <div class="middle" th:each="instituicao : ${instituicoes}">
+                <div class="middle" th:each="instituicao : ${instituicoes}" th:onclick="|window.location.href='/sala/listSala/' + ${instituicao.id}|">
                     <div class="ft-inst">
                         <img class="img-inst" th:src="@{/src/icon-escola.png}">
                     </div>

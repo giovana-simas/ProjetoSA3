@@ -69,8 +69,8 @@
             <div th:each="publicacao : ${publicacoes}" class="estrutura-feed">
 
                 <div class="ft-inst">
-                    <img class="img-inst" th:src="@{/src/testimonial-3.svg}">
-
+                    <img th:if="${publicacao.usuario.sexo} == 'masculino'" class="img-inst" th:src="@{/src/testimonial-3.svg}">
+                    <img th:if="${publicacao.usuario.sexo} == 'feminino'" class="img-inst" th:src="@{/src/testimonial-3.svg}">
                 </div>
                 <div class="info-publi">
                     <div class="info-inst">

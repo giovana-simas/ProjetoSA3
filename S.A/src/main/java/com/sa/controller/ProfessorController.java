@@ -76,7 +76,6 @@ public class ProfessorController {
 				permissaoRepository.save(permissao2);
 				permissao3.setNome("diretor");
 				permissaoRepository.save(permissao3);
-				permissao = permissaoRepository.findByNome("professor");
 			}
 			
 //			verifica o usuario logado e aplica a instancia de conferencia(neste caso é o email do usuario logado) na variavel "email"
@@ -94,8 +93,7 @@ public class ProfessorController {
 					//pega a senha cadastrada no objeto usuario, ha codifica e aplica no banco sua nova verção codificada
 						professor.setSenha(new BCryptPasswordEncoder().encode(professor.getSenha()));
 						Set<Permissao> permissoes = new HashSet<Permissao>();
-						permissoes.add(permissao);
-						professor.setPermissoes(permissoes);
+						permissoes.add(permissaoRepository.findByNome("professor"));						professor.setPermissoes(permissoes);
 						//salva o usuario criado anteriormente em "IndexController" agora com informações preenchidas no banco e mostra as informações salvas no console para conferencia e manutenção
 					System.out.print(professorRepository.save(professor));
 					//seta a variavel "path" para que redirecione para tela de cadastro e mostre se o cadastro foi salvo ou nao

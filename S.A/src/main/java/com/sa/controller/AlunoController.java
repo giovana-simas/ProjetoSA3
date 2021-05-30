@@ -77,7 +77,7 @@ public class AlunoController {
 			permissaoRepository.save(permissao2);
 			permissao3.setNome("diretor");
 			permissaoRepository.save(permissao3);
-			permissao = permissaoRepository.findByNome("aluno");
+
 		}
 		
 //		verifica o usuario logado e aplica a instancia de conferencia(neste caso é o email do usuario logado) na variavel "email"
@@ -100,7 +100,7 @@ public class AlunoController {
 				//salva o usuario criado anteriormente em "IndexController" agora com informações preenchidas no banco e mostra as informações salvas no console para conferencia e manutenção
 				System.out.println("incriptou a seja e salvou o aluno novo");
 					Set<Permissao> permissoes = new HashSet<Permissao>();
-					permissoes.add(permissao);
+					permissoes.add(permissaoRepository.findByNome("aluno"));
 				aluno.setPermissoes(permissoes);
 				alunoRepository.save(aluno);
 				//seta a variavel "path" para que redirecione para tela de cadastro e mostre se o cadastro foi salvo ou nao
