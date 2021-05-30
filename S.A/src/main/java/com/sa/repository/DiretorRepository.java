@@ -7,5 +7,6 @@ import com.sa.model.Diretor;
 
 public interface DiretorRepository extends JpaRepository<Diretor, Long> {
 	public Diretor findByEmail(String email);
+	
 
 }

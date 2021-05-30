@@ -31,6 +31,8 @@ public class PublicacaoController {
     PublicacaoRepository publicacaoRepository;
     @Autowired
     SalaRepository salaRepository;
+    @Autowired
+    MateriaRepository materiaRepository;
     
     
     @GetMapping("/feed")
@@ -43,13 +45,16 @@ public class PublicacaoController {
 		email = SecurityContextHolder.getContext().getAuthentication().getName();
 		usuario = usuarioRepository.findByEmail(email);
 		permissao = permissaoRepository.findByNome("aluno");
-
+		
+		
 		model.addAttribute("usuario", usuarioRepository.findByEmail(email));
+		model.addAttribute("materias", materiaRepository.findAll());
 
 		if(usuario.getPermissoes().contains(permissao)) {
 			Aluno aluno;
 
 			aluno = alunoRepository.findByEmail(email);
+			model.addAttribute("salas", salaRepository.findByAlunoS(aluno));
 			model.addAttribute("instituicoes", instituicaoRepository.findByAlunosI(aluno));
 			model.addAttribute("aluno", alunoRepository.findByEmail(email));
 			model.addAttribute("instituicoesadd", instituicaoRepository.findAll());
@@ -120,6 +125,36 @@ public class PublicacaoController {
 
 
         return "redirect:/sala/" +id;
+    }
+    
+    @PostMapping("/publicacao/save")
+    public String savePublicaoGeral(Publicacao publicacao){
+
+        String email= SecurityContextHolder.getContext().getAuthentication().getName();
+        String path="";
+
+        Usuario usuario;
+        Permissao permissao;
+
+        //verifica o usuario logado e aplica a instancia de conferencia(neste caso é o email do usuario logado) na variavel "email"
+        email = SecurityContextHolder.getContext().getAuthentication().getName();
+        usuario = usuarioRepository.findByEmail(email);
+        permissao = permissaoRepository.findByNome("aluno");
+
+
+
+        try {
+        	publicacao.setInstituicao(publicacao.getSala().getInstituicao());
+            publicacao.setUsuario(usuario);
+            publicacaoRepository.save(publicacao);
+
+        }catch (Exception e){
+            System.out.println(e);
+        }
+
+
+
+        return "redirect:/feed/";
     }
 
 }
