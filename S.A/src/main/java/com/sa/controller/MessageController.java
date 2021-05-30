@@ -47,7 +47,7 @@ public class MessageController {
 	@RequestMapping("/chat")
 	public ModelAndView chat (Model model) {
 	    ModelAndView modelAndView = new ModelAndView();
-	    modelAndView.setViewName("/chat/chat");
+	    modelAndView.setViewName("chat/chat");
 	    
 	    String email = SecurityContextHolder.getContext().getAuthentication().getName();
 		model.addAttribute("usuarioConnect",usuarioRepository.findByEmail(email));
