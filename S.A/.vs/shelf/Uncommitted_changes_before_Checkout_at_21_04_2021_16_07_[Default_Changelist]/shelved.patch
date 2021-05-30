@@ -1,0 +1,235 @@
+Index: S.A/src/main/resources/static/css/perfilDiretor.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>textarea:focus, input:focus, select:focus {\r\n  box-shadow: 0 0 0 0;\r\n  border-bottom: 1px solid gray;\r\n  outline: 0;\r\n} \r\n.majorDiv{\r\n  height: 100vh;\r\n  width: 100vw;\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  justify-content: center;\r\n  background: linear-gradient(to left, #02BED8, #457ED6);\r\n}\r\n.divMenor{\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  background: white;\r\n  width: 60%;\r\n  height: 75%;\r\n  border-radius: 20px;\r\n  background: none;\r\n}\r\n.login{\r\n  max-width: 100px;\r\n  margin: 30px 0;\r\n}\r\n.formUser{\r\n  display: flex;\r\n    justify-content: center;\r\n    flex-direction: column;\r\n    align-items: center;\r\n    gap: 15px;\r\n    width: 90%;\r\n}\r\n.css-email{\r\n  border: 0;\r\n  width: 70%;\r\n  background: rgba(0,0,0,0.1);\r\n  border-radius: 5px;\r\n  height: 40px;\r\n  color: white;\r\n  padding-left: 15px;\r\n}\r\n#editDescricao{\r\n  height: 200px;\r\n  color: white;\r\n}\r\n#editDescricao::placeholder{\r\n  color: white;\r\n}\r\n.boxActions{\r\n  gap: 20px;\r\n  display: flex;\r\n  margin: 20px 0 0 0;\r\n}\r\n.alert{\r\n  margin-top: 20px;\r\n}\r\n.linhaEspacamento{\r\n  height: 1px;\r\n  background: rgba(0,0,0,0.1);\r\n  width: 70%;\r\n  margin: 10px 0px;\r\n}\r\n.myButton{\r\n  width: 70%;\r\n  border: 0;\r\n  background-color: #3359c5;\r\n  color: #ffffff;\r\n  height: 45px;\r\n  border-radius: 5px;\r\n  font-size: 16px;\r\n\r\n}\r\n#cancelar{\r\n  background-color: #f83636;\r\n  margin-top: 7px;\r\n  width: 63.2%\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/S.A/src/main/resources/static/css/perfilDiretor.css b/S.A/src/main/resources/static/css/perfilDiretor.css
+--- a/S.A/src/main/resources/static/css/perfilDiretor.css	
++++ b/S.A/src/main/resources/static/css/perfilDiretor.css	
+@@ -1,8 +1,3 @@
+-textarea:focus, input:focus, select:focus {
+-  box-shadow: 0 0 0 0;
+-  border-bottom: 1px solid gray;
+-  outline: 0;
+-} 
+ .majorDiv{
+   height: 100vh;
+   width: 100vw;
+@@ -17,10 +12,9 @@
+   flex-direction: column;
+   align-items: center;
+   background: white;
+-  width: 60%;
+-  height: 75%;
++  width: 350px;
++  height: 360px;
+   border-radius: 20px;
+-  background: none;
+ }
+ .login{
+   max-width: 100px;
+@@ -35,20 +29,10 @@
+     width: 90%;
+ }
+ .css-email{
++  width: 100%;
+   border: 0;
+-  width: 70%;
+-  background: rgba(0,0,0,0.1);
+-  border-radius: 5px;
+-  height: 40px;
+-  color: white;
+-  padding-left: 15px;
+-}
+-#editDescricao{
+-  height: 200px;
+-  color: white;
+-}
+-#editDescricao::placeholder{
+-  color: white;
++  border-bottom: 1px solid gray;
++  background-color: white;
+ }
+ .boxActions{
+   gap: 20px;
+@@ -58,24 +42,3 @@
+ .alert{
+   margin-top: 20px;
+ }
+-.linhaEspacamento{
+-  height: 1px;
+-  background: rgba(0,0,0,0.1);
+-  width: 70%;
+-  margin: 10px 0px;
+-}
+-.myButton{
+-  width: 70%;
+-  border: 0;
+-  background-color: #3359c5;
+-  color: #ffffff;
+-  height: 45px;
+-  border-radius: 5px;
+-  font-size: 16px;
+-
+-}
+-#cancelar{
+-  background-color: #f83636;
+-  margin-top: 7px;
+-  width: 63.2%
+-}
+Index: S.A/src/main/resources/templates/diretor/perfil.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"pt-br\" xmlns:th=\"https://thymeleaf.org\">\r\n    <head>\r\n        <meta charset=\"UTF-8\">\r\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n        <title>Projeto S.A</title>\r\n        <link  rel=\"stylesheet\" th:href=\"@{/css/perfilDiretor.css}\">\r\n\r\n        <link rel=\"stylesheet\" th:href=\"@{/bootstrap-4.5.2/css/bootstrap.min.css}\">\r\n    <link rel=\"stylesheet\" th:href=\"@{/fontawesome-5.14.0/css/all.min.css}\">\r\n\r\n        <script src=\"/js/script.js\"></script>\r\n\r\n        \r\n\r\n    </head>\r\n    <body background=\"/src/back.png\">\r\n        <div class=\"majorDiv\">\r\n        <div class=\"divMenor\">\r\n    \r\n\t\t<img class=\"login\" th:src=\"@{/src/login.png}\">\r\n            <form th:action=\"@{/diretor/save}\" th:object=\"${diretor}\" method=\"POST\" class=\"formUser\">\r\n\r\n            \t<input id=\"editId\" type=\"text\" placeholder=\"&#32 ID\" class=\"css-email\" th:field=\"${diretor.id}\" readonly hidden />\r\n                <input id=\"editNome\" type=\"text\" placeholder=\"&#32 NOME\" class=\"css-email\" th:field=\"${diretor.nome}\" readonly />\r\n                <input id=\"editEmail\" type=\"text\" placeholder=\"&#32 E-MAIL\" class=\"css-email\" th:field=\"${diretor.email}\" readonly />\r\n                <input id=\"editSenha\" type=\"text\" placeholder=\"&#32 SENHA\" class=\"css-email\" th:field=\"${diretor.senha}\" readonly hidden />\r\n                <input id=\"editPermissoes\" type=\"text\" placeholder=\"&#32 PERMISSÃO\" class=\"css-email\" th:field=\"${diretor.permissoes}\" readonly hidden />\r\n                <input id=\"editinstituicoes\" type=\"text\" placeholder=\"&#32 QUER AJUDAR?\" class=\"css-email\" th:field=\"${diretor.instituicao}\" readonly hidden />\r\n               \r\n\r\n            <button id=\"editSalvar\" type=\"submit\"  class=\"myButton\">Salvar</button>\r\n            </form>\r\n            <button id=\"cancelar\" onclick=\"cancelarEditar()\" class=\"myButton\">Sair da edição</button>\r\n            \r\n                <form th:if=\"${editavel}\" th:action=\"|@{/logout}|\" class=\"navbar-from\" method=\"POST\" >\r\n                    <div class=\"boxActions\" >\r\n                        <div >\r\n                            <label class=\"\" >cancelar</label>\r\n                        </div>\r\n\r\n                        <div th:if=\"${editavel}\">\r\n                            <button id=\"editar\" onclick=\"editarPerfil()\"  />\r\n                            <label class=\"\" >editar perfil</label>\r\n                        </div>\r\n                        <button class=\"btn btn-dark\" type=\"submit\">\r\n                            SAIR\r\n                            <i class=\"fas fa-sign-out-alt\"></i>\r\n                    </button>\r\n                </div>\r\n                \r\n                </form>\r\n                \r\n            </div>\r\n            <div th:if=\"${salvo} == 1\" class=\"alert alert-success\">\r\n                Usuário salvo com sucesso\r\n            </div>\r\n            <div th:if=\"${salvo} == 2\" class=\"alert alert-danger\">\r\n                Usuário não salvo\r\n            </div>\r\n        </div>\r\n    </div>\r\n        <script th:src=\"@{/js/jquery-3.5.1.min.js}\"></script>\r\n        <script th:src=\"@{/bootstrap-4.5.2/js/bootstrap.min.js}\"></script>\r\n        <script src=\"/js/script.js\"></script>\r\n    </body>\r\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/S.A/src/main/resources/templates/diretor/perfil.html b/S.A/src/main/resources/templates/diretor/perfil.html
+--- a/S.A/src/main/resources/templates/diretor/perfil.html	
++++ b/S.A/src/main/resources/templates/diretor/perfil.html	
+@@ -29,13 +29,13 @@
+                 <input id="editinstituicoes" type="text" placeholder="&#32 QUER AJUDAR?" class="css-email" th:field="${diretor.instituicao}" readonly hidden />
+                
+ 
+-            <button id="editSalvar" type="submit"  class="myButton">Salvar</button>
++            <button id="editSalvar" type="submit"  class="myButton" hidden>SALVAR</button>
+             </form>
+-            <button id="cancelar" onclick="cancelarEditar()" class="myButton">Sair da edição</button>
+             
+                 <form th:if="${editavel}" th:action="|@{/logout}|" class="navbar-from" method="POST" >
+                     <div class="boxActions" >
+                         <div >
++                            <button id="cancelar" onclick="cancelarEditar()" hidden  />
+                             <label class="" >cancelar</label>
+                         </div>
+ 
+Index: S.A/src/main/resources/templates/diretor/listSala.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"pt-br\" xmlns:th=\"https://thymeleaf.org\">\r\n    <head>\r\n        <meta charset=\"UTF-8\">\r\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n        <title>Projeto S.A</title>\r\n        <link  rel=\"stylesheet\" th:href=\"@{/css/estilo.css}\">\r\n\r\n        <link rel=\"stylesheet\" th:href=\"@{/bootstrap-4.5.2/css/bootstrap.min.css}\">\r\n    <link rel=\"stylesheet\" th:href=\"@{/fontawesome-5.14.0/css/all.min.css}\">\r\n\r\n        <script src=\"/js/script.js\"></script>\r\n\r\n        \r\n\r\n    </head> \r\n    <body >\r\n\r\n        <div class=\"fundo\">\r\n        <div class=\"container-list\">\r\n            <div>\r\n                <table>\r\n                    <thead>\r\n                        <tr class=\"nameSala\">\r\n                            <th><div th:text=\"${instituicao.nome}\"></div></th>\r\n                        </tr>\r\n                    </thead>\r\n                    <tbody>\r\n                        <tr th:each=\"sala : ${salas}\" th:onclick=\"|window.location.href='/sala/' + ${sala.id} |\">\r\n                            <td th:text=\"${sala.nome}\" class=\"sala-css\"></td>\r\n                        </tr>\r\n                    </tbody>\r\n                </table>\r\n\r\n            </div>\r\n            <div class=\"buttons\">\r\n                <div>\r\n                    <a th:onclick=\"|window.location.href='/sala/addsala/' + ${instituicao.id}|\" class=\"button-new\">Entrar em uma nova sala.</a>\r\n                </div>\r\n\r\n                <a onclick=\"window.location.href='/instituicao/listInstituicoes/'\" class=\"button-new\">Voltar</a>\r\n            </div>\r\n        </div>\r\n        </div>\r\n\r\n        <script th:src=\"@{/js/jquery-3.5.1.min.js}\"></script>\r\n        <script th:src=\"@{/bootstrap-4.5.2/js/bootstrap.min.js}\"></script>\r\n        <script src=\"/js/script.js\"></script>\r\n    </body>\r\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/S.A/src/main/resources/templates/diretor/listSala.html b/S.A/src/main/resources/templates/diretor/listSala.html
+--- a/S.A/src/main/resources/templates/diretor/listSala.html	
++++ b/S.A/src/main/resources/templates/diretor/listSala.html	
+@@ -15,34 +15,33 @@
+ 
+     </head> 
+     <body >
++    
++        <div class="form-tabela">
+ 
+-        <div class="fundo">
+-        <div class="container-list">
+-            <div>
+-                <table>
+-                    <thead>
+-                        <tr class="nameSala">
+-                            <th><div th:text="${instituicao.nome}"></div></th>
+-                        </tr>
+-                    </thead>
+-                    <tbody>
+-                        <tr th:each="sala : ${salas}" th:onclick="|window.location.href='/sala/' + ${sala.id} |">
+-                            <td th:text="${sala.nome}" class="sala-css"></td>
+-                        </tr>
+-                    </tbody>
+-                </table>
++            <table class="table table-striped">
++                <thead class="thead-dark">
++                    <tr>
++                        <th>Nome</th>
++                    </tr>
++                </thead>
++
++                <tbody>
++                    <tr th:each="sala : ${salas}" th:onclick="|window.location.href='/sala/' + ${sala.id} |">
++                        <td th:text="${sala.nome}"></td>
++                    </tr>
++                </tbody>
++
++            </table>
+ 
+-            </div>
+-            <div class="buttons">
+-                <div>
+-                    <a th:onclick="|window.location.href='/sala/addsala/' + ${instituicao.id}|" class="button-new">Entrar em uma nova sala.</a>
+-                </div>
+-
+-                <a onclick="window.location.href='/instituicao/listInstituicoes/'" class="button-new">Voltar</a>
+-            </div>
+-        </div>
++        </div>
++        <div class="fab" >
++            <a th:onclick="|window.location.href='/sala/criaSala/' + ${instituicao.id}|" class="myButton">+</a>
++            <a onclick="window.location.href='/diretor/perfil/0'" class="myButton">perfil</a>
++         
++           
+         </div>
+ 
++        <a onclick="window.location.href='/instituicao/listInstituicoes/'" class="myButton">voltar</a>
+         <script th:src="@{/js/jquery-3.5.1.min.js}"></script>
+         <script th:src="@{/bootstrap-4.5.2/js/bootstrap.min.js}"></script>
+         <script src="/js/script.js"></script>
+Index: S.A/src/main/resources/static/js/script.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>const compararSenha = function(){\r\n    senha1 = document.getElementById(\"senha1\").value;\r\n    senha2 = document.getElementById(\"senha2\").value;\r\n    if(senha1!==senha2){\r\n        alert(\"as senhas não batem\")\r\n        $(\"#salvar\").prop('disabled', true);\r\n        \r\n    }else{\r\n        $(\"#salvar\").prop('disabled', false);\r\n        \r\n    }\r\n }\r\n\r\n const editarPerfil = function(){\r\n\r\n    $('#editNome').attr('readonly', false);\r\n     $('#editAjuda').attr('readonly', false);\r\n     $('#editAjuda').attr('hidden', false);\r\n     $('#editDescricao').attr('readonly', false);\r\n    $('#editSalvar').attr('hidden', false);\r\n    $('#cancelar').attr('hidden', false);\r\n     $('#editar').attr('hidden', true);\r\n\r\n\r\n }\r\n\r\n function cancelarEditar(){\r\n    window.history.back();\r\n    console.error(\"Aaaa\")\r\n    //  $('#editAjuda').attr('readonly', true);\r\n    //  $('#editAjuda').attr('hidden', true);\r\n    // $('#editNome').attr('readonly', true);\r\n    //  $('#editDescricao').attr('readonly', true);\r\n    //  $('#editSalvar').attr('hidden', true);\r\n    // $('#cancelar').attr('hidden', true);\r\n    // $('#editar').attr('hidden', false);\r\n\r\n}\r\n\r\nfunction verificaEmail(){\r\n    var email = document.getElementById(\"emailCadastro\").value;\r\n    var aEmail = email.split('');\r\n    var verificado=false;\r\n    console.log(aEmail);\r\n    for (var i=0;i<aEmail.length;i++){\r\n        if(aEmail[i] == \"@\"){\r\n            verificado = true;\r\n            $(\"#salvar\").prop('disabled', false);\r\n        }\r\n    }\r\n    if (!verificado){\r\n        alert(\"email invalido\")\r\n        $(\"#salvar\").prop('disabled', true);\r\n\r\n    }\r\n\r\n}\r\n\r\nfunction closeBar(){\r\n    console.log(\"teste\")\r\n    if ($(\"#filtro\").is(\":hidden\")) {\r\n        $( \"#filtro\" ).show();\r\n        $( \"#iconMenu\" ).hide();\r\n\r\n    }else{\r\n        $( \"#filtro\" ).hide()\r\n        $( \"#iconMenu\" ).show();\r\n    }\r\n}\r\n\r\n\r\nfunction logout(){\r\n    $(\"#logout\").submit();\r\n    $(\"#logout\").attr('hidden', true);\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/S.A/src/main/resources/static/js/script.js b/S.A/src/main/resources/static/js/script.js
+--- a/S.A/src/main/resources/static/js/script.js	
++++ b/S.A/src/main/resources/static/js/script.js	
+@@ -25,15 +25,14 @@
+  }
+ 
+  function cancelarEditar(){
+-    window.history.back();
+-    console.error("Aaaa")
+-    //  $('#editAjuda').attr('readonly', true);
+-    //  $('#editAjuda').attr('hidden', true);
+-    // $('#editNome').attr('readonly', true);
+-    //  $('#editDescricao').attr('readonly', true);
+-    //  $('#editSalvar').attr('hidden', true);
+-    // $('#cancelar').attr('hidden', true);
+-    // $('#editar').attr('hidden', false);
++
++     $('#editAjuda').attr('readonly', true);
++     $('#editAjuda').attr('hidden', true);
++    $('#editNome').attr('readonly', true);
++     $('#editDescricao').attr('readonly', true);
++     $('#editSalvar').attr('hidden', true);
++    $('#cancelar').attr('hidden', true);
++    $('#editar').attr('hidden', false);
+ 
+ }
+ 
+@@ -57,15 +56,20 @@
+ }
+ 
+ function closeBar(){
+-    console.log("teste")
+     if ($("#filtro").is(":hidden")) {
+-        $( "#filtro" ).show();
+-        $( "#iconMenu" ).hide();
++        $( "#filtro" ).animate({
++            width: "toggle",
++            
++          });
++        $( "#iconMenu").hide()
+ 
+     }else{
+-        $( "#filtro" ).hide()
+-        $( "#iconMenu" ).show();
++        $( "#filtro" ).animate({
++            width: "toggle"
++          });
++        $( "#iconMenu" ).show(1500);
+     }
++       
+ }
+ 
+ 

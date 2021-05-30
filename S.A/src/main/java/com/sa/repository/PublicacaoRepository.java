@@ -10,6 +10,6 @@ import java.util.List;
 
 public interface PublicacaoRepository extends JpaRepository<Publicacao, Long>{
 
-    public List<Publicacao> findBySala(Sala sala);
-    public List<Publicacao> findByInstituicaoIn(List<Instituicao> instituicaos);
+    public List<Publicacao> findBySalaOrderByIdDesc(Sala sala);
+    public List<Publicacao> findByInstituicaoInOrderByIdDesc(List<Instituicao> instituicaos);
 }
