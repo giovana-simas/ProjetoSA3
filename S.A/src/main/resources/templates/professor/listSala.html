@@ -65,7 +65,7 @@
     
                             <div class="form-group">
                                 <select class="form-control select-publi" th:field="*{salaP}"  required>
-                                    <option th:each="salaP : ${salas}" th:value="${salaP.id}" th:text="${salaP.nome}"></option>
+                                    <option th:each="salaP : ${salasC}" th:value="${salaP.id}" th:text="${salaP.nome}"></option>
                                 </select>
                             </div>
                             <div class="div-btn">

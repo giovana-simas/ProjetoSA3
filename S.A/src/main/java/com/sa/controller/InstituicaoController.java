@@ -74,7 +74,7 @@ public class InstituicaoController {
 				aluno = alunoRepository.findByEmail(email);
 				model.addAttribute("instituicoes", instituicaoRepository.findByAlunosI(aluno));
 				model.addAttribute("aluno", alunoRepository.findByEmail(email));
-				model.addAttribute("instituicoesadd", instituicaoRepository.findAll());
+				model.addAttribute("instituicoesadd", instituicaoRepository.findAllByAlunosINotContains(aluno));
 				path = "aluno/listInstituicoes";
 				
 			}
@@ -89,7 +89,7 @@ public class InstituicaoController {
 				model.addAttribute("instituicoes", instituicaoRepository.findByProfessoresI(professor));
 				model.addAttribute("professor", professorRepository.findByEmail(email));
 				model.addAttribute("materiasSugerida", materiaSugeridaRepository.findByInstituicaoIn(instituicaoRepository.findByProfessoresI(professor)));
-				model.addAttribute("instituicoesadd", instituicaoRepository.findAll());
+				model.addAttribute("instituicoesadd", instituicaoRepository.findAllByProfessoresINotContains(professor));
 				model.addAttribute("materia", new Materia());
 				model.addAttribute("materias", materiaRepository.findAll());
 				path = "professor/listInstituicoes";
