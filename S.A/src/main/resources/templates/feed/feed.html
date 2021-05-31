@@ -25,7 +25,7 @@
             <div class="barra-lateral">
 
                 <div class="info-aluno">
-                    <p class="titleAluno">Aluno(a)</p>
+                    <p class="titleAluno"></p>
                     <p th:text="${usuario.nome}"></p>
                     <p th:text="${usuario.email}"></p>
                 </div>
@@ -51,7 +51,24 @@
 
 
             <div class="meio"> <!--AQUI COMEÇA A DIV CENTRAL, PARA O FEED-->
-                <div class="name-feed">
+                <div class="buttons-meio">
+                    <div class="bnt-meio" onclick="window.location.href='/instituicao/listInstituicoes/'">
+                        <h5>Lista de instituições</h5>
+                    </div>
+                    <div>
+                        <h5>|</h5>
+                    </div>
+                    <div class="bnt-meio selecionado">
+                        <h5>Feed</h5>
+                    </div>
+                    <div>
+                        <h5>|</h5>
+                    </div>
+                    <div class="bnt-meio" onclick="window.location.href='/chat'">
+                        <h5>Chat</h5>
+                    </div>
+                </div>
+                <div class="name-feed pt-0">
                     <h3>FEED:</h3>
                 </div>
                 <div class="feed-historico">
@@ -113,8 +130,9 @@
                                         <label class="input-group-text" for="inputGroupSelect01">Matéria</label>
                                     </div>
                                     <div class="div-select">
-                                        <select class="form-control select-publi" th:field="*{materia}"  required>
-                                            <option th:each="materiasOpt : ${materias}" th:value="${materiasOpt.id}" th:text="${materiasOpt.nome}"></option>
+                                        <select class="form-control select-publi" th:field="*{materia}">
+                                            <option value="" selected>Nenhuma matéria</option>
+                                            <option th:each="materiasOpt : ${materias}" th:value="${materiasOpt.id}" th:text="${materiasOpt.nome}"></option>                                            
                                         </select>
                                     </div>
                                 </div>

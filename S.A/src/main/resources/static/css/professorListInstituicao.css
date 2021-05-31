@@ -112,14 +112,22 @@ body{
 
 /*MEEEIOOOO FEEED*/
 .buttons-meio{
-  width: 90%;
+  width: 100%;
   height: 5vh;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 2%;
   margin-top: 2%;
-
+  font-family: "Segoe UI Light";
+  cursor: pointer;
+}
+.bnt-meio{
+  margin-right: 5px;
+  margin-left: 5px;
+}
+.selecionado{
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
 }
 .tamanho-feed{
   width: 100%;

@@ -8,6 +8,7 @@
         <!--BIBLIOTECAS E EXTENSOS-->
         <link  rel="stylesheet" th:href="@{/css/estilo.css}">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link  rel="stylesheet" th:href="@{/css/professorListInstituicao.css}">
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.1.1/list.min.js"></script>
         <script type="text/javascript" th:src="@{/js/chat.js}"></script>
@@ -27,7 +28,23 @@
     <body th:onload="|conectarChat(${usuarioConnect.id})|">
 
     <div class="justify-container-center containerGeral">
-
+        <div class="buttons-meio position-absolute">
+            <div class="bnt-meio" onclick="window.location.href='/instituicao/listInstituicoes/'">
+                <h5>Lista de instituições</h5>
+            </div>
+            <div>
+                <h5>|</h5>
+            </div>
+            <div class="bnt-meio" onclick="window.location.href='/feed'">
+                <h5>Feed</h5>
+            </div>
+            <div>
+                <h5>|</h5>
+            </div>
+            <div class="bnt-meio selecionado">
+                <h5>Chat</h5>
+            </div>
+        </div>
         <div class="row justify-container-center containerGeral">
             <div class="col-md-4 col-xl-3 chat"><div class="card mb-sm-3 mb-md-0 contacts_card">
                 <div class="card-header">
