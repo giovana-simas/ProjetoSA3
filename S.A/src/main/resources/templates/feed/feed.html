@@ -75,15 +75,15 @@
                     <div th:each="publicacao : ${publicacoes}" class="estrutura-feed">
         
                         <div class="ft-inst">
-                            <img th:if="${publicacao.usuario.sexo} == ${publicacao.usuario.sexo.masculino}" class="img-inst" th:src="@{/src/testimonial-3.svg}">
-                            <img th:if="${publicacao.usuario.sexo} == ${publicacao.usuario.sexo.feminino}" class="img-inst" th:src="@{/src/testimonial-2.svg}">
+                            <img th:if="${publicacao.usuario.sexo} == ${publicacao.usuario.sexo.masculino}" th:onclick="|window.location.href='/perfil/' + ${publicacao.usuario.id}|" class="img-inst" th:src="@{/src/testimonial-3.svg}">
+                            <img th:if="${publicacao.usuario.sexo} == ${publicacao.usuario.sexo.feminino}" th:onclick="|window.location.href='/perfil/' + ${publicacao.usuario.id}|" class="img-inst" th:src="@{/src/testimonial-2.svg}">
 
 
                         </div>
                         <div class="info-publi">
                             <div class="info-inst">
-                                <div class="info-name">
-                                    <div>
+                                <div class="info-name" >
+                                    <div th:onclick="|window.location.href='/perfil/' + ${publicacao.usuario.id}|">
                                         <h4 th:text="${publicacao.usuario.nome}"></h4>
                                     </div>
                                     <div>
@@ -91,6 +91,9 @@
                                     </div>
                                     <div>
                                        <h4 th:text="${publicacao.instituicao.nome}"></h4>
+                                    </div>
+                                    <div>
+                                        <h4 th:onclick="|window.location.href='/chat/add/' + ${publicacao.usuario.id} |"><i class="fas fa-comments"></i></h4>
                                     </div>
                                 </div>
                             </div>
