@@ -12,6 +12,6 @@ public interface UsuarioChatRepository extends JpaRepository<UsuarioChat,Long> {
     public UsuarioChat findByUsuario1AndUsuario2OrUsuario2AndUsuario1(Usuario usuario1, Usuario usuario2,Usuario usuario3, Usuario usuario4);
     public List<UsuarioChat> findByUsuario1OrUsuario2(Usuario usuario1, Usuario usuario2);
     public Chat findByUsuario1AndUsuario2(Usuario usuario1, Usuario usuario2);
-
+    public void deleteByUsuario1OrUsuario2(Usuario usuario, Usuario usuario2);
 
 }

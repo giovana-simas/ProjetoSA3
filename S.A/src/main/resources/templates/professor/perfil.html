@@ -37,6 +37,8 @@
             <form th:if="${editavel}" th:action="|@{/logout}|"  method="POST">
                 <button class="botao-lateral" type="submit">logout</button>
             </form>
+            <button class="botao-lateral" onclick="sumirJanela('flutuante2')" type="button">Deletar Conta?</button>
+
         </div>
 
 
@@ -187,9 +189,29 @@
         </div>
 
 
+
+
     </div>
 
+    <div id="flutuante2" class="major-flutuante" hidden>
+        <div class="flutuante animate__animated animate__backInUp">
+            <div class="flutuante-container">
+                <div class="titulo-modal">
+                    <h4>Publicação</h4>
+                </div>
+                <form class="form-modal"  th:action="@{'/usuario/delete/'}" method="get">
 
+                    <h2>Tem certeza que deseja deletar este perfil?</h2>
+
+                    <div class="div-btn">
+                        <button class="btn btn-success btn-modal" type="submit">Deletar</button>
+                        <button type="button" onclick="sumirJanela('flutuante2')" class="btn btn-danger btn-modal">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="fundo-flutuante" onclick="sumirJanela('flutuante2')"></div>
+    </div>
 
 
 </div>

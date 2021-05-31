@@ -125,7 +125,7 @@ public class SalaController {
 
 
     @PostMapping("/aluno/insertSala/{id}")
-    public String insertSalaAluno(Sala sala,Aluno aluno, @PathVariable int id) {
+    public String insertSalaAluno(Aluno aluno, @PathVariable int id) {
 
 
         String email;
@@ -149,6 +149,32 @@ public class SalaController {
         return "redirect:/sala/listSala/" + id;
 
     }
+
+//    @PostMapping("/aluno/removeSala/{id}")
+//    public String removeSalaAluno(Aluno aluno, @PathVariable int id) {
+//
+//
+//        String email;
+//        List<Sala> salaAux;
+//
+//        email = SecurityContextHolder.getContext().getAuthentication().getName();
+//        System.out.println(email);
+//        salaAux = alunoRepository.findByEmail(email).getSalasA();
+//
+//        try {
+//            salaAux.remove(aluno.getSalasA());
+//            aluno.setSalasA(salaAux);
+//            System.out.println(alunoRepository.save(aluno));
+//
+//        } catch (Exception e) {
+//            System.out.println("error: " + e);
+//        }
+//        //instituicao = instituicaoRepository.findById(id)
+//
+//
+//        return "redirect:/sala/listSala/" + id;
+//
+//    }
 
     @PostMapping("/professor/insertsala/{id}")
     public String insertSalaProfessor(Sala sala,Professor professor, @PathVariable int id) {
