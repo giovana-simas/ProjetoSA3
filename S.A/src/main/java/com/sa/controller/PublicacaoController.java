@@ -73,7 +73,9 @@ public class PublicacaoController {
 			professor = professorRepository.findByEmail(email);
 
 			model.addAttribute("instituicoes", instituicaoRepository.findByProfessoresI(professor));
-			model.addAttribute("professor", professorRepository.findByEmail(email));
+            model.addAttribute("salas", salaRepository.findByInstituicaoIn(instituicaoRepository.findByProfessoresI(professor)));
+
+            model.addAttribute("professor", professorRepository.findByEmail(email));
 			model.addAttribute("materiasSugerida", materiaSugeridaRepository.findByInstituicaoIn(instituicaoRepository.findByProfessoresI(professor)));
 			model.addAttribute("instituicoesadd", instituicaoRepository.findAll());
 			model.addAttribute("publicacao",new Publicacao());
@@ -87,7 +89,9 @@ public class PublicacaoController {
 
 			diretor = diretorRepository.findByEmail(email);
 			model.addAttribute("instituicoes", instituicaoRepository.findByDiretor(diretor));
-			model.addAttribute("materiasSugerida", materiaSugeridaRepository.findByInstituicaoIn(instituicaoRepository.findByDiretor(diretor)));
+            model.addAttribute("salas", salaRepository.findByInstituicaoIn(instituicaoRepository.findByDiretor(diretor)));
+
+            model.addAttribute("materiasSugerida", materiaSugeridaRepository.findByInstituicaoIn(instituicaoRepository.findByDiretor(diretor)));
 			model.addAttribute("diretor", diretorRepository.findByEmail(email));
 			model.addAttribute("instituicaoadd", new Instituicao());
 			model.addAttribute("publicacao",new Publicacao());

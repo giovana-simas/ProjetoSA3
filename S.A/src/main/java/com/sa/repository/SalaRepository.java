@@ -12,6 +12,7 @@ import com.sa.model.Sala;
 public interface SalaRepository extends JpaRepository<Sala,Long>{
 
 	public List<Sala> findByInstituicao(Instituicao instituicao);
+	public List<Sala> findByInstituicaoIn(List<Instituicao> instituicoes);
 	public Sala findById(long id);
 	public List<Sala> findByAlunoS(Aluno aluno);
 }
