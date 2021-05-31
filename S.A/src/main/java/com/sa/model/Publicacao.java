@@ -107,4 +107,17 @@ public class Publicacao {
 	public void setMateria(Materia materia) {
 		this.materia = materia;
 	}
+
+	@Override
+	public String toString() {
+		return "Publicacao{" +
+				"id=" + id +
+				", descricao='" + descricao + '\'' +
+				", tipo=" + tipo +
+				", usuario=" + usuario +
+				", instituicao=" + instituicao +
+				", sala=" + sala +
+				", materia=" + materia +
+				'}';
+	}
 }

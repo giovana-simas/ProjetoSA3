@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.transaction.Transactional;
+
 @Controller
 public class PublicacaoController {
 
@@ -33,7 +35,7 @@ public class PublicacaoController {
     SalaRepository salaRepository;
     @Autowired
     MateriaRepository materiaRepository;
-    
+
     
     @GetMapping("/feed")
 	public String feed(Model model) {
@@ -157,4 +159,18 @@ public class PublicacaoController {
         return "redirect:/feed/";
     }
 
+    @Transactional
+    @GetMapping("/publicacao/delete/{id}")
+    public String deletePublicação(@PathVariable long id){
+
+        String email = SecurityContextHolder.getContext().getAuthentication().getName();
+        Usuario usuario = usuarioRepository.findByEmail(email);
+        Publicacao publicacao = publicacaoRepository.findById(id);
+        try {
+            publicacaoRepository.delete(publicacao);
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return "redirect:/perfil/" + usuario.getId();
+    }
 }

@@ -14,4 +14,6 @@ public interface PublicacaoRepository extends JpaRepository<Publicacao, Long>{
     public List<Publicacao> findBySalaOrderByIdDesc(Sala sala);
     public List<Publicacao> findByInstituicaoInOrderByIdDesc(List<Instituicao> instituicaos);
     public void deleteByUsuario(Usuario usuario);
+    public List<Publicacao> findByUsuario(Usuario usuario);
+    public Publicacao findById(long id);
 }

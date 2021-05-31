@@ -82,7 +82,7 @@ public class UsuarioController {
 
 			model.addAttribute("aluno", alunoRepository.findById(id).get());
 			model.addAttribute("materiaSugerida", new MateriaSugerida());
-
+			model.addAttribute("publicacoes", publicacaoRepository.findByUsuario(usuario));
 
 
 			path = "aluno/perfil";
@@ -92,6 +92,7 @@ public class UsuarioController {
 		if (usuario.getPermissoes().contains(permissao)){
 
 			model.addAttribute("professor", professorRepository.findById(id).get());
+			model.addAttribute("publicacoes", publicacaoRepository.findByUsuario(usuario));
 
 			path = "professor/perfil";
 		}
@@ -99,6 +100,7 @@ public class UsuarioController {
 		if (usuario.getPermissoes().contains(permissao)){
 
 			model.addAttribute("diretor", diretorRepository.findById(id).get());
+			model.addAttribute("publicacoes", publicacaoRepository.findByUsuario(usuario));
 
 			path = "diretor/perfil";
 		}

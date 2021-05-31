@@ -7,6 +7,7 @@
     <link rel="stylesheet" th:href="@{/bootstrap-4.5.2/css/bootstrap.min.css}">
     <link rel="stylesheet" th:href="@{/fontawesome-5.14.0/css/all.min.css}">
     <link rel="stylesheet" th:href="@{/css/arturFreitas.css}">
+    <link  rel="stylesheet" th:href="@{/css/estilo.css}">
     <link  rel="stylesheet" th:href="@{/css/professorListInstituicao.css}">
     <script src="/js/script.js"></script>
 
@@ -105,24 +106,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         </form>
 
         <div class="container-instituicao-primario">
@@ -145,6 +128,43 @@
                         <div class="enfileirar" th:text="|Numero: ${instituicao.numeroContato} Diretor: ${instituicao.diretor.nome}|">
 
                         </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="titulo-perfil">
+                <h3>PUBLICAÇÕES</h3>
+            </div>
+            <div class="container-interno">
+                <div th:each="publicacao : ${publicacoes}" class="container-instituicoes">
+
+
+                    <div class="ft-inst">
+                        <img th:if="${publicacao.usuario.sexo} == ${publicacao.usuario.sexo.masculino}" class="img-inst" th:src="@{/src/testimonial-3.svg}">
+                        <img th:if="${publicacao.usuario.sexo} == ${publicacao.usuario.sexo.feminino}" class="img-inst" th:src="@{/src/testimonial-2.svg}">
+                    </div>
+                    <div class="info-publi">
+                        <div class="info-inst">
+                            <div class="info-name">
+                                <div>
+                                    <h4 th:text="${publicacao.usuario.nome}"></h4>
+                                </div>
+                                <div>
+                                    <h4 th:text="${publicacao.tipo}"></h4>
+                                </div>
+                                <div>
+                                    <h4 th:text="${publicacao.instituicao.nome}"></h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="info-descricao">
+                            <p th:text="${publicacao.descricao}"></p>
+                        </div>
+
+                        <button th:if="${editavel}" type="button" th:onclick="|window.location.href='/publicacao/delete/ + ${publicacao.id}'|" class="btn btn-danger btn-modal"><i class="fas fa-trash-alt"></i></button>
+
 
                     </div>
 
