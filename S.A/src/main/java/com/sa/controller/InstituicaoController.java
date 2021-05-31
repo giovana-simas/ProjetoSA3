@@ -2,6 +2,7 @@ package com.sa.controller;
 import java.util.List;
 import java.util.Set;
 
+import com.sa.model.*;
 import com.sa.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -13,13 +14,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-
-import com.sa.model.Aluno;
-import com.sa.model.Diretor;
-import com.sa.model.Instituicao;
-import com.sa.model.Permissao;
-import com.sa.model.Professor;
-import com.sa.model.Usuario;
 
 import javassist.expr.NewArray;
 
@@ -56,6 +50,9 @@ public class InstituicaoController {
 
 		@Autowired
 		MateriaSugeridaRepository materiaSugeridaRepository;
+
+		@Autowired
+		MateriaRepository materiaRepository;
 		
 		@GetMapping("/instituicao/listInstituicoes/")
 		public String instituicao(Model model) {
@@ -93,7 +90,8 @@ public class InstituicaoController {
 				model.addAttribute("professor", professorRepository.findByEmail(email));
 				model.addAttribute("materiasSugerida", materiaSugeridaRepository.findByInstituicaoIn(instituicaoRepository.findByProfessoresI(professor)));
 				model.addAttribute("instituicoesadd", instituicaoRepository.findAll());
-
+				model.addAttribute("materia", new Materia());
+				model.addAttribute("materias", materiaRepository.findAll());
 				path = "professor/listInstituicoes";
 
 			}
@@ -107,6 +105,8 @@ public class InstituicaoController {
 				model.addAttribute("materiasSugerida", materiaSugeridaRepository.findByInstituicaoIn(instituicaoRepository.findByDiretor(diretor)));
 				model.addAttribute("diretor", diretorRepository.findByEmail(email));
 				model.addAttribute("instituicaoadd", new Instituicao());
+				model.addAttribute("materia", new Materia());
+				model.addAttribute("materias", materiaRepository.findAll());
 				path = "diretor/listInstituicoes";
 			}
 			

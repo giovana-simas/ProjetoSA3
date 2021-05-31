@@ -37,7 +37,7 @@ public class MateriaRestController {
 
 
     @GetMapping(value = "/materia/{id}",produces = "application/json")
-    public ResponseEntity<?> deleteMateria(@PathVariable Long id) {
+    public ResponseEntity<?> deleteMateriaSugerida(@PathVariable Long id) {
 
 
 
@@ -66,22 +66,6 @@ public class MateriaRestController {
         return new ResponseEntity<>( HttpStatus.OK);
     }
 
-    @GetMapping(value = "/materia/save/{nome}",produces = "application/json")
-    public ResponseEntity<?> saveMateria(@PathVariable String nome) {
-        Materia materia = materiaRepository.findByNome(nome.toLowerCase(Locale.ROOT));
-
-
-        if (materia != null) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-
-        materia = new Materia();
-        materia.setNome(nome.toLowerCase(Locale.ROOT));
-
-        materiaRepository.save(materia);
-
-        return new ResponseEntity<>( HttpStatus.OK);
-    }
 
 
 

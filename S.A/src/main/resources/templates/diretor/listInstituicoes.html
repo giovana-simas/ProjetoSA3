@@ -40,6 +40,8 @@
             <div class="buttons-lateral">
 
                 <a onclick="sugerirMateria(false)" class="materias-alunos" type="button">materias sugeridas</a>
+                <a onclick="sumirJanela('flutuante3')"><p class="materias-alunos">Cadastrar materias</p></a>
+                <a onclick="sumirJanela('flutuante4')"><p class="materias-alunos">Materias cadastradas</p></a>
 
                 <a th:onclick="|window.location.href='/perfil/' + ${usuario.id}|"><p class="perfilname">Perfil</p></a>
 
@@ -160,6 +162,62 @@
                 </div>
             </div>
             <div class="fundo-flutuante" onclick="sumirJanela('flutuante2')"></div>
+        </div>
+        <div id="flutuante3" class="major-flutuante" hidden>
+            <div class="flutuante-grande animate__animated animate__backInUp">
+                <div class="flutuante-container">
+
+                    <h4>Cadastrar Materia</h4>
+                    <img class="add-inst" height="200" th:src="@{/src/school.jpg}">
+
+                    <form class="form-modal" th:action="@{/materia/save}" th:object="${materia}" method="POST">
+
+                        <div class="d-flex flex-column mb-3 select-publi">
+                            <input type="text" placeholder="&#32 Nome" class="input-inst" th:field="*{nome}" required />
+                        </div>
+                        <div class="div-btn">
+                            <button id="salvar" type="submit" class="btn btn-success btn-modal">Cadastrar</button>
+                            <button type="button" onclick="sumirJanela('flutuante3')" class="btn btn-danger btn-modal">Voltar</button>
+                        </div>
+
+
+                    </form>
+
+                </div>
+            </div>
+            <div class="fundo-flutuante" onclick="sumirJanela('flutuante3')"></div>
+        </div>
+
+        <div id="flutuante4" class="major-flutuante" hidden>
+            <div class="flutuante animate__animated animate__backInUp">
+                <div class="flutuante-container">
+                    <div class="titulo-modal">
+                        <h4>Materia sugerida:</h4>
+                    </div>
+                    <div class="form-modal justify-content-between">
+                        <div>
+                            <table id="exampleInputEmail1" style="width: 100%">
+                                <tr>
+                                    <th>Nome:</th>
+                                </tr>
+                                <tr th:each="materiaOpt : ${materias}" >
+                                    <td th:text="${materiaOpt.nome}"></td>
+                                    <td th:onclick="|window.location.href='/materia/delete/ + ${materiaOpt.id}'|"><i class="fas fa-trash-alt alert-danger"></i></td>
+                                </tr>
+
+
+                            </table>
+                        </div>
+                        <div class="div-btn">
+                            <button type="button" class="btn btn-danger btn-modal" onclick="sumirJanela('flutuante4')">Voltar</button>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+            <div class="fundo-flutuante" onclick="sumirJanela('flutuante4')"></div>
         </div>
 
     </div>
