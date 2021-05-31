@@ -136,7 +136,7 @@
         <div class="button-div">
             <button type="button" th:onclick="|window.location.href='/sala/listSala/' + ${instituicao.id} |" class="button-sala">Voltar</button>
         </div>
-        <button class="button-sala" type="button"  onclick="sumirJanela('flutuante2')">Publicar</button>
+        <button th:if="${podePublicar} != null" class="button-sala" type="button"  onclick="sumirJanela('flutuante2')">Publicar</button>
     </div> <!--fechando as info-->
     
     <div id="flutuante2" class="major-flutuante" hidden>
