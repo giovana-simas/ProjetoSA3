@@ -202,6 +202,7 @@
     font-family: arial;
     display: flex;
     justify-content: center;
+    margin-bottom: 20%;
 }
 
 .titulo-perfil{

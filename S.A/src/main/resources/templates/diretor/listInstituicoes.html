@@ -39,9 +39,10 @@
             </div>
             <div class="buttons-lateral">
 
+                <a onclick="sugerirMateria(false)" class="materias-alunos" type="button">materias sugeridas</a>
+
                 <a th:onclick="|window.location.href='/perfil/' + ${usuario.id}|"><p class="perfilname">Perfil</p></a>
 
-                <a onclick="sugerirMateria(false)" class="materias-alunos" type="button">materias sugeridas</a>
 
                 <a onclick="window.location.href='/'" class="sair">Sair</a>
 

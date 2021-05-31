@@ -160,6 +160,9 @@ body{
   border: 1px solid #d1e6cf;
   box-shadow: 20px 20px 50px -30px #515151;
 }
+.middle:hover{
+  cursor: pointer;
+}
 .img-inst{
   width: 90%;
 }
