@@ -75,17 +75,17 @@
             <div>
                 <div class="info-form-user">
                     <label>Nome:</label><br>
-                    <input id="editNome" type="text" placeholder="&#32 NOME" class="input-perfil" th:field="${diretor.nome}" readonly />
+                    <input id="editNome" type="text" placeholder="&#32 NOME" class="input-perfil input-inst" th:field="${diretor.nome}" readonly />
                 </div>
                 <div class="info-form-user">
                     <label>Email:</label><br>
-                    <input id="editEmail" type="text" placeholder="&#32 E-MAIL"  class="input-perfil" th:field="${diretor.email}" readonly />
+                    <input id="editEmail" type="text" placeholder="&#32 E-MAIL"  class="input-perfil input-inst" th:field="${diretor.email}" readonly />
                 </div>
             </div>
             <div>
                 <div class="info-form-user">
                     <label>Sexo:</label><br>
-                    <input id="inputSexo" class="input-perfil" type="text" th:value="${diretor.sexo.displayValue}" readonly>
+                    <input id="inputSexo" class="input-perfil input-inst" type="text" th:value="${diretor.sexo.displayValue}" readonly>
                     <select id="editSexo" type="text" placeholder="&#32 QUER AJUDAR?" class="input-perfil" th:field="${diretor.sexo}" readonly  hidden>
                         <option th:each="sexoOpt : ${T(com.sa.model.Usuario.Sexo).values()}" th:value="${sexoOpt}" th:text="${sexoOpt.displayValue}"></option>
                     </select>

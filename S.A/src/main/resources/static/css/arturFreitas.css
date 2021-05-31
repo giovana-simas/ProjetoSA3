@@ -122,12 +122,12 @@
 }
 
 .container-principal1{
+    background-color: #D7E2F1;
     position: absolute;
     width: 100%;
     height: 100%;
     display: flex;
     font-family: "Segoe UI Light";
-    background-color: whitesmoke;
     display: flex;
 }
 
@@ -162,8 +162,7 @@
     width: 20%;
     float: left;
     padding: 2%;
-    background-color: whitesmoke;
-
+    background-color: #D7E2F1;
 }
 
 
@@ -226,9 +225,8 @@
     width: 100%;
     position: relative;
     display: flex;
-
+    background-color: white;
     margin-top: 10px;
-    background: #ffffff5c;
     border-radius: 15px;
     padding: 1%;
     align-items: center;
